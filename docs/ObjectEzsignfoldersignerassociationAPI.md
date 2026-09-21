@@ -1,0 +1,785 @@
+# ObjectEzsignfoldersignerassociationAPI
+
+All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/rest*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**ezsignfoldersignerassociationCreateEmbeddedUrlV1**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationcreateembeddedurlv1) | **POST** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/createEmbeddedUrl | Creates an Url to allow embedded signing
+[**ezsignfoldersignerassociationCreateEmbeddedUrlV2**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationcreateembeddedurlv2) | **POST** /2/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/createEmbeddedUrl | Creates an Url to allow embedded signing
+[**ezsignfoldersignerassociationCreateObjectV1**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationcreateobjectv1) | **POST** /1/object/ezsignfoldersignerassociation | Create a new Ezsignfoldersignerassociation
+[**ezsignfoldersignerassociationCreateObjectV2**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationcreateobjectv2) | **POST** /2/object/ezsignfoldersignerassociation | Create a new Ezsignfoldersignerassociation
+[**ezsignfoldersignerassociationCreateObjectV3**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationcreateobjectv3) | **POST** /3/object/ezsignfoldersignerassociation | Create a new Ezsignfoldersignerassociation
+[**ezsignfoldersignerassociationDeleteObjectV1**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationdeleteobjectv1) | **DELETE** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Delete an existing Ezsignfoldersignerassociation
+[**ezsignfoldersignerassociationEditObjectV1**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationeditobjectv1) | **PUT** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Edit an existing Ezsignfoldersignerassociation
+[**ezsignfoldersignerassociationEditObjectV2**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationeditobjectv2) | **PUT** /2/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Edit an existing Ezsignfoldersignerassociation
+[**ezsignfoldersignerassociationForceDisconnectV1**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationforcedisconnectv1) | **POST** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/forceDisconnect | Disconnects the Ezsignfoldersignerassociation
+[**ezsignfoldersignerassociationGetInPersonLoginUrlV1**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationgetinpersonloginurlv1) | **GET** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/getInPersonLoginUrl | Retrieve a Login Url to allow In-Person signing
+[**ezsignfoldersignerassociationGetObjectV1**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationgetobjectv1) | **GET** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Retrieve an existing Ezsignfoldersignerassociation
+[**ezsignfoldersignerassociationGetObjectV2**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationgetobjectv2) | **GET** /2/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Retrieve an existing Ezsignfoldersignerassociation
+[**ezsignfoldersignerassociationGetObjectV3**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationgetobjectv3) | **GET** /3/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Retrieve an existing Ezsignfoldersignerassociation
+[**ezsignfoldersignerassociationPatchObjectV1**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationpatchobjectv1) | **PATCH** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Patch an existing Ezsignfoldersignerassociation
+[**ezsignfoldersignerassociationReassignV1**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationreassignv1) | **POST** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/reassign | Reassign remaining unsigned signatures and forms
+
+
+# **ezsignfoldersignerassociationCreateEmbeddedUrlV1**
+```swift
+    open class func ezsignfoldersignerassociationCreateEmbeddedUrlV1(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationCreateEmbeddedUrlV1Request: EzsignfoldersignerassociationCreateEmbeddedUrlV1Request, completion: @escaping (_ data: EzsignfoldersignerassociationCreateEmbeddedUrlV1Response?, _ error: Error?) -> Void)
+```
+
+Creates an Url to allow embedded signing
+
+This endpoint creates an Url that can be used in a browser or embedded in an I-Frame to allow signing.  The signer Login type must be configured as Embedded.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiEzsignfoldersignerassociationID = 987 // Int | 
+let ezsignfoldersignerassociationCreateEmbeddedUrlV1Request = ezsignfoldersignerassociation-createEmbeddedUrl-v1-Request(sReturnUrl: "sReturnUrl_example", sIframedomain: "sIframedomain_example", bIsIframe: false) // EzsignfoldersignerassociationCreateEmbeddedUrlV1Request | 
+
+// Creates an Url to allow embedded signing
+ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationCreateEmbeddedUrlV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationCreateEmbeddedUrlV1Request: ezsignfoldersignerassociationCreateEmbeddedUrlV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfoldersignerassociationID** | **Int** |  | 
+ **ezsignfoldersignerassociationCreateEmbeddedUrlV1Request** | [**EzsignfoldersignerassociationCreateEmbeddedUrlV1Request**](EzsignfoldersignerassociationCreateEmbeddedUrlV1Request.md) |  | 
+
+### Return type
+
+[**EzsignfoldersignerassociationCreateEmbeddedUrlV1Response**](EzsignfoldersignerassociationCreateEmbeddedUrlV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfoldersignerassociationCreateEmbeddedUrlV2**
+```swift
+    open class func ezsignfoldersignerassociationCreateEmbeddedUrlV2(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationCreateEmbeddedUrlV2Request: EzsignfoldersignerassociationCreateEmbeddedUrlV2Request, completion: @escaping (_ data: EzsignfoldersignerassociationCreateEmbeddedUrlV2Response?, _ error: Error?) -> Void)
+```
+
+Creates an Url to allow embedded signing
+
+This endpoint creates an Url that can be used in a browser or embedded in an I-Frame to allow signing.  The signer Login type must be configured as Embedded.  ### Iframe Communication (postMessage)  If the signing page is embedded in an `iframe`, the application sends events to the parent window via `window.postMessage`.  The message structure is defined as follows:  ```json {   \"source\": \"ezsign\",   \"type\": \"eEzsignEvent\",   \"payload\": \"CompletedEzsignfolder\" } ```  * **source**: Always `'ezsign'`. * **type**: Always `'eEzsignEvent'`. * **payload**: Corresponds to the **eEzsignEvent** values listed in the table above (e.g., `SessionTimeout`, `CompletedStep`, etc.).  #### Example listener  ```javascript window.addEventListener('message', (event) => {     const { source, type, payload } = event.data;         if (source === 'ezsign' && type === 'eEzsignEvent') {         console.log('Event received:', payload);     } }); ``` 
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiEzsignfoldersignerassociationID = 987 // Int | 
+let ezsignfoldersignerassociationCreateEmbeddedUrlV2Request = ezsignfoldersignerassociation-createEmbeddedUrl-v2-Request(sReturnUrl: "sReturnUrl_example", sIframeOrigin: "sIframeOrigin_example") // EzsignfoldersignerassociationCreateEmbeddedUrlV2Request | 
+
+// Creates an Url to allow embedded signing
+ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationCreateEmbeddedUrlV2(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationCreateEmbeddedUrlV2Request: ezsignfoldersignerassociationCreateEmbeddedUrlV2Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfoldersignerassociationID** | **Int** |  | 
+ **ezsignfoldersignerassociationCreateEmbeddedUrlV2Request** | [**EzsignfoldersignerassociationCreateEmbeddedUrlV2Request**](EzsignfoldersignerassociationCreateEmbeddedUrlV2Request.md) |  | 
+
+### Return type
+
+[**EzsignfoldersignerassociationCreateEmbeddedUrlV2Response**](EzsignfoldersignerassociationCreateEmbeddedUrlV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfoldersignerassociationCreateObjectV1**
+```swift
+    open class func ezsignfoldersignerassociationCreateObjectV1(ezsignfoldersignerassociationCreateObjectV1Request: [EzsignfoldersignerassociationCreateObjectV1Request], completion: @escaping (_ data: EzsignfoldersignerassociationCreateObjectV1Response?, _ error: Error?) -> Void)
+```
+
+Create a new Ezsignfoldersignerassociation
+
+The endpoint allows to create one or many elements at once.  The array can contain simple (Just the object) or compound (The object and its child) objects.  Creating compound elements allows to reduce the multiple requests to create all child objects.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let ezsignfoldersignerassociationCreateObjectV1Request = [ezsignfoldersignerassociation-createObject-v1-Request(objEzsignfoldersignerassociation: ezsignfoldersignerassociation-Request(pkiEzsignfoldersignerassociationID: 123, fkiUserID: 123, fkiEzsignsignergroupID: 123, fkiEzsignfolderID: 123, bEzsignfoldersignerassociationReceivecopy: false, tEzsignfoldersignerassociationMessage: "tEzsignfoldersignerassociationMessage_example"), objEzsignfoldersignerassociationCompound: ezsignfoldersignerassociation-RequestCompound(pkiEzsignfoldersignerassociationID: 123, fkiUserID: 123, fkiEzsignsignergroupID: 123, fkiEzsignfolderID: 123, bEzsignfoldersignerassociationReceivecopy: false, tEzsignfoldersignerassociationMessage: "tEzsignfoldersignerassociationMessage_example", objEzsignsigner: ezsignsigner-RequestCompound(fkiUserlogintypeID: 123, fkiTaxassignmentID: 123, fkiSecretquestionID: 123, eEzsignsignerLogintype: "eEzsignsignerLogintype_example", sEzsignsignerSecretanswer: "sEzsignsignerSecretanswer_example", objContact: ezsignsigner-RequestCompound-Contact(sContactFirstname: "sContactFirstname_example", sContactLastname: "sContactLastname_example", fkiLanguageID: 123, sEmailAddress: "sEmailAddress_example", sPhoneE164: "sPhoneE164_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164Cell: "sPhoneE164Cell_example", sPhoneNumber: "sPhoneNumber_example", sPhoneNumberCell: "sPhoneNumberCell_example"))))] // [EzsignfoldersignerassociationCreateObjectV1Request] | 
+
+// Create a new Ezsignfoldersignerassociation
+ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationCreateObjectV1(ezsignfoldersignerassociationCreateObjectV1Request: ezsignfoldersignerassociationCreateObjectV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ezsignfoldersignerassociationCreateObjectV1Request** | [**[EzsignfoldersignerassociationCreateObjectV1Request]**](EzsignfoldersignerassociationCreateObjectV1Request.md) |  | 
+
+### Return type
+
+[**EzsignfoldersignerassociationCreateObjectV1Response**](EzsignfoldersignerassociationCreateObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfoldersignerassociationCreateObjectV2**
+```swift
+    open class func ezsignfoldersignerassociationCreateObjectV2(ezsignfoldersignerassociationCreateObjectV2Request: EzsignfoldersignerassociationCreateObjectV2Request, completion: @escaping (_ data: EzsignfoldersignerassociationCreateObjectV2Response?, _ error: Error?) -> Void)
+```
+
+Create a new Ezsignfoldersignerassociation
+
+The endpoint allows to create one or many elements at once.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let ezsignfoldersignerassociationCreateObjectV2Request = ezsignfoldersignerassociation-createObject-v2-Request(aObjEzsignfoldersignerassociation: [ezsignfoldersignerassociation-RequestCompound(pkiEzsignfoldersignerassociationID: 123, fkiUserID: 123, fkiEzsignsignergroupID: 123, fkiEzsignfolderID: 123, bEzsignfoldersignerassociationReceivecopy: false, tEzsignfoldersignerassociationMessage: "tEzsignfoldersignerassociationMessage_example", objEzsignsigner: ezsignsigner-RequestCompound(fkiUserlogintypeID: 123, fkiTaxassignmentID: 123, fkiSecretquestionID: 123, eEzsignsignerLogintype: "eEzsignsignerLogintype_example", sEzsignsignerSecretanswer: "sEzsignsignerSecretanswer_example", objContact: ezsignsigner-RequestCompound-Contact(sContactFirstname: "sContactFirstname_example", sContactLastname: "sContactLastname_example", fkiLanguageID: 123, sEmailAddress: "sEmailAddress_example", sPhoneE164: "sPhoneE164_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164Cell: "sPhoneE164Cell_example", sPhoneNumber: "sPhoneNumber_example", sPhoneNumberCell: "sPhoneNumberCell_example")))]) // EzsignfoldersignerassociationCreateObjectV2Request | 
+
+// Create a new Ezsignfoldersignerassociation
+ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationCreateObjectV2(ezsignfoldersignerassociationCreateObjectV2Request: ezsignfoldersignerassociationCreateObjectV2Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ezsignfoldersignerassociationCreateObjectV2Request** | [**EzsignfoldersignerassociationCreateObjectV2Request**](EzsignfoldersignerassociationCreateObjectV2Request.md) |  | 
+
+### Return type
+
+[**EzsignfoldersignerassociationCreateObjectV2Response**](EzsignfoldersignerassociationCreateObjectV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfoldersignerassociationCreateObjectV3**
+```swift
+    open class func ezsignfoldersignerassociationCreateObjectV3(ezsignfoldersignerassociationCreateObjectV3Request: EzsignfoldersignerassociationCreateObjectV3Request, completion: @escaping (_ data: EzsignfoldersignerassociationCreateObjectV3Response?, _ error: Error?) -> Void)
+```
+
+Create a new Ezsignfoldersignerassociation
+
+The endpoint allows to create one or many elements at once.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let ezsignfoldersignerassociationCreateObjectV3Request = ezsignfoldersignerassociation-createObject-v3-Request(aObjEzsignfoldersignerassociation: [ezsignfoldersignerassociation-RequestCompoundV2(pkiEzsignfoldersignerassociationID: 123, fkiUserID: 123, fkiEzsignsignergroupID: 123, fkiEzsignfolderID: 123, eEzsignfoldersignerassociationRole: Field-eEzsignfoldersignerassociationRole(), tEzsignfoldersignerassociationMessage: "tEzsignfoldersignerassociationMessage_example", objEzsignsigner: ezsignsigner-RequestCompound(fkiUserlogintypeID: 123, fkiTaxassignmentID: 123, fkiSecretquestionID: 123, eEzsignsignerLogintype: "eEzsignsignerLogintype_example", sEzsignsignerSecretanswer: "sEzsignsignerSecretanswer_example", objContact: ezsignsigner-RequestCompound-Contact(sContactFirstname: "sContactFirstname_example", sContactLastname: "sContactLastname_example", fkiLanguageID: 123, sEmailAddress: "sEmailAddress_example", sPhoneE164: "sPhoneE164_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164Cell: "sPhoneE164Cell_example", sPhoneNumber: "sPhoneNumber_example", sPhoneNumberCell: "sPhoneNumberCell_example")))]) // EzsignfoldersignerassociationCreateObjectV3Request | 
+
+// Create a new Ezsignfoldersignerassociation
+ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationCreateObjectV3(ezsignfoldersignerassociationCreateObjectV3Request: ezsignfoldersignerassociationCreateObjectV3Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ezsignfoldersignerassociationCreateObjectV3Request** | [**EzsignfoldersignerassociationCreateObjectV3Request**](EzsignfoldersignerassociationCreateObjectV3Request.md) |  | 
+
+### Return type
+
+[**EzsignfoldersignerassociationCreateObjectV3Response**](EzsignfoldersignerassociationCreateObjectV3Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfoldersignerassociationDeleteObjectV1**
+```swift
+    open class func ezsignfoldersignerassociationDeleteObjectV1(pkiEzsignfoldersignerassociationID: Int, completion: @escaping (_ data: EzsignfoldersignerassociationDeleteObjectV1Response?, _ error: Error?) -> Void)
+```
+
+Delete an existing Ezsignfoldersignerassociation
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiEzsignfoldersignerassociationID = 987 // Int | 
+
+// Delete an existing Ezsignfoldersignerassociation
+ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationDeleteObjectV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfoldersignerassociationID** | **Int** |  | 
+
+### Return type
+
+[**EzsignfoldersignerassociationDeleteObjectV1Response**](EzsignfoldersignerassociationDeleteObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfoldersignerassociationEditObjectV1**
+```swift
+    open class func ezsignfoldersignerassociationEditObjectV1(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationEditObjectV1Request: EzsignfoldersignerassociationEditObjectV1Request, completion: @escaping (_ data: EzsignfoldersignerassociationEditObjectV1Response?, _ error: Error?) -> Void)
+```
+
+Edit an existing Ezsignfoldersignerassociation
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiEzsignfoldersignerassociationID = 987 // Int | 
+let ezsignfoldersignerassociationEditObjectV1Request = ezsignfoldersignerassociation-editObject-v1-Request(objEzsignfoldersignerassociation: ezsignfoldersignerassociation-RequestCompound(pkiEzsignfoldersignerassociationID: 123, fkiUserID: 123, fkiEzsignsignergroupID: 123, fkiEzsignfolderID: 123, bEzsignfoldersignerassociationReceivecopy: false, tEzsignfoldersignerassociationMessage: "tEzsignfoldersignerassociationMessage_example", objEzsignsigner: ezsignsigner-RequestCompound(fkiUserlogintypeID: 123, fkiTaxassignmentID: 123, fkiSecretquestionID: 123, eEzsignsignerLogintype: "eEzsignsignerLogintype_example", sEzsignsignerSecretanswer: "sEzsignsignerSecretanswer_example", objContact: ezsignsigner-RequestCompound-Contact(sContactFirstname: "sContactFirstname_example", sContactLastname: "sContactLastname_example", fkiLanguageID: 123, sEmailAddress: "sEmailAddress_example", sPhoneE164: "sPhoneE164_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164Cell: "sPhoneE164Cell_example", sPhoneNumber: "sPhoneNumber_example", sPhoneNumberCell: "sPhoneNumberCell_example")))) // EzsignfoldersignerassociationEditObjectV1Request | 
+
+// Edit an existing Ezsignfoldersignerassociation
+ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationEditObjectV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationEditObjectV1Request: ezsignfoldersignerassociationEditObjectV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfoldersignerassociationID** | **Int** |  | 
+ **ezsignfoldersignerassociationEditObjectV1Request** | [**EzsignfoldersignerassociationEditObjectV1Request**](EzsignfoldersignerassociationEditObjectV1Request.md) |  | 
+
+### Return type
+
+[**EzsignfoldersignerassociationEditObjectV1Response**](EzsignfoldersignerassociationEditObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfoldersignerassociationEditObjectV2**
+```swift
+    open class func ezsignfoldersignerassociationEditObjectV2(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationEditObjectV2Request: EzsignfoldersignerassociationEditObjectV2Request, completion: @escaping (_ data: EzsignfoldersignerassociationEditObjectV2Response?, _ error: Error?) -> Void)
+```
+
+Edit an existing Ezsignfoldersignerassociation
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiEzsignfoldersignerassociationID = 987 // Int | 
+let ezsignfoldersignerassociationEditObjectV2Request = ezsignfoldersignerassociation-editObject-v2-Request(objEzsignfoldersignerassociation: ezsignfoldersignerassociation-RequestCompoundV2(pkiEzsignfoldersignerassociationID: 123, fkiUserID: 123, fkiEzsignsignergroupID: 123, fkiEzsignfolderID: 123, eEzsignfoldersignerassociationRole: Field-eEzsignfoldersignerassociationRole(), tEzsignfoldersignerassociationMessage: "tEzsignfoldersignerassociationMessage_example", objEzsignsigner: ezsignsigner-RequestCompound(fkiUserlogintypeID: 123, fkiTaxassignmentID: 123, fkiSecretquestionID: 123, eEzsignsignerLogintype: "eEzsignsignerLogintype_example", sEzsignsignerSecretanswer: "sEzsignsignerSecretanswer_example", objContact: ezsignsigner-RequestCompound-Contact(sContactFirstname: "sContactFirstname_example", sContactLastname: "sContactLastname_example", fkiLanguageID: 123, sEmailAddress: "sEmailAddress_example", sPhoneE164: "sPhoneE164_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164Cell: "sPhoneE164Cell_example", sPhoneNumber: "sPhoneNumber_example", sPhoneNumberCell: "sPhoneNumberCell_example")))) // EzsignfoldersignerassociationEditObjectV2Request | 
+
+// Edit an existing Ezsignfoldersignerassociation
+ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationEditObjectV2(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationEditObjectV2Request: ezsignfoldersignerassociationEditObjectV2Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfoldersignerassociationID** | **Int** |  | 
+ **ezsignfoldersignerassociationEditObjectV2Request** | [**EzsignfoldersignerassociationEditObjectV2Request**](EzsignfoldersignerassociationEditObjectV2Request.md) |  | 
+
+### Return type
+
+[**EzsignfoldersignerassociationEditObjectV2Response**](EzsignfoldersignerassociationEditObjectV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfoldersignerassociationForceDisconnectV1**
+```swift
+    open class func ezsignfoldersignerassociationForceDisconnectV1(pkiEzsignfoldersignerassociationID: Int, body: JSONValue, completion: @escaping (_ data: EzsignfoldersignerassociationForceDisconnectV1Response?, _ error: Error?) -> Void)
+```
+
+Disconnects the Ezsignfoldersignerassociation
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiEzsignfoldersignerassociationID = 987 // Int | 
+let body = "TODO" // JSONValue | 
+
+// Disconnects the Ezsignfoldersignerassociation
+ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationForceDisconnectV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, body: body) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfoldersignerassociationID** | **Int** |  | 
+ **body** | **JSONValue** |  | 
+
+### Return type
+
+[**EzsignfoldersignerassociationForceDisconnectV1Response**](EzsignfoldersignerassociationForceDisconnectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfoldersignerassociationGetInPersonLoginUrlV1**
+```swift
+    open class func ezsignfoldersignerassociationGetInPersonLoginUrlV1(pkiEzsignfoldersignerassociationID: Int, completion: @escaping (_ data: EzsignfoldersignerassociationGetInPersonLoginUrlV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve a Login Url to allow In-Person signing
+
+This endpoint returns a Login Url that can be used in a browser or embedded in an I-Frame to allow in person signing.  The signer Login type must be configured as In-Person.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiEzsignfoldersignerassociationID = 987 // Int | 
+
+// Retrieve a Login Url to allow In-Person signing
+ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationGetInPersonLoginUrlV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfoldersignerassociationID** | **Int** |  | 
+
+### Return type
+
+[**EzsignfoldersignerassociationGetInPersonLoginUrlV1Response**](EzsignfoldersignerassociationGetInPersonLoginUrlV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfoldersignerassociationGetObjectV1**
+```swift
+    open class func ezsignfoldersignerassociationGetObjectV1(pkiEzsignfoldersignerassociationID: Int, completion: @escaping (_ data: EzsignfoldersignerassociationGetObjectV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve an existing Ezsignfoldersignerassociation
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiEzsignfoldersignerassociationID = 987 // Int | 
+
+// Retrieve an existing Ezsignfoldersignerassociation
+ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationGetObjectV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfoldersignerassociationID** | **Int** |  | 
+
+### Return type
+
+[**EzsignfoldersignerassociationGetObjectV1Response**](EzsignfoldersignerassociationGetObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfoldersignerassociationGetObjectV2**
+```swift
+    open class func ezsignfoldersignerassociationGetObjectV2(pkiEzsignfoldersignerassociationID: Int, completion: @escaping (_ data: EzsignfoldersignerassociationGetObjectV2Response?, _ error: Error?) -> Void)
+```
+
+Retrieve an existing Ezsignfoldersignerassociation
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiEzsignfoldersignerassociationID = 987 // Int | 
+
+// Retrieve an existing Ezsignfoldersignerassociation
+ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationGetObjectV2(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfoldersignerassociationID** | **Int** |  | 
+
+### Return type
+
+[**EzsignfoldersignerassociationGetObjectV2Response**](EzsignfoldersignerassociationGetObjectV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfoldersignerassociationGetObjectV3**
+```swift
+    open class func ezsignfoldersignerassociationGetObjectV3(pkiEzsignfoldersignerassociationID: Int, completion: @escaping (_ data: EzsignfoldersignerassociationGetObjectV3Response?, _ error: Error?) -> Void)
+```
+
+Retrieve an existing Ezsignfoldersignerassociation
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiEzsignfoldersignerassociationID = 987 // Int | 
+
+// Retrieve an existing Ezsignfoldersignerassociation
+ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationGetObjectV3(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfoldersignerassociationID** | **Int** |  | 
+
+### Return type
+
+[**EzsignfoldersignerassociationGetObjectV3Response**](EzsignfoldersignerassociationGetObjectV3Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfoldersignerassociationPatchObjectV1**
+```swift
+    open class func ezsignfoldersignerassociationPatchObjectV1(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationPatchObjectV1Request: EzsignfoldersignerassociationPatchObjectV1Request, completion: @escaping (_ data: EzsignfoldersignerassociationPatchObjectV1Response?, _ error: Error?) -> Void)
+```
+
+Patch an existing Ezsignfoldersignerassociation
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiEzsignfoldersignerassociationID = 987 // Int | 
+let ezsignfoldersignerassociationPatchObjectV1Request = ezsignfoldersignerassociation-patchObject-v1-Request(objEzsignfoldersignerassociation: ezsignfoldersignerassociation-RequestPatch(eEzsignfoldersignerassociationRole: Field-eEzsignfoldersignerassociationRole(), tEzsignfoldersignerassociationMessage: "tEzsignfoldersignerassociationMessage_example")) // EzsignfoldersignerassociationPatchObjectV1Request | 
+
+// Patch an existing Ezsignfoldersignerassociation
+ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationPatchObjectV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationPatchObjectV1Request: ezsignfoldersignerassociationPatchObjectV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfoldersignerassociationID** | **Int** |  | 
+ **ezsignfoldersignerassociationPatchObjectV1Request** | [**EzsignfoldersignerassociationPatchObjectV1Request**](EzsignfoldersignerassociationPatchObjectV1Request.md) |  | 
+
+### Return type
+
+[**EzsignfoldersignerassociationPatchObjectV1Response**](EzsignfoldersignerassociationPatchObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfoldersignerassociationReassignV1**
+```swift
+    open class func ezsignfoldersignerassociationReassignV1(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationReassignV1Request: EzsignfoldersignerassociationReassignV1Request, completion: @escaping (_ data: EzsignfoldersignerassociationReassignV1Response?, _ error: Error?) -> Void)
+```
+
+Reassign remaining unsigned signatures and forms
+
+Reassign remaining unsigned signatures and forms
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiEzsignfoldersignerassociationID = 987 // Int | 
+let ezsignfoldersignerassociationReassignV1Request = ezsignfoldersignerassociation-reassign-v1-Request(fkiEzsignfoldersignerassociationID: 123) // EzsignfoldersignerassociationReassignV1Request | 
+
+// Reassign remaining unsigned signatures and forms
+ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationReassignV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationReassignV1Request: ezsignfoldersignerassociationReassignV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfoldersignerassociationID** | **Int** |  | 
+ **ezsignfoldersignerassociationReassignV1Request** | [**EzsignfoldersignerassociationReassignV1Request**](EzsignfoldersignerassociationReassignV1Request.md) |  | 
+
+### Return type
+
+[**EzsignfoldersignerassociationReassignV1Response**](EzsignfoldersignerassociationReassignV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+

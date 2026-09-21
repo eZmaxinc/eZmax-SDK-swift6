@@ -1,0 +1,15 @@
+# CustomEzmaxinvoicingEzsignfolderResponse
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**fkiEzsignfolderID** | **Int** | The unique ID of the Ezsignfolder | 
+**fkiBillingentityinternalID** | **Int** | The unique ID of the Billingentityinternal. | [optional] 
+**sEzsignfolderDescription** | **String** | The description of the Ezsignfolder | 
+**bEzsigntsarequirementBillable** | **Bool** | Whether the TSA requirement is billable or not | 
+**bEzsignfolderMfaused** | **Bool** | Whether the MFA was used or not for the Ezsignfolder | 
+**bEzsignfolderAllowed** | **Bool** | Whether you have access to the Ezsignfolder or not | 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
