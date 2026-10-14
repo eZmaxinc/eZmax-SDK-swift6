@@ -11,7 +11,7 @@ import Foundation
 public struct AgenttypeAutocompleteElementResponse: Sendable, Codable, Hashable {
 
     public static let pkiAgenttypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sAgenttypeNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,35}$/")
+    public static let sAgenttypeNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,35}$")
     /** The unique ID of the Agenttype */
     public var pkiAgenttypeID: Int
     /** The name of the Agenttype in the language of the requester */

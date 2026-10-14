@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **agenttypeGetAutocompleteV2**
 ```swift
-    open class func agenttypeGetAutocompleteV2(sSelector: SSelector_agenttypeGetAutocompleteV2, eFilterActive: EFilterActive_agenttypeGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: AgenttypeGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func agenttypeGetAutocompleteV2(sSelector: SSelector_agenttypeGetAutocompleteV2, eFilterActive: EFilterActive_agenttypeGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AgenttypeGetAutocompleteV2Response
 ```
 
 Retrieve Agenttypes and IDs
@@ -27,15 +27,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Agenttypes and IDs
-ObjectAgenttypeAPI.agenttypeGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAgenttypeAPI.agenttypeGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

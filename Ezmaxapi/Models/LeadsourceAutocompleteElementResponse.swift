@@ -11,7 +11,7 @@ import Foundation
 public struct LeadsourceAutocompleteElementResponse: Sendable, Codable, Hashable {
 
     public static let pkiLeadsourceIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sLeadsourceNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,25}$/")
+    public static let sLeadsourceNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,25}$")
     /** The unique ID of the Leadsource */
     public var pkiLeadsourceID: Int
     /** The name of the Leadsource in the language of the requester */

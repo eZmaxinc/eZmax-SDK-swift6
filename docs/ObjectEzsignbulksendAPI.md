@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 # **ezsignbulksendCreateEzsignbulksendtransmissionV2**
 ```swift
-    open class func ezsignbulksendCreateEzsignbulksendtransmissionV2(pkiEzsignbulksendID: Int, ezsignbulksendCreateEzsignbulksendtransmissionV2Request: EzsignbulksendCreateEzsignbulksendtransmissionV2Request, completion: @escaping (_ data: EzsignbulksendCreateEzsignbulksendtransmissionV2Response?, _ error: Error?) -> Void)
+    open class func ezsignbulksendCreateEzsignbulksendtransmissionV2(pkiEzsignbulksendID: Int, ezsignbulksendCreateEzsignbulksendtransmissionV2Request: EzsignbulksendCreateEzsignbulksendtransmissionV2Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignbulksendCreateEzsignbulksendtransmissionV2Response
 ```
 
 Create a new Ezsignbulksendtransmission in the Ezsignbulksend
@@ -37,15 +37,11 @@ let pkiEzsignbulksendID = 987 // Int |
 let ezsignbulksendCreateEzsignbulksendtransmissionV2Request = ezsignbulksend-createEzsignbulksendtransmission-v2-Request(fkiUserlogintypeID: 123, fkiSecretquestionID: 123, fkiEzsigntsarequirementID: 123, sEzsignbulksendtransmissionDescription: "sEzsignbulksendtransmissionDescription_example", dtEzsigndocumentDuedate: "dtEzsigndocumentDuedate_example", iEzsignfolderSendreminderfirstdays: 123, iEzsignfolderSendreminderotherdays: 123, tExtraMessage: "tExtraMessage_example", sCsvBase64: 123) // EzsignbulksendCreateEzsignbulksendtransmissionV2Request | 
 
 // Create a new Ezsignbulksendtransmission in the Ezsignbulksend
-ObjectEzsignbulksendAPI.ezsignbulksendCreateEzsignbulksendtransmissionV2(pkiEzsignbulksendID: pkiEzsignbulksendID, ezsignbulksendCreateEzsignbulksendtransmissionV2Request: ezsignbulksendCreateEzsignbulksendtransmissionV2Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignbulksendAPI.ezsignbulksendCreateEzsignbulksendtransmissionV2(pkiEzsignbulksendID: pkiEzsignbulksendID, ezsignbulksendCreateEzsignbulksendtransmissionV2Request: ezsignbulksendCreateEzsignbulksendtransmissionV2Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -73,7 +69,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendCreateObjectV1**
 ```swift
-    open class func ezsignbulksendCreateObjectV1(ezsignbulksendCreateObjectV1Request: EzsignbulksendCreateObjectV1Request, completion: @escaping (_ data: EzsignbulksendCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignbulksendCreateObjectV1(ezsignbulksendCreateObjectV1Request: EzsignbulksendCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignbulksendCreateObjectV1Response
 ```
 
 Create a new Ezsignbulksend
@@ -88,15 +84,11 @@ import EzmaxApi
 let ezsignbulksendCreateObjectV1Request = ezsignbulksend-createObject-v1-Request(aObjEzsignbulksend: [ezsignbulksend-RequestCompound(pkiEzsignbulksendID: 123, fkiEzsignfoldertypeID: 123, fkiLanguageID: 123, sEzsignbulksendDescription: "sEzsignbulksendDescription_example", tEzsignbulksendNote: "tEzsignbulksendNote_example", bEzsignbulksendNeedvalidation: false, bEzsignbulksendIsactive: true)]) // EzsignbulksendCreateObjectV1Request | 
 
 // Create a new Ezsignbulksend
-ObjectEzsignbulksendAPI.ezsignbulksendCreateObjectV1(ezsignbulksendCreateObjectV1Request: ezsignbulksendCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignbulksendAPI.ezsignbulksendCreateObjectV1(ezsignbulksendCreateObjectV1Request: ezsignbulksendCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -123,7 +115,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendCreateObjectV2**
 ```swift
-    open class func ezsignbulksendCreateObjectV2(ezsignbulksendCreateObjectV2Request: EzsignbulksendCreateObjectV2Request, completion: @escaping (_ data: EzsignbulksendCreateObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsignbulksendCreateObjectV2(ezsignbulksendCreateObjectV2Request: EzsignbulksendCreateObjectV2Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignbulksendCreateObjectV2Response
 ```
 
 Create a new Ezsignbulksend
@@ -138,15 +130,11 @@ import EzmaxApi
 let ezsignbulksendCreateObjectV2Request = ezsignbulksend-createObject-v2-Request(aObjEzsignbulksend: [ezsignbulksend-RequestCompoundV2(pkiEzsignbulksendID: 123, fkiEzsignfoldertypeID: 123, fkiLanguageID: 123, eEzsignbulksendEzsignformfieldorder: Field-eEzsignbulksendEzsignformfieldorder(), sEzsignbulksendDescription: "sEzsignbulksendDescription_example", tEzsignbulksendNote: "tEzsignbulksendNote_example", bEzsignbulksendNeedvalidation: false, bEzsignbulksendIsactive: true)]) // EzsignbulksendCreateObjectV2Request | 
 
 // Create a new Ezsignbulksend
-ObjectEzsignbulksendAPI.ezsignbulksendCreateObjectV2(ezsignbulksendCreateObjectV2Request: ezsignbulksendCreateObjectV2Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignbulksendAPI.ezsignbulksendCreateObjectV2(ezsignbulksendCreateObjectV2Request: ezsignbulksendCreateObjectV2Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -173,7 +161,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendDeleteObjectV1**
 ```swift
-    open class func ezsignbulksendDeleteObjectV1(pkiEzsignbulksendID: Int, completion: @escaping (_ data: EzsignbulksendDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignbulksendDeleteObjectV1(pkiEzsignbulksendID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignbulksendDeleteObjectV1Response
 ```
 
 Delete an existing Ezsignbulksend
@@ -188,15 +176,11 @@ import EzmaxApi
 let pkiEzsignbulksendID = 987 // Int | 
 
 // Delete an existing Ezsignbulksend
-ObjectEzsignbulksendAPI.ezsignbulksendDeleteObjectV1(pkiEzsignbulksendID: pkiEzsignbulksendID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignbulksendAPI.ezsignbulksendDeleteObjectV1(pkiEzsignbulksendID: pkiEzsignbulksendID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -223,7 +207,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendEditObjectV2**
 ```swift
-    open class func ezsignbulksendEditObjectV2(pkiEzsignbulksendID: Int, ezsignbulksendEditObjectV2Request: EzsignbulksendEditObjectV2Request, completion: @escaping (_ data: EzsignbulksendEditObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsignbulksendEditObjectV2(pkiEzsignbulksendID: Int, ezsignbulksendEditObjectV2Request: EzsignbulksendEditObjectV2Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignbulksendEditObjectV2Response
 ```
 
 Edit an existing Ezsignbulksend
@@ -239,15 +223,11 @@ let pkiEzsignbulksendID = 987 // Int |
 let ezsignbulksendEditObjectV2Request = ezsignbulksend-editObject-v2-Request(objEzsignbulksend: ezsignbulksend-RequestCompoundV2(pkiEzsignbulksendID: 123, fkiEzsignfoldertypeID: 123, fkiLanguageID: 123, eEzsignbulksendEzsignformfieldorder: Field-eEzsignbulksendEzsignformfieldorder(), sEzsignbulksendDescription: "sEzsignbulksendDescription_example", tEzsignbulksendNote: "tEzsignbulksendNote_example", bEzsignbulksendNeedvalidation: false, bEzsignbulksendIsactive: true)) // EzsignbulksendEditObjectV2Request | 
 
 // Edit an existing Ezsignbulksend
-ObjectEzsignbulksendAPI.ezsignbulksendEditObjectV2(pkiEzsignbulksendID: pkiEzsignbulksendID, ezsignbulksendEditObjectV2Request: ezsignbulksendEditObjectV2Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignbulksendAPI.ezsignbulksendEditObjectV2(pkiEzsignbulksendID: pkiEzsignbulksendID, ezsignbulksendEditObjectV2Request: ezsignbulksendEditObjectV2Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -275,7 +255,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendGetBatchFileV1**
 ```swift
-    open class func ezsignbulksendGetBatchFileV1(pkiEzsignbulksendID: Int, bIncludeSigned: Bool? = nil, bIncludeAttachment: Bool? = nil, bIncludeProofdocument: Bool? = nil, bIncludeProof: Bool? = nil, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func ezsignbulksendGetBatchFileV1(pkiEzsignbulksendID: Int, bIncludeSigned: Bool? = nil, bIncludeAttachment: Bool? = nil, bIncludeProofdocument: Bool? = nil, bIncludeProof: Bool? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> URL
 ```
 
 Retrieve file to download documents in batch
@@ -292,15 +272,11 @@ let bIncludeProofdocument = true // Bool | Include the evidence report (optional
 let bIncludeProof = true // Bool | include the complete evidence archive including all of the above and more (optional)
 
 // Retrieve file to download documents in batch
-ObjectEzsignbulksendAPI.ezsignbulksendGetBatchFileV1(pkiEzsignbulksendID: pkiEzsignbulksendID, bIncludeSigned: bIncludeSigned, bIncludeAttachment: bIncludeAttachment, bIncludeProofdocument: bIncludeProofdocument, bIncludeProof: bIncludeProof) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignbulksendAPI.ezsignbulksendGetBatchFileV1(pkiEzsignbulksendID: pkiEzsignbulksendID, bIncludeSigned: bIncludeSigned, bIncludeAttachment: bIncludeAttachment, bIncludeProofdocument: bIncludeProofdocument, bIncludeProof: bIncludeProof)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -331,7 +307,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendGetCsvTemplateV1**
 ```swift
-    open class func ezsignbulksendGetCsvTemplateV1(pkiEzsignbulksendID: Int, eCsvSeparator: ECsvSeparator_ezsignbulksendGetCsvTemplateV1, completion: @escaping (_ data: String?, _ error: Error?) -> Void)
+    open class func ezsignbulksendGetCsvTemplateV1(pkiEzsignbulksendID: Int, eCsvSeparator: ECsvSeparator_ezsignbulksendGetCsvTemplateV1, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> String
 ```
 
 Retrieve an existing Ezsignbulksend's empty Csv template
@@ -347,15 +323,11 @@ let pkiEzsignbulksendID = 987 // Int |
 let eCsvSeparator = "eCsvSeparator_example" // String | Separator that will be used to separate fields
 
 // Retrieve an existing Ezsignbulksend's empty Csv template
-ObjectEzsignbulksendAPI.ezsignbulksendGetCsvTemplateV1(pkiEzsignbulksendID: pkiEzsignbulksendID, eCsvSeparator: eCsvSeparator) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignbulksendAPI.ezsignbulksendGetCsvTemplateV1(pkiEzsignbulksendID: pkiEzsignbulksendID, eCsvSeparator: eCsvSeparator)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -383,7 +355,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendGetEzsignbulksendtransmissionsV1**
 ```swift
-    open class func ezsignbulksendGetEzsignbulksendtransmissionsV1(pkiEzsignbulksendID: Int, completion: @escaping (_ data: EzsignbulksendGetEzsignbulksendtransmissionsV1Response?, _ error: Error?) -> Void)
+    open class func ezsignbulksendGetEzsignbulksendtransmissionsV1(pkiEzsignbulksendID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignbulksendGetEzsignbulksendtransmissionsV1Response
 ```
 
 Retrieve an existing Ezsignbulksend's Ezsignbulksendtransmissions
@@ -398,15 +370,11 @@ import EzmaxApi
 let pkiEzsignbulksendID = 987 // Int | 
 
 // Retrieve an existing Ezsignbulksend's Ezsignbulksendtransmissions
-ObjectEzsignbulksendAPI.ezsignbulksendGetEzsignbulksendtransmissionsV1(pkiEzsignbulksendID: pkiEzsignbulksendID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignbulksendAPI.ezsignbulksendGetEzsignbulksendtransmissionsV1(pkiEzsignbulksendID: pkiEzsignbulksendID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -433,7 +401,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendGetEzsignsignaturesAutomaticV1**
 ```swift
-    open class func ezsignbulksendGetEzsignsignaturesAutomaticV1(pkiEzsignbulksendID: Int, completion: @escaping (_ data: EzsignbulksendGetEzsignsignaturesAutomaticV1Response?, _ error: Error?) -> Void)
+    open class func ezsignbulksendGetEzsignsignaturesAutomaticV1(pkiEzsignbulksendID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignbulksendGetEzsignsignaturesAutomaticV1Response
 ```
 
 Retrieve an existing Ezsignbulksend's automatic Ezsignsignatures
@@ -448,15 +416,11 @@ import EzmaxApi
 let pkiEzsignbulksendID = 987 // Int | 
 
 // Retrieve an existing Ezsignbulksend's automatic Ezsignsignatures
-ObjectEzsignbulksendAPI.ezsignbulksendGetEzsignsignaturesAutomaticV1(pkiEzsignbulksendID: pkiEzsignbulksendID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignbulksendAPI.ezsignbulksendGetEzsignsignaturesAutomaticV1(pkiEzsignbulksendID: pkiEzsignbulksendID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -483,7 +447,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendGetFormsDataV1**
 ```swift
-    open class func ezsignbulksendGetFormsDataV1(pkiEzsignbulksendID: Int, completion: @escaping (_ data: EzsignbulksendGetFormsDataV1Response?, _ error: Error?) -> Void)
+    open class func ezsignbulksendGetFormsDataV1(pkiEzsignbulksendID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignbulksendGetFormsDataV1Response
 ```
 
 Retrieve an existing Ezsignbulksend's forms data
@@ -498,15 +462,11 @@ import EzmaxApi
 let pkiEzsignbulksendID = 987 // Int | 
 
 // Retrieve an existing Ezsignbulksend's forms data
-ObjectEzsignbulksendAPI.ezsignbulksendGetFormsDataV1(pkiEzsignbulksendID: pkiEzsignbulksendID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignbulksendAPI.ezsignbulksendGetFormsDataV1(pkiEzsignbulksendID: pkiEzsignbulksendID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -533,7 +493,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendGetListV1**
 ```swift
-    open class func ezsignbulksendGetListV1(eOrderBy: EOrderBy_ezsignbulksendGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: EzsignbulksendGetListV1Response?, _ error: Error?) -> Void)
+    open class func ezsignbulksendGetListV1(eOrderBy: EOrderBy_ezsignbulksendGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignbulksendGetListV1Response
 ```
 
 Retrieve Ezsignbulksend list
@@ -552,15 +512,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Ezsignbulksend list
-ObjectEzsignbulksendAPI.ezsignbulksendGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignbulksendAPI.ezsignbulksendGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -591,7 +547,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendGetObjectV2**
 ```swift
-    open class func ezsignbulksendGetObjectV2(pkiEzsignbulksendID: Int, completion: @escaping (_ data: EzsignbulksendGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsignbulksendGetObjectV2(pkiEzsignbulksendID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignbulksendGetObjectV2Response
 ```
 
 Retrieve an existing Ezsignbulksend
@@ -606,15 +562,11 @@ import EzmaxApi
 let pkiEzsignbulksendID = 987 // Int | 
 
 // Retrieve an existing Ezsignbulksend
-ObjectEzsignbulksendAPI.ezsignbulksendGetObjectV2(pkiEzsignbulksendID: pkiEzsignbulksendID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignbulksendAPI.ezsignbulksendGetObjectV2(pkiEzsignbulksendID: pkiEzsignbulksendID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -641,7 +593,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendGetObjectV3**
 ```swift
-    open class func ezsignbulksendGetObjectV3(pkiEzsignbulksendID: Int, completion: @escaping (_ data: EzsignbulksendGetObjectV3Response?, _ error: Error?) -> Void)
+    open class func ezsignbulksendGetObjectV3(pkiEzsignbulksendID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignbulksendGetObjectV3Response
 ```
 
 Retrieve an existing Ezsignbulksend
@@ -656,15 +608,11 @@ import EzmaxApi
 let pkiEzsignbulksendID = 987 // Int | 
 
 // Retrieve an existing Ezsignbulksend
-ObjectEzsignbulksendAPI.ezsignbulksendGetObjectV3(pkiEzsignbulksendID: pkiEzsignbulksendID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignbulksendAPI.ezsignbulksendGetObjectV3(pkiEzsignbulksendID: pkiEzsignbulksendID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -691,7 +639,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendGetObjectV4**
 ```swift
-    open class func ezsignbulksendGetObjectV4(pkiEzsignbulksendID: Int, completion: @escaping (_ data: EzsignbulksendGetObjectV4Response?, _ error: Error?) -> Void)
+    open class func ezsignbulksendGetObjectV4(pkiEzsignbulksendID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignbulksendGetObjectV4Response
 ```
 
 Retrieve an existing Ezsignbulksend
@@ -706,15 +654,11 @@ import EzmaxApi
 let pkiEzsignbulksendID = 987 // Int | 
 
 // Retrieve an existing Ezsignbulksend
-ObjectEzsignbulksendAPI.ezsignbulksendGetObjectV4(pkiEzsignbulksendID: pkiEzsignbulksendID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignbulksendAPI.ezsignbulksendGetObjectV4(pkiEzsignbulksendID: pkiEzsignbulksendID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -741,7 +685,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendReorderV1**
 ```swift
-    open class func ezsignbulksendReorderV1(pkiEzsignbulksendID: Int, ezsignbulksendReorderV1Request: EzsignbulksendReorderV1Request, completion: @escaping (_ data: EzsignbulksendReorderV1Response?, _ error: Error?) -> Void)
+    open class func ezsignbulksendReorderV1(pkiEzsignbulksendID: Int, ezsignbulksendReorderV1Request: EzsignbulksendReorderV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignbulksendReorderV1Response
 ```
 
 Reorder Ezsignbulksenddocumentmappings in the Ezsignbulksend
@@ -755,15 +699,11 @@ let pkiEzsignbulksendID = 987 // Int |
 let ezsignbulksendReorderV1Request = ezsignbulksend-reorder-v1-Request(aPkiEzsignbulksenddocumentmappingID: [123]) // EzsignbulksendReorderV1Request | 
 
 // Reorder Ezsignbulksenddocumentmappings in the Ezsignbulksend
-ObjectEzsignbulksendAPI.ezsignbulksendReorderV1(pkiEzsignbulksendID: pkiEzsignbulksendID, ezsignbulksendReorderV1Request: ezsignbulksendReorderV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignbulksendAPI.ezsignbulksendReorderV1(pkiEzsignbulksendID: pkiEzsignbulksendID, ezsignbulksendReorderV1Request: ezsignbulksendReorderV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

@@ -22,11 +22,11 @@ public struct EzsigntemplatesignatureResponseCompoundV4: Sendable, Codable, Hash
     public static let iEzsigntemplatesignatureHeightRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let iEzsigntemplatesignatureStepRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let iEzsigntemplatesignatureMaxlengthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    public static let sEzsigntemplatesignatureRegexpRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\^.*\\$$|^$/")
+    public static let sEzsigntemplatesignatureRegexpRule = StringRule(minLength: nil, maxLength: nil, pattern: "^\\^.*\\$$|^$")
     public static let sEzsigntemplatesignatureTextvalidationcustommessageRule = StringRule(minLength: 0, maxLength: 50, pattern: nil)
-    public static let sEzsigntemplatesignaturePositioningpatternRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,30}$/")
-    public static let sEzsigntemplatesignatureCreditcardamountdescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,50}$/")
-    public static let dEzsigntemplatesignatureCreditcardamountRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
+    public static let sEzsigntemplatesignaturePositioningpatternRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,30}$")
+    public static let sEzsigntemplatesignatureCreditcardamountdescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,50}$")
+    public static let dEzsigntemplatesignatureCreditcardamountRule = StringRule(minLength: nil, maxLength: nil, pattern: "^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$")
     /** The unique ID of the Ezsigntemplatesignature */
     public var pkiEzsigntemplatesignatureID: Int
     /** The unique ID of the Ezsigntemplatedocument */

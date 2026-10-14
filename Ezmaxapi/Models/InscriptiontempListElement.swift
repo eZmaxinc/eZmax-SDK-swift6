@@ -11,8 +11,8 @@ import Foundation
 public struct InscriptiontempListElement: Sendable, Codable, Hashable {
 
     public static let pkiInscriptiontempIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
-    public static let sInscriptiontempMLSRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,20}$/")
-    public static let sInscriptiontempDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,80}$/")
+    public static let sInscriptiontempMLSRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,20}$")
+    public static let sInscriptiontempDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,80}$")
     /** The unique ID of the Inscriptiontemp */
     public var pkiInscriptiontempID: Int
     public var eInscriptiontempStatus: FieldEInscriptiontempStatus

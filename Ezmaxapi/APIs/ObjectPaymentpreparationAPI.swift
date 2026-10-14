@@ -96,6 +96,174 @@ open class ObjectPaymentpreparationAPI {
     }
 
     /**
+     Retrieve Communication count
+     
+     - parameter pkiPaymentpreparationID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: PaymentpreparationGetCommunicationCountV1Response
+     */
+    open class func paymentpreparationGetCommunicationCountV1(pkiPaymentpreparationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentpreparationGetCommunicationCountV1Response {
+        return try await paymentpreparationGetCommunicationCountV1WithRequestBuilder(pkiPaymentpreparationID: pkiPaymentpreparationID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Communication count
+     - GET /1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationCount
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiPaymentpreparationID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<PaymentpreparationGetCommunicationCountV1Response> 
+     */
+    open class func paymentpreparationGetCommunicationCountV1WithRequestBuilder(pkiPaymentpreparationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<PaymentpreparationGetCommunicationCountV1Response> {
+        var localVariablePath = "/1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationCount"
+        let pkiPaymentpreparationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiPaymentpreparationID))"
+        let pkiPaymentpreparationIDPostEscape = pkiPaymentpreparationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiPaymentpreparationID}", with: pkiPaymentpreparationIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaymentpreparationGetCommunicationCountV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Retrieve Communication list
+     
+     - parameter pkiPaymentpreparationID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: PaymentpreparationGetCommunicationListV1Response
+     */
+    open class func paymentpreparationGetCommunicationListV1(pkiPaymentpreparationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentpreparationGetCommunicationListV1Response {
+        return try await paymentpreparationGetCommunicationListV1WithRequestBuilder(pkiPaymentpreparationID: pkiPaymentpreparationID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Communication list
+     - GET /1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationList
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiPaymentpreparationID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<PaymentpreparationGetCommunicationListV1Response> 
+     */
+    open class func paymentpreparationGetCommunicationListV1WithRequestBuilder(pkiPaymentpreparationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<PaymentpreparationGetCommunicationListV1Response> {
+        var localVariablePath = "/1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationList"
+        let pkiPaymentpreparationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiPaymentpreparationID))"
+        let pkiPaymentpreparationIDPostEscape = pkiPaymentpreparationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiPaymentpreparationID}", with: pkiPaymentpreparationIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaymentpreparationGetCommunicationListV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Retrieve Communication recipients
+     
+     - parameter pkiPaymentpreparationID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: PaymentpreparationGetCommunicationrecipientsV1Response
+     */
+    open class func paymentpreparationGetCommunicationrecipientsV1(pkiPaymentpreparationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentpreparationGetCommunicationrecipientsV1Response {
+        return try await paymentpreparationGetCommunicationrecipientsV1WithRequestBuilder(pkiPaymentpreparationID: pkiPaymentpreparationID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Communication recipients
+     - GET /1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationrecipients
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiPaymentpreparationID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<PaymentpreparationGetCommunicationrecipientsV1Response> 
+     */
+    open class func paymentpreparationGetCommunicationrecipientsV1WithRequestBuilder(pkiPaymentpreparationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<PaymentpreparationGetCommunicationrecipientsV1Response> {
+        var localVariablePath = "/1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationrecipients"
+        let pkiPaymentpreparationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiPaymentpreparationID))"
+        let pkiPaymentpreparationIDPostEscape = pkiPaymentpreparationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiPaymentpreparationID}", with: pkiPaymentpreparationIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaymentpreparationGetCommunicationrecipientsV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Retrieve Communication senders
+     
+     - parameter pkiPaymentpreparationID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: PaymentpreparationGetCommunicationsendersV1Response
+     */
+    open class func paymentpreparationGetCommunicationsendersV1(pkiPaymentpreparationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentpreparationGetCommunicationsendersV1Response {
+        return try await paymentpreparationGetCommunicationsendersV1WithRequestBuilder(pkiPaymentpreparationID: pkiPaymentpreparationID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Communication senders
+     - GET /1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationsenders
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiPaymentpreparationID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<PaymentpreparationGetCommunicationsendersV1Response> 
+     */
+    open class func paymentpreparationGetCommunicationsendersV1WithRequestBuilder(pkiPaymentpreparationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<PaymentpreparationGetCommunicationsendersV1Response> {
+        var localVariablePath = "/1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationsenders"
+        let pkiPaymentpreparationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiPaymentpreparationID))"
+        let pkiPaymentpreparationIDPostEscape = pkiPaymentpreparationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiPaymentpreparationID}", with: pkiPaymentpreparationIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaymentpreparationGetCommunicationsendersV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
      Import attachments into the Paymentpreparation
      
      - parameter pkiPaymentpreparationID: (path)  

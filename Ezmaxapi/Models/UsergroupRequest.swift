@@ -10,7 +10,7 @@ import Foundation
 /** A Usergroup Object */
 public struct UsergroupRequest: Sendable, Codable, Hashable {
 
-    public static let pkiUsergroupIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiUsergroupIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Usergroup */
     public var pkiUsergroupID: Int?
     public var objEmail: EmailRequest?

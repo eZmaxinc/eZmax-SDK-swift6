@@ -10,8 +10,8 @@ import Foundation
 /** Request for POST /1/object/attachment/{pkiAttachmentID}/rename */
 public struct AttachmentRenameV1Request: Sendable, Codable, Hashable {
 
-    public static let sAttachmentNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(?!\\.{1,2}$)(?!.*[ .]$)(?!(?:CON|PRN|AUX|NUL|COM(?:[1-9]|[¹²³])|LPT(?:[1-9]|[¹²³]))(?:\\.|$))[^\\x00-\\x1F<>:\"\/\\\\\\\\|?*]{1,75}$/")
-    public static let sAttachmentCategoryRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(?!\\.{1,2}$)(?!.*[ .]$)(?!(?:CON|PRN|AUX|NUL|COM(?:[1-9]|[¹²³])|LPT(?:[1-9]|[¹²³]))(?:\\.|$))[^\\x00-\\x1F<>:\"\/\\\\\\\\|?*]{0,75}$/")
+    public static let sAttachmentNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^(?!\\.{1,2}$)(?!.*[ .]$)(?!(?:CON|PRN|AUX|NUL|COM(?:[1-9]|[¹²³])|LPT(?:[1-9]|[¹²³]))(?:\\.|$))[^\\x00-\\x1F<>:\"/\\\\\\\\|?*]{1,75}$")
+    public static let sAttachmentCategoryRule = StringRule(minLength: nil, maxLength: nil, pattern: "^(?!\\.{1,2}$)(?!.*[ .]$)(?!(?:CON|PRN|AUX|NUL|COM(?:[1-9]|[¹²³])|LPT(?:[1-9]|[¹²³]))(?:\\.|$))[^\\x00-\\x1F<>:\"/\\\\\\\\|?*]{0,75}$")
     /** The name of the Attachment */
     public var sAttachmentName: String
     /** The attachment category */

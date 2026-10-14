@@ -13,7 +13,7 @@ public struct EzsigntemplatepackageListElement: Sendable, Codable, Hashable {
     public static let pkiEzsigntemplatepackageIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
-    public static let sEzsigntemplatepackageDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,80}$/")
+    public static let sEzsigntemplatepackageDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,80}$")
     /** The unique ID of the Ezsigntemplatepackage */
     public var pkiEzsigntemplatepackageID: Int
     /** The unique ID of the Ezsignfoldertype. */

@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 # **buyercontractBatchDownloadV1**
 ```swift
-    open class func buyercontractBatchDownloadV1(pkiBuyercontractID: Int, buyercontractBatchDownloadV1Request: BuyercontractBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func buyercontractBatchDownloadV1(pkiBuyercontractID: Int, buyercontractBatchDownloadV1Request: BuyercontractBatchDownloadV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> URL
 ```
 
 Download multiples attachments from a Buyercontract
@@ -30,15 +30,11 @@ let pkiBuyercontractID = 987 // Int |
 let buyercontractBatchDownloadV1Request = buyercontract-batchDownload-v1-Request(aPkiAttachmentID: [123]) // BuyercontractBatchDownloadV1Request | 
 
 // Download multiples attachments from a Buyercontract
-ObjectBuyercontractAPI.buyercontractBatchDownloadV1(pkiBuyercontractID: pkiBuyercontractID, buyercontractBatchDownloadV1Request: buyercontractBatchDownloadV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBuyercontractAPI.buyercontractBatchDownloadV1(pkiBuyercontractID: pkiBuyercontractID, buyercontractBatchDownloadV1Request: buyercontractBatchDownloadV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -66,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **buyercontractGetAttachmentsV1**
 ```swift
-    open class func buyercontractGetAttachmentsV1(pkiBuyercontractID: Int, completion: @escaping (_ data: BuyercontractGetAttachmentsV1Response?, _ error: Error?) -> Void)
+    open class func buyercontractGetAttachmentsV1(pkiBuyercontractID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BuyercontractGetAttachmentsV1Response
 ```
 
 Retrieve Buyercontract's attachments
@@ -79,15 +75,11 @@ import EzmaxApi
 let pkiBuyercontractID = 987 // Int | 
 
 // Retrieve Buyercontract's attachments
-ObjectBuyercontractAPI.buyercontractGetAttachmentsV1(pkiBuyercontractID: pkiBuyercontractID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBuyercontractAPI.buyercontractGetAttachmentsV1(pkiBuyercontractID: pkiBuyercontractID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -114,7 +106,7 @@ Name | Type | Description  | Notes
 
 # **buyercontractGetCommunicationCountV1**
 ```swift
-    open class func buyercontractGetCommunicationCountV1(pkiBuyercontractID: Int, completion: @escaping (_ data: BuyercontractGetCommunicationCountV1Response?, _ error: Error?) -> Void)
+    open class func buyercontractGetCommunicationCountV1(pkiBuyercontractID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BuyercontractGetCommunicationCountV1Response
 ```
 
 Retrieve Communication count
@@ -129,15 +121,11 @@ import EzmaxApi
 let pkiBuyercontractID = 987 // Int | 
 
 // Retrieve Communication count
-ObjectBuyercontractAPI.buyercontractGetCommunicationCountV1(pkiBuyercontractID: pkiBuyercontractID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBuyercontractAPI.buyercontractGetCommunicationCountV1(pkiBuyercontractID: pkiBuyercontractID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -164,7 +152,7 @@ Name | Type | Description  | Notes
 
 # **buyercontractGetCommunicationListV1**
 ```swift
-    open class func buyercontractGetCommunicationListV1(pkiBuyercontractID: Int, completion: @escaping (_ data: BuyercontractGetCommunicationListV1Response?, _ error: Error?) -> Void)
+    open class func buyercontractGetCommunicationListV1(pkiBuyercontractID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BuyercontractGetCommunicationListV1Response
 ```
 
 Retrieve Communication list
@@ -179,15 +167,11 @@ import EzmaxApi
 let pkiBuyercontractID = 987 // Int | 
 
 // Retrieve Communication list
-ObjectBuyercontractAPI.buyercontractGetCommunicationListV1(pkiBuyercontractID: pkiBuyercontractID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBuyercontractAPI.buyercontractGetCommunicationListV1(pkiBuyercontractID: pkiBuyercontractID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -214,7 +198,7 @@ Name | Type | Description  | Notes
 
 # **buyercontractGetCommunicationrecipientsV1**
 ```swift
-    open class func buyercontractGetCommunicationrecipientsV1(pkiBuyercontractID: Int, completion: @escaping (_ data: BuyercontractGetCommunicationrecipientsV1Response?, _ error: Error?) -> Void)
+    open class func buyercontractGetCommunicationrecipientsV1(pkiBuyercontractID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BuyercontractGetCommunicationrecipientsV1Response
 ```
 
 Retrieve Buyercontract's Communicationrecipient
@@ -229,15 +213,11 @@ import EzmaxApi
 let pkiBuyercontractID = 987 // Int | 
 
 // Retrieve Buyercontract's Communicationrecipient
-ObjectBuyercontractAPI.buyercontractGetCommunicationrecipientsV1(pkiBuyercontractID: pkiBuyercontractID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBuyercontractAPI.buyercontractGetCommunicationrecipientsV1(pkiBuyercontractID: pkiBuyercontractID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -264,7 +244,7 @@ Name | Type | Description  | Notes
 
 # **buyercontractGetCommunicationsendersV1**
 ```swift
-    open class func buyercontractGetCommunicationsendersV1(pkiBuyercontractID: Int, completion: @escaping (_ data: BuyercontractGetCommunicationsendersV1Response?, _ error: Error?) -> Void)
+    open class func buyercontractGetCommunicationsendersV1(pkiBuyercontractID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BuyercontractGetCommunicationsendersV1Response
 ```
 
 Retrieve Buyercontract's Communicationsender
@@ -279,15 +259,11 @@ import EzmaxApi
 let pkiBuyercontractID = 987 // Int | 
 
 // Retrieve Buyercontract's Communicationsender
-ObjectBuyercontractAPI.buyercontractGetCommunicationsendersV1(pkiBuyercontractID: pkiBuyercontractID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBuyercontractAPI.buyercontractGetCommunicationsendersV1(pkiBuyercontractID: pkiBuyercontractID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -314,7 +290,7 @@ Name | Type | Description  | Notes
 
 # **buyercontractGetListV1**
 ```swift
-    open class func buyercontractGetListV1(eOrderBy: EOrderBy_buyercontractGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: BuyercontractGetListV1Response?, _ error: Error?) -> Void)
+    open class func buyercontractGetListV1(eOrderBy: EOrderBy_buyercontractGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BuyercontractGetListV1Response
 ```
 
 Retrieve Buyercontract list
@@ -333,15 +309,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Buyercontract list
-ObjectBuyercontractAPI.buyercontractGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBuyercontractAPI.buyercontractGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -372,7 +344,7 @@ Name | Type | Description  | Notes
 
 # **buyercontractImportIntoEDMV1**
 ```swift
-    open class func buyercontractImportIntoEDMV1(pkiBuyercontractID: Int, buyercontractImportIntoEDMV1Request: BuyercontractImportIntoEDMV1Request, completion: @escaping (_ data: BuyercontractImportIntoEDMV1Response?, _ error: Error?) -> Void)
+    open class func buyercontractImportIntoEDMV1(pkiBuyercontractID: Int, buyercontractImportIntoEDMV1Request: BuyercontractImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BuyercontractImportIntoEDMV1Response
 ```
 
 Import attachments into the Buyercontract
@@ -388,15 +360,11 @@ let pkiBuyercontractID = 987 // Int |
 let buyercontractImportIntoEDMV1Request = buyercontract-importIntoEDM-v1-Request(aObjAttachment: [Custom-AttachmentImportIntoEDM-Request(eAttachmentSource: "eAttachmentSource_example", fkiAttachmentID: 123, fkiInscriptionchecklistID: 123, sAttachmentUrl: "sAttachmentUrl_example", sAttachmentBase64: 123, sAttachmentName: "sAttachmentName_example", sAttachmentCategory: "sAttachmentCategory_example", eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123, sAttachmentMD5: "sAttachmentMD5_example", bAttachmentForceoverwrite: false, bAttachmentForcerestore: false)]) // BuyercontractImportIntoEDMV1Request | 
 
 // Import attachments into the Buyercontract
-ObjectBuyercontractAPI.buyercontractImportIntoEDMV1(pkiBuyercontractID: pkiBuyercontractID, buyercontractImportIntoEDMV1Request: buyercontractImportIntoEDMV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBuyercontractAPI.buyercontractImportIntoEDMV1(pkiBuyercontractID: pkiBuyercontractID, buyercontractImportIntoEDMV1Request: buyercontractImportIntoEDMV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

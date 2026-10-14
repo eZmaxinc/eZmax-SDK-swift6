@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **countryGetAutocompleteV2**
 ```swift
-    open class func countryGetAutocompleteV2(sSelector: SSelector_countryGetAutocompleteV2, eFilterActive: EFilterActive_countryGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: CountryGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func countryGetAutocompleteV2(sSelector: SSelector_countryGetAutocompleteV2, eFilterActive: EFilterActive_countryGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CountryGetAutocompleteV2Response
 ```
 
 Retrieve Countries and IDs
@@ -27,15 +27,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Countries and IDs
-ObjectCountryAPI.countryGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCountryAPI.countryGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 # **creditcardmerchantGetAutocompleteV2**
 ```swift
-    open class func creditcardmerchantGetAutocompleteV2(sSelector: SSelector_creditcardmerchantGetAutocompleteV2, eFilterActive: EFilterActive_creditcardmerchantGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: CreditcardmerchantGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func creditcardmerchantGetAutocompleteV2(sSelector: SSelector_creditcardmerchantGetAutocompleteV2, eFilterActive: EFilterActive_creditcardmerchantGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CreditcardmerchantGetAutocompleteV2Response
 ```
 
 Retrieve Creditcardmerchants and IDs
@@ -29,15 +29,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Creditcardmerchants and IDs
-ObjectCreditcardmerchantAPI.creditcardmerchantGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCreditcardmerchantAPI.creditcardmerchantGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -67,7 +63,7 @@ Name | Type | Description  | Notes
 
 # **creditcardmerchantGetListV1**
 ```swift
-    open class func creditcardmerchantGetListV1(eOrderBy: EOrderBy_creditcardmerchantGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: CreditcardmerchantGetListV1Response?, _ error: Error?) -> Void)
+    open class func creditcardmerchantGetListV1(eOrderBy: EOrderBy_creditcardmerchantGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CreditcardmerchantGetListV1Response
 ```
 
 Retrieve Creditcardmerchant list
@@ -86,15 +82,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Creditcardmerchant list
-ObjectCreditcardmerchantAPI.creditcardmerchantGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCreditcardmerchantAPI.creditcardmerchantGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -125,7 +117,7 @@ Name | Type | Description  | Notes
 
 # **creditcardmerchantGetObjectV2**
 ```swift
-    open class func creditcardmerchantGetObjectV2(pkiCreditcardmerchantID: Int, completion: @escaping (_ data: CreditcardmerchantGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func creditcardmerchantGetObjectV2(pkiCreditcardmerchantID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CreditcardmerchantGetObjectV2Response
 ```
 
 Retrieve an existing Creditcardmerchant
@@ -140,15 +132,11 @@ import EzmaxApi
 let pkiCreditcardmerchantID = 987 // Int | The unique ID of the Creditcardmerchant
 
 // Retrieve an existing Creditcardmerchant
-ObjectCreditcardmerchantAPI.creditcardmerchantGetObjectV2(pkiCreditcardmerchantID: pkiCreditcardmerchantID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCreditcardmerchantAPI.creditcardmerchantGetObjectV2(pkiCreditcardmerchantID: pkiCreditcardmerchantID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

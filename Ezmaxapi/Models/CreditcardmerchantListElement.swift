@@ -13,8 +13,8 @@ public struct CreditcardmerchantListElement: Sendable, Codable, Hashable {
     public static let pkiCreditcardmerchantIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiBankaccountIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
-    public static let sCreditcardmerchantDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,25}$/")
-    public static let sCreditcardmerchantStoreidRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,25}$/")
+    public static let sCreditcardmerchantDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,25}$")
+    public static let sCreditcardmerchantStoreidRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,25}$")
     /** The unique ID of the Creditcardmerchant */
     public var pkiCreditcardmerchantID: Int
     /** The unique ID of the Bankaccount */

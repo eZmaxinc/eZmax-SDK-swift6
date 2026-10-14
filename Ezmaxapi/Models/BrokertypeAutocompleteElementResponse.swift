@@ -11,7 +11,7 @@ import Foundation
 public struct BrokertypeAutocompleteElementResponse: Sendable, Codable, Hashable {
 
     public static let pkiBrokertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sBrokertypeNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,30}$/")
+    public static let sBrokertypeNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,30}$")
     /** The unique ID of the Brokertype */
     public var pkiBrokertypeID: Int
     /** The name of the Brokertype in the language of the requester */

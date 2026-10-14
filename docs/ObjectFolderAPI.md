@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 # **folderBatchDownloadV1**
 ```swift
-    open class func folderBatchDownloadV1(pkiFolderID: Int, folderBatchDownloadV1Request: FolderBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func folderBatchDownloadV1(pkiFolderID: Int, folderBatchDownloadV1Request: FolderBatchDownloadV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> URL
 ```
 
 Download multiples attachments from an Folder
@@ -29,15 +29,11 @@ let pkiFolderID = 987 // Int |
 let folderBatchDownloadV1Request = folder-batchDownload-v1-Request(aPkiAttachmentID: [123]) // FolderBatchDownloadV1Request | 
 
 // Download multiples attachments from an Folder
-ObjectFolderAPI.folderBatchDownloadV1(pkiFolderID: pkiFolderID, folderBatchDownloadV1Request: folderBatchDownloadV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectFolderAPI.folderBatchDownloadV1(pkiFolderID: pkiFolderID, folderBatchDownloadV1Request: folderBatchDownloadV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -65,7 +61,7 @@ Name | Type | Description  | Notes
 
 # **folderGetAttachmentsV1**
 ```swift
-    open class func folderGetAttachmentsV1(pkiFolderID: Int, completion: @escaping (_ data: FolderGetAttachmentsV1Response?, _ error: Error?) -> Void)
+    open class func folderGetAttachmentsV1(pkiFolderID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> FolderGetAttachmentsV1Response
 ```
 
 Retrieve Folder's attachments
@@ -78,15 +74,11 @@ import EzmaxApi
 let pkiFolderID = 987 // Int | 
 
 // Retrieve Folder's attachments
-ObjectFolderAPI.folderGetAttachmentsV1(pkiFolderID: pkiFolderID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectFolderAPI.folderGetAttachmentsV1(pkiFolderID: pkiFolderID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -113,7 +105,7 @@ Name | Type | Description  | Notes
 
 # **folderGetCommunicationCountV1**
 ```swift
-    open class func folderGetCommunicationCountV1(pkiFolderID: Int, completion: @escaping (_ data: FolderGetCommunicationCountV1Response?, _ error: Error?) -> Void)
+    open class func folderGetCommunicationCountV1(pkiFolderID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> FolderGetCommunicationCountV1Response
 ```
 
 Retrieve Communication count
@@ -126,15 +118,11 @@ import EzmaxApi
 let pkiFolderID = 987 // Int | 
 
 // Retrieve Communication count
-ObjectFolderAPI.folderGetCommunicationCountV1(pkiFolderID: pkiFolderID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectFolderAPI.folderGetCommunicationCountV1(pkiFolderID: pkiFolderID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -161,7 +149,7 @@ Name | Type | Description  | Notes
 
 # **folderGetCommunicationListV1**
 ```swift
-    open class func folderGetCommunicationListV1(pkiFolderID: Int, completion: @escaping (_ data: FolderGetCommunicationListV1Response?, _ error: Error?) -> Void)
+    open class func folderGetCommunicationListV1(pkiFolderID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> FolderGetCommunicationListV1Response
 ```
 
 Retrieve Communication list
@@ -174,15 +162,11 @@ import EzmaxApi
 let pkiFolderID = 987 // Int | 
 
 // Retrieve Communication list
-ObjectFolderAPI.folderGetCommunicationListV1(pkiFolderID: pkiFolderID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectFolderAPI.folderGetCommunicationListV1(pkiFolderID: pkiFolderID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -209,7 +193,7 @@ Name | Type | Description  | Notes
 
 # **folderGetCommunicationrecipientsV1**
 ```swift
-    open class func folderGetCommunicationrecipientsV1(pkiFolderID: Int, completion: @escaping (_ data: FolderGetCommunicationrecipientsV1Response?, _ error: Error?) -> Void)
+    open class func folderGetCommunicationrecipientsV1(pkiFolderID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> FolderGetCommunicationrecipientsV1Response
 ```
 
 Retrieve Communication recipients
@@ -222,15 +206,11 @@ import EzmaxApi
 let pkiFolderID = 987 // Int | 
 
 // Retrieve Communication recipients
-ObjectFolderAPI.folderGetCommunicationrecipientsV1(pkiFolderID: pkiFolderID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectFolderAPI.folderGetCommunicationrecipientsV1(pkiFolderID: pkiFolderID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -257,7 +237,7 @@ Name | Type | Description  | Notes
 
 # **folderGetCommunicationsendersV1**
 ```swift
-    open class func folderGetCommunicationsendersV1(pkiFolderID: Int, completion: @escaping (_ data: FolderGetCommunicationsendersV1Response?, _ error: Error?) -> Void)
+    open class func folderGetCommunicationsendersV1(pkiFolderID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> FolderGetCommunicationsendersV1Response
 ```
 
 Retrieve Communication senders
@@ -270,15 +250,11 @@ import EzmaxApi
 let pkiFolderID = 987 // Int | 
 
 // Retrieve Communication senders
-ObjectFolderAPI.folderGetCommunicationsendersV1(pkiFolderID: pkiFolderID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectFolderAPI.folderGetCommunicationsendersV1(pkiFolderID: pkiFolderID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -305,7 +281,7 @@ Name | Type | Description  | Notes
 
 # **folderImportIntoEDMV1**
 ```swift
-    open class func folderImportIntoEDMV1(pkiFolderID: Int, folderImportIntoEDMV1Request: FolderImportIntoEDMV1Request, completion: @escaping (_ data: FolderImportIntoEDMV1Response?, _ error: Error?) -> Void)
+    open class func folderImportIntoEDMV1(pkiFolderID: Int, folderImportIntoEDMV1Request: FolderImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> FolderImportIntoEDMV1Response
 ```
 
 Import attachments into the Folder
@@ -319,15 +295,11 @@ let pkiFolderID = 987 // Int |
 let folderImportIntoEDMV1Request = folder-importIntoEDM-v1-Request(aObjAttachment: [Custom-AttachmentImportIntoEDM-Request(eAttachmentSource: "eAttachmentSource_example", fkiAttachmentID: 123, fkiInscriptionchecklistID: 123, sAttachmentUrl: "sAttachmentUrl_example", sAttachmentBase64: 123, sAttachmentName: "sAttachmentName_example", sAttachmentCategory: "sAttachmentCategory_example", eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123, sAttachmentMD5: "sAttachmentMD5_example", bAttachmentForceoverwrite: false, bAttachmentForcerestore: false)]) // FolderImportIntoEDMV1Request | 
 
 // Import attachments into the Folder
-ObjectFolderAPI.folderImportIntoEDMV1(pkiFolderID: pkiFolderID, folderImportIntoEDMV1Request: folderImportIntoEDMV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectFolderAPI.folderImportIntoEDMV1(pkiFolderID: pkiFolderID, folderImportIntoEDMV1Request: folderImportIntoEDMV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

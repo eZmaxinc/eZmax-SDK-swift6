@@ -11,8 +11,8 @@ import Foundation
 public struct CustomEzsignfoldertransmissionSignerResponse: Sendable, Codable, Hashable {
 
     public static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sContactFirstnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,20}$/")
-    public static let sContactLastnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,25}$/")
+    public static let sContactFirstnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,20}$")
+    public static let sContactLastnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,25}$")
     /** The unique ID of the User */
     public var fkiUserID: Int?
     /** The First name of the contact */

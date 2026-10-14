@@ -11,7 +11,7 @@ import Foundation
 public struct CustomEzmaxpricingResponse: Sendable, Codable, Hashable {
 
     public static let pkiEzmaxpricingIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let dEzmaxpricingRebateezsignallagentsRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
+    public static let dEzmaxpricingRebateezsignallagentsRule = StringRule(minLength: nil, maxLength: nil, pattern: "^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$")
     /** The unique ID of the Ezmaxpricing */
     public var pkiEzmaxpricingID: Int
     /** The rebate offered when eZsign is taken for all agents */

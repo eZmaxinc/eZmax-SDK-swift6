@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 # **paymenttermCreateObjectV1**
 ```swift
-    open class func paymenttermCreateObjectV1(paymenttermCreateObjectV1Request: PaymenttermCreateObjectV1Request, completion: @escaping (_ data: PaymenttermCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func paymenttermCreateObjectV1(paymenttermCreateObjectV1Request: PaymenttermCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PaymenttermCreateObjectV1Response
 ```
 
 Create a new Paymentterm
@@ -28,15 +28,11 @@ import EzmaxApi
 let paymenttermCreateObjectV1Request = paymentterm-createObject-v1-Request(aObjPaymentterm: [paymentterm-RequestCompound(pkiPaymenttermID: 123, sPaymenttermCode: "sPaymenttermCode_example", ePaymenttermType: Field-ePaymenttermType(), iPaymenttermDay: 123, objPaymenttermDescription: Multilingual-PaymenttermDescription(sPaymenttermDescription1: "sPaymenttermDescription1_example", sPaymenttermDescription2: "sPaymenttermDescription2_example"), bPaymenttermIsactive: true)]) // PaymenttermCreateObjectV1Request | 
 
 // Create a new Paymentterm
-ObjectPaymenttermAPI.paymenttermCreateObjectV1(paymenttermCreateObjectV1Request: paymenttermCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectPaymenttermAPI.paymenttermCreateObjectV1(paymenttermCreateObjectV1Request: paymenttermCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -63,7 +59,7 @@ Name | Type | Description  | Notes
 
 # **paymenttermEditObjectV1**
 ```swift
-    open class func paymenttermEditObjectV1(pkiPaymenttermID: Int, paymenttermEditObjectV1Request: PaymenttermEditObjectV1Request, completion: @escaping (_ data: PaymenttermEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func paymenttermEditObjectV1(pkiPaymenttermID: Int, paymenttermEditObjectV1Request: PaymenttermEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PaymenttermEditObjectV1Response
 ```
 
 Edit an existing Paymentterm
@@ -79,15 +75,11 @@ let pkiPaymenttermID = 987 // Int |
 let paymenttermEditObjectV1Request = paymentterm-editObject-v1-Request(objPaymentterm: paymentterm-RequestCompound(pkiPaymenttermID: 123, sPaymenttermCode: "sPaymenttermCode_example", ePaymenttermType: Field-ePaymenttermType(), iPaymenttermDay: 123, objPaymenttermDescription: Multilingual-PaymenttermDescription(sPaymenttermDescription1: "sPaymenttermDescription1_example", sPaymenttermDescription2: "sPaymenttermDescription2_example"), bPaymenttermIsactive: true)) // PaymenttermEditObjectV1Request | 
 
 // Edit an existing Paymentterm
-ObjectPaymenttermAPI.paymenttermEditObjectV1(pkiPaymenttermID: pkiPaymenttermID, paymenttermEditObjectV1Request: paymenttermEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectPaymenttermAPI.paymenttermEditObjectV1(pkiPaymenttermID: pkiPaymenttermID, paymenttermEditObjectV1Request: paymenttermEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -115,7 +107,7 @@ Name | Type | Description  | Notes
 
 # **paymenttermGetAutocompleteV2**
 ```swift
-    open class func paymenttermGetAutocompleteV2(sSelector: SSelector_paymenttermGetAutocompleteV2, eFilterActive: EFilterActive_paymenttermGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: PaymenttermGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func paymenttermGetAutocompleteV2(sSelector: SSelector_paymenttermGetAutocompleteV2, eFilterActive: EFilterActive_paymenttermGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PaymenttermGetAutocompleteV2Response
 ```
 
 Retrieve Paymentterms and IDs
@@ -133,15 +125,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Paymentterms and IDs
-ObjectPaymenttermAPI.paymenttermGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectPaymenttermAPI.paymenttermGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -171,7 +159,7 @@ Name | Type | Description  | Notes
 
 # **paymenttermGetListV1**
 ```swift
-    open class func paymenttermGetListV1(eOrderBy: EOrderBy_paymenttermGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: PaymenttermGetListV1Response?, _ error: Error?) -> Void)
+    open class func paymenttermGetListV1(eOrderBy: EOrderBy_paymenttermGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PaymenttermGetListV1Response
 ```
 
 Retrieve Paymentterm list
@@ -188,15 +176,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Paymentterm list
-ObjectPaymenttermAPI.paymenttermGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectPaymenttermAPI.paymenttermGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -227,7 +211,7 @@ Name | Type | Description  | Notes
 
 # **paymenttermGetObjectV2**
 ```swift
-    open class func paymenttermGetObjectV2(pkiPaymenttermID: Int, completion: @escaping (_ data: PaymenttermGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func paymenttermGetObjectV2(pkiPaymenttermID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PaymenttermGetObjectV2Response
 ```
 
 Retrieve an existing Paymentterm
@@ -242,15 +226,11 @@ import EzmaxApi
 let pkiPaymenttermID = 987 // Int | 
 
 // Retrieve an existing Paymentterm
-ObjectPaymenttermAPI.paymenttermGetObjectV2(pkiPaymenttermID: pkiPaymenttermID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectPaymenttermAPI.paymenttermGetObjectV2(pkiPaymenttermID: pkiPaymenttermID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

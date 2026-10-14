@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **notificationsectionGetNotificationtestsV1**
 ```swift
-    open class func notificationsectionGetNotificationtestsV1(pkiNotificationsectionID: Int, bShowHidden: Bool, completion: @escaping (_ data: NotificationsectionGetNotificationtestsV1Response?, _ error: Error?) -> Void)
+    open class func notificationsectionGetNotificationtestsV1(pkiNotificationsectionID: Int, bShowHidden: Bool, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> NotificationsectionGetNotificationtestsV1Response
 ```
 
 Retrieve an existing Notificationsection's Notificationtests
@@ -25,15 +25,11 @@ let pkiNotificationsectionID = 987 // Int |
 let bShowHidden = true // Bool | Whether or not to return the hidden Notificationtests
 
 // Retrieve an existing Notificationsection's Notificationtests
-ObjectNotificationsectionAPI.notificationsectionGetNotificationtestsV1(pkiNotificationsectionID: pkiNotificationsectionID, bShowHidden: bShowHidden) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectNotificationsectionAPI.notificationsectionGetNotificationtestsV1(pkiNotificationsectionID: pkiNotificationsectionID, bShowHidden: bShowHidden)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

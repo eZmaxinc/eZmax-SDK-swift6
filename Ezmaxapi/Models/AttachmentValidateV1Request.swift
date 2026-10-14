@@ -11,9 +11,9 @@ import Foundation
 public struct AttachmentValidateV1Request: Sendable, Codable, Hashable {
 
     public static let fkiAttachmentrejectreasonIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let tAttachmentRejectioncommentRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,65535}$/")
+    public static let tAttachmentRejectioncommentRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,65535}$")
     public static let aSNotificationEmailAddressRule = ArrayRule(minItems: nil, maxItems: nil, uniqueItems: true)
-    public static let tNotificationMessageRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\s\\S]{0,65535}$/")
+    public static let tNotificationMessageRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[\\s\\S]{0,65535}$")
     /** The unique ID of the Attachmentrejectreason */
     public var fkiAttachmentrejectreasonID: Int?
     public var eAttachmentVerified: FieldEAttachmentVerified

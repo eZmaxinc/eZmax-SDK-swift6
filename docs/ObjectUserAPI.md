@@ -26,7 +26,7 @@ Method | HTTP request | Description
 
 # **userCreateObjectV1**
 ```swift
-    open class func userCreateObjectV1(userCreateObjectV1Request: UserCreateObjectV1Request, completion: @escaping (_ data: UserCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func userCreateObjectV1(userCreateObjectV1Request: UserCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UserCreateObjectV1Response
 ```
 
 Create a new User
@@ -41,15 +41,11 @@ import EzmaxApi
 let userCreateObjectV1Request = user-createObject-v1-Request(aObjUser: [user-RequestCompound(pkiUserID: 123, fkiAgentID: 123, fkiBrokerID: 123, fkiAssistantID: 123, fkiEmployeeID: 123, fkiCompanyIDDefault: 123, fkiDepartmentIDDefault: 123, fkiTimezoneID: 123, fkiLanguageID: 123, objEmail: email-RequestCompound(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example"), fkiBillingentityinternalID: 123, objPhoneHome: phone-RequestCompound(pkiPhoneID: 123, fkiPhonetypeID: 123, ePhoneType: Field-ePhoneType(), sPhoneRegion: "sPhoneRegion_example", sPhoneExchange: "sPhoneExchange_example", sPhoneNumber: "sPhoneNumber_example", sPhoneInternational: "sPhoneInternational_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164: "sPhoneE164_example"), objPhoneSMS: nil, fkiSecretquestionID: 123, sUserSecretresponse: "sUserSecretresponse_example", fkiModuleIDForm: 123, eUserType: Field-eUserType(), eUserLogintype: Field-eUserLogintype(), sUserFirstname: "sUserFirstname_example", sUserLastname: "sUserLastname_example", sUserLoginname: "sUserLoginname_example", sUserJobtitle: "sUserJobtitle_example", eUserEzsignaccess: Field-eUserEzsignaccess(), bUserIsactive: true, bUserValidatebyadministration: false, bUserValidatebydirector: false, bUserAttachmentautoverified: true, bUserChangepassword: true, bUserEzsigntemplaterolegrouping: true)]) // UserCreateObjectV1Request | 
 
 // Create a new User
-ObjectUserAPI.userCreateObjectV1(userCreateObjectV1Request: userCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUserAPI.userCreateObjectV1(userCreateObjectV1Request: userCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -76,7 +72,7 @@ Name | Type | Description  | Notes
 
 # **userCreateObjectV2**
 ```swift
-    open class func userCreateObjectV2(userCreateObjectV2Request: UserCreateObjectV2Request, completion: @escaping (_ data: UserCreateObjectV2Response?, _ error: Error?) -> Void)
+    open class func userCreateObjectV2(userCreateObjectV2Request: UserCreateObjectV2Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UserCreateObjectV2Response
 ```
 
 Create a new User
@@ -91,15 +87,11 @@ import EzmaxApi
 let userCreateObjectV2Request = user-createObject-v2-Request(aObjUser: [user-RequestCompoundV2(pkiUserID: 123, fkiAgentID: 123, fkiBrokerID: 123, fkiAssistantID: 123, fkiEmployeeID: 123, fkiCompanyIDDefault: 123, fkiDepartmentIDDefault: 123, fkiTimezoneID: 123, fkiLanguageID: 123, objEmail: email-RequestCompound(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example"), fkiBillingentityinternalID: 123, objPhoneHome: phone-RequestCompoundV2(pkiPhoneID: 123, fkiPhonetypeID: 123, sPhoneExtension: "sPhoneExtension_example", sPhoneE164: "sPhoneE164_example"), objPhoneSMS: nil, fkiSecretquestionID: 123, sUserSecretresponse: "sUserSecretresponse_example", fkiModuleIDForm: 123, eUserType: Field-eUserType(), eUserLogintype: Field-eUserLogintype(), sUserFirstname: "sUserFirstname_example", sUserLastname: "sUserLastname_example", sUserLoginname: "sUserLoginname_example", sUserJobtitle: "sUserJobtitle_example", eUserEzsignaccess: Field-eUserEzsignaccess(), bUserIsactive: true, bUserValidatebyadministration: false, bUserValidatebydirector: false, bUserAttachmentautoverified: true, bUserChangepassword: true, bUserEzsigntemplaterolegrouping: true)]) // UserCreateObjectV2Request | 
 
 // Create a new User
-ObjectUserAPI.userCreateObjectV2(userCreateObjectV2Request: userCreateObjectV2Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUserAPI.userCreateObjectV2(userCreateObjectV2Request: userCreateObjectV2Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -126,7 +118,7 @@ Name | Type | Description  | Notes
 
 # **userEditColleaguesV2**
 ```swift
-    open class func userEditColleaguesV2(pkiUserID: Int, userEditColleaguesV2Request: UserEditColleaguesV2Request, completion: @escaping (_ data: UserEditColleaguesV2Response?, _ error: Error?) -> Void)
+    open class func userEditColleaguesV2(pkiUserID: Int, userEditColleaguesV2Request: UserEditColleaguesV2Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UserEditColleaguesV2Response
 ```
 
 Edit multiple Colleagues
@@ -142,15 +134,11 @@ let pkiUserID = 987 // Int |
 let userEditColleaguesV2Request = user-editColleagues-v2-Request(aObjColleague: [colleague-RequestCompoundV2(pkiColleagueID: 123, fkiUserID: 123, fkiUserIDColleague: 123, bColleagueEzsignemail: false, bColleagueFinancial: true, bColleagueUsecloneemail: true, bColleagueAttachment: true, bColleagueCanafe: true, bColleaguePermission: true, bColleagueRealestatecompleted: true, dtColleagueFrom: "dtColleagueFrom_example", dtColleagueTo: "dtColleagueTo_example", eColleagueEzsign: Field-eColleagueEzsign(), eColleagueRealestateinprogress: Field-eColleagueRealestateinprogess())]) // UserEditColleaguesV2Request | 
 
 // Edit multiple Colleagues
-ObjectUserAPI.userEditColleaguesV2(pkiUserID: pkiUserID, userEditColleaguesV2Request: userEditColleaguesV2Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUserAPI.userEditColleaguesV2(pkiUserID: pkiUserID, userEditColleaguesV2Request: userEditColleaguesV2Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -178,7 +166,7 @@ Name | Type | Description  | Notes
 
 # **userEditObjectV1**
 ```swift
-    open class func userEditObjectV1(pkiUserID: Int, userEditObjectV1Request: UserEditObjectV1Request, completion: @escaping (_ data: UserEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func userEditObjectV1(pkiUserID: Int, userEditObjectV1Request: UserEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UserEditObjectV1Response
 ```
 
 Edit an existing User
@@ -194,15 +182,11 @@ let pkiUserID = 987 // Int | The unique ID of the User
 let userEditObjectV1Request = user-editObject-v1-Request(objUser: user-RequestCompound(pkiUserID: 123, fkiAgentID: 123, fkiBrokerID: 123, fkiAssistantID: 123, fkiEmployeeID: 123, fkiCompanyIDDefault: 123, fkiDepartmentIDDefault: 123, fkiTimezoneID: 123, fkiLanguageID: 123, objEmail: email-RequestCompound(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example"), fkiBillingentityinternalID: 123, objPhoneHome: phone-RequestCompound(pkiPhoneID: 123, fkiPhonetypeID: 123, ePhoneType: Field-ePhoneType(), sPhoneRegion: "sPhoneRegion_example", sPhoneExchange: "sPhoneExchange_example", sPhoneNumber: "sPhoneNumber_example", sPhoneInternational: "sPhoneInternational_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164: "sPhoneE164_example"), objPhoneSMS: nil, fkiSecretquestionID: 123, sUserSecretresponse: "sUserSecretresponse_example", fkiModuleIDForm: 123, eUserType: Field-eUserType(), eUserLogintype: Field-eUserLogintype(), sUserFirstname: "sUserFirstname_example", sUserLastname: "sUserLastname_example", sUserLoginname: "sUserLoginname_example", sUserJobtitle: "sUserJobtitle_example", eUserEzsignaccess: Field-eUserEzsignaccess(), bUserIsactive: true, bUserValidatebyadministration: false, bUserValidatebydirector: false, bUserAttachmentautoverified: true, bUserChangepassword: true, bUserEzsigntemplaterolegrouping: true)) // UserEditObjectV1Request | 
 
 // Edit an existing User
-ObjectUserAPI.userEditObjectV1(pkiUserID: pkiUserID, userEditObjectV1Request: userEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUserAPI.userEditObjectV1(pkiUserID: pkiUserID, userEditObjectV1Request: userEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -230,7 +214,7 @@ Name | Type | Description  | Notes
 
 # **userEditPermissionsV1**
 ```swift
-    open class func userEditPermissionsV1(pkiUserID: Int, userEditPermissionsV1Request: UserEditPermissionsV1Request, completion: @escaping (_ data: UserEditPermissionsV1Response?, _ error: Error?) -> Void)
+    open class func userEditPermissionsV1(pkiUserID: Int, userEditPermissionsV1Request: UserEditPermissionsV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UserEditPermissionsV1Response
 ```
 
 Edit multiple Permissions
@@ -246,15 +230,11 @@ let pkiUserID = 987 // Int |
 let userEditPermissionsV1Request = user-editPermissions-v1-Request(aObjPermission: [permission-RequestCompound(pkiPermissionID: 123, fkiUserID: 123, fkiApikeyID: 123, fkiUsergroupID: 123, fkiCompanyID: 123, fkiModulesectionID: 123)]) // UserEditPermissionsV1Request | 
 
 // Edit multiple Permissions
-ObjectUserAPI.userEditPermissionsV1(pkiUserID: pkiUserID, userEditPermissionsV1Request: userEditPermissionsV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUserAPI.userEditPermissionsV1(pkiUserID: pkiUserID, userEditPermissionsV1Request: userEditPermissionsV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -282,7 +262,7 @@ Name | Type | Description  | Notes
 
 # **userGetApikeysV1**
 ```swift
-    open class func userGetApikeysV1(pkiUserID: Int, completion: @escaping (_ data: UserGetApikeysV1Response?, _ error: Error?) -> Void)
+    open class func userGetApikeysV1(pkiUserID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UserGetApikeysV1Response
 ```
 
 Retrieve an existing User's Apikeys
@@ -295,15 +275,11 @@ import EzmaxApi
 let pkiUserID = 987 // Int | 
 
 // Retrieve an existing User's Apikeys
-ObjectUserAPI.userGetApikeysV1(pkiUserID: pkiUserID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUserAPI.userGetApikeysV1(pkiUserID: pkiUserID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -330,7 +306,7 @@ Name | Type | Description  | Notes
 
 # **userGetAutocompleteV2**
 ```swift
-    open class func userGetAutocompleteV2(sSelector: SSelector_userGetAutocompleteV2, eFilterActive: EFilterActive_userGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: UserGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func userGetAutocompleteV2(sSelector: SSelector_userGetAutocompleteV2, eFilterActive: EFilterActive_userGetAutocompleteV2? = nil, fkiAttachmentID: String? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UserGetAutocompleteV2Response
 ```
 
 Retrieve Users and IDs
@@ -344,19 +320,16 @@ import EzmaxApi
 
 let sSelector = "sSelector_example" // String | The type of Users to return
 let eFilterActive = "eFilterActive_example" // String | Specify which results we want to display. (optional) (default to .active)
+let fkiAttachmentID = "fkiAttachmentID_example" // String | Specify for which fkiAttachmentID we want to find users for. Only used when sSelector is AttachmentSpecificUser. (optional)
 let sQuery = "sQuery_example" // String | Allow to filter the returned results (optional)
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Users and IDs
-ObjectUserAPI.userGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUserAPI.userGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, fkiAttachmentID: fkiAttachmentID, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -366,6 +339,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sSelector** | **String** | The type of Users to return | 
  **eFilterActive** | **String** | Specify which results we want to display. | [optional] [default to .active]
+ **fkiAttachmentID** | **String** | Specify for which fkiAttachmentID we want to find users for. Only used when sSelector is AttachmentSpecificUser. | [optional] 
  **sQuery** | **String** | Allow to filter the returned results | [optional] 
  **acceptLanguage** | [**HeaderAcceptLanguage**](.md) |  | [optional] 
 
@@ -386,7 +360,7 @@ Name | Type | Description  | Notes
 
 # **userGetColleaguesV2**
 ```swift
-    open class func userGetColleaguesV2(pkiUserID: Int, completion: @escaping (_ data: UserGetColleaguesV2Response?, _ error: Error?) -> Void)
+    open class func userGetColleaguesV2(pkiUserID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UserGetColleaguesV2Response
 ```
 
 Retrieve an existing User's Colleagues
@@ -399,15 +373,11 @@ import EzmaxApi
 let pkiUserID = 987 // Int | 
 
 // Retrieve an existing User's Colleagues
-ObjectUserAPI.userGetColleaguesV2(pkiUserID: pkiUserID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUserAPI.userGetColleaguesV2(pkiUserID: pkiUserID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -434,7 +404,7 @@ Name | Type | Description  | Notes
 
 # **userGetEffectivePermissionsV1**
 ```swift
-    open class func userGetEffectivePermissionsV1(pkiUserID: Int, completion: @escaping (_ data: UserGetEffectivePermissionsV1Response?, _ error: Error?) -> Void)
+    open class func userGetEffectivePermissionsV1(pkiUserID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UserGetEffectivePermissionsV1Response
 ```
 
 Retrieve an existing User's Effective Permissions
@@ -449,15 +419,11 @@ import EzmaxApi
 let pkiUserID = 987 // Int | 
 
 // Retrieve an existing User's Effective Permissions
-ObjectUserAPI.userGetEffectivePermissionsV1(pkiUserID: pkiUserID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUserAPI.userGetEffectivePermissionsV1(pkiUserID: pkiUserID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -484,7 +450,7 @@ Name | Type | Description  | Notes
 
 # **userGetEzmaxcustomeruserV1**
 ```swift
-    open class func userGetEzmaxcustomeruserV1(pkiUserID: Int, completion: @escaping (_ data: UserGetEzmaxcustomeruserV1Response?, _ error: Error?) -> Void)
+    open class func userGetEzmaxcustomeruserV1(pkiUserID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UserGetEzmaxcustomeruserV1Response
 ```
 
 Returns the Ezmaxcustomeruser for the User
@@ -499,15 +465,11 @@ import EzmaxApi
 let pkiUserID = 987 // Int | 
 
 // Returns the Ezmaxcustomeruser for the User
-ObjectUserAPI.userGetEzmaxcustomeruserV1(pkiUserID: pkiUserID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUserAPI.userGetEzmaxcustomeruserV1(pkiUserID: pkiUserID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -534,7 +496,7 @@ Name | Type | Description  | Notes
 
 # **userGetListV1**
 ```swift
-    open class func userGetListV1(eOrderBy: EOrderBy_userGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: UserGetListV1Response?, _ error: Error?) -> Void)
+    open class func userGetListV1(eOrderBy: EOrderBy_userGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UserGetListV1Response
 ```
 
 Retrieve User list
@@ -553,15 +515,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve User list
-ObjectUserAPI.userGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUserAPI.userGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -592,7 +550,7 @@ Name | Type | Description  | Notes
 
 # **userGetObjectV2**
 ```swift
-    open class func userGetObjectV2(pkiUserID: Int, completion: @escaping (_ data: UserGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func userGetObjectV2(pkiUserID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UserGetObjectV2Response
 ```
 
 Retrieve an existing User
@@ -607,15 +565,11 @@ import EzmaxApi
 let pkiUserID = 987 // Int | The unique ID of the User
 
 // Retrieve an existing User
-ObjectUserAPI.userGetObjectV2(pkiUserID: pkiUserID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUserAPI.userGetObjectV2(pkiUserID: pkiUserID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -642,7 +596,7 @@ Name | Type | Description  | Notes
 
 # **userGetPermissionsV1**
 ```swift
-    open class func userGetPermissionsV1(pkiUserID: Int, completion: @escaping (_ data: UserGetPermissionsV1Response?, _ error: Error?) -> Void)
+    open class func userGetPermissionsV1(pkiUserID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UserGetPermissionsV1Response
 ```
 
 Retrieve an existing User's Permissions
@@ -655,15 +609,11 @@ import EzmaxApi
 let pkiUserID = 987 // Int | 
 
 // Retrieve an existing User's Permissions
-ObjectUserAPI.userGetPermissionsV1(pkiUserID: pkiUserID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUserAPI.userGetPermissionsV1(pkiUserID: pkiUserID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -690,7 +640,7 @@ Name | Type | Description  | Notes
 
 # **userGetSubnetsV1**
 ```swift
-    open class func userGetSubnetsV1(pkiUserID: Int, completion: @escaping (_ data: UserGetSubnetsV1Response?, _ error: Error?) -> Void)
+    open class func userGetSubnetsV1(pkiUserID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UserGetSubnetsV1Response
 ```
 
 Retrieve an existing User's Subnets
@@ -703,15 +653,11 @@ import EzmaxApi
 let pkiUserID = 987 // Int | 
 
 // Retrieve an existing User's Subnets
-ObjectUserAPI.userGetSubnetsV1(pkiUserID: pkiUserID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUserAPI.userGetSubnetsV1(pkiUserID: pkiUserID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -738,7 +684,7 @@ Name | Type | Description  | Notes
 
 # **userGetUsergroupexternalsV1**
 ```swift
-    open class func userGetUsergroupexternalsV1(pkiUserID: Int, completion: @escaping (_ data: UserGetUsergroupexternalsV1Response?, _ error: Error?) -> Void)
+    open class func userGetUsergroupexternalsV1(pkiUserID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UserGetUsergroupexternalsV1Response
 ```
 
 Get User's Usergroupexternals
@@ -751,15 +697,11 @@ import EzmaxApi
 let pkiUserID = 987 // Int | 
 
 // Get User's Usergroupexternals
-ObjectUserAPI.userGetUsergroupexternalsV1(pkiUserID: pkiUserID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUserAPI.userGetUsergroupexternalsV1(pkiUserID: pkiUserID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -786,7 +728,7 @@ Name | Type | Description  | Notes
 
 # **userGetUsergroupsV1**
 ```swift
-    open class func userGetUsergroupsV1(pkiUserID: Int, completion: @escaping (_ data: UserGetUsergroupsV1Response?, _ error: Error?) -> Void)
+    open class func userGetUsergroupsV1(pkiUserID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UserGetUsergroupsV1Response
 ```
 
 Get User's Usergroups
@@ -799,15 +741,11 @@ import EzmaxApi
 let pkiUserID = 987 // Int | 
 
 // Get User's Usergroups
-ObjectUserAPI.userGetUsergroupsV1(pkiUserID: pkiUserID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUserAPI.userGetUsergroupsV1(pkiUserID: pkiUserID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -834,7 +772,7 @@ Name | Type | Description  | Notes
 
 # **userImpersonateV1**
 ```swift
-    open class func userImpersonateV1(pkiUserID: Int, userImpersonateV1Request: UserImpersonateV1Request, completion: @escaping (_ data: UserImpersonateV1Response?, _ error: Error?) -> Void)
+    open class func userImpersonateV1(pkiUserID: Int, userImpersonateV1Request: UserImpersonateV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UserImpersonateV1Response
 ```
 
 Impersonate the user
@@ -850,15 +788,11 @@ let pkiUserID = 987 // Int |
 let userImpersonateV1Request = user-impersonate-v1-Request(iExpirationMinutes: 123) // UserImpersonateV1Request | 
 
 // Impersonate the user
-ObjectUserAPI.userImpersonateV1(pkiUserID: pkiUserID, userImpersonateV1Request: userImpersonateV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUserAPI.userImpersonateV1(pkiUserID: pkiUserID, userImpersonateV1Request: userImpersonateV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -886,7 +820,7 @@ Name | Type | Description  | Notes
 
 # **userSendPasswordResetV1**
 ```swift
-    open class func userSendPasswordResetV1(pkiUserID: Int, body: JSONValue, completion: @escaping (_ data: UserSendPasswordResetV1Response?, _ error: Error?) -> Void)
+    open class func userSendPasswordResetV1(pkiUserID: Int, body: JSONValue, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UserSendPasswordResetV1Response
 ```
 
 Send password reset
@@ -902,15 +836,11 @@ let pkiUserID = 987 // Int |
 let body = "TODO" // JSONValue | 
 
 // Send password reset
-ObjectUserAPI.userSendPasswordResetV1(pkiUserID: pkiUserID, body: body) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUserAPI.userSendPasswordResetV1(pkiUserID: pkiUserID, body: body)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

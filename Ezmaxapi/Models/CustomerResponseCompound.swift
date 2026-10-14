@@ -13,8 +13,8 @@ public struct CustomerResponseCompound: Sendable, Codable, Hashable {
     public static let pkiCustomerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiCompanyIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiCustomergroupIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sCustomerNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    public static let sCustomerNoteRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,25}$/")
+    public static let sCustomerNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
+    public static let sCustomerNoteRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,25}$")
     public static let fkiContactinformationsIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiContactcontainerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiGlaccountcontainerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
@@ -37,26 +37,26 @@ public struct CustomerResponseCompound: Sendable, Codable, Hashable {
     public static let fkiInvoicealternatelogoIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiSynchronizationlinkserverIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let efkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let efksCustomerCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,6}$/")
-    public static let sCustomerCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,6}$/")
-    public static let dCustomerFulltimeequivalentRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,3}?\\.[\\d]{2}$/")
+    public static let efksCustomerCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,6}$")
+    public static let sCustomerCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,6}$")
+    public static let dCustomerFulltimeequivalentRule = StringRule(minLength: nil, maxLength: nil, pattern: "^-{0,1}[\\d]{1,3}?\\.[\\d]{2}$")
     public static let iCustomerPhotocopiercodeRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     public static let iCustomerLongdistancecodeRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     public static let iCustomerTimewindowstartRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let iCustomerTimewindowendRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let dCustomerMinimumchargeableinterestsRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
-    public static let dtCustomerBirthdateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
-    public static let dtCustomerTransferRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
-    public static let dtCustomerTransferappointmentRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
-    public static let dtCustomerTransfersurveyRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
-    public static let tCustomerCommentRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,65535}$/")
-    public static let IMPORTIDRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,15}$/")
+    public static let dCustomerMinimumchargeableinterestsRule = StringRule(minLength: nil, maxLength: nil, pattern: "^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$")
+    public static let dtCustomerBirthdateRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$")
+    public static let dtCustomerTransferRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$")
+    public static let dtCustomerTransferappointmentRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$")
+    public static let dtCustomerTransfersurveyRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$")
+    public static let tCustomerCommentRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,65535}$")
+    public static let IMPORTIDRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,15}$")
     /** The unique ID of the Customer. */
     public var pkiCustomerID: Int
     /** The unique ID of the Company */
     public var fkiCompanyID: Int
     /** The unique ID of the Customergroup */
-    public var fkiCustomergroupID: Int
+    public var fkiCustomergroupID: Int?
     /** The name of the Customer */
     public var sCustomerName: String
     /** A note for the Customer */
@@ -66,7 +66,7 @@ public struct CustomerResponseCompound: Sendable, Codable, Hashable {
     /** The unique ID of the Contactcontainer */
     public var fkiContactcontainerID: Int
     /** The unique ID of the Image */
-    public var fkiImageID: Int
+    public var fkiImageID: Int?
     /** The unique ID of the Glaccountcontainer */
     public var fkiGlaccountcontainerID: Int
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
@@ -76,9 +76,9 @@ public struct CustomerResponseCompound: Sendable, Codable, Hashable {
     /** The unique ID of the Paymentmethod */
     public var fkiPaymentmethodID: Int
     /** The unique ID of the Electronicfundstransferbankaccount */
-    public var fkiElectronicfundstransferbankaccountID: Int
+    public var fkiElectronicfundstransferbankaccountID: Int?
     /** The unique ID of the Electronicfundstransferbankaccount */
-    public var fkiElectronicfundstransferbankaccountIDDirectdebit: Int
+    public var fkiElectronicfundstransferbankaccountIDDirectdebit: Int?
     /** The unique ID of the Sendingmethod */
     public var fkiSendingmethodID: Int
     /** The unique ID of the Taxassignment.  Valid values:  |Value|Description| |-|-| |1|No tax| |2|GST| |3|HST (ON)| |4|HST (NB)| |5|HST (NS)| |6|HST (NL)| |7|HST (PE)| |8|GST + QST (QC)| |9|GST + QST (QC) Non-Recoverable| |10|GST + PST (BC)| |11|GST + PST (SK)| |12|GST + RST (MB)| |13|GST + PST (BC) Non-Recoverable| |14|GST + PST (SK) Non-Recoverable| |15|GST + RST (MB) Non-Recoverable| */
@@ -86,25 +86,25 @@ public struct CustomerResponseCompound: Sendable, Codable, Hashable {
     /** The unique ID of the Attendancestatus */
     public var fkiAttendancestatusID: Int
     /** The unique ID of the Agent. */
-    public var fkiAgentIDVariableexpensechargeto: Int
+    public var fkiAgentIDVariableexpensechargeto: Int?
     /** The unique ID of the Broker. */
-    public var fkiBrokerIDVariableexpensechargeto: Int
+    public var fkiBrokerIDVariableexpensechargeto: Int?
     /** The unique ID of the Customer. */
-    public var fkiCustomerIDVariableexpensechargeto: Int
+    public var fkiCustomerIDVariableexpensechargeto: Int?
     /** The unique ID of the Glaccountcontainer */
-    public var fkiGlaccountcontainerIDVariableexpensechargeto: Int
+    public var fkiGlaccountcontainerIDVariableexpensechargeto: Int?
     /** The unique ID of the Agent. */
-    public var fkiAgentIDSupplychargechargeto: Int
+    public var fkiAgentIDSupplychargechargeto: Int?
     /** The unique ID of the Broker. */
-    public var fkiBrokerIDSupplychargechargeto: Int
+    public var fkiBrokerIDSupplychargechargeto: Int?
     /** The unique ID of the Customer. */
-    public var fkiCustomerIDSupplychargechargeto: Int
+    public var fkiCustomerIDSupplychargechargeto: Int?
     /** The unique ID of the Glaccountcontainer */
-    public var fkiGlaccountcontainerIDSupplychargechargeto: Int
+    public var fkiGlaccountcontainerIDSupplychargechargeto: Int?
     /** The unique ID of the Invoicealternatelogo */
-    public var fkiInvoicealternatelogoID: Int
+    public var fkiInvoicealternatelogoID: Int?
     /** The unique ID of the Synchronizationlinkserver */
-    public var fkiSynchronizationlinkserverID: Int
+    public var fkiSynchronizationlinkserverID: Int?
     /** The unique ID of the User */
     public var efkiUserID: Int?
     /** The code of the Customer */
@@ -112,7 +112,7 @@ public struct CustomerResponseCompound: Sendable, Codable, Hashable {
     /** The code of the Customer */
     public var sCustomerCode: String
     /** The fulltimeequivalent of the Customer */
-    public var dCustomerFulltimeequivalent: String
+    public var dCustomerFulltimeequivalent: String?
     /** The photocopiercode of the Customer */
     public var iCustomerPhotocopiercode: Int
     /** The longdistancecode of the Customer */
@@ -124,13 +124,13 @@ public struct CustomerResponseCompound: Sendable, Codable, Hashable {
     /** The minimumchargeableinterests of the Customer */
     public var dCustomerMinimumchargeableinterests: String
     /** The birthdate of the Customer */
-    public var dtCustomerBirthdate: String
+    public var dtCustomerBirthdate: String?
     /** The transfer of the Customer */
     public var dtCustomerTransfer: String
     /** The transferappointment of the Customer */
     public var dtCustomerTransferappointment: String
     /** The transfersurvey of the Customer */
-    public var dtCustomerTransfersurvey: String
+    public var dtCustomerTransfersurvey: String?
     /** Whether the customer is active or not */
     public var bCustomerIsactive: Bool
     /** Whether if it's an variableexpensefinanced */
@@ -153,7 +153,7 @@ public struct CustomerResponseCompound: Sendable, Codable, Hashable {
     public var tCustomerComment: String
     public var IMPORTID: String?
 
-    public init(pkiCustomerID: Int, fkiCompanyID: Int, fkiCustomergroupID: Int, sCustomerName: String, sCustomerNote: String? = nil, fkiContactinformationsID: Int, fkiContactcontainerID: Int, fkiImageID: Int, fkiGlaccountcontainerID: Int, fkiLanguageID: Int, fkiDepartmentID: Int, fkiPaymentmethodID: Int, fkiElectronicfundstransferbankaccountID: Int, fkiElectronicfundstransferbankaccountIDDirectdebit: Int, fkiSendingmethodID: Int, fkiTaxassignmentID: Int, fkiAttendancestatusID: Int, fkiAgentIDVariableexpensechargeto: Int, fkiBrokerIDVariableexpensechargeto: Int, fkiCustomerIDVariableexpensechargeto: Int, fkiGlaccountcontainerIDVariableexpensechargeto: Int, fkiAgentIDSupplychargechargeto: Int, fkiBrokerIDSupplychargechargeto: Int, fkiCustomerIDSupplychargechargeto: Int, fkiGlaccountcontainerIDSupplychargechargeto: Int, fkiInvoicealternatelogoID: Int, fkiSynchronizationlinkserverID: Int, efkiUserID: Int? = nil, efksCustomerCode: String? = nil, sCustomerCode: String, dCustomerFulltimeequivalent: String, iCustomerPhotocopiercode: Int, iCustomerLongdistancecode: Int, iCustomerTimewindowstart: Int, iCustomerTimewindowend: Int, dCustomerMinimumchargeableinterests: String, dtCustomerBirthdate: String, dtCustomerTransfer: String, dtCustomerTransferappointment: String, dtCustomerTransfersurvey: String, bCustomerIsactive: Bool, bCustomerVariableexpensefinanced: Bool, bCustomerVariableexpensefinancedtaxes: Bool, bCustomerSupplychargefinanced: Bool, bCustomerSupplychargefinancedtaxes: Bool, bCustomerAttendance: Bool, eCustomerType: FieldECustomerType, eCustomerMarketingcorrespondence: FieldECustomerMarketingcorrespondence, bCustomerBlackcopycarbon: Bool, bCustomerUnsubscribeinfo: Bool, tCustomerComment: String, IMPORTID: String? = nil) {
+    public init(pkiCustomerID: Int, fkiCompanyID: Int, fkiCustomergroupID: Int? = nil, sCustomerName: String, sCustomerNote: String? = nil, fkiContactinformationsID: Int, fkiContactcontainerID: Int, fkiImageID: Int? = nil, fkiGlaccountcontainerID: Int, fkiLanguageID: Int, fkiDepartmentID: Int, fkiPaymentmethodID: Int, fkiElectronicfundstransferbankaccountID: Int? = nil, fkiElectronicfundstransferbankaccountIDDirectdebit: Int? = nil, fkiSendingmethodID: Int, fkiTaxassignmentID: Int, fkiAttendancestatusID: Int, fkiAgentIDVariableexpensechargeto: Int? = nil, fkiBrokerIDVariableexpensechargeto: Int? = nil, fkiCustomerIDVariableexpensechargeto: Int? = nil, fkiGlaccountcontainerIDVariableexpensechargeto: Int? = nil, fkiAgentIDSupplychargechargeto: Int? = nil, fkiBrokerIDSupplychargechargeto: Int? = nil, fkiCustomerIDSupplychargechargeto: Int? = nil, fkiGlaccountcontainerIDSupplychargechargeto: Int? = nil, fkiInvoicealternatelogoID: Int? = nil, fkiSynchronizationlinkserverID: Int? = nil, efkiUserID: Int? = nil, efksCustomerCode: String? = nil, sCustomerCode: String, dCustomerFulltimeequivalent: String? = nil, iCustomerPhotocopiercode: Int, iCustomerLongdistancecode: Int, iCustomerTimewindowstart: Int, iCustomerTimewindowend: Int, dCustomerMinimumchargeableinterests: String, dtCustomerBirthdate: String? = nil, dtCustomerTransfer: String, dtCustomerTransferappointment: String, dtCustomerTransfersurvey: String? = nil, bCustomerIsactive: Bool, bCustomerVariableexpensefinanced: Bool, bCustomerVariableexpensefinancedtaxes: Bool, bCustomerSupplychargefinanced: Bool, bCustomerSupplychargefinancedtaxes: Bool, bCustomerAttendance: Bool, eCustomerType: FieldECustomerType, eCustomerMarketingcorrespondence: FieldECustomerMarketingcorrespondence, bCustomerBlackcopycarbon: Bool, bCustomerUnsubscribeinfo: Bool, tCustomerComment: String, IMPORTID: String? = nil) {
         self.pkiCustomerID = pkiCustomerID
         self.fkiCompanyID = fkiCompanyID
         self.fkiCustomergroupID = fkiCustomergroupID
@@ -269,44 +269,44 @@ public struct CustomerResponseCompound: Sendable, Codable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiCustomerID, forKey: .pkiCustomerID)
         try container.encode(fkiCompanyID, forKey: .fkiCompanyID)
-        try container.encode(fkiCustomergroupID, forKey: .fkiCustomergroupID)
+        try container.encodeIfPresent(fkiCustomergroupID, forKey: .fkiCustomergroupID)
         try container.encode(sCustomerName, forKey: .sCustomerName)
         try container.encodeIfPresent(sCustomerNote, forKey: .sCustomerNote)
         try container.encode(fkiContactinformationsID, forKey: .fkiContactinformationsID)
         try container.encode(fkiContactcontainerID, forKey: .fkiContactcontainerID)
-        try container.encode(fkiImageID, forKey: .fkiImageID)
+        try container.encodeIfPresent(fkiImageID, forKey: .fkiImageID)
         try container.encode(fkiGlaccountcontainerID, forKey: .fkiGlaccountcontainerID)
         try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
         try container.encode(fkiDepartmentID, forKey: .fkiDepartmentID)
         try container.encode(fkiPaymentmethodID, forKey: .fkiPaymentmethodID)
-        try container.encode(fkiElectronicfundstransferbankaccountID, forKey: .fkiElectronicfundstransferbankaccountID)
-        try container.encode(fkiElectronicfundstransferbankaccountIDDirectdebit, forKey: .fkiElectronicfundstransferbankaccountIDDirectdebit)
+        try container.encodeIfPresent(fkiElectronicfundstransferbankaccountID, forKey: .fkiElectronicfundstransferbankaccountID)
+        try container.encodeIfPresent(fkiElectronicfundstransferbankaccountIDDirectdebit, forKey: .fkiElectronicfundstransferbankaccountIDDirectdebit)
         try container.encode(fkiSendingmethodID, forKey: .fkiSendingmethodID)
         try container.encode(fkiTaxassignmentID, forKey: .fkiTaxassignmentID)
         try container.encode(fkiAttendancestatusID, forKey: .fkiAttendancestatusID)
-        try container.encode(fkiAgentIDVariableexpensechargeto, forKey: .fkiAgentIDVariableexpensechargeto)
-        try container.encode(fkiBrokerIDVariableexpensechargeto, forKey: .fkiBrokerIDVariableexpensechargeto)
-        try container.encode(fkiCustomerIDVariableexpensechargeto, forKey: .fkiCustomerIDVariableexpensechargeto)
-        try container.encode(fkiGlaccountcontainerIDVariableexpensechargeto, forKey: .fkiGlaccountcontainerIDVariableexpensechargeto)
-        try container.encode(fkiAgentIDSupplychargechargeto, forKey: .fkiAgentIDSupplychargechargeto)
-        try container.encode(fkiBrokerIDSupplychargechargeto, forKey: .fkiBrokerIDSupplychargechargeto)
-        try container.encode(fkiCustomerIDSupplychargechargeto, forKey: .fkiCustomerIDSupplychargechargeto)
-        try container.encode(fkiGlaccountcontainerIDSupplychargechargeto, forKey: .fkiGlaccountcontainerIDSupplychargechargeto)
-        try container.encode(fkiInvoicealternatelogoID, forKey: .fkiInvoicealternatelogoID)
-        try container.encode(fkiSynchronizationlinkserverID, forKey: .fkiSynchronizationlinkserverID)
+        try container.encodeIfPresent(fkiAgentIDVariableexpensechargeto, forKey: .fkiAgentIDVariableexpensechargeto)
+        try container.encodeIfPresent(fkiBrokerIDVariableexpensechargeto, forKey: .fkiBrokerIDVariableexpensechargeto)
+        try container.encodeIfPresent(fkiCustomerIDVariableexpensechargeto, forKey: .fkiCustomerIDVariableexpensechargeto)
+        try container.encodeIfPresent(fkiGlaccountcontainerIDVariableexpensechargeto, forKey: .fkiGlaccountcontainerIDVariableexpensechargeto)
+        try container.encodeIfPresent(fkiAgentIDSupplychargechargeto, forKey: .fkiAgentIDSupplychargechargeto)
+        try container.encodeIfPresent(fkiBrokerIDSupplychargechargeto, forKey: .fkiBrokerIDSupplychargechargeto)
+        try container.encodeIfPresent(fkiCustomerIDSupplychargechargeto, forKey: .fkiCustomerIDSupplychargechargeto)
+        try container.encodeIfPresent(fkiGlaccountcontainerIDSupplychargechargeto, forKey: .fkiGlaccountcontainerIDSupplychargechargeto)
+        try container.encodeIfPresent(fkiInvoicealternatelogoID, forKey: .fkiInvoicealternatelogoID)
+        try container.encodeIfPresent(fkiSynchronizationlinkserverID, forKey: .fkiSynchronizationlinkserverID)
         try container.encodeIfPresent(efkiUserID, forKey: .efkiUserID)
         try container.encodeIfPresent(efksCustomerCode, forKey: .efksCustomerCode)
         try container.encode(sCustomerCode, forKey: .sCustomerCode)
-        try container.encode(dCustomerFulltimeequivalent, forKey: .dCustomerFulltimeequivalent)
+        try container.encodeIfPresent(dCustomerFulltimeequivalent, forKey: .dCustomerFulltimeequivalent)
         try container.encode(iCustomerPhotocopiercode, forKey: .iCustomerPhotocopiercode)
         try container.encode(iCustomerLongdistancecode, forKey: .iCustomerLongdistancecode)
         try container.encode(iCustomerTimewindowstart, forKey: .iCustomerTimewindowstart)
         try container.encode(iCustomerTimewindowend, forKey: .iCustomerTimewindowend)
         try container.encode(dCustomerMinimumchargeableinterests, forKey: .dCustomerMinimumchargeableinterests)
-        try container.encode(dtCustomerBirthdate, forKey: .dtCustomerBirthdate)
+        try container.encodeIfPresent(dtCustomerBirthdate, forKey: .dtCustomerBirthdate)
         try container.encode(dtCustomerTransfer, forKey: .dtCustomerTransfer)
         try container.encode(dtCustomerTransferappointment, forKey: .dtCustomerTransferappointment)
-        try container.encode(dtCustomerTransfersurvey, forKey: .dtCustomerTransfersurvey)
+        try container.encodeIfPresent(dtCustomerTransfersurvey, forKey: .dtCustomerTransfersurvey)
         try container.encode(bCustomerIsactive, forKey: .bCustomerIsactive)
         try container.encode(bCustomerVariableexpensefinanced, forKey: .bCustomerVariableexpensefinanced)
         try container.encode(bCustomerVariableexpensefinancedtaxes, forKey: .bCustomerVariableexpensefinancedtaxes)

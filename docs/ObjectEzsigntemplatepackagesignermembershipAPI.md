@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 # **ezsigntemplatepackagesignermembershipCreateObjectV1**
 ```swift
-    open class func ezsigntemplatepackagesignermembershipCreateObjectV1(ezsigntemplatepackagesignermembershipCreateObjectV1Request: EzsigntemplatepackagesignermembershipCreateObjectV1Request, completion: @escaping (_ data: EzsigntemplatepackagesignermembershipCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatepackagesignermembershipCreateObjectV1(ezsigntemplatepackagesignermembershipCreateObjectV1Request: EzsigntemplatepackagesignermembershipCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplatepackagesignermembershipCreateObjectV1Response
 ```
 
 Create a new Ezsigntemplatepackagesignermembership
@@ -26,15 +26,11 @@ import EzmaxApi
 let ezsigntemplatepackagesignermembershipCreateObjectV1Request = ezsigntemplatepackagesignermembership-createObject-v1-Request(aObjEzsigntemplatepackagesignermembership: [ezsigntemplatepackagesignermembership-RequestCompound(pkiEzsigntemplatepackagesignermembershipID: 123, fkiEzsigntemplatepackagemembershipID: 123, fkiEzsigntemplatepackagesignerID: 123, fkiEzsigntemplatesignerID: 123, iEzsigntemplatepackagesignermembershipCopy: 123)]) // EzsigntemplatepackagesignermembershipCreateObjectV1Request | 
 
 // Create a new Ezsigntemplatepackagesignermembership
-ObjectEzsigntemplatepackagesignermembershipAPI.ezsigntemplatepackagesignermembershipCreateObjectV1(ezsigntemplatepackagesignermembershipCreateObjectV1Request: ezsigntemplatepackagesignermembershipCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplatepackagesignermembershipAPI.ezsigntemplatepackagesignermembershipCreateObjectV1(ezsigntemplatepackagesignermembershipCreateObjectV1Request: ezsigntemplatepackagesignermembershipCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -61,7 +57,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatepackagesignermembershipDeleteObjectV1**
 ```swift
-    open class func ezsigntemplatepackagesignermembershipDeleteObjectV1(pkiEzsigntemplatepackagesignermembershipID: Int, completion: @escaping (_ data: EzsigntemplatepackagesignermembershipDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatepackagesignermembershipDeleteObjectV1(pkiEzsigntemplatepackagesignermembershipID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplatepackagesignermembershipDeleteObjectV1Response
 ```
 
 Delete an existing Ezsigntemplatepackagesignermembership
@@ -76,15 +72,11 @@ import EzmaxApi
 let pkiEzsigntemplatepackagesignermembershipID = 987 // Int | 
 
 // Delete an existing Ezsigntemplatepackagesignermembership
-ObjectEzsigntemplatepackagesignermembershipAPI.ezsigntemplatepackagesignermembershipDeleteObjectV1(pkiEzsigntemplatepackagesignermembershipID: pkiEzsigntemplatepackagesignermembershipID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplatepackagesignermembershipAPI.ezsigntemplatepackagesignermembershipDeleteObjectV1(pkiEzsigntemplatepackagesignermembershipID: pkiEzsigntemplatepackagesignermembershipID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -111,7 +103,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatepackagesignermembershipGetObjectV2**
 ```swift
-    open class func ezsigntemplatepackagesignermembershipGetObjectV2(pkiEzsigntemplatepackagesignermembershipID: Int, completion: @escaping (_ data: EzsigntemplatepackagesignermembershipGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatepackagesignermembershipGetObjectV2(pkiEzsigntemplatepackagesignermembershipID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplatepackagesignermembershipGetObjectV2Response
 ```
 
 Retrieve an existing Ezsigntemplatepackagesignermembership
@@ -126,15 +118,11 @@ import EzmaxApi
 let pkiEzsigntemplatepackagesignermembershipID = 987 // Int | 
 
 // Retrieve an existing Ezsigntemplatepackagesignermembership
-ObjectEzsigntemplatepackagesignermembershipAPI.ezsigntemplatepackagesignermembershipGetObjectV2(pkiEzsigntemplatepackagesignermembershipID: pkiEzsigntemplatepackagesignermembershipID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplatepackagesignermembershipAPI.ezsigntemplatepackagesignermembershipGetObjectV2(pkiEzsigntemplatepackagesignermembershipID: pkiEzsigntemplatepackagesignermembershipID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

@@ -10,8 +10,8 @@ import Foundation
 /** The description of the Variableexpense */
 public struct MultilingualVariableexpenseDescription: Sendable, Codable, Hashable {
 
-    public static let sVariableexpenseDescription1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,40}$/")
-    public static let sVariableexpenseDescription2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,40}$/")
+    public static let sVariableexpenseDescription1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,40}$")
+    public static let sVariableexpenseDescription2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,40}$")
     /** The description of the Variableexpense in French */
     public var sVariableexpenseDescription1: String?
     /** The description of the Variableexpense in English */

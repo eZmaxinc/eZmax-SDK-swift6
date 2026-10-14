@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 # **ezmaxinvoicingGetAutocompleteV2**
 ```swift
-    open class func ezmaxinvoicingGetAutocompleteV2(sSelector: SSelector_ezmaxinvoicingGetAutocompleteV2, eFilterActive: EFilterActive_ezmaxinvoicingGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: EzmaxinvoicingGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func ezmaxinvoicingGetAutocompleteV2(sSelector: SSelector_ezmaxinvoicingGetAutocompleteV2, eFilterActive: EFilterActive_ezmaxinvoicingGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzmaxinvoicingGetAutocompleteV2Response
 ```
 
 Retrieve Ezmaxinvoicings and IDs
@@ -29,15 +29,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Ezmaxinvoicings and IDs
-ObjectEzmaxinvoicingAPI.ezmaxinvoicingGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzmaxinvoicingAPI.ezmaxinvoicingGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -67,7 +63,7 @@ Name | Type | Description  | Notes
 
 # **ezmaxinvoicingGetObjectV2**
 ```swift
-    open class func ezmaxinvoicingGetObjectV2(pkiEzmaxinvoicingID: Int, completion: @escaping (_ data: EzmaxinvoicingGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezmaxinvoicingGetObjectV2(pkiEzmaxinvoicingID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzmaxinvoicingGetObjectV2Response
 ```
 
 Retrieve an existing Ezmaxinvoicing
@@ -82,15 +78,11 @@ import EzmaxApi
 let pkiEzmaxinvoicingID = 987 // Int | 
 
 // Retrieve an existing Ezmaxinvoicing
-ObjectEzmaxinvoicingAPI.ezmaxinvoicingGetObjectV2(pkiEzmaxinvoicingID: pkiEzmaxinvoicingID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzmaxinvoicingAPI.ezmaxinvoicingGetObjectV2(pkiEzmaxinvoicingID: pkiEzmaxinvoicingID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -117,7 +109,7 @@ Name | Type | Description  | Notes
 
 # **ezmaxinvoicingGetProvisionalV1**
 ```swift
-    open class func ezmaxinvoicingGetProvisionalV1(completion: @escaping (_ data: EzmaxinvoicingGetProvisionalV1Response?, _ error: Error?) -> Void)
+    open class func ezmaxinvoicingGetProvisionalV1(apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzmaxinvoicingGetProvisionalV1Response
 ```
 
 Retrieve provisional Ezmaxinvoicing
@@ -131,15 +123,11 @@ import EzmaxApi
 
 
 // Retrieve provisional Ezmaxinvoicing
-ObjectEzmaxinvoicingAPI.ezmaxinvoicingGetProvisionalV1() { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzmaxinvoicingAPI.ezmaxinvoicingGetProvisionalV1()
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

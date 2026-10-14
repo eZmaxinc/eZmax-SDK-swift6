@@ -12,18 +12,18 @@ public struct EmployeeListElement: Sendable, Codable, Hashable {
 
     public static let pkiEmployeeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiDepartmentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sEmployeeCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,5}$/")
-    public static let sEmployeeInternalcodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,10}$/")
-    public static let dtEmployeeHiredateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
-    public static let dtEmployeeLeavedateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
-    public static let sContactFirstnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,20}$/")
-    public static let sContactLastnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,25}$/")
-    public static let sPhoneE164Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\+[1-9]\\d{1,14}$/")
-    public static let sEmailAddressRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\w.%+\\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$/")
+    public static let sEmployeeCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,5}$")
+    public static let sEmployeeInternalcodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,10}$")
+    public static let dtEmployeeHiredateRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$")
+    public static let dtEmployeeLeavedateRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$")
+    public static let sContactFirstnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,20}$")
+    public static let sContactLastnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,25}$")
+    public static let sPhoneE164Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^\\+[1-9]\\d{1,14}$")
+    public static let sEmailAddressRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[\\w.%+\\-!#$%&'*+/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$")
     public static let fkiProvinceIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sProvinceNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sProvinceNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
     public static let fkiCountryIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sCountryNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,40}$/")
+    public static let sCountryNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,40}$")
     /** The unique ID of the Employee. */
     public var pkiEmployeeID: Int
     /** The unique ID of the Department */

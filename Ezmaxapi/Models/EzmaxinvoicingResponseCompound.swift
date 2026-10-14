@@ -16,9 +16,9 @@ public struct EzmaxinvoicingResponseCompound: Sendable, Codable, Hashable {
     public static let fkiSystemconfigurationtypeIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let yyyymmEzmaxinvoicingRule = StringRule(minLength: nil, maxLength: 7, pattern: nil)
     public static let iEzmaxinvoicingDaysRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let dEzmaxinvoicingRebatepaymenttypeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,3}?\\.[\\d]{2}$/")
+    public static let dEzmaxinvoicingRebatepaymenttypeRule = StringRule(minLength: nil, maxLength: nil, pattern: "^-{0,1}[\\d]{1,3}?\\.[\\d]{2}$")
     public static let iEzmaxinvoicingContractlengthRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let dEzmaxinvoicingRebatecontractlengthRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,3}?\\.[\\d]{2}$/")
+    public static let dEzmaxinvoicingRebatecontractlengthRule = StringRule(minLength: nil, maxLength: nil, pattern: "^-{0,1}[\\d]{1,3}?\\.[\\d]{2}$")
     /** The unique ID of the Ezmaxinvoicing */
     public var pkiEzmaxinvoicingID: Int?
     /** The unique ID of the Ezmaxinvoicingcontract */

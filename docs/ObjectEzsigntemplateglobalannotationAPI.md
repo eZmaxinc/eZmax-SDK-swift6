@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **ezsigntemplateglobalannotationGetObjectV2**
 ```swift
-    open class func ezsigntemplateglobalannotationGetObjectV2(pkiEzsigntemplateglobalannotationID: Int, completion: @escaping (_ data: EzsigntemplateglobalannotationGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplateglobalannotationGetObjectV2(pkiEzsigntemplateglobalannotationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplateglobalannotationGetObjectV2Response
 ```
 
 Retrieve an existing Ezsigntemplateglobalannotation
@@ -24,15 +24,11 @@ import EzmaxApi
 let pkiEzsigntemplateglobalannotationID = 987 // Int | The unique ID of the Ezsigntemplateglobalannotation
 
 // Retrieve an existing Ezsigntemplateglobalannotation
-ObjectEzsigntemplateglobalannotationAPI.ezsigntemplateglobalannotationGetObjectV2(pkiEzsigntemplateglobalannotationID: pkiEzsigntemplateglobalannotationID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplateglobalannotationAPI.ezsigntemplateglobalannotationGetObjectV2(pkiEzsigntemplateglobalannotationID: pkiEzsigntemplateglobalannotationID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

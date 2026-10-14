@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 # **disclosureBatchDownloadV1**
 ```swift
-    open class func disclosureBatchDownloadV1(pkiDisclosureID: Int, disclosureBatchDownloadV1Request: DisclosureBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func disclosureBatchDownloadV1(pkiDisclosureID: Int, disclosureBatchDownloadV1Request: DisclosureBatchDownloadV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> URL
 ```
 
 Download multiples attachments from a Disclosure
@@ -30,15 +30,11 @@ let pkiDisclosureID = 987 // Int |
 let disclosureBatchDownloadV1Request = disclosure-batchDownload-v1-Request(aPkiAttachmentID: [123]) // DisclosureBatchDownloadV1Request | 
 
 // Download multiples attachments from a Disclosure
-ObjectDisclosureAPI.disclosureBatchDownloadV1(pkiDisclosureID: pkiDisclosureID, disclosureBatchDownloadV1Request: disclosureBatchDownloadV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDisclosureAPI.disclosureBatchDownloadV1(pkiDisclosureID: pkiDisclosureID, disclosureBatchDownloadV1Request: disclosureBatchDownloadV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -66,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **disclosureGetAttachmentsV1**
 ```swift
-    open class func disclosureGetAttachmentsV1(pkiDisclosureID: Int, completion: @escaping (_ data: DisclosureGetAttachmentsV1Response?, _ error: Error?) -> Void)
+    open class func disclosureGetAttachmentsV1(pkiDisclosureID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DisclosureGetAttachmentsV1Response
 ```
 
 Retrieve Disclosure's attachments
@@ -79,15 +75,11 @@ import EzmaxApi
 let pkiDisclosureID = 987 // Int | 
 
 // Retrieve Disclosure's attachments
-ObjectDisclosureAPI.disclosureGetAttachmentsV1(pkiDisclosureID: pkiDisclosureID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDisclosureAPI.disclosureGetAttachmentsV1(pkiDisclosureID: pkiDisclosureID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -114,7 +106,7 @@ Name | Type | Description  | Notes
 
 # **disclosureGetCommunicationCountV1**
 ```swift
-    open class func disclosureGetCommunicationCountV1(pkiDisclosureID: Int, completion: @escaping (_ data: DisclosureGetCommunicationCountV1Response?, _ error: Error?) -> Void)
+    open class func disclosureGetCommunicationCountV1(pkiDisclosureID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DisclosureGetCommunicationCountV1Response
 ```
 
 Retrieve Communication count
@@ -127,15 +119,11 @@ import EzmaxApi
 let pkiDisclosureID = 987 // Int | 
 
 // Retrieve Communication count
-ObjectDisclosureAPI.disclosureGetCommunicationCountV1(pkiDisclosureID: pkiDisclosureID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDisclosureAPI.disclosureGetCommunicationCountV1(pkiDisclosureID: pkiDisclosureID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -162,7 +150,7 @@ Name | Type | Description  | Notes
 
 # **disclosureGetCommunicationListV1**
 ```swift
-    open class func disclosureGetCommunicationListV1(pkiDisclosureID: Int, completion: @escaping (_ data: DisclosureGetCommunicationListV1Response?, _ error: Error?) -> Void)
+    open class func disclosureGetCommunicationListV1(pkiDisclosureID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DisclosureGetCommunicationListV1Response
 ```
 
 Retrieve Communication list
@@ -175,15 +163,11 @@ import EzmaxApi
 let pkiDisclosureID = 987 // Int | 
 
 // Retrieve Communication list
-ObjectDisclosureAPI.disclosureGetCommunicationListV1(pkiDisclosureID: pkiDisclosureID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDisclosureAPI.disclosureGetCommunicationListV1(pkiDisclosureID: pkiDisclosureID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -210,7 +194,7 @@ Name | Type | Description  | Notes
 
 # **disclosureGetCommunicationrecipientsV1**
 ```swift
-    open class func disclosureGetCommunicationrecipientsV1(pkiDisclosureID: Int, completion: @escaping (_ data: DisclosureGetCommunicationrecipientsV1Response?, _ error: Error?) -> Void)
+    open class func disclosureGetCommunicationrecipientsV1(pkiDisclosureID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DisclosureGetCommunicationrecipientsV1Response
 ```
 
 Retrieve Communication recipients
@@ -223,15 +207,11 @@ import EzmaxApi
 let pkiDisclosureID = 987 // Int | 
 
 // Retrieve Communication recipients
-ObjectDisclosureAPI.disclosureGetCommunicationrecipientsV1(pkiDisclosureID: pkiDisclosureID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDisclosureAPI.disclosureGetCommunicationrecipientsV1(pkiDisclosureID: pkiDisclosureID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -258,7 +238,7 @@ Name | Type | Description  | Notes
 
 # **disclosureGetCommunicationsendersV1**
 ```swift
-    open class func disclosureGetCommunicationsendersV1(pkiDisclosureID: Int, completion: @escaping (_ data: DisclosureGetCommunicationsendersV1Response?, _ error: Error?) -> Void)
+    open class func disclosureGetCommunicationsendersV1(pkiDisclosureID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DisclosureGetCommunicationsendersV1Response
 ```
 
 Retrieve Communication senders
@@ -271,15 +251,11 @@ import EzmaxApi
 let pkiDisclosureID = 987 // Int | 
 
 // Retrieve Communication senders
-ObjectDisclosureAPI.disclosureGetCommunicationsendersV1(pkiDisclosureID: pkiDisclosureID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDisclosureAPI.disclosureGetCommunicationsendersV1(pkiDisclosureID: pkiDisclosureID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -306,7 +282,7 @@ Name | Type | Description  | Notes
 
 # **disclosureGetListV1**
 ```swift
-    open class func disclosureGetListV1(eOrderBy: EOrderBy_disclosureGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: DisclosureGetListV1Response?, _ error: Error?) -> Void)
+    open class func disclosureGetListV1(eOrderBy: EOrderBy_disclosureGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DisclosureGetListV1Response
 ```
 
 Retrieve Disclosure list
@@ -325,15 +301,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Disclosure list
-ObjectDisclosureAPI.disclosureGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDisclosureAPI.disclosureGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -364,7 +336,7 @@ Name | Type | Description  | Notes
 
 # **disclosureImportIntoEDMV1**
 ```swift
-    open class func disclosureImportIntoEDMV1(pkiDisclosureID: Int, disclosureImportIntoEDMV1Request: DisclosureImportIntoEDMV1Request, completion: @escaping (_ data: DisclosureImportIntoEDMV1Response?, _ error: Error?) -> Void)
+    open class func disclosureImportIntoEDMV1(pkiDisclosureID: Int, disclosureImportIntoEDMV1Request: DisclosureImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DisclosureImportIntoEDMV1Response
 ```
 
 Import attachments into the Disclosure
@@ -378,15 +350,11 @@ let pkiDisclosureID = 987 // Int |
 let disclosureImportIntoEDMV1Request = disclosure-importIntoEDM-v1-Request(aObjAttachment: [Custom-AttachmentImportIntoEDM-Request(eAttachmentSource: "eAttachmentSource_example", fkiAttachmentID: 123, fkiInscriptionchecklistID: 123, sAttachmentUrl: "sAttachmentUrl_example", sAttachmentBase64: 123, sAttachmentName: "sAttachmentName_example", sAttachmentCategory: "sAttachmentCategory_example", eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123, sAttachmentMD5: "sAttachmentMD5_example", bAttachmentForceoverwrite: false, bAttachmentForcerestore: false)]) // DisclosureImportIntoEDMV1Request | 
 
 // Import attachments into the Disclosure
-ObjectDisclosureAPI.disclosureImportIntoEDMV1(pkiDisclosureID: pkiDisclosureID, disclosureImportIntoEDMV1Request: disclosureImportIntoEDMV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDisclosureAPI.disclosureImportIntoEDMV1(pkiDisclosureID: pkiDisclosureID, disclosureImportIntoEDMV1Request: disclosureImportIntoEDMV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

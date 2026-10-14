@@ -11,12 +11,12 @@ import Foundation
 public struct CustomEzmaxpartnerListElement: Sendable, Codable, Hashable {
 
     public static let pkiEzmaxpartnerIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sEzmaxpartnerAddressXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,200}$/")
-    public static let sEzmaxpartnerEmailaddressXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\w.%+\\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$/")
-    public static let sEzmaxpartnerShortdescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,256}$/")
-    public static let sEzmaxpartnerNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    public static let sEzmaxpartnerPhoneE164XRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\+[1-9]\\d{1,14}$/")
-    public static let sEzmaxpartnerUrlXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
+    public static let sEzmaxpartnerAddressXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,200}$")
+    public static let sEzmaxpartnerEmailaddressXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[\\w.%+\\-!#$%&'*+/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$")
+    public static let sEzmaxpartnerShortdescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,256}$")
+    public static let sEzmaxpartnerNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
+    public static let sEzmaxpartnerPhoneE164XRule = StringRule(minLength: nil, maxLength: nil, pattern: "^\\+[1-9]\\d{1,14}$")
+    public static let sEzmaxpartnerUrlXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^(https|http)://[^\\s/$.?#].[^\\s]*$")
     /** The unique ID of the Ezmaxpartner */
     public var pkiEzmaxpartnerID: Int
     /** The complete address in a single line */

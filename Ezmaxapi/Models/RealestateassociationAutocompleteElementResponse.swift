@@ -11,8 +11,8 @@ import Foundation
 public struct RealestateassociationAutocompleteElementResponse: Sendable, Codable, Hashable {
 
     public static let pkiRealestateassociationIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sRealestateassociationNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,65}$/")
-    public static let sRealestateassociationAcronymXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,6}$/")
+    public static let sRealestateassociationNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,65}$")
+    public static let sRealestateassociationAcronymXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,6}$")
     /** The unique ID of the Realestateassociation */
     public var pkiRealestateassociationID: Int
     /** The name of the Realestateassociation */

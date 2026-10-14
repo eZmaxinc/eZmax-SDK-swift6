@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 # **domainCreateObjectV1**
 ```swift
-    open class func domainCreateObjectV1(domainCreateObjectV1Request: DomainCreateObjectV1Request, completion: @escaping (_ data: DomainCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func domainCreateObjectV1(domainCreateObjectV1Request: DomainCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DomainCreateObjectV1Response
 ```
 
 Create a new Domain
@@ -28,15 +28,11 @@ import EzmaxApi
 let domainCreateObjectV1Request = domain-createObject-v1-Request(aObjDomain: [domain-RequestCompound(pkiDomainID: 123, sDomainName: "sDomainName_example")]) // DomainCreateObjectV1Request | 
 
 // Create a new Domain
-ObjectDomainAPI.domainCreateObjectV1(domainCreateObjectV1Request: domainCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDomainAPI.domainCreateObjectV1(domainCreateObjectV1Request: domainCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -63,7 +59,7 @@ Name | Type | Description  | Notes
 
 # **domainDeleteObjectV1**
 ```swift
-    open class func domainDeleteObjectV1(pkiDomainID: Int, completion: @escaping (_ data: DomainDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func domainDeleteObjectV1(pkiDomainID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DomainDeleteObjectV1Response
 ```
 
 Delete an existing Domain
@@ -78,15 +74,11 @@ import EzmaxApi
 let pkiDomainID = 987 // Int | The unique ID of the Domain
 
 // Delete an existing Domain
-ObjectDomainAPI.domainDeleteObjectV1(pkiDomainID: pkiDomainID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDomainAPI.domainDeleteObjectV1(pkiDomainID: pkiDomainID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -113,7 +105,7 @@ Name | Type | Description  | Notes
 
 # **domainGetAutocompleteV2**
 ```swift
-    open class func domainGetAutocompleteV2(sSelector: SSelector_domainGetAutocompleteV2, eFilterActive: EFilterActive_domainGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: DomainGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func domainGetAutocompleteV2(sSelector: SSelector_domainGetAutocompleteV2, eFilterActive: EFilterActive_domainGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DomainGetAutocompleteV2Response
 ```
 
 Retrieve Domain and IDs
@@ -131,15 +123,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Domain and IDs
-ObjectDomainAPI.domainGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDomainAPI.domainGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -169,7 +157,7 @@ Name | Type | Description  | Notes
 
 # **domainGetListV1**
 ```swift
-    open class func domainGetListV1(eOrderBy: EOrderBy_domainGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: DomainGetListV1Response?, _ error: Error?) -> Void)
+    open class func domainGetListV1(eOrderBy: EOrderBy_domainGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DomainGetListV1Response
 ```
 
 Retrieve Domain list
@@ -188,15 +176,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Domain list
-ObjectDomainAPI.domainGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDomainAPI.domainGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -227,7 +211,7 @@ Name | Type | Description  | Notes
 
 # **domainGetObjectV2**
 ```swift
-    open class func domainGetObjectV2(pkiDomainID: Int, completion: @escaping (_ data: DomainGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func domainGetObjectV2(pkiDomainID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DomainGetObjectV2Response
 ```
 
 Retrieve an existing Domain
@@ -242,15 +226,11 @@ import EzmaxApi
 let pkiDomainID = 987 // Int | The unique ID of the Domain
 
 // Retrieve an existing Domain
-ObjectDomainAPI.domainGetObjectV2(pkiDomainID: pkiDomainID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDomainAPI.domainGetObjectV2(pkiDomainID: pkiDomainID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

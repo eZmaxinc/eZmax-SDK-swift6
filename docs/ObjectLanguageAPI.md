@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **languageGetAutocompleteV2**
 ```swift
-    open class func languageGetAutocompleteV2(sSelector: SSelector_languageGetAutocompleteV2, eFilterActive: EFilterActive_languageGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: LanguageGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func languageGetAutocompleteV2(sSelector: SSelector_languageGetAutocompleteV2, eFilterActive: EFilterActive_languageGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> LanguageGetAutocompleteV2Response
 ```
 
 Retrieve Languages and IDs
@@ -27,15 +27,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Languages and IDs
-ObjectLanguageAPI.languageGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectLanguageAPI.languageGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

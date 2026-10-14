@@ -11,7 +11,7 @@ import Foundation
 public struct OtherincometypeAutocompleteElementResponse: Sendable, Codable, Hashable {
 
     public static let pkiOtherincometypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sOtherincometypeDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,255}$/")
+    public static let sOtherincometypeDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,255}$")
     /** The unique ID of the Otherincometype */
     public var pkiOtherincometypeID: Int
     /** The description of the Otherincometype in the language of the requester */

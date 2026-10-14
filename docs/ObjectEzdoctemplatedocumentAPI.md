@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 # **ezdoctemplatedocumentCreateObjectV1**
 ```swift
-    open class func ezdoctemplatedocumentCreateObjectV1(ezdoctemplatedocumentCreateObjectV1Request: EzdoctemplatedocumentCreateObjectV1Request, completion: @escaping (_ data: EzdoctemplatedocumentCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezdoctemplatedocumentCreateObjectV1(ezdoctemplatedocumentCreateObjectV1Request: EzdoctemplatedocumentCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzdoctemplatedocumentCreateObjectV1Response
 ```
 
 Create a new Ezdoctemplatedocument
@@ -30,15 +30,11 @@ import EzmaxApi
 let ezdoctemplatedocumentCreateObjectV1Request = ezdoctemplatedocument-createObject-v1-Request(aObjEzdoctemplatedocument: [ezdoctemplatedocument-RequestCompound(pkiEzdoctemplatedocumentID: 123, fkiLanguageID: 123, fkiEzsignfoldertypeID: 123, fkiEzdoctemplatetypeID: 123, fkiEzdoctemplatefieldtypecategoryID: 123, eEzdoctemplatedocumentPrivacylevel: Field-eEzdoctemplatedocumentPrivacylevel(), bEzdoctemplatedocumentIsactive: true, objEzdoctemplatedocumentName: Multilingual-EzdoctemplatedocumentName(sEzdoctemplatedocumentName1: "sEzdoctemplatedocumentName1_example", sEzdoctemplatedocumentName2: "sEzdoctemplatedocumentName2_example"))]) // EzdoctemplatedocumentCreateObjectV1Request | 
 
 // Create a new Ezdoctemplatedocument
-ObjectEzdoctemplatedocumentAPI.ezdoctemplatedocumentCreateObjectV1(ezdoctemplatedocumentCreateObjectV1Request: ezdoctemplatedocumentCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzdoctemplatedocumentAPI.ezdoctemplatedocumentCreateObjectV1(ezdoctemplatedocumentCreateObjectV1Request: ezdoctemplatedocumentCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -65,7 +61,7 @@ Name | Type | Description  | Notes
 
 # **ezdoctemplatedocumentDownloadV1**
 ```swift
-    open class func ezdoctemplatedocumentDownloadV1(pkiEzdoctemplatedocumentID: Int, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+    open class func ezdoctemplatedocumentDownloadV1(pkiEzdoctemplatedocumentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse)
 ```
 
 Retrieve the content
@@ -80,15 +76,10 @@ import EzmaxApi
 let pkiEzdoctemplatedocumentID = 987 // Int | 
 
 // Retrieve the content
-ObjectEzdoctemplatedocumentAPI.ezdoctemplatedocumentDownloadV1(pkiEzdoctemplatedocumentID: pkiEzdoctemplatedocumentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    try await ObjectEzdoctemplatedocumentAPI.ezdoctemplatedocumentDownloadV1(pkiEzdoctemplatedocumentID: pkiEzdoctemplatedocumentID)
+} catch {
+    print(error)
 }
 ```
 
@@ -115,7 +106,7 @@ Void (empty response body)
 
 # **ezdoctemplatedocumentEditObjectV1**
 ```swift
-    open class func ezdoctemplatedocumentEditObjectV1(pkiEzdoctemplatedocumentID: Int, ezdoctemplatedocumentEditObjectV1Request: EzdoctemplatedocumentEditObjectV1Request, completion: @escaping (_ data: EzdoctemplatedocumentEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezdoctemplatedocumentEditObjectV1(pkiEzdoctemplatedocumentID: Int, ezdoctemplatedocumentEditObjectV1Request: EzdoctemplatedocumentEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzdoctemplatedocumentEditObjectV1Response
 ```
 
 Edit an existing Ezdoctemplatedocument
@@ -131,15 +122,11 @@ let pkiEzdoctemplatedocumentID = 987 // Int | The unique ID of the Ezdoctemplate
 let ezdoctemplatedocumentEditObjectV1Request = ezdoctemplatedocument-editObject-v1-Request(objEzdoctemplatedocument: ezdoctemplatedocument-RequestCompound(pkiEzdoctemplatedocumentID: 123, fkiLanguageID: 123, fkiEzsignfoldertypeID: 123, fkiEzdoctemplatetypeID: 123, fkiEzdoctemplatefieldtypecategoryID: 123, eEzdoctemplatedocumentPrivacylevel: Field-eEzdoctemplatedocumentPrivacylevel(), bEzdoctemplatedocumentIsactive: true, objEzdoctemplatedocumentName: Multilingual-EzdoctemplatedocumentName(sEzdoctemplatedocumentName1: "sEzdoctemplatedocumentName1_example", sEzdoctemplatedocumentName2: "sEzdoctemplatedocumentName2_example"))) // EzdoctemplatedocumentEditObjectV1Request | 
 
 // Edit an existing Ezdoctemplatedocument
-ObjectEzdoctemplatedocumentAPI.ezdoctemplatedocumentEditObjectV1(pkiEzdoctemplatedocumentID: pkiEzdoctemplatedocumentID, ezdoctemplatedocumentEditObjectV1Request: ezdoctemplatedocumentEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzdoctemplatedocumentAPI.ezdoctemplatedocumentEditObjectV1(pkiEzdoctemplatedocumentID: pkiEzdoctemplatedocumentID, ezdoctemplatedocumentEditObjectV1Request: ezdoctemplatedocumentEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -167,7 +154,7 @@ Name | Type | Description  | Notes
 
 # **ezdoctemplatedocumentGetAutocompleteV2**
 ```swift
-    open class func ezdoctemplatedocumentGetAutocompleteV2(sSelector: SSelector_ezdoctemplatedocumentGetAutocompleteV2, eType: EType_ezdoctemplatedocumentGetAutocompleteV2, fkiEzsignfoldertypeID: String? = nil, eFilterActive: EFilterActive_ezdoctemplatedocumentGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: EzdoctemplatedocumentGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func ezdoctemplatedocumentGetAutocompleteV2(sSelector: SSelector_ezdoctemplatedocumentGetAutocompleteV2, eType: EType_ezdoctemplatedocumentGetAutocompleteV2, fkiEzsignfoldertypeID: String? = nil, eFilterActive: EFilterActive_ezdoctemplatedocumentGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzdoctemplatedocumentGetAutocompleteV2Response
 ```
 
 Retrieve Ezdoctemplatedocuments and IDs
@@ -187,15 +174,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Ezdoctemplatedocuments and IDs
-ObjectEzdoctemplatedocumentAPI.ezdoctemplatedocumentGetAutocompleteV2(sSelector: sSelector, eType: eType, fkiEzsignfoldertypeID: fkiEzsignfoldertypeID, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzdoctemplatedocumentAPI.ezdoctemplatedocumentGetAutocompleteV2(sSelector: sSelector, eType: eType, fkiEzsignfoldertypeID: fkiEzsignfoldertypeID, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -227,7 +210,7 @@ Name | Type | Description  | Notes
 
 # **ezdoctemplatedocumentGetListV1**
 ```swift
-    open class func ezdoctemplatedocumentGetListV1(eOrderBy: EOrderBy_ezdoctemplatedocumentGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: EzdoctemplatedocumentGetListV1Response?, _ error: Error?) -> Void)
+    open class func ezdoctemplatedocumentGetListV1(eOrderBy: EOrderBy_ezdoctemplatedocumentGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzdoctemplatedocumentGetListV1Response
 ```
 
 Retrieve Ezdoctemplatedocument list
@@ -246,15 +229,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Ezdoctemplatedocument list
-ObjectEzdoctemplatedocumentAPI.ezdoctemplatedocumentGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzdoctemplatedocumentAPI.ezdoctemplatedocumentGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -285,7 +264,7 @@ Name | Type | Description  | Notes
 
 # **ezdoctemplatedocumentGetObjectV2**
 ```swift
-    open class func ezdoctemplatedocumentGetObjectV2(pkiEzdoctemplatedocumentID: Int, completion: @escaping (_ data: EzdoctemplatedocumentGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezdoctemplatedocumentGetObjectV2(pkiEzdoctemplatedocumentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzdoctemplatedocumentGetObjectV2Response
 ```
 
 Retrieve an existing Ezdoctemplatedocument
@@ -300,15 +279,11 @@ import EzmaxApi
 let pkiEzdoctemplatedocumentID = 987 // Int | The unique ID of the Ezdoctemplatedocument
 
 // Retrieve an existing Ezdoctemplatedocument
-ObjectEzdoctemplatedocumentAPI.ezdoctemplatedocumentGetObjectV2(pkiEzdoctemplatedocumentID: pkiEzdoctemplatedocumentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzdoctemplatedocumentAPI.ezdoctemplatedocumentGetObjectV2(pkiEzdoctemplatedocumentID: pkiEzdoctemplatedocumentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -335,7 +310,7 @@ Name | Type | Description  | Notes
 
 # **ezdoctemplatedocumentPatchObjectV1**
 ```swift
-    open class func ezdoctemplatedocumentPatchObjectV1(pkiEzdoctemplatedocumentID: Int, ezdoctemplatedocumentPatchObjectV1Request: EzdoctemplatedocumentPatchObjectV1Request, completion: @escaping (_ data: EzdoctemplatedocumentPatchObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezdoctemplatedocumentPatchObjectV1(pkiEzdoctemplatedocumentID: Int, ezdoctemplatedocumentPatchObjectV1Request: EzdoctemplatedocumentPatchObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzdoctemplatedocumentPatchObjectV1Response
 ```
 
 Patch an existing Ezdoctemplatedocument
@@ -351,15 +326,11 @@ let pkiEzdoctemplatedocumentID = 987 // Int | The unique ID of the Ezdoctemplate
 let ezdoctemplatedocumentPatchObjectV1Request = ezdoctemplatedocument-patchObject-v1-Request(objEzdoctemplatedocument: ezdoctemplatedocument-RequestPatch(eEzdoctemplatedocumentFormat: "eEzdoctemplatedocumentFormat_example", sEzdoctemplatedocumentFields: "", sEzdoctemplatedocumentBase64: 123)) // EzdoctemplatedocumentPatchObjectV1Request | 
 
 // Patch an existing Ezdoctemplatedocument
-ObjectEzdoctemplatedocumentAPI.ezdoctemplatedocumentPatchObjectV1(pkiEzdoctemplatedocumentID: pkiEzdoctemplatedocumentID, ezdoctemplatedocumentPatchObjectV1Request: ezdoctemplatedocumentPatchObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzdoctemplatedocumentAPI.ezdoctemplatedocumentPatchObjectV1(pkiEzdoctemplatedocumentID: pkiEzdoctemplatedocumentID, ezdoctemplatedocumentPatchObjectV1Request: ezdoctemplatedocumentPatchObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

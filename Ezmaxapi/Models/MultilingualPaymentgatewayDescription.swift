@@ -10,8 +10,8 @@ import Foundation
 /** Description of the Paymentgateway */
 public struct MultilingualPaymentgatewayDescription: Sendable, Codable, Hashable {
 
-    public static let sPaymentgatewayDescription1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,50}$/")
-    public static let sPaymentgatewayDescription2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,50}$/")
+    public static let sPaymentgatewayDescription1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,50}$")
+    public static let sPaymentgatewayDescription2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,50}$")
     /** The description of the Paymentgateway in French */
     public var sPaymentgatewayDescription1: String?
     /** The description of the Paymentgateway in English */

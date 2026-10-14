@@ -14,12 +14,12 @@ public struct NotaryListElement: Sendable, Codable, Hashable {
     public static let fkiPaymentmethodIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiProvinceIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiCountryIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sContactLastnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,25}$/")
-    public static let sContactFirstnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,20}$/")
-    public static let sPhoneE164Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\+[1-9]\\d{1,14}$/")
-    public static let sPaymentmethodDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    public static let sProvinceNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    public static let sCountryNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,40}$/")
+    public static let sContactLastnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,25}$")
+    public static let sContactFirstnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,20}$")
+    public static let sPhoneE164Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^\\+[1-9]\\d{1,14}$")
+    public static let sPaymentmethodDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
+    public static let sProvinceNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
+    public static let sCountryNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,40}$")
     /** The unique ID of the Notary. */
     public var pkiNotaryID: Int
     /** The unique ID of the Paymentmethod */

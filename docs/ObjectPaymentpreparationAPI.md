@@ -6,12 +6,16 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**paymentpreparationBatchDownloadV1**](ObjectPaymentpreparationAPI.md#paymentpreparationbatchdownloadv1) | **POST** /1/object/paymentpreparation/{pkiPaymentpreparationID}/batchDownload | Download multiples attachments from an Paymentpreparation
 [**paymentpreparationGetAttachmentsV1**](ObjectPaymentpreparationAPI.md#paymentpreparationgetattachmentsv1) | **GET** /1/object/paymentpreparation/{pkiPaymentpreparationID}/getAttachments | Retrieve Paymentpreparation&#39;s attachments
+[**paymentpreparationGetCommunicationCountV1**](ObjectPaymentpreparationAPI.md#paymentpreparationgetcommunicationcountv1) | **GET** /1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationCount | Retrieve Communication count
+[**paymentpreparationGetCommunicationListV1**](ObjectPaymentpreparationAPI.md#paymentpreparationgetcommunicationlistv1) | **GET** /1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationList | Retrieve Communication list
+[**paymentpreparationGetCommunicationrecipientsV1**](ObjectPaymentpreparationAPI.md#paymentpreparationgetcommunicationrecipientsv1) | **GET** /1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationrecipients | Retrieve Communication recipients
+[**paymentpreparationGetCommunicationsendersV1**](ObjectPaymentpreparationAPI.md#paymentpreparationgetcommunicationsendersv1) | **GET** /1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationsenders | Retrieve Communication senders
 [**paymentpreparationImportIntoEDMV1**](ObjectPaymentpreparationAPI.md#paymentpreparationimportintoedmv1) | **POST** /1/object/paymentpreparation/{pkiPaymentpreparationID}/importIntoEDM | Import attachments into the Paymentpreparation
 
 
 # **paymentpreparationBatchDownloadV1**
 ```swift
-    open class func paymentpreparationBatchDownloadV1(pkiPaymentpreparationID: Int, paymentpreparationBatchDownloadV1Request: PaymentpreparationBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func paymentpreparationBatchDownloadV1(pkiPaymentpreparationID: Int, paymentpreparationBatchDownloadV1Request: PaymentpreparationBatchDownloadV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> URL
 ```
 
 Download multiples attachments from an Paymentpreparation
@@ -25,15 +29,11 @@ let pkiPaymentpreparationID = 987 // Int |
 let paymentpreparationBatchDownloadV1Request = paymentpreparation-batchDownload-v1-Request(aPkiAttachmentID: [123]) // PaymentpreparationBatchDownloadV1Request | 
 
 // Download multiples attachments from an Paymentpreparation
-ObjectPaymentpreparationAPI.paymentpreparationBatchDownloadV1(pkiPaymentpreparationID: pkiPaymentpreparationID, paymentpreparationBatchDownloadV1Request: paymentpreparationBatchDownloadV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectPaymentpreparationAPI.paymentpreparationBatchDownloadV1(pkiPaymentpreparationID: pkiPaymentpreparationID, paymentpreparationBatchDownloadV1Request: paymentpreparationBatchDownloadV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 # **paymentpreparationGetAttachmentsV1**
 ```swift
-    open class func paymentpreparationGetAttachmentsV1(pkiPaymentpreparationID: Int, completion: @escaping (_ data: PaymentpreparationGetAttachmentsV1Response?, _ error: Error?) -> Void)
+    open class func paymentpreparationGetAttachmentsV1(pkiPaymentpreparationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentpreparationGetAttachmentsV1Response
 ```
 
 Retrieve Paymentpreparation's attachments
@@ -74,15 +74,11 @@ import EzmaxApi
 let pkiPaymentpreparationID = 987 // Int | 
 
 // Retrieve Paymentpreparation's attachments
-ObjectPaymentpreparationAPI.paymentpreparationGetAttachmentsV1(pkiPaymentpreparationID: pkiPaymentpreparationID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectPaymentpreparationAPI.paymentpreparationGetAttachmentsV1(pkiPaymentpreparationID: pkiPaymentpreparationID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -107,9 +103,185 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **paymentpreparationGetCommunicationCountV1**
+```swift
+    open class func paymentpreparationGetCommunicationCountV1(pkiPaymentpreparationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentpreparationGetCommunicationCountV1Response
+```
+
+Retrieve Communication count
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiPaymentpreparationID = 987 // Int | 
+
+// Retrieve Communication count
+do {
+    let response = try await ObjectPaymentpreparationAPI.paymentpreparationGetCommunicationCountV1(pkiPaymentpreparationID: pkiPaymentpreparationID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiPaymentpreparationID** | **Int** |  | 
+
+### Return type
+
+[**PaymentpreparationGetCommunicationCountV1Response**](PaymentpreparationGetCommunicationCountV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **paymentpreparationGetCommunicationListV1**
+```swift
+    open class func paymentpreparationGetCommunicationListV1(pkiPaymentpreparationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentpreparationGetCommunicationListV1Response
+```
+
+Retrieve Communication list
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiPaymentpreparationID = 987 // Int | 
+
+// Retrieve Communication list
+do {
+    let response = try await ObjectPaymentpreparationAPI.paymentpreparationGetCommunicationListV1(pkiPaymentpreparationID: pkiPaymentpreparationID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiPaymentpreparationID** | **Int** |  | 
+
+### Return type
+
+[**PaymentpreparationGetCommunicationListV1Response**](PaymentpreparationGetCommunicationListV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **paymentpreparationGetCommunicationrecipientsV1**
+```swift
+    open class func paymentpreparationGetCommunicationrecipientsV1(pkiPaymentpreparationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentpreparationGetCommunicationrecipientsV1Response
+```
+
+Retrieve Communication recipients
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiPaymentpreparationID = 987 // Int | 
+
+// Retrieve Communication recipients
+do {
+    let response = try await ObjectPaymentpreparationAPI.paymentpreparationGetCommunicationrecipientsV1(pkiPaymentpreparationID: pkiPaymentpreparationID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiPaymentpreparationID** | **Int** |  | 
+
+### Return type
+
+[**PaymentpreparationGetCommunicationrecipientsV1Response**](PaymentpreparationGetCommunicationrecipientsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **paymentpreparationGetCommunicationsendersV1**
+```swift
+    open class func paymentpreparationGetCommunicationsendersV1(pkiPaymentpreparationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentpreparationGetCommunicationsendersV1Response
+```
+
+Retrieve Communication senders
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiPaymentpreparationID = 987 // Int | 
+
+// Retrieve Communication senders
+do {
+    let response = try await ObjectPaymentpreparationAPI.paymentpreparationGetCommunicationsendersV1(pkiPaymentpreparationID: pkiPaymentpreparationID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiPaymentpreparationID** | **Int** |  | 
+
+### Return type
+
+[**PaymentpreparationGetCommunicationsendersV1Response**](PaymentpreparationGetCommunicationsendersV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **paymentpreparationImportIntoEDMV1**
 ```swift
-    open class func paymentpreparationImportIntoEDMV1(pkiPaymentpreparationID: Int, paymentpreparationImportIntoEDMV1Request: PaymentpreparationImportIntoEDMV1Request, completion: @escaping (_ data: PaymentpreparationImportIntoEDMV1Response?, _ error: Error?) -> Void)
+    open class func paymentpreparationImportIntoEDMV1(pkiPaymentpreparationID: Int, paymentpreparationImportIntoEDMV1Request: PaymentpreparationImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentpreparationImportIntoEDMV1Response
 ```
 
 Import attachments into the Paymentpreparation
@@ -123,15 +295,11 @@ let pkiPaymentpreparationID = 987 // Int |
 let paymentpreparationImportIntoEDMV1Request = paymentpreparation-importIntoEDM-v1-Request(aObjAttachment: [Custom-AttachmentImportIntoEDM-Request(eAttachmentSource: "eAttachmentSource_example", fkiAttachmentID: 123, fkiInscriptionchecklistID: 123, sAttachmentUrl: "sAttachmentUrl_example", sAttachmentBase64: 123, sAttachmentName: "sAttachmentName_example", sAttachmentCategory: "sAttachmentCategory_example", eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123, sAttachmentMD5: "sAttachmentMD5_example", bAttachmentForceoverwrite: false, bAttachmentForcerestore: false)]) // PaymentpreparationImportIntoEDMV1Request | 
 
 // Import attachments into the Paymentpreparation
-ObjectPaymentpreparationAPI.paymentpreparationImportIntoEDMV1(pkiPaymentpreparationID: pkiPaymentpreparationID, paymentpreparationImportIntoEDMV1Request: paymentpreparationImportIntoEDMV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectPaymentpreparationAPI.paymentpreparationImportIntoEDMV1(pkiPaymentpreparationID: pkiPaymentpreparationID, paymentpreparationImportIntoEDMV1Request: paymentpreparationImportIntoEDMV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

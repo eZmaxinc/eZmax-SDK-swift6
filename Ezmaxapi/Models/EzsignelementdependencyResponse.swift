@@ -15,7 +15,7 @@ public struct EzsignelementdependencyResponse: Sendable, Codable, Hashable {
     public static let fkiEzsignsignatureIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEzsignformfieldIDValidationRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEzsignformfieldgroupIDValidationRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sEzsignelementdependencyValueRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sEzsignelementdependencyValueRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
     /** The unique ID of the Ezsignelementdependency */
     public var pkiEzsignelementdependencyID: Int
     /** The unique ID of the Ezsignformfield */

@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 # **ezsignsignatureCreateObjectV1**
 ```swift
-    open class func ezsignsignatureCreateObjectV1(ezsignsignatureCreateObjectV1Request: [EzsignsignatureCreateObjectV1Request], completion: @escaping (_ data: EzsignsignatureCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignsignatureCreateObjectV1(ezsignsignatureCreateObjectV1Request: [EzsignsignatureCreateObjectV1Request], apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignsignatureCreateObjectV1Response
 ```
 
 Create a new Ezsignsignature
@@ -33,15 +33,11 @@ import EzmaxApi
 let ezsignsignatureCreateObjectV1Request = [ezsignsignature-createObject-v1-Request(objEzsignsignature: ezsignsignature-Request(pkiEzsignsignatureID: 123, fkiEzsignfoldersignerassociationID: 123, fkiPaymentgatewayID: 123, iEzsignpagePagenumber: 123, iEzsignsignatureX: 123, iEzsignsignatureY: 123, iEzsignsignatureWidth: 123, iEzsignsignatureHeight: 123, iEzsignsignatureStep: 123, eEzsignsignatureType: Field-eEzsignsignatureType(), eEzsignsignatureSignaturepad: Field-eEzsignsignatureSignaturepad(), eEzsignsignatureSignaturepadrequired: Field-eEzsignsignatureSignaturepadrequired(), fkiEzsigndocumentID: 123, tEzsignsignatureTooltip: "tEzsignsignatureTooltip_example", eEzsignsignatureTooltipposition: Field-eEzsignsignatureTooltipposition(), eEzsignsignatureFont: Field-eEzsignsignatureFont(), fkiEzsignfoldersignerassociationIDValidation: 123, bEzsignsignatureHandwritten: false, bEzsignsignatureReason: false, bEzsignsignatureRequired: false, eEzsignsignatureAttachmentnamesource: Field-eEzsignsignatureAttachmentnamesource(), sEzsignsignatureAttachmentdescription: "sEzsignsignatureAttachmentdescription_example", eEzsignsignatureConsultationtrigger: Field-eEzsignsignatureConsultationtrigger(), iEzsignsignatureValidationstep: 123, iEzsignsignatureMaxlength: 123, sEzsignsignatureDefaultvalue: "sEzsignsignatureDefaultvalue_example", eEzsignsignatureTextvalidation: Enum-Textvalidation(), sEzsignsignatureTextvalidationcustommessage: "sEzsignsignatureTextvalidationcustommessage_example", sEzsignsignatureRegexp: "sEzsignsignatureRegexp_example", eEzsignsignatureDependencyrequirement: Field-eEzsignsignatureDependencyrequirement(), sEzsignsignatureCreditcardamountdescription: "sEzsignsignatureCreditcardamountdescription_example", dEzsignsignatureCreditcardamount: "dEzsignsignatureCreditcardamount_example", bEzsignsignatureCreditcardcustomamount: false), objEzsignsignatureCompound: ezsignsignature-RequestCompound(pkiEzsignsignatureID: 123, fkiEzsignfoldersignerassociationID: 123, fkiPaymentgatewayID: 123, iEzsignpagePagenumber: 123, iEzsignsignatureX: 123, iEzsignsignatureY: 123, iEzsignsignatureWidth: 123, iEzsignsignatureHeight: 123, iEzsignsignatureStep: 123, eEzsignsignatureType: nil, eEzsignsignatureSignaturepad: nil, eEzsignsignatureSignaturepadrequired: nil, fkiEzsigndocumentID: 123, tEzsignsignatureTooltip: "tEzsignsignatureTooltip_example", eEzsignsignatureTooltipposition: nil, eEzsignsignatureFont: nil, fkiEzsignfoldersignerassociationIDValidation: 123, bEzsignsignatureHandwritten: false, bEzsignsignatureReason: false, bEzsignsignatureRequired: false, eEzsignsignatureAttachmentnamesource: nil, sEzsignsignatureAttachmentdescription: "sEzsignsignatureAttachmentdescription_example", eEzsignsignatureConsultationtrigger: nil, iEzsignsignatureValidationstep: 123, iEzsignsignatureMaxlength: 123, sEzsignsignatureDefaultvalue: "sEzsignsignatureDefaultvalue_example", eEzsignsignatureTextvalidation: nil, sEzsignsignatureTextvalidationcustommessage: "sEzsignsignatureTextvalidationcustommessage_example", sEzsignsignatureRegexp: "sEzsignsignatureRegexp_example", eEzsignsignatureDependencyrequirement: nil, sEzsignsignatureCreditcardamountdescription: "sEzsignsignatureCreditcardamountdescription_example", dEzsignsignatureCreditcardamount: "dEzsignsignatureCreditcardamount_example", bEzsignsignatureCreditcardcustomamount: false, bEzsignsignatureCustomdate: false, aObjEzsignsignaturecustomdate: [ezsignsignaturecustomdate-RequestCompound(pkiEzsignsignaturecustomdateID: 123, iEzsignsignaturecustomdateX: 123, iEzsignsignaturecustomdateY: 123, iEzsignsignaturecustomdateOffsetx: 123, iEzsignsignaturecustomdateOffsety: 123, sEzsignsignaturecustomdateFormat: "sEzsignsignaturecustomdateFormat_example")], aObjEzsignelementdependency: [ezsignelementdependency-RequestCompound(pkiEzsignelementdependencyID: 123, fkiEzsignformfieldIDValidation: 123, fkiEzsignformfieldgroupIDValidation: 123, sEzsignelementdependencyEzsignformfieldgrouplabel: "sEzsignelementdependencyEzsignformfieldgrouplabel_example", sEzsignelementdependencyEzsignformfieldlabel: "sEzsignelementdependencyEzsignformfieldlabel_example", eEzsignelementdependencyValidation: Field-eEzsignelementdependencyValidation(), bEzsignelementdependencySelected: false, eEzsignelementdependencyOperator: Field-eEzsignelementdependencyOperator(), sEzsignelementdependencyValue: "sEzsignelementdependencyValue_example")], aObjEzsignsignaturepaymentdetail: [ezsignsignaturepaymentdetail-RequestCompound(pkiEzsignsignaturepaymentdetailID: 123, fkiGlaccountcontainerID: 123, tEzsignsignaturepaymentdetailDescription: "tEzsignsignaturepaymentdetailDescription_example", dEzsignsignaturepaymentdetailAmount: "dEzsignsignaturepaymentdetailAmount_example", eEzsignsignaturepaymentdetailTaxable: Field-eEzsignsignaturepaymentdetailTaxable())]))] // [EzsignsignatureCreateObjectV1Request] | 
 
 // Create a new Ezsignsignature
-ObjectEzsignsignatureAPI.ezsignsignatureCreateObjectV1(ezsignsignatureCreateObjectV1Request: ezsignsignatureCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignsignatureAPI.ezsignsignatureCreateObjectV1(ezsignsignatureCreateObjectV1Request: ezsignsignatureCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -68,7 +64,7 @@ Name | Type | Description  | Notes
 
 # **ezsignsignatureCreateObjectV2**
 ```swift
-    open class func ezsignsignatureCreateObjectV2(ezsignsignatureCreateObjectV2Request: EzsignsignatureCreateObjectV2Request, completion: @escaping (_ data: EzsignsignatureCreateObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsignsignatureCreateObjectV2(ezsignsignatureCreateObjectV2Request: EzsignsignatureCreateObjectV2Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignsignatureCreateObjectV2Response
 ```
 
 Create a new Ezsignsignature
@@ -83,15 +79,11 @@ import EzmaxApi
 let ezsignsignatureCreateObjectV2Request = ezsignsignature-createObject-v2-Request(aObjEzsignsignature: [ezsignsignature-RequestCompound(pkiEzsignsignatureID: 123, fkiEzsignfoldersignerassociationID: 123, fkiPaymentgatewayID: 123, iEzsignpagePagenumber: 123, iEzsignsignatureX: 123, iEzsignsignatureY: 123, iEzsignsignatureWidth: 123, iEzsignsignatureHeight: 123, iEzsignsignatureStep: 123, eEzsignsignatureType: Field-eEzsignsignatureType(), eEzsignsignatureSignaturepad: Field-eEzsignsignatureSignaturepad(), eEzsignsignatureSignaturepadrequired: Field-eEzsignsignatureSignaturepadrequired(), fkiEzsigndocumentID: 123, tEzsignsignatureTooltip: "tEzsignsignatureTooltip_example", eEzsignsignatureTooltipposition: Field-eEzsignsignatureTooltipposition(), eEzsignsignatureFont: Field-eEzsignsignatureFont(), fkiEzsignfoldersignerassociationIDValidation: 123, bEzsignsignatureHandwritten: false, bEzsignsignatureReason: false, bEzsignsignatureRequired: false, eEzsignsignatureAttachmentnamesource: Field-eEzsignsignatureAttachmentnamesource(), sEzsignsignatureAttachmentdescription: "sEzsignsignatureAttachmentdescription_example", eEzsignsignatureConsultationtrigger: Field-eEzsignsignatureConsultationtrigger(), iEzsignsignatureValidationstep: 123, iEzsignsignatureMaxlength: 123, sEzsignsignatureDefaultvalue: "sEzsignsignatureDefaultvalue_example", eEzsignsignatureTextvalidation: Enum-Textvalidation(), sEzsignsignatureTextvalidationcustommessage: "sEzsignsignatureTextvalidationcustommessage_example", sEzsignsignatureRegexp: "sEzsignsignatureRegexp_example", eEzsignsignatureDependencyrequirement: Field-eEzsignsignatureDependencyrequirement(), sEzsignsignatureCreditcardamountdescription: "sEzsignsignatureCreditcardamountdescription_example", dEzsignsignatureCreditcardamount: "dEzsignsignatureCreditcardamount_example", bEzsignsignatureCreditcardcustomamount: false, bEzsignsignatureCustomdate: false, aObjEzsignsignaturecustomdate: [ezsignsignaturecustomdate-RequestCompound(pkiEzsignsignaturecustomdateID: 123, iEzsignsignaturecustomdateX: 123, iEzsignsignaturecustomdateY: 123, iEzsignsignaturecustomdateOffsetx: 123, iEzsignsignaturecustomdateOffsety: 123, sEzsignsignaturecustomdateFormat: "sEzsignsignaturecustomdateFormat_example")], aObjEzsignelementdependency: [ezsignelementdependency-RequestCompound(pkiEzsignelementdependencyID: 123, fkiEzsignformfieldIDValidation: 123, fkiEzsignformfieldgroupIDValidation: 123, sEzsignelementdependencyEzsignformfieldgrouplabel: "sEzsignelementdependencyEzsignformfieldgrouplabel_example", sEzsignelementdependencyEzsignformfieldlabel: "sEzsignelementdependencyEzsignformfieldlabel_example", eEzsignelementdependencyValidation: Field-eEzsignelementdependencyValidation(), bEzsignelementdependencySelected: false, eEzsignelementdependencyOperator: Field-eEzsignelementdependencyOperator(), sEzsignelementdependencyValue: "sEzsignelementdependencyValue_example")], aObjEzsignsignaturepaymentdetail: [ezsignsignaturepaymentdetail-RequestCompound(pkiEzsignsignaturepaymentdetailID: 123, fkiGlaccountcontainerID: 123, tEzsignsignaturepaymentdetailDescription: "tEzsignsignaturepaymentdetailDescription_example", dEzsignsignaturepaymentdetailAmount: "dEzsignsignaturepaymentdetailAmount_example", eEzsignsignaturepaymentdetailTaxable: Field-eEzsignsignaturepaymentdetailTaxable())])]) // EzsignsignatureCreateObjectV2Request | 
 
 // Create a new Ezsignsignature
-ObjectEzsignsignatureAPI.ezsignsignatureCreateObjectV2(ezsignsignatureCreateObjectV2Request: ezsignsignatureCreateObjectV2Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignsignatureAPI.ezsignsignatureCreateObjectV2(ezsignsignatureCreateObjectV2Request: ezsignsignatureCreateObjectV2Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -118,7 +110,7 @@ Name | Type | Description  | Notes
 
 # **ezsignsignatureCreateObjectV3**
 ```swift
-    open class func ezsignsignatureCreateObjectV3(ezsignsignatureCreateObjectV3Request: EzsignsignatureCreateObjectV3Request, completion: @escaping (_ data: EzsignsignatureCreateObjectV3Response?, _ error: Error?) -> Void)
+    open class func ezsignsignatureCreateObjectV3(ezsignsignatureCreateObjectV3Request: EzsignsignatureCreateObjectV3Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignsignatureCreateObjectV3Response
 ```
 
 Create a new Ezsignsignature
@@ -133,15 +125,11 @@ import EzmaxApi
 let ezsignsignatureCreateObjectV3Request = ezsignsignature-createObject-v3-Request(aObjEzsignsignature: [ezsignsignature-RequestCompoundV2(pkiEzsignsignatureID: 123, fkiEzsignfoldersignerassociationID: 123, fkiPaymentgatewayID: 123, iEzsignpagePagenumber: 123, iEzsignsignatureX: 123, iEzsignsignatureY: 123, iEzsignsignatureWidth: 123, iEzsignsignatureHeight: 123, iEzsignsignatureStep: 123, eEzsignsignatureType: Field-eEzsignsignatureType(), eEzsignsignatureSignaturepad: Field-eEzsignsignatureSignaturepad(), eEzsignsignatureSignaturepadrequired: Field-eEzsignsignatureSignaturepadrequired(), fkiEzsigndocumentID: 123, tEzsignsignatureTooltip: "tEzsignsignatureTooltip_example", eEzsignsignatureTooltipposition: Field-eEzsignsignatureTooltipposition(), eEzsignsignatureFont: Field-eEzsignsignatureFont(), fkiEzsignfoldersignerassociationIDValidation: 123, bEzsignsignatureHandwritten: false, bEzsignsignatureReason: false, bEzsignsignatureRequired: false, eEzsignsignatureAttachmentnamesource: Field-eEzsignsignatureAttachmentnamesource(), sEzsignsignatureAttachmentdescription: "sEzsignsignatureAttachmentdescription_example", eEzsignsignatureConsultationtrigger: Field-eEzsignsignatureConsultationtrigger(), iEzsignsignatureValidationstep: 123, iEzsignsignatureMaxlength: 123, sEzsignsignatureDefaultvalue: "sEzsignsignatureDefaultvalue_example", eEzsignsignatureTextvalidation: Enum-Textvalidation(), sEzsignsignatureTextvalidationcustommessage: "sEzsignsignatureTextvalidationcustommessage_example", sEzsignsignatureRegexp: "sEzsignsignatureRegexp_example", eEzsignsignatureDependencyrequirement: Field-eEzsignsignatureDependencyrequirement(), sEzsignsignatureCreditcardamountdescription: "sEzsignsignatureCreditcardamountdescription_example", dEzsignsignatureCreditcardamount: "dEzsignsignatureCreditcardamount_example", bEzsignsignatureCreditcardcustomamount: false, bEzsignsignatureCustomdate: false, aObjEzsignsignaturecustomdate: [ezsignsignaturecustomdate-RequestCompoundV2(pkiEzsignsignaturecustomdateID: 123, iEzsignsignaturecustomdateOffsetx: 123, iEzsignsignaturecustomdateOffsety: 123, sEzsignsignaturecustomdateFormat: "sEzsignsignaturecustomdateFormat_example")], aObjEzsignelementdependency: [ezsignelementdependency-RequestCompound(pkiEzsignelementdependencyID: 123, fkiEzsignformfieldIDValidation: 123, fkiEzsignformfieldgroupIDValidation: 123, sEzsignelementdependencyEzsignformfieldgrouplabel: "sEzsignelementdependencyEzsignformfieldgrouplabel_example", sEzsignelementdependencyEzsignformfieldlabel: "sEzsignelementdependencyEzsignformfieldlabel_example", eEzsignelementdependencyValidation: Field-eEzsignelementdependencyValidation(), bEzsignelementdependencySelected: false, eEzsignelementdependencyOperator: Field-eEzsignelementdependencyOperator(), sEzsignelementdependencyValue: "sEzsignelementdependencyValue_example")], aObjEzsignsignaturepaymentdetail: [ezsignsignaturepaymentdetail-RequestCompound(pkiEzsignsignaturepaymentdetailID: 123, fkiGlaccountcontainerID: 123, tEzsignsignaturepaymentdetailDescription: "tEzsignsignaturepaymentdetailDescription_example", dEzsignsignaturepaymentdetailAmount: "dEzsignsignaturepaymentdetailAmount_example", eEzsignsignaturepaymentdetailTaxable: Field-eEzsignsignaturepaymentdetailTaxable())])]) // EzsignsignatureCreateObjectV3Request | 
 
 // Create a new Ezsignsignature
-ObjectEzsignsignatureAPI.ezsignsignatureCreateObjectV3(ezsignsignatureCreateObjectV3Request: ezsignsignatureCreateObjectV3Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignsignatureAPI.ezsignsignatureCreateObjectV3(ezsignsignatureCreateObjectV3Request: ezsignsignatureCreateObjectV3Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -168,7 +156,7 @@ Name | Type | Description  | Notes
 
 # **ezsignsignatureCreateObjectV4**
 ```swift
-    open class func ezsignsignatureCreateObjectV4(ezsignsignatureCreateObjectV4Request: EzsignsignatureCreateObjectV4Request, completion: @escaping (_ data: EzsignsignatureCreateObjectV4Response?, _ error: Error?) -> Void)
+    open class func ezsignsignatureCreateObjectV4(ezsignsignatureCreateObjectV4Request: EzsignsignatureCreateObjectV4Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignsignatureCreateObjectV4Response
 ```
 
 Create a new Ezsignsignature
@@ -183,15 +171,11 @@ import EzmaxApi
 let ezsignsignatureCreateObjectV4Request = ezsignsignature-createObject-v4-Request(aObjEzsignsignature: [ezsignsignature-RequestCompoundV2(pkiEzsignsignatureID: 123, fkiEzsignfoldersignerassociationID: 123, fkiPaymentgatewayID: 123, iEzsignpagePagenumber: 123, iEzsignsignatureX: 123, iEzsignsignatureY: 123, iEzsignsignatureWidth: 123, iEzsignsignatureHeight: 123, iEzsignsignatureStep: 123, eEzsignsignatureType: Field-eEzsignsignatureType(), eEzsignsignatureSignaturepad: Field-eEzsignsignatureSignaturepad(), eEzsignsignatureSignaturepadrequired: Field-eEzsignsignatureSignaturepadrequired(), fkiEzsigndocumentID: 123, tEzsignsignatureTooltip: "tEzsignsignatureTooltip_example", eEzsignsignatureTooltipposition: Field-eEzsignsignatureTooltipposition(), eEzsignsignatureFont: Field-eEzsignsignatureFont(), fkiEzsignfoldersignerassociationIDValidation: 123, bEzsignsignatureHandwritten: false, bEzsignsignatureReason: false, bEzsignsignatureRequired: false, eEzsignsignatureAttachmentnamesource: Field-eEzsignsignatureAttachmentnamesource(), sEzsignsignatureAttachmentdescription: "sEzsignsignatureAttachmentdescription_example", eEzsignsignatureConsultationtrigger: Field-eEzsignsignatureConsultationtrigger(), iEzsignsignatureValidationstep: 123, iEzsignsignatureMaxlength: 123, sEzsignsignatureDefaultvalue: "sEzsignsignatureDefaultvalue_example", eEzsignsignatureTextvalidation: Enum-Textvalidation(), sEzsignsignatureTextvalidationcustommessage: "sEzsignsignatureTextvalidationcustommessage_example", sEzsignsignatureRegexp: "sEzsignsignatureRegexp_example", eEzsignsignatureDependencyrequirement: Field-eEzsignsignatureDependencyrequirement(), sEzsignsignatureCreditcardamountdescription: "sEzsignsignatureCreditcardamountdescription_example", dEzsignsignatureCreditcardamount: "dEzsignsignatureCreditcardamount_example", bEzsignsignatureCreditcardcustomamount: false, bEzsignsignatureCustomdate: false, aObjEzsignsignaturecustomdate: [ezsignsignaturecustomdate-RequestCompoundV2(pkiEzsignsignaturecustomdateID: 123, iEzsignsignaturecustomdateOffsetx: 123, iEzsignsignaturecustomdateOffsety: 123, sEzsignsignaturecustomdateFormat: "sEzsignsignaturecustomdateFormat_example")], aObjEzsignelementdependency: [ezsignelementdependency-RequestCompound(pkiEzsignelementdependencyID: 123, fkiEzsignformfieldIDValidation: 123, fkiEzsignformfieldgroupIDValidation: 123, sEzsignelementdependencyEzsignformfieldgrouplabel: "sEzsignelementdependencyEzsignformfieldgrouplabel_example", sEzsignelementdependencyEzsignformfieldlabel: "sEzsignelementdependencyEzsignformfieldlabel_example", eEzsignelementdependencyValidation: Field-eEzsignelementdependencyValidation(), bEzsignelementdependencySelected: false, eEzsignelementdependencyOperator: Field-eEzsignelementdependencyOperator(), sEzsignelementdependencyValue: "sEzsignelementdependencyValue_example")], aObjEzsignsignaturepaymentdetail: [ezsignsignaturepaymentdetail-RequestCompound(pkiEzsignsignaturepaymentdetailID: 123, fkiGlaccountcontainerID: 123, tEzsignsignaturepaymentdetailDescription: "tEzsignsignaturepaymentdetailDescription_example", dEzsignsignaturepaymentdetailAmount: "dEzsignsignaturepaymentdetailAmount_example", eEzsignsignaturepaymentdetailTaxable: Field-eEzsignsignaturepaymentdetailTaxable())])]) // EzsignsignatureCreateObjectV4Request | 
 
 // Create a new Ezsignsignature
-ObjectEzsignsignatureAPI.ezsignsignatureCreateObjectV4(ezsignsignatureCreateObjectV4Request: ezsignsignatureCreateObjectV4Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignsignatureAPI.ezsignsignatureCreateObjectV4(ezsignsignatureCreateObjectV4Request: ezsignsignatureCreateObjectV4Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -218,7 +202,7 @@ Name | Type | Description  | Notes
 
 # **ezsignsignatureDeleteObjectV1**
 ```swift
-    open class func ezsignsignatureDeleteObjectV1(pkiEzsignsignatureID: Int, completion: @escaping (_ data: EzsignsignatureDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignsignatureDeleteObjectV1(pkiEzsignsignatureID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignsignatureDeleteObjectV1Response
 ```
 
 Delete an existing Ezsignsignature
@@ -233,15 +217,11 @@ import EzmaxApi
 let pkiEzsignsignatureID = 987 // Int | 
 
 // Delete an existing Ezsignsignature
-ObjectEzsignsignatureAPI.ezsignsignatureDeleteObjectV1(pkiEzsignsignatureID: pkiEzsignsignatureID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignsignatureAPI.ezsignsignatureDeleteObjectV1(pkiEzsignsignatureID: pkiEzsignsignatureID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -268,7 +248,7 @@ Name | Type | Description  | Notes
 
 # **ezsignsignatureEditObjectV3**
 ```swift
-    open class func ezsignsignatureEditObjectV3(pkiEzsignsignatureID: Int, ezsignsignatureEditObjectV3Request: EzsignsignatureEditObjectV3Request, completion: @escaping (_ data: EzsignsignatureEditObjectV3Response?, _ error: Error?) -> Void)
+    open class func ezsignsignatureEditObjectV3(pkiEzsignsignatureID: Int, ezsignsignatureEditObjectV3Request: EzsignsignatureEditObjectV3Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignsignatureEditObjectV3Response
 ```
 
 Edit an existing Ezsignsignature
@@ -284,15 +264,11 @@ let pkiEzsignsignatureID = 987 // Int |
 let ezsignsignatureEditObjectV3Request = ezsignsignature-editObject-v3-Request(objEzsignsignature: ezsignsignature-RequestCompoundV2(pkiEzsignsignatureID: 123, fkiEzsignfoldersignerassociationID: 123, fkiPaymentgatewayID: 123, iEzsignpagePagenumber: 123, iEzsignsignatureX: 123, iEzsignsignatureY: 123, iEzsignsignatureWidth: 123, iEzsignsignatureHeight: 123, iEzsignsignatureStep: 123, eEzsignsignatureType: Field-eEzsignsignatureType(), eEzsignsignatureSignaturepad: Field-eEzsignsignatureSignaturepad(), eEzsignsignatureSignaturepadrequired: Field-eEzsignsignatureSignaturepadrequired(), fkiEzsigndocumentID: 123, tEzsignsignatureTooltip: "tEzsignsignatureTooltip_example", eEzsignsignatureTooltipposition: Field-eEzsignsignatureTooltipposition(), eEzsignsignatureFont: Field-eEzsignsignatureFont(), fkiEzsignfoldersignerassociationIDValidation: 123, bEzsignsignatureHandwritten: false, bEzsignsignatureReason: false, bEzsignsignatureRequired: false, eEzsignsignatureAttachmentnamesource: Field-eEzsignsignatureAttachmentnamesource(), sEzsignsignatureAttachmentdescription: "sEzsignsignatureAttachmentdescription_example", eEzsignsignatureConsultationtrigger: Field-eEzsignsignatureConsultationtrigger(), iEzsignsignatureValidationstep: 123, iEzsignsignatureMaxlength: 123, sEzsignsignatureDefaultvalue: "sEzsignsignatureDefaultvalue_example", eEzsignsignatureTextvalidation: Enum-Textvalidation(), sEzsignsignatureTextvalidationcustommessage: "sEzsignsignatureTextvalidationcustommessage_example", sEzsignsignatureRegexp: "sEzsignsignatureRegexp_example", eEzsignsignatureDependencyrequirement: Field-eEzsignsignatureDependencyrequirement(), sEzsignsignatureCreditcardamountdescription: "sEzsignsignatureCreditcardamountdescription_example", dEzsignsignatureCreditcardamount: "dEzsignsignatureCreditcardamount_example", bEzsignsignatureCreditcardcustomamount: false, bEzsignsignatureCustomdate: false, aObjEzsignsignaturecustomdate: [ezsignsignaturecustomdate-RequestCompoundV2(pkiEzsignsignaturecustomdateID: 123, iEzsignsignaturecustomdateOffsetx: 123, iEzsignsignaturecustomdateOffsety: 123, sEzsignsignaturecustomdateFormat: "sEzsignsignaturecustomdateFormat_example")], aObjEzsignelementdependency: [ezsignelementdependency-RequestCompound(pkiEzsignelementdependencyID: 123, fkiEzsignformfieldIDValidation: 123, fkiEzsignformfieldgroupIDValidation: 123, sEzsignelementdependencyEzsignformfieldgrouplabel: "sEzsignelementdependencyEzsignformfieldgrouplabel_example", sEzsignelementdependencyEzsignformfieldlabel: "sEzsignelementdependencyEzsignformfieldlabel_example", eEzsignelementdependencyValidation: Field-eEzsignelementdependencyValidation(), bEzsignelementdependencySelected: false, eEzsignelementdependencyOperator: Field-eEzsignelementdependencyOperator(), sEzsignelementdependencyValue: "sEzsignelementdependencyValue_example")], aObjEzsignsignaturepaymentdetail: [ezsignsignaturepaymentdetail-RequestCompound(pkiEzsignsignaturepaymentdetailID: 123, fkiGlaccountcontainerID: 123, tEzsignsignaturepaymentdetailDescription: "tEzsignsignaturepaymentdetailDescription_example", dEzsignsignaturepaymentdetailAmount: "dEzsignsignaturepaymentdetailAmount_example", eEzsignsignaturepaymentdetailTaxable: Field-eEzsignsignaturepaymentdetailTaxable())])) // EzsignsignatureEditObjectV3Request | 
 
 // Edit an existing Ezsignsignature
-ObjectEzsignsignatureAPI.ezsignsignatureEditObjectV3(pkiEzsignsignatureID: pkiEzsignsignatureID, ezsignsignatureEditObjectV3Request: ezsignsignatureEditObjectV3Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignsignatureAPI.ezsignsignatureEditObjectV3(pkiEzsignsignatureID: pkiEzsignsignatureID, ezsignsignatureEditObjectV3Request: ezsignsignatureEditObjectV3Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -320,7 +296,7 @@ Name | Type | Description  | Notes
 
 # **ezsignsignatureGetEzsignsignatureattachmentV1**
 ```swift
-    open class func ezsignsignatureGetEzsignsignatureattachmentV1(pkiEzsignsignatureID: Int, completion: @escaping (_ data: EzsignsignatureGetEzsignsignatureattachmentV1Response?, _ error: Error?) -> Void)
+    open class func ezsignsignatureGetEzsignsignatureattachmentV1(pkiEzsignsignatureID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignsignatureGetEzsignsignatureattachmentV1Response
 ```
 
 Retrieve an existing Ezsignsignature's Ezsignsignatureattachments
@@ -333,15 +309,11 @@ import EzmaxApi
 let pkiEzsignsignatureID = 987 // Int | 
 
 // Retrieve an existing Ezsignsignature's Ezsignsignatureattachments
-ObjectEzsignsignatureAPI.ezsignsignatureGetEzsignsignatureattachmentV1(pkiEzsignsignatureID: pkiEzsignsignatureID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignsignatureAPI.ezsignsignatureGetEzsignsignatureattachmentV1(pkiEzsignsignatureID: pkiEzsignsignatureID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -368,7 +340,7 @@ Name | Type | Description  | Notes
 
 # **ezsignsignatureGetEzsignsignaturesAutomaticV1**
 ```swift
-    open class func ezsignsignatureGetEzsignsignaturesAutomaticV1(completion: @escaping (_ data: EzsignsignatureGetEzsignsignaturesAutomaticV1Response?, _ error: Error?) -> Void)
+    open class func ezsignsignatureGetEzsignsignaturesAutomaticV1(apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignsignatureGetEzsignsignaturesAutomaticV1Response
 ```
 
 Retrieve all automatic Ezsignsignatures
@@ -382,15 +354,11 @@ import EzmaxApi
 
 
 // Retrieve all automatic Ezsignsignatures
-ObjectEzsignsignatureAPI.ezsignsignatureGetEzsignsignaturesAutomaticV1() { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignsignatureAPI.ezsignsignatureGetEzsignsignaturesAutomaticV1()
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -414,7 +382,7 @@ This endpoint does not need any parameter.
 
 # **ezsignsignatureGetObjectV4**
 ```swift
-    open class func ezsignsignatureGetObjectV4(pkiEzsignsignatureID: Int, completion: @escaping (_ data: EzsignsignatureGetObjectV4Response?, _ error: Error?) -> Void)
+    open class func ezsignsignatureGetObjectV4(pkiEzsignsignatureID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignsignatureGetObjectV4Response
 ```
 
 Retrieve an existing Ezsignsignature
@@ -429,15 +397,11 @@ import EzmaxApi
 let pkiEzsignsignatureID = 987 // Int | 
 
 // Retrieve an existing Ezsignsignature
-ObjectEzsignsignatureAPI.ezsignsignatureGetObjectV4(pkiEzsignsignatureID: pkiEzsignsignatureID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignsignatureAPI.ezsignsignatureGetObjectV4(pkiEzsignsignatureID: pkiEzsignsignatureID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -464,7 +428,7 @@ Name | Type | Description  | Notes
 
 # **ezsignsignatureSignV1**
 ```swift
-    open class func ezsignsignatureSignV1(pkiEzsignsignatureID: Int, ezsignsignatureSignV1Request: EzsignsignatureSignV1Request, completion: @escaping (_ data: EzsignsignatureSignV1Response?, _ error: Error?) -> Void)
+    open class func ezsignsignatureSignV1(pkiEzsignsignatureID: Int, ezsignsignatureSignV1Request: EzsignsignatureSignV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignsignatureSignV1Response
 ```
 
 Sign the Ezsignsignature
@@ -480,15 +444,11 @@ let pkiEzsignsignatureID = 987 // Int |
 let ezsignsignatureSignV1Request = ezsignsignature-sign-v1-Request(fkiEzsignsigningreasonID: 123, fkiFontID: 123, dEzsignsignatureCreditcardamount: "dEzsignsignatureCreditcardamount_example", sValue: "sValue_example", eAttachmentsConfirmationDecision: "eAttachmentsConfirmationDecision_example", sAttachmentsRefusalReason: "sAttachmentsRefusalReason_example", sSvg: "sSvg_example", aObjFile: [Common-File(sFileName: "sFileName_example", sFileUrl: "sFileUrl_example", sFileBase64: 123, eFileSource: "eFileSource_example")], objCreditcard: Custom-Creditcard-Request(fksCreditcardtokenID: "fksCreditcardtokenID_example", sCreditcardCVV: "sCreditcardCVV_example", objCreditcarddetail: creditcarddetail-Request(iCreditcarddetailExpirationmonth: 123, iCreditcarddetailExpirationyear: 123, sCreditcarddetailCivic: "sCreditcarddetailCivic_example", sCreditcarddetailStreet: "sCreditcarddetailStreet_example", sCreditcarddetailZip: "sCreditcarddetailZip_example")), bIsAutomatic: false) // EzsignsignatureSignV1Request | 
 
 // Sign the Ezsignsignature
-ObjectEzsignsignatureAPI.ezsignsignatureSignV1(pkiEzsignsignatureID: pkiEzsignsignatureID, ezsignsignatureSignV1Request: ezsignsignatureSignV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignsignatureAPI.ezsignsignatureSignV1(pkiEzsignsignatureID: pkiEzsignsignatureID, ezsignsignatureSignV1Request: ezsignsignatureSignV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

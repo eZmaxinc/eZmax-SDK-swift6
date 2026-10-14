@@ -10,7 +10,7 @@ import Foundation
 /** A Ezsigntemplatepackage AutocompleteElement Response */
 public struct EzsigntemplatepackageAutocompleteElementResponse: Sendable, Codable, Hashable {
 
-    public static let sEzsigntemplatepackageDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,80}$/")
+    public static let sEzsigntemplatepackageDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,80}$")
     public static let pkiEzsigntemplatepackageIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public var eEzsignfoldertypePrivacylevel: FieldEEzsignfoldertypePrivacylevel
     /** The description of the Ezsigntemplatepackage */

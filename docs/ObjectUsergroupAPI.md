@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 # **usergroupCreateObjectV1**
 ```swift
-    open class func usergroupCreateObjectV1(usergroupCreateObjectV1Request: UsergroupCreateObjectV1Request, completion: @escaping (_ data: UsergroupCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func usergroupCreateObjectV1(usergroupCreateObjectV1Request: UsergroupCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupCreateObjectV1Response
 ```
 
 Create a new Usergroup
@@ -34,15 +34,11 @@ import EzmaxApi
 let usergroupCreateObjectV1Request = usergroup-createObject-v1-Request(aObjUsergroup: [usergroup-RequestCompound(pkiUsergroupID: 123, objEmail: email-Request(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example"), objUsergroupName: Multilingual-UsergroupName(sUsergroupName1: "sUsergroupName1_example", sUsergroupName2: "sUsergroupName2_example"))]) // UsergroupCreateObjectV1Request | 
 
 // Create a new Usergroup
-ObjectUsergroupAPI.usergroupCreateObjectV1(usergroupCreateObjectV1Request: usergroupCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupAPI.usergroupCreateObjectV1(usergroupCreateObjectV1Request: usergroupCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -69,7 +65,7 @@ Name | Type | Description  | Notes
 
 # **usergroupEditObjectV1**
 ```swift
-    open class func usergroupEditObjectV1(pkiUsergroupID: Int, usergroupEditObjectV1Request: UsergroupEditObjectV1Request, completion: @escaping (_ data: UsergroupEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func usergroupEditObjectV1(pkiUsergroupID: Int, usergroupEditObjectV1Request: UsergroupEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupEditObjectV1Response
 ```
 
 Edit an existing Usergroup
@@ -85,15 +81,11 @@ let pkiUsergroupID = 987 // Int |
 let usergroupEditObjectV1Request = usergroup-editObject-v1-Request(objUsergroup: usergroup-RequestCompound(pkiUsergroupID: 123, objEmail: email-Request(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example"), objUsergroupName: Multilingual-UsergroupName(sUsergroupName1: "sUsergroupName1_example", sUsergroupName2: "sUsergroupName2_example"))) // UsergroupEditObjectV1Request | 
 
 // Edit an existing Usergroup
-ObjectUsergroupAPI.usergroupEditObjectV1(pkiUsergroupID: pkiUsergroupID, usergroupEditObjectV1Request: usergroupEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupAPI.usergroupEditObjectV1(pkiUsergroupID: pkiUsergroupID, usergroupEditObjectV1Request: usergroupEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -121,7 +113,7 @@ Name | Type | Description  | Notes
 
 # **usergroupEditPermissionsV1**
 ```swift
-    open class func usergroupEditPermissionsV1(pkiUsergroupID: Int, usergroupEditPermissionsV1Request: UsergroupEditPermissionsV1Request, completion: @escaping (_ data: UsergroupEditPermissionsV1Response?, _ error: Error?) -> Void)
+    open class func usergroupEditPermissionsV1(pkiUsergroupID: Int, usergroupEditPermissionsV1Request: UsergroupEditPermissionsV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupEditPermissionsV1Response
 ```
 
 Edit multiple Permissions
@@ -137,15 +129,11 @@ let pkiUsergroupID = 987 // Int |
 let usergroupEditPermissionsV1Request = usergroup-editPermissions-v1-Request(aObjPermission: [permission-RequestCompound(pkiPermissionID: 123, fkiUserID: 123, fkiApikeyID: 123, fkiUsergroupID: 123, fkiCompanyID: 123, fkiModulesectionID: 123)]) // UsergroupEditPermissionsV1Request | 
 
 // Edit multiple Permissions
-ObjectUsergroupAPI.usergroupEditPermissionsV1(pkiUsergroupID: pkiUsergroupID, usergroupEditPermissionsV1Request: usergroupEditPermissionsV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupAPI.usergroupEditPermissionsV1(pkiUsergroupID: pkiUsergroupID, usergroupEditPermissionsV1Request: usergroupEditPermissionsV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -173,7 +161,7 @@ Name | Type | Description  | Notes
 
 # **usergroupEditUsergroupdelegationsV1**
 ```swift
-    open class func usergroupEditUsergroupdelegationsV1(pkiUsergroupID: Int, usergroupEditUsergroupdelegationsV1Request: UsergroupEditUsergroupdelegationsV1Request, completion: @escaping (_ data: UsergroupEditUsergroupdelegationsV1Response?, _ error: Error?) -> Void)
+    open class func usergroupEditUsergroupdelegationsV1(pkiUsergroupID: Int, usergroupEditUsergroupdelegationsV1Request: UsergroupEditUsergroupdelegationsV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupEditUsergroupdelegationsV1Response
 ```
 
 Edit multiple Usergroupdelegations
@@ -189,15 +177,11 @@ let pkiUsergroupID = 987 // Int |
 let usergroupEditUsergroupdelegationsV1Request = usergroup-editUsergroupdelegations-v1-Request(aObjUsergroupdelegation: [usergroupdelegation-RequestCompound(pkiUsergroupdelegationID: 123, fkiUsergroupID: 123, fkiUserID: 123)]) // UsergroupEditUsergroupdelegationsV1Request | 
 
 // Edit multiple Usergroupdelegations
-ObjectUsergroupAPI.usergroupEditUsergroupdelegationsV1(pkiUsergroupID: pkiUsergroupID, usergroupEditUsergroupdelegationsV1Request: usergroupEditUsergroupdelegationsV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupAPI.usergroupEditUsergroupdelegationsV1(pkiUsergroupID: pkiUsergroupID, usergroupEditUsergroupdelegationsV1Request: usergroupEditUsergroupdelegationsV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -225,7 +209,7 @@ Name | Type | Description  | Notes
 
 # **usergroupEditUsergroupmembershipsV1**
 ```swift
-    open class func usergroupEditUsergroupmembershipsV1(pkiUsergroupID: Int, usergroupEditUsergroupmembershipsV1Request: UsergroupEditUsergroupmembershipsV1Request, completion: @escaping (_ data: UsergroupEditUsergroupmembershipsV1Response?, _ error: Error?) -> Void)
+    open class func usergroupEditUsergroupmembershipsV1(pkiUsergroupID: Int, usergroupEditUsergroupmembershipsV1Request: UsergroupEditUsergroupmembershipsV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupEditUsergroupmembershipsV1Response
 ```
 
 Edit multiple Usergroupmemberships
@@ -241,15 +225,11 @@ let pkiUsergroupID = 987 // Int |
 let usergroupEditUsergroupmembershipsV1Request = usergroup-editUsergroupmemberships-v1-Request(aObjUsergroupmembership: [usergroupmembership-RequestCompound(pkiUsergroupmembershipID: 123, fkiUsergroupID: 123, fkiUserID: 123, fkiUsergroupexternalID: 123)]) // UsergroupEditUsergroupmembershipsV1Request | 
 
 // Edit multiple Usergroupmemberships
-ObjectUsergroupAPI.usergroupEditUsergroupmembershipsV1(pkiUsergroupID: pkiUsergroupID, usergroupEditUsergroupmembershipsV1Request: usergroupEditUsergroupmembershipsV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupAPI.usergroupEditUsergroupmembershipsV1(pkiUsergroupID: pkiUsergroupID, usergroupEditUsergroupmembershipsV1Request: usergroupEditUsergroupmembershipsV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -277,7 +257,7 @@ Name | Type | Description  | Notes
 
 # **usergroupGetAutocompleteV2**
 ```swift
-    open class func usergroupGetAutocompleteV2(sSelector: SSelector_usergroupGetAutocompleteV2, eFilterActive: EFilterActive_usergroupGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: UsergroupGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func usergroupGetAutocompleteV2(sSelector: SSelector_usergroupGetAutocompleteV2, eFilterActive: EFilterActive_usergroupGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupGetAutocompleteV2Response
 ```
 
 Retrieve Usergroups and IDs
@@ -295,15 +275,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Usergroups and IDs
-ObjectUsergroupAPI.usergroupGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupAPI.usergroupGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -333,7 +309,7 @@ Name | Type | Description  | Notes
 
 # **usergroupGetListV1**
 ```swift
-    open class func usergroupGetListV1(eOrderBy: EOrderBy_usergroupGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: UsergroupGetListV1Response?, _ error: Error?) -> Void)
+    open class func usergroupGetListV1(eOrderBy: EOrderBy_usergroupGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupGetListV1Response
 ```
 
 Retrieve Usergroup list
@@ -352,15 +328,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Usergroup list
-ObjectUsergroupAPI.usergroupGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupAPI.usergroupGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -391,7 +363,7 @@ Name | Type | Description  | Notes
 
 # **usergroupGetObjectV2**
 ```swift
-    open class func usergroupGetObjectV2(pkiUsergroupID: Int, completion: @escaping (_ data: UsergroupGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func usergroupGetObjectV2(pkiUsergroupID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupGetObjectV2Response
 ```
 
 Retrieve an existing Usergroup
@@ -406,15 +378,11 @@ import EzmaxApi
 let pkiUsergroupID = 987 // Int | 
 
 // Retrieve an existing Usergroup
-ObjectUsergroupAPI.usergroupGetObjectV2(pkiUsergroupID: pkiUsergroupID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupAPI.usergroupGetObjectV2(pkiUsergroupID: pkiUsergroupID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -441,7 +409,7 @@ Name | Type | Description  | Notes
 
 # **usergroupGetPermissionsV1**
 ```swift
-    open class func usergroupGetPermissionsV1(pkiUsergroupID: Int, completion: @escaping (_ data: UsergroupGetPermissionsV1Response?, _ error: Error?) -> Void)
+    open class func usergroupGetPermissionsV1(pkiUsergroupID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupGetPermissionsV1Response
 ```
 
 Retrieve an existing Usergroup's Permissions
@@ -454,15 +422,11 @@ import EzmaxApi
 let pkiUsergroupID = 987 // Int | 
 
 // Retrieve an existing Usergroup's Permissions
-ObjectUsergroupAPI.usergroupGetPermissionsV1(pkiUsergroupID: pkiUsergroupID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupAPI.usergroupGetPermissionsV1(pkiUsergroupID: pkiUsergroupID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -489,7 +453,7 @@ Name | Type | Description  | Notes
 
 # **usergroupGetUsergroupdelegationsV1**
 ```swift
-    open class func usergroupGetUsergroupdelegationsV1(pkiUsergroupID: Int, completion: @escaping (_ data: UsergroupGetUsergroupdelegationsV1Response?, _ error: Error?) -> Void)
+    open class func usergroupGetUsergroupdelegationsV1(pkiUsergroupID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupGetUsergroupdelegationsV1Response
 ```
 
 Retrieve an existing Usergroup's Usergroupdelegations
@@ -502,15 +466,11 @@ import EzmaxApi
 let pkiUsergroupID = 987 // Int | 
 
 // Retrieve an existing Usergroup's Usergroupdelegations
-ObjectUsergroupAPI.usergroupGetUsergroupdelegationsV1(pkiUsergroupID: pkiUsergroupID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupAPI.usergroupGetUsergroupdelegationsV1(pkiUsergroupID: pkiUsergroupID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -537,7 +497,7 @@ Name | Type | Description  | Notes
 
 # **usergroupGetUsergroupmembershipsV1**
 ```swift
-    open class func usergroupGetUsergroupmembershipsV1(pkiUsergroupID: Int, completion: @escaping (_ data: UsergroupGetUsergroupmembershipsV1Response?, _ error: Error?) -> Void)
+    open class func usergroupGetUsergroupmembershipsV1(pkiUsergroupID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupGetUsergroupmembershipsV1Response
 ```
 
 Retrieve an existing Usergroup's Usergroupmemberships
@@ -550,15 +510,11 @@ import EzmaxApi
 let pkiUsergroupID = 987 // Int | 
 
 // Retrieve an existing Usergroup's Usergroupmemberships
-ObjectUsergroupAPI.usergroupGetUsergroupmembershipsV1(pkiUsergroupID: pkiUsergroupID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupAPI.usergroupGetUsergroupmembershipsV1(pkiUsergroupID: pkiUsergroupID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

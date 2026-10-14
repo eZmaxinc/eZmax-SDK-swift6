@@ -17,7 +17,7 @@ public struct EzsigntemplatedocumentpagerecognitionRequestCompound: Sendable, Co
     public static let iEzsigntemplatedocumentpagerecognitionYRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let iEzsigntemplatedocumentpagerecognitionWidthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let iEzsigntemplatedocumentpagerecognitionHeightRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    public static let tEzsigntemplatedocumentpagerecognitionTextRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[.\\D\\d]{0,65535}$/")
+    public static let tEzsigntemplatedocumentpagerecognitionTextRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[.\\D\\d]{0,65535}$")
     /** The unique ID of the Ezsigntemplatedocumentpagerecognition */
     public var pkiEzsigntemplatedocumentpagerecognitionID: Int?
     /** The unique ID of the Ezsigntemplatedocumentpage */

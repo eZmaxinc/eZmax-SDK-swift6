@@ -96,6 +96,174 @@ open class ObjectPurchaseAPI {
     }
 
     /**
+     Retrieve Communication count
+     
+     - parameter pkiPurchaseID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: PurchaseGetCommunicationCountV1Response
+     */
+    open class func purchaseGetCommunicationCountV1(pkiPurchaseID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PurchaseGetCommunicationCountV1Response {
+        return try await purchaseGetCommunicationCountV1WithRequestBuilder(pkiPurchaseID: pkiPurchaseID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Communication count
+     - GET /1/object/purchase/{pkiPurchaseID}/getCommunicationCount
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiPurchaseID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<PurchaseGetCommunicationCountV1Response> 
+     */
+    open class func purchaseGetCommunicationCountV1WithRequestBuilder(pkiPurchaseID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<PurchaseGetCommunicationCountV1Response> {
+        var localVariablePath = "/1/object/purchase/{pkiPurchaseID}/getCommunicationCount"
+        let pkiPurchaseIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiPurchaseID))"
+        let pkiPurchaseIDPostEscape = pkiPurchaseIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiPurchaseID}", with: pkiPurchaseIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PurchaseGetCommunicationCountV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Retrieve Communication list
+     
+     - parameter pkiPurchaseID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: PurchaseGetCommunicationListV1Response
+     */
+    open class func purchaseGetCommunicationListV1(pkiPurchaseID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PurchaseGetCommunicationListV1Response {
+        return try await purchaseGetCommunicationListV1WithRequestBuilder(pkiPurchaseID: pkiPurchaseID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Communication list
+     - GET /1/object/purchase/{pkiPurchaseID}/getCommunicationList
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiPurchaseID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<PurchaseGetCommunicationListV1Response> 
+     */
+    open class func purchaseGetCommunicationListV1WithRequestBuilder(pkiPurchaseID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<PurchaseGetCommunicationListV1Response> {
+        var localVariablePath = "/1/object/purchase/{pkiPurchaseID}/getCommunicationList"
+        let pkiPurchaseIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiPurchaseID))"
+        let pkiPurchaseIDPostEscape = pkiPurchaseIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiPurchaseID}", with: pkiPurchaseIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PurchaseGetCommunicationListV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Retrieve Communication recipients
+     
+     - parameter pkiPurchaseID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: PurchaseGetCommunicationrecipientsV1Response
+     */
+    open class func purchaseGetCommunicationrecipientsV1(pkiPurchaseID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PurchaseGetCommunicationrecipientsV1Response {
+        return try await purchaseGetCommunicationrecipientsV1WithRequestBuilder(pkiPurchaseID: pkiPurchaseID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Communication recipients
+     - GET /1/object/purchase/{pkiPurchaseID}/getCommunicationrecipients
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiPurchaseID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<PurchaseGetCommunicationrecipientsV1Response> 
+     */
+    open class func purchaseGetCommunicationrecipientsV1WithRequestBuilder(pkiPurchaseID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<PurchaseGetCommunicationrecipientsV1Response> {
+        var localVariablePath = "/1/object/purchase/{pkiPurchaseID}/getCommunicationrecipients"
+        let pkiPurchaseIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiPurchaseID))"
+        let pkiPurchaseIDPostEscape = pkiPurchaseIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiPurchaseID}", with: pkiPurchaseIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PurchaseGetCommunicationrecipientsV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Retrieve Communication senders
+     
+     - parameter pkiPurchaseID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: PurchaseGetCommunicationsendersV1Response
+     */
+    open class func purchaseGetCommunicationsendersV1(pkiPurchaseID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PurchaseGetCommunicationsendersV1Response {
+        return try await purchaseGetCommunicationsendersV1WithRequestBuilder(pkiPurchaseID: pkiPurchaseID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Communication senders
+     - GET /1/object/purchase/{pkiPurchaseID}/getCommunicationsenders
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiPurchaseID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<PurchaseGetCommunicationsendersV1Response> 
+     */
+    open class func purchaseGetCommunicationsendersV1WithRequestBuilder(pkiPurchaseID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<PurchaseGetCommunicationsendersV1Response> {
+        var localVariablePath = "/1/object/purchase/{pkiPurchaseID}/getCommunicationsenders"
+        let pkiPurchaseIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiPurchaseID))"
+        let pkiPurchaseIDPostEscape = pkiPurchaseIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiPurchaseID}", with: pkiPurchaseIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PurchaseGetCommunicationsendersV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
      * enum for parameter eOrderBy
      */
     public enum EOrderBy_purchaseGetListV1: String, Sendable, CaseIterable {
@@ -163,12 +331,13 @@ open class ObjectPurchaseAPI {
         let localVariableParameters: [String: any Sendable]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
-        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+        let localVariableQueryParameters: [String: (wrappedValue: (any Sendable)?, isExplode: Bool)] = [
             "eOrderBy": (wrappedValue: eOrderBy?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "iRowMax": (wrappedValue: iRowMax?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "iRowOffset": (wrappedValue: iRowOffset?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "sFilter": (wrappedValue: sFilter?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-        ])
+        ]
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems(localVariableQueryParameters)
 
         let localVariableNillableHeaders: [String: (any Sendable)?] = [
             "Accept-Language": acceptLanguage?.asParameter(codableHelper: apiConfiguration.codableHelper),

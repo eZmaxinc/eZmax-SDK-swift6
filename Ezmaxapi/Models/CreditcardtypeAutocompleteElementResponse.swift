@@ -10,7 +10,7 @@ import Foundation
 /** Creditcardtype AutocompleteElement Response */
 public struct CreditcardtypeAutocompleteElementResponse: Sendable, Codable, Hashable {
 
-    public static let sCreditcardtypeNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,30}$/")
+    public static let sCreditcardtypeNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,30}$")
     public static let pkiCreditcardtypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     /** The name of the Creditcardtype */
     public var sCreditcardtypeName: String

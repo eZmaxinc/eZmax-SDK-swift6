@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 # **permissionCreateObjectV1**
 ```swift
-    open class func permissionCreateObjectV1(permissionCreateObjectV1Request: PermissionCreateObjectV1Request, completion: @escaping (_ data: PermissionCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func permissionCreateObjectV1(permissionCreateObjectV1Request: PermissionCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PermissionCreateObjectV1Response
 ```
 
 Create a new Permission
@@ -27,15 +27,11 @@ import EzmaxApi
 let permissionCreateObjectV1Request = permission-createObject-v1-Request(aObjPermission: [permission-RequestCompound(pkiPermissionID: 123, fkiUserID: 123, fkiApikeyID: 123, fkiUsergroupID: 123, fkiCompanyID: 123, fkiModulesectionID: 123)]) // PermissionCreateObjectV1Request | 
 
 // Create a new Permission
-ObjectPermissionAPI.permissionCreateObjectV1(permissionCreateObjectV1Request: permissionCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectPermissionAPI.permissionCreateObjectV1(permissionCreateObjectV1Request: permissionCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -62,7 +58,7 @@ Name | Type | Description  | Notes
 
 # **permissionDeleteObjectV1**
 ```swift
-    open class func permissionDeleteObjectV1(pkiPermissionID: Int, completion: @escaping (_ data: PermissionDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func permissionDeleteObjectV1(pkiPermissionID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PermissionDeleteObjectV1Response
 ```
 
 Delete an existing Permission
@@ -77,15 +73,11 @@ import EzmaxApi
 let pkiPermissionID = 987 // Int | The unique ID of the Permission
 
 // Delete an existing Permission
-ObjectPermissionAPI.permissionDeleteObjectV1(pkiPermissionID: pkiPermissionID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectPermissionAPI.permissionDeleteObjectV1(pkiPermissionID: pkiPermissionID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -112,7 +104,7 @@ Name | Type | Description  | Notes
 
 # **permissionEditObjectV1**
 ```swift
-    open class func permissionEditObjectV1(pkiPermissionID: Int, permissionEditObjectV1Request: PermissionEditObjectV1Request, completion: @escaping (_ data: PermissionEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func permissionEditObjectV1(pkiPermissionID: Int, permissionEditObjectV1Request: PermissionEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PermissionEditObjectV1Response
 ```
 
 Edit an existing Permission
@@ -128,15 +120,11 @@ let pkiPermissionID = 987 // Int | The unique ID of the Permission
 let permissionEditObjectV1Request = permission-editObject-v1-Request(objPermission: permission-RequestCompound(pkiPermissionID: 123, fkiUserID: 123, fkiApikeyID: 123, fkiUsergroupID: 123, fkiCompanyID: 123, fkiModulesectionID: 123)) // PermissionEditObjectV1Request | 
 
 // Edit an existing Permission
-ObjectPermissionAPI.permissionEditObjectV1(pkiPermissionID: pkiPermissionID, permissionEditObjectV1Request: permissionEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectPermissionAPI.permissionEditObjectV1(pkiPermissionID: pkiPermissionID, permissionEditObjectV1Request: permissionEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -164,7 +152,7 @@ Name | Type | Description  | Notes
 
 # **permissionGetObjectV2**
 ```swift
-    open class func permissionGetObjectV2(pkiPermissionID: Int, completion: @escaping (_ data: PermissionGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func permissionGetObjectV2(pkiPermissionID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PermissionGetObjectV2Response
 ```
 
 Retrieve an existing Permission
@@ -179,15 +167,11 @@ import EzmaxApi
 let pkiPermissionID = 987 // Int | The unique ID of the Permission
 
 // Retrieve an existing Permission
-ObjectPermissionAPI.permissionGetObjectV2(pkiPermissionID: pkiPermissionID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectPermissionAPI.permissionGetObjectV2(pkiPermissionID: pkiPermissionID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

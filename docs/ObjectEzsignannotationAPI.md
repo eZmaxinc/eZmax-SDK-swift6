@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 # **ezsignannotationCreateObjectV1**
 ```swift
-    open class func ezsignannotationCreateObjectV1(ezsignannotationCreateObjectV1Request: EzsignannotationCreateObjectV1Request, completion: @escaping (_ data: EzsignannotationCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignannotationCreateObjectV1(ezsignannotationCreateObjectV1Request: EzsignannotationCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignannotationCreateObjectV1Response
 ```
 
 Create a new Ezsignannotation
@@ -27,15 +27,11 @@ import EzmaxApi
 let ezsignannotationCreateObjectV1Request = ezsignannotation-createObject-v1-Request(aObjEzsignannotation: [ezsignannotation-RequestCompound(pkiEzsignannotationID: 123, fkiEzsigndocumentID: 123, eEzsignannotationHorizontalalignment: Enum-Horizontalalignment(), eEzsignannotationVerticalalignment: Enum-Verticalalignment(), eEzsignannotationType: Field-eEzsignannotationType(), iEzsignannotationX: 123, iEzsignannotationY: 123, iEzsignannotationWidth: 123, iEzsignannotationHeight: 123, sEzsignannotationText: "sEzsignannotationText_example", iEzsignpagePagenumber: 123, objTextstylestatic: textstylestatic-RequestCompound(fkiFontID: 123, bTextstylestaticBold: true, bTextstylestaticUnderline: true, bTextstylestaticItalic: true, bTextstylestaticStrikethrough: true, iTextstylestaticFontcolor: 123, iTextstylestaticSize: 123))]) // EzsignannotationCreateObjectV1Request | 
 
 // Create a new Ezsignannotation
-ObjectEzsignannotationAPI.ezsignannotationCreateObjectV1(ezsignannotationCreateObjectV1Request: ezsignannotationCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignannotationAPI.ezsignannotationCreateObjectV1(ezsignannotationCreateObjectV1Request: ezsignannotationCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -62,7 +58,7 @@ Name | Type | Description  | Notes
 
 # **ezsignannotationDeleteObjectV1**
 ```swift
-    open class func ezsignannotationDeleteObjectV1(pkiEzsignannotationID: Int, completion: @escaping (_ data: EzsignannotationDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignannotationDeleteObjectV1(pkiEzsignannotationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignannotationDeleteObjectV1Response
 ```
 
 Delete an existing Ezsignannotation
@@ -77,15 +73,11 @@ import EzmaxApi
 let pkiEzsignannotationID = 987 // Int | 
 
 // Delete an existing Ezsignannotation
-ObjectEzsignannotationAPI.ezsignannotationDeleteObjectV1(pkiEzsignannotationID: pkiEzsignannotationID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignannotationAPI.ezsignannotationDeleteObjectV1(pkiEzsignannotationID: pkiEzsignannotationID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -112,7 +104,7 @@ Name | Type | Description  | Notes
 
 # **ezsignannotationEditObjectV1**
 ```swift
-    open class func ezsignannotationEditObjectV1(pkiEzsignannotationID: Int, ezsignannotationEditObjectV1Request: EzsignannotationEditObjectV1Request, completion: @escaping (_ data: EzsignannotationEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignannotationEditObjectV1(pkiEzsignannotationID: Int, ezsignannotationEditObjectV1Request: EzsignannotationEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignannotationEditObjectV1Response
 ```
 
 Edit an existing Ezsignannotation
@@ -128,15 +120,11 @@ let pkiEzsignannotationID = 987 // Int |
 let ezsignannotationEditObjectV1Request = ezsignannotation-editObject-v1-Request(objEzsignannotation: ezsignannotation-RequestCompound(pkiEzsignannotationID: 123, fkiEzsigndocumentID: 123, eEzsignannotationHorizontalalignment: Enum-Horizontalalignment(), eEzsignannotationVerticalalignment: Enum-Verticalalignment(), eEzsignannotationType: Field-eEzsignannotationType(), iEzsignannotationX: 123, iEzsignannotationY: 123, iEzsignannotationWidth: 123, iEzsignannotationHeight: 123, sEzsignannotationText: "sEzsignannotationText_example", iEzsignpagePagenumber: 123, objTextstylestatic: textstylestatic-RequestCompound(fkiFontID: 123, bTextstylestaticBold: true, bTextstylestaticUnderline: true, bTextstylestaticItalic: true, bTextstylestaticStrikethrough: true, iTextstylestaticFontcolor: 123, iTextstylestaticSize: 123))) // EzsignannotationEditObjectV1Request | 
 
 // Edit an existing Ezsignannotation
-ObjectEzsignannotationAPI.ezsignannotationEditObjectV1(pkiEzsignannotationID: pkiEzsignannotationID, ezsignannotationEditObjectV1Request: ezsignannotationEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignannotationAPI.ezsignannotationEditObjectV1(pkiEzsignannotationID: pkiEzsignannotationID, ezsignannotationEditObjectV1Request: ezsignannotationEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -164,7 +152,7 @@ Name | Type | Description  | Notes
 
 # **ezsignannotationGetObjectV2**
 ```swift
-    open class func ezsignannotationGetObjectV2(pkiEzsignannotationID: Int, completion: @escaping (_ data: EzsignannotationGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsignannotationGetObjectV2(pkiEzsignannotationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignannotationGetObjectV2Response
 ```
 
 Retrieve an existing Ezsignannotation
@@ -179,15 +167,11 @@ import EzmaxApi
 let pkiEzsignannotationID = 987 // Int | 
 
 // Retrieve an existing Ezsignannotation
-ObjectEzsignannotationAPI.ezsignannotationGetObjectV2(pkiEzsignannotationID: pkiEzsignannotationID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignannotationAPI.ezsignannotationGetObjectV2(pkiEzsignannotationID: pkiEzsignannotationID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

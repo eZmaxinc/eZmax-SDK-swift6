@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **inscriptiontypeGetAutocompleteV2**
 ```swift
-    open class func inscriptiontypeGetAutocompleteV2(sSelector: SSelector_inscriptiontypeGetAutocompleteV2, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: InscriptiontypeGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func inscriptiontypeGetAutocompleteV2(sSelector: SSelector_inscriptiontypeGetAutocompleteV2, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptiontypeGetAutocompleteV2Response
 ```
 
 Retrieve Inscriptiontypes and IDs
@@ -26,15 +26,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Inscriptiontypes and IDs
-ObjectInscriptiontypeAPI.inscriptiontypeGetAutocompleteV2(sSelector: sSelector, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInscriptiontypeAPI.inscriptiontypeGetAutocompleteV2(sSelector: sSelector, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

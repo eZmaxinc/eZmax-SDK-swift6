@@ -22,9 +22,9 @@ public struct CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest: 
     public static let fkiEzsignfoldersignerassociationIDValidationRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let iEzsignsignatureMaxlengthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let sEzsignsignatureTextvalidationcustommessageRule = StringRule(minLength: 0, maxLength: 50, pattern: nil)
-    public static let sEzsignsignatureRegexpRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\^.*\\$$|^$/")
-    public static let sEzsignsignatureCreditcardamountdescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,50}$/")
-    public static let dEzsignsignatureCreditcardamountRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\d]{1,9}?\\.[\\d]{2}$/")
+    public static let sEzsignsignatureRegexpRule = StringRule(minLength: nil, maxLength: nil, pattern: "^\\^.*\\$$|^$")
+    public static let sEzsignsignatureCreditcardamountdescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,50}$")
+    public static let dEzsignsignatureCreditcardamountRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[\\d]{1,9}?\\.[\\d]{2}$")
     /** The unique ID of the Ezsignsignature */
     public var pkiEzsignsignatureID: Int?
     /** The unique ID of the Ezsignfoldersignerassociation */

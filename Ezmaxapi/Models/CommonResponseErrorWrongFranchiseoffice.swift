@@ -10,7 +10,7 @@ import Foundation
 /** Error Message when a Franchisebroker is not in this Franchiseoffice. */
 public struct CommonResponseErrorWrongFranchiseoffice: Sendable, Codable, Hashable {
 
-    public static let sErrorMessageRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,500}$/")
+    public static let sErrorMessageRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,500}$")
     public static let fkiFranchiseagenceIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiFranchiseofficeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The message giving details about the error */

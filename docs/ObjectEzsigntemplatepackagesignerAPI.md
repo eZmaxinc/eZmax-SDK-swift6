@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 # **ezsigntemplatepackagesignerCreateObjectV1**
 ```swift
-    open class func ezsigntemplatepackagesignerCreateObjectV1(ezsigntemplatepackagesignerCreateObjectV1Request: EzsigntemplatepackagesignerCreateObjectV1Request, completion: @escaping (_ data: EzsigntemplatepackagesignerCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatepackagesignerCreateObjectV1(ezsigntemplatepackagesignerCreateObjectV1Request: EzsigntemplatepackagesignerCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplatepackagesignerCreateObjectV1Response
 ```
 
 Create a new Ezsigntemplatepackagesigner
@@ -30,15 +30,11 @@ import EzmaxApi
 let ezsigntemplatepackagesignerCreateObjectV1Request = ezsigntemplatepackagesigner-createObject-v1-Request(aObjEzsigntemplatepackagesigner: [ezsigntemplatepackagesigner-RequestCompound(pkiEzsigntemplatepackagesignerID: 123, fkiEzsigntemplatepackageID: 123, fkiEzdoctemplatedocumentID: 123, fkiUserID: 123, fkiUsergroupID: 123, bEzsigntemplatepackagesignerReceivecopy: false, eEzsigntemplatepackagesignerMapping: Field-eEzsigntemplatepackagesignerMapping(), sEzsigntemplatepackagesignerDescription: "sEzsigntemplatepackagesignerDescription_example")]) // EzsigntemplatepackagesignerCreateObjectV1Request | 
 
 // Create a new Ezsigntemplatepackagesigner
-ObjectEzsigntemplatepackagesignerAPI.ezsigntemplatepackagesignerCreateObjectV1(ezsigntemplatepackagesignerCreateObjectV1Request: ezsigntemplatepackagesignerCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplatepackagesignerAPI.ezsigntemplatepackagesignerCreateObjectV1(ezsigntemplatepackagesignerCreateObjectV1Request: ezsigntemplatepackagesignerCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -65,7 +61,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatepackagesignerCreateObjectV2**
 ```swift
-    open class func ezsigntemplatepackagesignerCreateObjectV2(ezsigntemplatepackagesignerCreateObjectV2Request: EzsigntemplatepackagesignerCreateObjectV2Request, completion: @escaping (_ data: EzsigntemplatepackagesignerCreateObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatepackagesignerCreateObjectV2(ezsigntemplatepackagesignerCreateObjectV2Request: EzsigntemplatepackagesignerCreateObjectV2Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplatepackagesignerCreateObjectV2Response
 ```
 
 Create a new Ezsigntemplatepackagesigner
@@ -80,15 +76,11 @@ import EzmaxApi
 let ezsigntemplatepackagesignerCreateObjectV2Request = ezsigntemplatepackagesigner-createObject-v2-Request(aObjEzsigntemplatepackagesigner: [ezsigntemplatepackagesigner-RequestCompoundV2(pkiEzsigntemplatepackagesignerID: 123, fkiEzsigntemplatepackageID: 123, fkiEzdoctemplatedocumentID: 123, fkiUserID: 123, fkiUsergroupID: 123, eEzsigntemplatepackagesignerRole: Field-eEzsigntemplatepackagesignerRole(), eEzsigntemplatepackagesignerMapping: Field-eEzsigntemplatepackagesignerMapping(), sEzsigntemplatepackagesignerDescription: "sEzsigntemplatepackagesignerDescription_example")]) // EzsigntemplatepackagesignerCreateObjectV2Request | 
 
 // Create a new Ezsigntemplatepackagesigner
-ObjectEzsigntemplatepackagesignerAPI.ezsigntemplatepackagesignerCreateObjectV2(ezsigntemplatepackagesignerCreateObjectV2Request: ezsigntemplatepackagesignerCreateObjectV2Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplatepackagesignerAPI.ezsigntemplatepackagesignerCreateObjectV2(ezsigntemplatepackagesignerCreateObjectV2Request: ezsigntemplatepackagesignerCreateObjectV2Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -115,7 +107,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatepackagesignerDeleteObjectV1**
 ```swift
-    open class func ezsigntemplatepackagesignerDeleteObjectV1(pkiEzsigntemplatepackagesignerID: Int, completion: @escaping (_ data: EzsigntemplatepackagesignerDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatepackagesignerDeleteObjectV1(pkiEzsigntemplatepackagesignerID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplatepackagesignerDeleteObjectV1Response
 ```
 
 Delete an existing Ezsigntemplatepackagesigner
@@ -130,15 +122,11 @@ import EzmaxApi
 let pkiEzsigntemplatepackagesignerID = 987 // Int | 
 
 // Delete an existing Ezsigntemplatepackagesigner
-ObjectEzsigntemplatepackagesignerAPI.ezsigntemplatepackagesignerDeleteObjectV1(pkiEzsigntemplatepackagesignerID: pkiEzsigntemplatepackagesignerID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplatepackagesignerAPI.ezsigntemplatepackagesignerDeleteObjectV1(pkiEzsigntemplatepackagesignerID: pkiEzsigntemplatepackagesignerID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -165,7 +153,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatepackagesignerEditObjectV1**
 ```swift
-    open class func ezsigntemplatepackagesignerEditObjectV1(pkiEzsigntemplatepackagesignerID: Int, ezsigntemplatepackagesignerEditObjectV1Request: EzsigntemplatepackagesignerEditObjectV1Request, completion: @escaping (_ data: EzsigntemplatepackagesignerEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatepackagesignerEditObjectV1(pkiEzsigntemplatepackagesignerID: Int, ezsigntemplatepackagesignerEditObjectV1Request: EzsigntemplatepackagesignerEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplatepackagesignerEditObjectV1Response
 ```
 
 Edit an existing Ezsigntemplatepackagesigner
@@ -181,15 +169,11 @@ let pkiEzsigntemplatepackagesignerID = 987 // Int |
 let ezsigntemplatepackagesignerEditObjectV1Request = ezsigntemplatepackagesigner-editObject-v1-Request(objEzsigntemplatepackagesigner: ezsigntemplatepackagesigner-RequestCompound(pkiEzsigntemplatepackagesignerID: 123, fkiEzsigntemplatepackageID: 123, fkiEzdoctemplatedocumentID: 123, fkiUserID: 123, fkiUsergroupID: 123, bEzsigntemplatepackagesignerReceivecopy: false, eEzsigntemplatepackagesignerMapping: Field-eEzsigntemplatepackagesignerMapping(), sEzsigntemplatepackagesignerDescription: "sEzsigntemplatepackagesignerDescription_example")) // EzsigntemplatepackagesignerEditObjectV1Request | 
 
 // Edit an existing Ezsigntemplatepackagesigner
-ObjectEzsigntemplatepackagesignerAPI.ezsigntemplatepackagesignerEditObjectV1(pkiEzsigntemplatepackagesignerID: pkiEzsigntemplatepackagesignerID, ezsigntemplatepackagesignerEditObjectV1Request: ezsigntemplatepackagesignerEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplatepackagesignerAPI.ezsigntemplatepackagesignerEditObjectV1(pkiEzsigntemplatepackagesignerID: pkiEzsigntemplatepackagesignerID, ezsigntemplatepackagesignerEditObjectV1Request: ezsigntemplatepackagesignerEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -217,7 +201,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatepackagesignerEditObjectV2**
 ```swift
-    open class func ezsigntemplatepackagesignerEditObjectV2(pkiEzsigntemplatepackagesignerID: Int, ezsigntemplatepackagesignerEditObjectV2Request: EzsigntemplatepackagesignerEditObjectV2Request, completion: @escaping (_ data: EzsigntemplatepackagesignerEditObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatepackagesignerEditObjectV2(pkiEzsigntemplatepackagesignerID: Int, ezsigntemplatepackagesignerEditObjectV2Request: EzsigntemplatepackagesignerEditObjectV2Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplatepackagesignerEditObjectV2Response
 ```
 
 Edit an existing Ezsigntemplatepackagesigner
@@ -233,15 +217,11 @@ let pkiEzsigntemplatepackagesignerID = 987 // Int |
 let ezsigntemplatepackagesignerEditObjectV2Request = ezsigntemplatepackagesigner-editObject-v2-Request(objEzsigntemplatepackagesigner: ezsigntemplatepackagesigner-RequestCompoundV2(pkiEzsigntemplatepackagesignerID: 123, fkiEzsigntemplatepackageID: 123, fkiEzdoctemplatedocumentID: 123, fkiUserID: 123, fkiUsergroupID: 123, eEzsigntemplatepackagesignerRole: Field-eEzsigntemplatepackagesignerRole(), eEzsigntemplatepackagesignerMapping: Field-eEzsigntemplatepackagesignerMapping(), sEzsigntemplatepackagesignerDescription: "sEzsigntemplatepackagesignerDescription_example")) // EzsigntemplatepackagesignerEditObjectV2Request | 
 
 // Edit an existing Ezsigntemplatepackagesigner
-ObjectEzsigntemplatepackagesignerAPI.ezsigntemplatepackagesignerEditObjectV2(pkiEzsigntemplatepackagesignerID: pkiEzsigntemplatepackagesignerID, ezsigntemplatepackagesignerEditObjectV2Request: ezsigntemplatepackagesignerEditObjectV2Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplatepackagesignerAPI.ezsigntemplatepackagesignerEditObjectV2(pkiEzsigntemplatepackagesignerID: pkiEzsigntemplatepackagesignerID, ezsigntemplatepackagesignerEditObjectV2Request: ezsigntemplatepackagesignerEditObjectV2Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -269,7 +249,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatepackagesignerGetObjectV2**
 ```swift
-    open class func ezsigntemplatepackagesignerGetObjectV2(pkiEzsigntemplatepackagesignerID: Int, completion: @escaping (_ data: EzsigntemplatepackagesignerGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatepackagesignerGetObjectV2(pkiEzsigntemplatepackagesignerID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplatepackagesignerGetObjectV2Response
 ```
 
 Retrieve an existing Ezsigntemplatepackagesigner
@@ -284,15 +264,11 @@ import EzmaxApi
 let pkiEzsigntemplatepackagesignerID = 987 // Int | 
 
 // Retrieve an existing Ezsigntemplatepackagesigner
-ObjectEzsigntemplatepackagesignerAPI.ezsigntemplatepackagesignerGetObjectV2(pkiEzsigntemplatepackagesignerID: pkiEzsigntemplatepackagesignerID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplatepackagesignerAPI.ezsigntemplatepackagesignerGetObjectV2(pkiEzsigntemplatepackagesignerID: pkiEzsigntemplatepackagesignerID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -319,7 +295,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatepackagesignerGetObjectV3**
 ```swift
-    open class func ezsigntemplatepackagesignerGetObjectV3(pkiEzsigntemplatepackagesignerID: Int, completion: @escaping (_ data: EzsigntemplatepackagesignerGetObjectV3Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatepackagesignerGetObjectV3(pkiEzsigntemplatepackagesignerID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplatepackagesignerGetObjectV3Response
 ```
 
 Retrieve an existing Ezsigntemplatepackagesigner
@@ -334,15 +310,11 @@ import EzmaxApi
 let pkiEzsigntemplatepackagesignerID = 987 // Int | 
 
 // Retrieve an existing Ezsigntemplatepackagesigner
-ObjectEzsigntemplatepackagesignerAPI.ezsigntemplatepackagesignerGetObjectV3(pkiEzsigntemplatepackagesignerID: pkiEzsigntemplatepackagesignerID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplatepackagesignerAPI.ezsigntemplatepackagesignerGetObjectV3(pkiEzsigntemplatepackagesignerID: pkiEzsigntemplatepackagesignerID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

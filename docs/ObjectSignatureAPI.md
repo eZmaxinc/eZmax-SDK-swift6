@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 # **signatureCreateObjectV1**
 ```swift
-    open class func signatureCreateObjectV1(signatureCreateObjectV1Request: SignatureCreateObjectV1Request, completion: @escaping (_ data: SignatureCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func signatureCreateObjectV1(signatureCreateObjectV1Request: SignatureCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SignatureCreateObjectV1Response
 ```
 
 Create a new Signature
@@ -29,15 +29,11 @@ import EzmaxApi
 let signatureCreateObjectV1Request = signature-createObject-v1-Request(aObjSignature: [signature-RequestCompound(pkiSignatureID: 123, fkiFontID: 123, eSignaturePreference: Field-eSignaturePreference(), tSignatureSvg: "tSignatureSvg_example", tSignatureSvginitials: "tSignatureSvginitials_example")]) // SignatureCreateObjectV1Request | 
 
 // Create a new Signature
-ObjectSignatureAPI.signatureCreateObjectV1(signatureCreateObjectV1Request: signatureCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectSignatureAPI.signatureCreateObjectV1(signatureCreateObjectV1Request: signatureCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -64,7 +60,7 @@ Name | Type | Description  | Notes
 
 # **signatureDeleteObjectV1**
 ```swift
-    open class func signatureDeleteObjectV1(pkiSignatureID: Int, completion: @escaping (_ data: SignatureDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func signatureDeleteObjectV1(pkiSignatureID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SignatureDeleteObjectV1Response
 ```
 
 Delete an existing Signature
@@ -79,15 +75,11 @@ import EzmaxApi
 let pkiSignatureID = 987 // Int | The unique ID of the Signature
 
 // Delete an existing Signature
-ObjectSignatureAPI.signatureDeleteObjectV1(pkiSignatureID: pkiSignatureID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectSignatureAPI.signatureDeleteObjectV1(pkiSignatureID: pkiSignatureID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -114,7 +106,7 @@ Name | Type | Description  | Notes
 
 # **signatureEditObjectV1**
 ```swift
-    open class func signatureEditObjectV1(pkiSignatureID: Int, signatureEditObjectV1Request: SignatureEditObjectV1Request, completion: @escaping (_ data: SignatureEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func signatureEditObjectV1(pkiSignatureID: Int, signatureEditObjectV1Request: SignatureEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SignatureEditObjectV1Response
 ```
 
 Edit an existing Signature
@@ -130,15 +122,11 @@ let pkiSignatureID = 987 // Int | The unique ID of the Signature
 let signatureEditObjectV1Request = signature-editObject-v1-Request(objSignature: signature-RequestCompound(pkiSignatureID: 123, fkiFontID: 123, eSignaturePreference: Field-eSignaturePreference(), tSignatureSvg: "tSignatureSvg_example", tSignatureSvginitials: "tSignatureSvginitials_example")) // SignatureEditObjectV1Request | 
 
 // Edit an existing Signature
-ObjectSignatureAPI.signatureEditObjectV1(pkiSignatureID: pkiSignatureID, signatureEditObjectV1Request: signatureEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectSignatureAPI.signatureEditObjectV1(pkiSignatureID: pkiSignatureID, signatureEditObjectV1Request: signatureEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -166,7 +154,7 @@ Name | Type | Description  | Notes
 
 # **signatureGetObjectV3**
 ```swift
-    open class func signatureGetObjectV3(pkiSignatureID: Int, completion: @escaping (_ data: SignatureGetObjectV3Response?, _ error: Error?) -> Void)
+    open class func signatureGetObjectV3(pkiSignatureID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SignatureGetObjectV3Response
 ```
 
 Retrieve an existing Signature
@@ -181,15 +169,11 @@ import EzmaxApi
 let pkiSignatureID = 987 // Int | The unique ID of the Signature
 
 // Retrieve an existing Signature
-ObjectSignatureAPI.signatureGetObjectV3(pkiSignatureID: pkiSignatureID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectSignatureAPI.signatureGetObjectV3(pkiSignatureID: pkiSignatureID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -216,7 +200,7 @@ Name | Type | Description  | Notes
 
 # **signatureGetSVGInitialsV1**
 ```swift
-    open class func signatureGetSVGInitialsV1(pkiSignatureID: Int, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+    open class func signatureGetSVGInitialsV1(pkiSignatureID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse)
 ```
 
 Retrieve an existing Signature initial SVG
@@ -231,15 +215,10 @@ import EzmaxApi
 let pkiSignatureID = 987 // Int | The unique ID of the Signature
 
 // Retrieve an existing Signature initial SVG
-ObjectSignatureAPI.signatureGetSVGInitialsV1(pkiSignatureID: pkiSignatureID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    try await ObjectSignatureAPI.signatureGetSVGInitialsV1(pkiSignatureID: pkiSignatureID)
+} catch {
+    print(error)
 }
 ```
 
@@ -266,7 +245,7 @@ Void (empty response body)
 
 # **signatureGetSVGSignatureV1**
 ```swift
-    open class func signatureGetSVGSignatureV1(pkiSignatureID: Int, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+    open class func signatureGetSVGSignatureV1(pkiSignatureID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse)
 ```
 
 Retrieve an existing Signature SVG
@@ -281,15 +260,10 @@ import EzmaxApi
 let pkiSignatureID = 987 // Int | The unique ID of the Signature
 
 // Retrieve an existing Signature SVG
-ObjectSignatureAPI.signatureGetSVGSignatureV1(pkiSignatureID: pkiSignatureID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    try await ObjectSignatureAPI.signatureGetSVGSignatureV1(pkiSignatureID: pkiSignatureID)
+} catch {
+    print(error)
 }
 ```
 

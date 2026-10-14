@@ -12,7 +12,7 @@ public struct PaymentgatewayResponse: Sendable, Codable, Hashable {
 
     public static let pkiPaymentgatewayIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiCreditcardmerchantIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sCreditcardmerchantDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,25}$/")
+    public static let sCreditcardmerchantDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,25}$")
     /** The unique ID of the Paymentgateway */
     public var pkiPaymentgatewayID: Int
     /** The unique ID of the Creditcardmerchant */

@@ -12,8 +12,8 @@ public struct CustomerAutocompleteElementResponse: Sendable, Codable, Hashable {
 
     public static let pkiCustomerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiDepartmentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sCustomerNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    public static let sCustomerCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,6}$/")
+    public static let sCustomerNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
+    public static let sCustomerCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,6}$")
     /** The unique ID of the Customer. */
     public var pkiCustomerID: Int
     /** The unique ID of the Department */

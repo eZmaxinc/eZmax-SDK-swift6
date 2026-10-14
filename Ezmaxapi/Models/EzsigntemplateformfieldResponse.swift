@@ -16,7 +16,7 @@ public struct EzsigntemplateformfieldResponse: Sendable, Codable, Hashable {
     public static let iEzsigntemplateformfieldYRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let iEzsigntemplateformfieldWidthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let iEzsigntemplateformfieldHeightRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sEzsigntemplateformfieldPositioningpatternRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,30}$/")
+    public static let sEzsigntemplateformfieldPositioningpatternRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,30}$")
     /** The unique ID of the Ezsigntemplateformfield */
     public var pkiEzsigntemplateformfieldID: Int
     public var eEzsigntemplateformfieldPositioning: FieldEEzsigntemplateformfieldPositioning?

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **billingentityexternalGenerateFederationTokenV1**
 ```swift
-    open class func billingentityexternalGenerateFederationTokenV1(pkiBillingentityexternalID: Int, billingentityexternalGenerateFederationTokenV1Request: BillingentityexternalGenerateFederationTokenV1Request, completion: @escaping (_ data: BillingentityexternalGenerateFederationTokenV1Response?, _ error: Error?) -> Void)
+    open class func billingentityexternalGenerateFederationTokenV1(pkiBillingentityexternalID: Int, billingentityexternalGenerateFederationTokenV1Request: BillingentityexternalGenerateFederationTokenV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BillingentityexternalGenerateFederationTokenV1Response
 ```
 
 Generate a federation token
@@ -26,15 +26,11 @@ let pkiBillingentityexternalID = 987 // Int |
 let billingentityexternalGenerateFederationTokenV1Request = billingentityexternal-generateFederationToken-v1-Request(fksEzmaxcustomerCode: "fksEzmaxcustomerCode_example") // BillingentityexternalGenerateFederationTokenV1Request | 
 
 // Generate a federation token
-ObjectBillingentityexternalAPI.billingentityexternalGenerateFederationTokenV1(pkiBillingentityexternalID: pkiBillingentityexternalID, billingentityexternalGenerateFederationTokenV1Request: billingentityexternalGenerateFederationTokenV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBillingentityexternalAPI.billingentityexternalGenerateFederationTokenV1(pkiBillingentityexternalID: pkiBillingentityexternalID, billingentityexternalGenerateFederationTokenV1Request: billingentityexternalGenerateFederationTokenV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -62,7 +58,7 @@ Name | Type | Description  | Notes
 
 # **billingentityexternalGetAutocompleteV2**
 ```swift
-    open class func billingentityexternalGetAutocompleteV2(sSelector: SSelector_billingentityexternalGetAutocompleteV2, eFilterActive: EFilterActive_billingentityexternalGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: BillingentityexternalGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func billingentityexternalGetAutocompleteV2(sSelector: SSelector_billingentityexternalGetAutocompleteV2, eFilterActive: EFilterActive_billingentityexternalGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BillingentityexternalGetAutocompleteV2Response
 ```
 
 Retrieve Billingentityexternals and IDs
@@ -80,15 +76,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Billingentityexternals and IDs
-ObjectBillingentityexternalAPI.billingentityexternalGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBillingentityexternalAPI.billingentityexternalGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

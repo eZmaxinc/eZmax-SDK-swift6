@@ -10,12 +10,12 @@ import Foundation
 /** A Ezsignsigner-&gt;Contact Object and children to create a complete structure */
 public struct EzsignsignerRequestCompoundContact: Sendable, Codable, Hashable {
 
-    public static let sContactFirstnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,20}$/")
-    public static let sContactLastnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,25}$/")
+    public static let sContactFirstnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,20}$")
+    public static let sContactLastnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,25}$")
     public static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
-    public static let sEmailAddressRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\w.%+\\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$/")
-    public static let sPhoneE164Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\+[1-9]\\d{1,14}$/")
-    public static let sPhoneE164CellRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\+[1-9]\\d{1,14}$/")
+    public static let sEmailAddressRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[\\w.%+\\-!#$%&'*+/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$")
+    public static let sPhoneE164Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^\\+[1-9]\\d{1,14}$")
+    public static let sPhoneE164CellRule = StringRule(minLength: nil, maxLength: nil, pattern: "^\\+[1-9]\\d{1,14}$")
     /** The First name of the contact */
     public var sContactFirstname: String
     /** The Last name of the contact */

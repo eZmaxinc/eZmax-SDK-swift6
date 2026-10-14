@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 # **corsCreateObjectV1**
 ```swift
-    open class func corsCreateObjectV1(corsCreateObjectV1Request: CorsCreateObjectV1Request, completion: @escaping (_ data: CorsCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func corsCreateObjectV1(corsCreateObjectV1Request: CorsCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CorsCreateObjectV1Response
 ```
 
 Create a new Cors
@@ -27,15 +27,11 @@ import EzmaxApi
 let corsCreateObjectV1Request = cors-createObject-v1-Request(aObjCors: [cors-RequestCompound(pkiCorsID: 123, fkiApikeyID: 123, sCorsEntryurl: "sCorsEntryurl_example")]) // CorsCreateObjectV1Request | 
 
 // Create a new Cors
-ObjectCorsAPI.corsCreateObjectV1(corsCreateObjectV1Request: corsCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCorsAPI.corsCreateObjectV1(corsCreateObjectV1Request: corsCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -62,7 +58,7 @@ Name | Type | Description  | Notes
 
 # **corsDeleteObjectV1**
 ```swift
-    open class func corsDeleteObjectV1(pkiCorsID: Int, completion: @escaping (_ data: CorsDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func corsDeleteObjectV1(pkiCorsID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CorsDeleteObjectV1Response
 ```
 
 Delete an existing Cors
@@ -77,15 +73,11 @@ import EzmaxApi
 let pkiCorsID = 987 // Int | The unique ID of the Cors
 
 // Delete an existing Cors
-ObjectCorsAPI.corsDeleteObjectV1(pkiCorsID: pkiCorsID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCorsAPI.corsDeleteObjectV1(pkiCorsID: pkiCorsID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -112,7 +104,7 @@ Name | Type | Description  | Notes
 
 # **corsEditObjectV1**
 ```swift
-    open class func corsEditObjectV1(pkiCorsID: Int, corsEditObjectV1Request: CorsEditObjectV1Request, completion: @escaping (_ data: CorsEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func corsEditObjectV1(pkiCorsID: Int, corsEditObjectV1Request: CorsEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CorsEditObjectV1Response
 ```
 
 Edit an existing Cors
@@ -128,15 +120,11 @@ let pkiCorsID = 987 // Int | The unique ID of the Cors
 let corsEditObjectV1Request = cors-editObject-v1-Request(objCors: cors-RequestCompound(pkiCorsID: 123, fkiApikeyID: 123, sCorsEntryurl: "sCorsEntryurl_example")) // CorsEditObjectV1Request | 
 
 // Edit an existing Cors
-ObjectCorsAPI.corsEditObjectV1(pkiCorsID: pkiCorsID, corsEditObjectV1Request: corsEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCorsAPI.corsEditObjectV1(pkiCorsID: pkiCorsID, corsEditObjectV1Request: corsEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -164,7 +152,7 @@ Name | Type | Description  | Notes
 
 # **corsGetObjectV2**
 ```swift
-    open class func corsGetObjectV2(pkiCorsID: Int, completion: @escaping (_ data: CorsGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func corsGetObjectV2(pkiCorsID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CorsGetObjectV2Response
 ```
 
 Retrieve an existing Cors
@@ -179,15 +167,11 @@ import EzmaxApi
 let pkiCorsID = 987 // Int | The unique ID of the Cors
 
 // Retrieve an existing Cors
-ObjectCorsAPI.corsGetObjectV2(pkiCorsID: pkiCorsID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCorsAPI.corsGetObjectV2(pkiCorsID: pkiCorsID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 # **ezsignimportfolderDeleteObjectV1**
 ```swift
-    open class func ezsignimportfolderDeleteObjectV1(pkiEzsignimportfolderID: Int, completion: @escaping (_ data: EzsignimportfolderDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignimportfolderDeleteObjectV1(pkiEzsignimportfolderID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignimportfolderDeleteObjectV1Response
 ```
 
 Delete an existing Ezsignimportfolder
@@ -26,15 +26,11 @@ import EzmaxApi
 let pkiEzsignimportfolderID = 987 // Int | The unique ID of the Ezsignimportfolder
 
 // Delete an existing Ezsignimportfolder
-ObjectEzsignimportfolderAPI.ezsignimportfolderDeleteObjectV1(pkiEzsignimportfolderID: pkiEzsignimportfolderID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignimportfolderAPI.ezsignimportfolderDeleteObjectV1(pkiEzsignimportfolderID: pkiEzsignimportfolderID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -61,7 +57,7 @@ Name | Type | Description  | Notes
 
 # **ezsignimportfolderGetListV1**
 ```swift
-    open class func ezsignimportfolderGetListV1(eOrderBy: EOrderBy_ezsignimportfolderGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: EzsignimportfolderGetListV1Response?, _ error: Error?) -> Void)
+    open class func ezsignimportfolderGetListV1(eOrderBy: EOrderBy_ezsignimportfolderGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignimportfolderGetListV1Response
 ```
 
 Retrieve Ezsignimportfolder list
@@ -80,15 +76,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Ezsignimportfolder list
-ObjectEzsignimportfolderAPI.ezsignimportfolderGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignimportfolderAPI.ezsignimportfolderGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -119,7 +111,7 @@ Name | Type | Description  | Notes
 
 # **ezsignimportfolderGetObjectV2**
 ```swift
-    open class func ezsignimportfolderGetObjectV2(pkiEzsignimportfolderID: Int, completion: @escaping (_ data: EzsignimportfolderGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsignimportfolderGetObjectV2(pkiEzsignimportfolderID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignimportfolderGetObjectV2Response
 ```
 
 Retrieve an existing Ezsignimportfolder
@@ -134,15 +126,11 @@ import EzmaxApi
 let pkiEzsignimportfolderID = 987 // Int | The unique ID of the Ezsignimportfolder
 
 // Retrieve an existing Ezsignimportfolder
-ObjectEzsignimportfolderAPI.ezsignimportfolderGetObjectV2(pkiEzsignimportfolderID: pkiEzsignimportfolderID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignimportfolderAPI.ezsignimportfolderGetObjectV2(pkiEzsignimportfolderID: pkiEzsignimportfolderID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

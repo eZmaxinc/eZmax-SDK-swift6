@@ -529,11 +529,12 @@ open class ObjectEzsignfolderAPI {
         let localVariableParameters: [String: any Sendable]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
-        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+        let localVariableQueryParameters: [String: (wrappedValue: (any Sendable)?, isExplode: Bool)] = [
             "eSignerType": (wrappedValue: eSignerType.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "fkiEzsignsignerID": (wrappedValue: fkiEzsignsignerID?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "fkiUserID": (wrappedValue: fkiUserID?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-        ])
+        ]
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems(localVariableQueryParameters)
 
         let localVariableNillableHeaders: [String: (any Sendable)?] = [
             :
@@ -1406,12 +1407,13 @@ open class ObjectEzsignfolderAPI {
         let localVariableParameters: [String: any Sendable]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
-        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+        let localVariableQueryParameters: [String: (wrappedValue: (any Sendable)?, isExplode: Bool)] = [
             "eOrderBy": (wrappedValue: eOrderBy?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "iRowMax": (wrappedValue: iRowMax?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "iRowOffset": (wrappedValue: iRowOffset?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "sFilter": (wrappedValue: sFilter?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-        ])
+        ]
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems(localVariableQueryParameters)
 
         let localVariableNillableHeaders: [String: (any Sendable)?] = [
             "Accept-Language": acceptLanguage?.asParameter(codableHelper: apiConfiguration.codableHelper),

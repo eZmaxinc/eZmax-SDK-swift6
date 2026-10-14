@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **realestateassociationGetAutocompleteV2**
 ```swift
-    open class func realestateassociationGetAutocompleteV2(sSelector: SSelector_realestateassociationGetAutocompleteV2, eFilterActive: EFilterActive_realestateassociationGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: RealestateassociationGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func realestateassociationGetAutocompleteV2(sSelector: SSelector_realestateassociationGetAutocompleteV2, eFilterActive: EFilterActive_realestateassociationGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> RealestateassociationGetAutocompleteV2Response
 ```
 
 Retrieve Realestateassociations and IDs
@@ -27,15 +27,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Realestateassociations and IDs
-ObjectRealestateassociationAPI.realestateassociationGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectRealestateassociationAPI.realestateassociationGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **globalCustomerGetEndpointV1**
 ```swift
-    open class func globalCustomerGetEndpointV1(pksCustomerCode: String, sInfrastructureproductCode: SInfrastructureproductCode_globalCustomerGetEndpointV1? = nil, completion: @escaping (_ data: GlobalCustomerGetEndpointV1Response?, _ error: Error?) -> Void)
+    open class func globalCustomerGetEndpointV1(pksCustomerCode: String, sInfrastructureproductCode: SInfrastructureproductCode_globalCustomerGetEndpointV1? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> GlobalCustomerGetEndpointV1Response
 ```
 
 Get customer endpoint
@@ -25,15 +25,11 @@ let pksCustomerCode = "pksCustomerCode_example" // String |
 let sInfrastructureproductCode = "sInfrastructureproductCode_example" // String | The infrastructure product Code  If undefined, \"appcluster01\" is assumed (optional)
 
 // Get customer endpoint
-GlobalCustomerAPI.globalCustomerGetEndpointV1(pksCustomerCode: pksCustomerCode, sInfrastructureproductCode: sInfrastructureproductCode) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await GlobalCustomerAPI.globalCustomerGetEndpointV1(pksCustomerCode: pksCustomerCode, sInfrastructureproductCode: sInfrastructureproductCode)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

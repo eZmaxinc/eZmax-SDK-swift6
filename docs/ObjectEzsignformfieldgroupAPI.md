@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 # **ezsignformfieldgroupCreateObjectV1**
 ```swift
-    open class func ezsignformfieldgroupCreateObjectV1(ezsignformfieldgroupCreateObjectV1Request: EzsignformfieldgroupCreateObjectV1Request, completion: @escaping (_ data: EzsignformfieldgroupCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignformfieldgroupCreateObjectV1(ezsignformfieldgroupCreateObjectV1Request: EzsignformfieldgroupCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignformfieldgroupCreateObjectV1Response
 ```
 
 Create a new Ezsignformfieldgroup
@@ -27,15 +27,11 @@ import EzmaxApi
 let ezsignformfieldgroupCreateObjectV1Request = ezsignformfieldgroup-createObject-v1-Request(aObjEzsignformfieldgroup: [ezsignformfieldgroup-RequestCompound(pkiEzsignformfieldgroupID: 123, fkiEzsigndocumentID: 123, eEzsignformfieldgroupType: Field-eEzsignformfieldgroupType(), eEzsignformfieldgroupSignerrequirement: Field-eEzsignformfieldgroupSignerrequirement(), sEzsignformfieldgroupLabel: "sEzsignformfieldgroupLabel_example", iEzsignformfieldgroupStep: 123, sEzsignformfieldgroupDefaultvalue: "sEzsignformfieldgroupDefaultvalue_example", iEzsignformfieldgroupFilledmin: 123, iEzsignformfieldgroupFilledmax: 123, bEzsignformfieldgroupReadonly: false, iEzsignformfieldgroupMaxlength: 123, bEzsignformfieldgroupEncrypted: false, sEzsignformfieldgroupRegexp: "sEzsignformfieldgroupRegexp_example", sEzsignformfieldgroupTextvalidationcustommessage: "sEzsignformfieldgroupTextvalidationcustommessage_example", tEzsignformfieldgroupTooltip: "tEzsignformfieldgroupTooltip_example", eEzsignformfieldgroupTooltipposition: Field-eEzsignformfieldgroupTooltipposition(), eEzsignformfieldgroupTextvalidation: Enum-Textvalidation(), aObjEzsignformfieldgroupsigner: [ezsignformfieldgroupsigner-RequestCompound(pkiEzsignformfieldgroupsignerID: 123, fkiEzsignfoldersignerassociationID: 123)], aObjDropdownElement: [Custom-DropdownElement-RequestCompound(sLabel: "sLabel_example", sValue: "sValue_example")], aObjEzsignformfield: [ezsignformfield-RequestCompound(pkiEzsignformfieldID: 123, iEzsignpagePagenumber: 123, sEzsignformfieldLabel: "sEzsignformfieldLabel_example", sEzsignformfieldValue: "sEzsignformfieldValue_example", iEzsignformfieldX: 123, iEzsignformfieldY: 123, iEzsignformfieldWidth: 123, iEzsignformfieldHeight: 123, bEzsignformfieldAutocomplete: false, bEzsignformfieldSelected: false, sEzsignformfieldEnteredvalue: "sEzsignformfieldEnteredvalue_example", eEzsignformfieldDependencyrequirement: Field-eEzsignformfieldDependencyrequirement(), eEzsignformfieldHorizontalalignment: Enum-Horizontalalignment(), objTextstylestatic: textstylestatic-RequestCompound(fkiFontID: 123, bTextstylestaticBold: true, bTextstylestaticUnderline: true, bTextstylestaticItalic: true, bTextstylestaticStrikethrough: true, iTextstylestaticFontcolor: 123, iTextstylestaticSize: 123), aObjEzsignelementdependency: [ezsignelementdependency-RequestCompound(pkiEzsignelementdependencyID: 123, fkiEzsignformfieldIDValidation: 123, fkiEzsignformfieldgroupIDValidation: 123, sEzsignelementdependencyEzsignformfieldgrouplabel: "sEzsignelementdependencyEzsignformfieldgrouplabel_example", sEzsignelementdependencyEzsignformfieldlabel: "sEzsignelementdependencyEzsignformfieldlabel_example", eEzsignelementdependencyValidation: Field-eEzsignelementdependencyValidation(), bEzsignelementdependencySelected: false, eEzsignelementdependencyOperator: Field-eEzsignelementdependencyOperator(), sEzsignelementdependencyValue: "sEzsignelementdependencyValue_example")])])]) // EzsignformfieldgroupCreateObjectV1Request | 
 
 // Create a new Ezsignformfieldgroup
-ObjectEzsignformfieldgroupAPI.ezsignformfieldgroupCreateObjectV1(ezsignformfieldgroupCreateObjectV1Request: ezsignformfieldgroupCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignformfieldgroupAPI.ezsignformfieldgroupCreateObjectV1(ezsignformfieldgroupCreateObjectV1Request: ezsignformfieldgroupCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -62,7 +58,7 @@ Name | Type | Description  | Notes
 
 # **ezsignformfieldgroupDeleteObjectV1**
 ```swift
-    open class func ezsignformfieldgroupDeleteObjectV1(pkiEzsignformfieldgroupID: Int, completion: @escaping (_ data: EzsignformfieldgroupDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignformfieldgroupDeleteObjectV1(pkiEzsignformfieldgroupID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignformfieldgroupDeleteObjectV1Response
 ```
 
 Delete an existing Ezsignformfieldgroup
@@ -77,15 +73,11 @@ import EzmaxApi
 let pkiEzsignformfieldgroupID = 987 // Int | 
 
 // Delete an existing Ezsignformfieldgroup
-ObjectEzsignformfieldgroupAPI.ezsignformfieldgroupDeleteObjectV1(pkiEzsignformfieldgroupID: pkiEzsignformfieldgroupID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignformfieldgroupAPI.ezsignformfieldgroupDeleteObjectV1(pkiEzsignformfieldgroupID: pkiEzsignformfieldgroupID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -112,7 +104,7 @@ Name | Type | Description  | Notes
 
 # **ezsignformfieldgroupEditObjectV1**
 ```swift
-    open class func ezsignformfieldgroupEditObjectV1(pkiEzsignformfieldgroupID: Int, ezsignformfieldgroupEditObjectV1Request: EzsignformfieldgroupEditObjectV1Request, completion: @escaping (_ data: EzsignformfieldgroupEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignformfieldgroupEditObjectV1(pkiEzsignformfieldgroupID: Int, ezsignformfieldgroupEditObjectV1Request: EzsignformfieldgroupEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignformfieldgroupEditObjectV1Response
 ```
 
 Edit an existing Ezsignformfieldgroup
@@ -128,15 +120,11 @@ let pkiEzsignformfieldgroupID = 987 // Int |
 let ezsignformfieldgroupEditObjectV1Request = ezsignformfieldgroup-editObject-v1-Request(objEzsignformfieldgroup: ezsignformfieldgroup-RequestCompound(pkiEzsignformfieldgroupID: 123, fkiEzsigndocumentID: 123, eEzsignformfieldgroupType: Field-eEzsignformfieldgroupType(), eEzsignformfieldgroupSignerrequirement: Field-eEzsignformfieldgroupSignerrequirement(), sEzsignformfieldgroupLabel: "sEzsignformfieldgroupLabel_example", iEzsignformfieldgroupStep: 123, sEzsignformfieldgroupDefaultvalue: "sEzsignformfieldgroupDefaultvalue_example", iEzsignformfieldgroupFilledmin: 123, iEzsignformfieldgroupFilledmax: 123, bEzsignformfieldgroupReadonly: false, iEzsignformfieldgroupMaxlength: 123, bEzsignformfieldgroupEncrypted: false, sEzsignformfieldgroupRegexp: "sEzsignformfieldgroupRegexp_example", sEzsignformfieldgroupTextvalidationcustommessage: "sEzsignformfieldgroupTextvalidationcustommessage_example", tEzsignformfieldgroupTooltip: "tEzsignformfieldgroupTooltip_example", eEzsignformfieldgroupTooltipposition: Field-eEzsignformfieldgroupTooltipposition(), eEzsignformfieldgroupTextvalidation: Enum-Textvalidation(), aObjEzsignformfieldgroupsigner: [ezsignformfieldgroupsigner-RequestCompound(pkiEzsignformfieldgroupsignerID: 123, fkiEzsignfoldersignerassociationID: 123)], aObjDropdownElement: [Custom-DropdownElement-RequestCompound(sLabel: "sLabel_example", sValue: "sValue_example")], aObjEzsignformfield: [ezsignformfield-RequestCompound(pkiEzsignformfieldID: 123, iEzsignpagePagenumber: 123, sEzsignformfieldLabel: "sEzsignformfieldLabel_example", sEzsignformfieldValue: "sEzsignformfieldValue_example", iEzsignformfieldX: 123, iEzsignformfieldY: 123, iEzsignformfieldWidth: 123, iEzsignformfieldHeight: 123, bEzsignformfieldAutocomplete: false, bEzsignformfieldSelected: false, sEzsignformfieldEnteredvalue: "sEzsignformfieldEnteredvalue_example", eEzsignformfieldDependencyrequirement: Field-eEzsignformfieldDependencyrequirement(), eEzsignformfieldHorizontalalignment: Enum-Horizontalalignment(), objTextstylestatic: textstylestatic-RequestCompound(fkiFontID: 123, bTextstylestaticBold: true, bTextstylestaticUnderline: true, bTextstylestaticItalic: true, bTextstylestaticStrikethrough: true, iTextstylestaticFontcolor: 123, iTextstylestaticSize: 123), aObjEzsignelementdependency: [ezsignelementdependency-RequestCompound(pkiEzsignelementdependencyID: 123, fkiEzsignformfieldIDValidation: 123, fkiEzsignformfieldgroupIDValidation: 123, sEzsignelementdependencyEzsignformfieldgrouplabel: "sEzsignelementdependencyEzsignformfieldgrouplabel_example", sEzsignelementdependencyEzsignformfieldlabel: "sEzsignelementdependencyEzsignformfieldlabel_example", eEzsignelementdependencyValidation: Field-eEzsignelementdependencyValidation(), bEzsignelementdependencySelected: false, eEzsignelementdependencyOperator: Field-eEzsignelementdependencyOperator(), sEzsignelementdependencyValue: "sEzsignelementdependencyValue_example")])])) // EzsignformfieldgroupEditObjectV1Request | 
 
 // Edit an existing Ezsignformfieldgroup
-ObjectEzsignformfieldgroupAPI.ezsignformfieldgroupEditObjectV1(pkiEzsignformfieldgroupID: pkiEzsignformfieldgroupID, ezsignformfieldgroupEditObjectV1Request: ezsignformfieldgroupEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignformfieldgroupAPI.ezsignformfieldgroupEditObjectV1(pkiEzsignformfieldgroupID: pkiEzsignformfieldgroupID, ezsignformfieldgroupEditObjectV1Request: ezsignformfieldgroupEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -164,7 +152,7 @@ Name | Type | Description  | Notes
 
 # **ezsignformfieldgroupGetObjectV2**
 ```swift
-    open class func ezsignformfieldgroupGetObjectV2(pkiEzsignformfieldgroupID: Int, completion: @escaping (_ data: EzsignformfieldgroupGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsignformfieldgroupGetObjectV2(pkiEzsignformfieldgroupID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignformfieldgroupGetObjectV2Response
 ```
 
 Retrieve an existing Ezsignformfieldgroup
@@ -179,15 +167,11 @@ import EzmaxApi
 let pkiEzsignformfieldgroupID = 987 // Int | 
 
 // Retrieve an existing Ezsignformfieldgroup
-ObjectEzsignformfieldgroupAPI.ezsignformfieldgroupGetObjectV2(pkiEzsignformfieldgroupID: pkiEzsignformfieldgroupID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignformfieldgroupAPI.ezsignformfieldgroupGetObjectV2(pkiEzsignformfieldgroupID: pkiEzsignformfieldgroupID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

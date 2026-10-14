@@ -15,12 +15,12 @@ public struct InvoiceListElement: Sendable, Codable, Hashable {
     public static let fkiBrokerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiCustomerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiPeriodIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let dInvoiceTotalRule = StringRule(minLength: 4, maxLength: 13, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
-    public static let dInvoicePaidRule = StringRule(minLength: 4, maxLength: 13, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
-    public static let dInvoiceBalanceRule = StringRule(minLength: 4, maxLength: 13, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
-    public static let dtInvoiceDateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
-    public static let sInvoiceNumberRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,25}$/")
-    public static let sInvoiceRecipientRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,60}$/")
+    public static let dInvoiceTotalRule = StringRule(minLength: 4, maxLength: 13, pattern: "^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$")
+    public static let dInvoicePaidRule = StringRule(minLength: 4, maxLength: 13, pattern: "^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$")
+    public static let dInvoiceBalanceRule = StringRule(minLength: 4, maxLength: 13, pattern: "^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$")
+    public static let dtInvoiceDateRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$")
+    public static let sInvoiceNumberRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,25}$")
+    public static let sInvoiceRecipientRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,60}$")
     /** The unique ID of the Invoice. */
     public var pkiInvoiceID: Int
     /** The unique ID of the Agent. */

@@ -11,12 +11,12 @@ import Foundation
 public struct RejectedoffertopurchaseListElement: Sendable, Codable, Hashable {
 
     public static let pkiRejectedoffertopurchaseIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    public static let sRejectedoffertopurchaseNumberRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,12}$/")
-    public static let dtRejectedoffertopurchaseDateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
+    public static let sRejectedoffertopurchaseNumberRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,12}$")
+    public static let dtRejectedoffertopurchaseDateRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$")
     public static let fkiProvinceIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sProvinceNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sProvinceNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
     public static let fkiCountryIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sCountryNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,40}$/")
+    public static let sCountryNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,40}$")
     /** The unique ID of the Rejectedoffertopurchase */
     public var pkiRejectedoffertopurchaseID: Int
     /** The number of the Rejectedoffertopurchase */

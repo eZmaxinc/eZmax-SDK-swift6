@@ -10,8 +10,8 @@ import Foundation
 /** Name of the Ezmaxpartner */
 public struct MultilingualEzmaxpartnerName: Sendable, Codable, Hashable {
 
-    public static let sEzmaxpartnerName1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    public static let sEzmaxpartnerName2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sEzmaxpartnerName1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
+    public static let sEzmaxpartnerName2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
     /** The name of the Ezmaxpartner in french */
     public var sEzmaxpartnerName1: String?
     /** The name of the Ezmaxpartner in english */

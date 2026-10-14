@@ -11,10 +11,10 @@ import Foundation
 public struct BankaccountListElement: Sendable, Codable, Hashable {
 
     public static let pkiBankaccountIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sBankaccountTransitRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,5}$/")
-    public static let sBankaccountInstitutionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,4}$/")
-    public static let sBankaccountAccountRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,12}$/")
-    public static let sBankaccountNumberRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,24}$/")
+    public static let sBankaccountTransitRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,5}$")
+    public static let sBankaccountInstitutionRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,4}$")
+    public static let sBankaccountAccountRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,12}$")
+    public static let sBankaccountNumberRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,24}$")
     public static let iGlaccountCodeRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Bankaccount */
     public var pkiBankaccountID: Int

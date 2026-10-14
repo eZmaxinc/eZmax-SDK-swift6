@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 # **ezsignsignergroupCreateObjectV1**
 ```swift
-    open class func ezsignsignergroupCreateObjectV1(ezsignsignergroupCreateObjectV1Request: EzsignsignergroupCreateObjectV1Request, completion: @escaping (_ data: EzsignsignergroupCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignsignergroupCreateObjectV1(ezsignsignergroupCreateObjectV1Request: EzsignsignergroupCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignsignergroupCreateObjectV1Response
 ```
 
 Create a new Ezsignsignergroup
@@ -29,15 +29,11 @@ import EzmaxApi
 let ezsignsignergroupCreateObjectV1Request = ezsignsignergroup-createObject-v1-Request(aObjEzsignsignergroup: [ezsignsignergroup-RequestCompound(pkiEzsignsignergroupID: 123, fkiEzsignfolderID: 123, objEzsignsignergroupDescription: Multilingual-EzsignsignergroupDescription(sEzsignsignergroupDescription1: "sEzsignsignergroupDescription1_example", sEzsignsignergroupDescription2: "sEzsignsignergroupDescription2_example"))]) // EzsignsignergroupCreateObjectV1Request | 
 
 // Create a new Ezsignsignergroup
-ObjectEzsignsignergroupAPI.ezsignsignergroupCreateObjectV1(ezsignsignergroupCreateObjectV1Request: ezsignsignergroupCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignsignergroupAPI.ezsignsignergroupCreateObjectV1(ezsignsignergroupCreateObjectV1Request: ezsignsignergroupCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -64,7 +60,7 @@ Name | Type | Description  | Notes
 
 # **ezsignsignergroupDeleteObjectV1**
 ```swift
-    open class func ezsignsignergroupDeleteObjectV1(pkiEzsignsignergroupID: Int, completion: @escaping (_ data: EzsignsignergroupDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignsignergroupDeleteObjectV1(pkiEzsignsignergroupID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignsignergroupDeleteObjectV1Response
 ```
 
 Delete an existing Ezsignsignergroup
@@ -79,15 +75,11 @@ import EzmaxApi
 let pkiEzsignsignergroupID = 987 // Int | The unique ID of the Ezsignsignergroup
 
 // Delete an existing Ezsignsignergroup
-ObjectEzsignsignergroupAPI.ezsignsignergroupDeleteObjectV1(pkiEzsignsignergroupID: pkiEzsignsignergroupID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignsignergroupAPI.ezsignsignergroupDeleteObjectV1(pkiEzsignsignergroupID: pkiEzsignsignergroupID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -114,7 +106,7 @@ Name | Type | Description  | Notes
 
 # **ezsignsignergroupEditEzsignsignergroupmembershipsV1**
 ```swift
-    open class func ezsignsignergroupEditEzsignsignergroupmembershipsV1(pkiEzsignsignergroupID: Int, ezsignsignergroupEditEzsignsignergroupmembershipsV1Request: EzsignsignergroupEditEzsignsignergroupmembershipsV1Request, completion: @escaping (_ data: EzsignsignergroupEditEzsignsignergroupmembershipsV1Response?, _ error: Error?) -> Void)
+    open class func ezsignsignergroupEditEzsignsignergroupmembershipsV1(pkiEzsignsignergroupID: Int, ezsignsignergroupEditEzsignsignergroupmembershipsV1Request: EzsignsignergroupEditEzsignsignergroupmembershipsV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignsignergroupEditEzsignsignergroupmembershipsV1Response
 ```
 
 Edit multiple Ezsignsignergroupmemberships
@@ -130,15 +122,11 @@ let pkiEzsignsignergroupID = 987 // Int |
 let ezsignsignergroupEditEzsignsignergroupmembershipsV1Request = ezsignsignergroup-editEzsignsignergroupmemberships-v1-Request(aObjEzsignsignergroupmembership: [ezsignsignergroupmembership-RequestCompound(pkiEzsignsignergroupmembershipID: 123, fkiEzsignsignergroupID: 123, fkiEzsignsignerID: 123, fkiUserID: 123, fkiUsergroupID: 123)]) // EzsignsignergroupEditEzsignsignergroupmembershipsV1Request | 
 
 // Edit multiple Ezsignsignergroupmemberships
-ObjectEzsignsignergroupAPI.ezsignsignergroupEditEzsignsignergroupmembershipsV1(pkiEzsignsignergroupID: pkiEzsignsignergroupID, ezsignsignergroupEditEzsignsignergroupmembershipsV1Request: ezsignsignergroupEditEzsignsignergroupmembershipsV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignsignergroupAPI.ezsignsignergroupEditEzsignsignergroupmembershipsV1(pkiEzsignsignergroupID: pkiEzsignsignergroupID, ezsignsignergroupEditEzsignsignergroupmembershipsV1Request: ezsignsignergroupEditEzsignsignergroupmembershipsV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -166,7 +154,7 @@ Name | Type | Description  | Notes
 
 # **ezsignsignergroupEditObjectV1**
 ```swift
-    open class func ezsignsignergroupEditObjectV1(pkiEzsignsignergroupID: Int, ezsignsignergroupEditObjectV1Request: EzsignsignergroupEditObjectV1Request, completion: @escaping (_ data: EzsignsignergroupEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignsignergroupEditObjectV1(pkiEzsignsignergroupID: Int, ezsignsignergroupEditObjectV1Request: EzsignsignergroupEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignsignergroupEditObjectV1Response
 ```
 
 Edit an existing Ezsignsignergroup
@@ -182,15 +170,11 @@ let pkiEzsignsignergroupID = 987 // Int | The unique ID of the Ezsignsignergroup
 let ezsignsignergroupEditObjectV1Request = ezsignsignergroup-editObject-v1-Request(objEzsignsignergroup: ezsignsignergroup-RequestCompound(pkiEzsignsignergroupID: 123, fkiEzsignfolderID: 123, objEzsignsignergroupDescription: Multilingual-EzsignsignergroupDescription(sEzsignsignergroupDescription1: "sEzsignsignergroupDescription1_example", sEzsignsignergroupDescription2: "sEzsignsignergroupDescription2_example"))) // EzsignsignergroupEditObjectV1Request | 
 
 // Edit an existing Ezsignsignergroup
-ObjectEzsignsignergroupAPI.ezsignsignergroupEditObjectV1(pkiEzsignsignergroupID: pkiEzsignsignergroupID, ezsignsignergroupEditObjectV1Request: ezsignsignergroupEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignsignergroupAPI.ezsignsignergroupEditObjectV1(pkiEzsignsignergroupID: pkiEzsignsignergroupID, ezsignsignergroupEditObjectV1Request: ezsignsignergroupEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -218,7 +202,7 @@ Name | Type | Description  | Notes
 
 # **ezsignsignergroupGetEzsignsignergroupmembershipsV1**
 ```swift
-    open class func ezsignsignergroupGetEzsignsignergroupmembershipsV1(pkiEzsignsignergroupID: Int, completion: @escaping (_ data: EzsignsignergroupGetEzsignsignergroupmembershipsV1Response?, _ error: Error?) -> Void)
+    open class func ezsignsignergroupGetEzsignsignergroupmembershipsV1(pkiEzsignsignergroupID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignsignergroupGetEzsignsignergroupmembershipsV1Response
 ```
 
 Retrieve an existing Ezsignsignergroup's Ezsignsignergroupmemberships
@@ -231,15 +215,11 @@ import EzmaxApi
 let pkiEzsignsignergroupID = 987 // Int | 
 
 // Retrieve an existing Ezsignsignergroup's Ezsignsignergroupmemberships
-ObjectEzsignsignergroupAPI.ezsignsignergroupGetEzsignsignergroupmembershipsV1(pkiEzsignsignergroupID: pkiEzsignsignergroupID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignsignergroupAPI.ezsignsignergroupGetEzsignsignergroupmembershipsV1(pkiEzsignsignergroupID: pkiEzsignsignergroupID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -266,7 +246,7 @@ Name | Type | Description  | Notes
 
 # **ezsignsignergroupGetObjectV2**
 ```swift
-    open class func ezsignsignergroupGetObjectV2(pkiEzsignsignergroupID: Int, completion: @escaping (_ data: EzsignsignergroupGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsignsignergroupGetObjectV2(pkiEzsignsignergroupID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignsignergroupGetObjectV2Response
 ```
 
 Retrieve an existing Ezsignsignergroup
@@ -281,15 +261,11 @@ import EzmaxApi
 let pkiEzsignsignergroupID = 987 // Int | The unique ID of the Ezsignsignergroup
 
 // Retrieve an existing Ezsignsignergroup
-ObjectEzsignsignergroupAPI.ezsignsignergroupGetObjectV2(pkiEzsignsignergroupID: pkiEzsignsignergroupID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignsignergroupAPI.ezsignsignergroupGetObjectV2(pkiEzsignsignergroupID: pkiEzsignsignergroupID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

@@ -10,7 +10,7 @@ import Foundation
 /**  */
 public struct EzsignfolderDuplicateV1Request: Sendable, Codable, Hashable {
 
-    public static let sEzsignfolderDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,75}$/")
+    public static let sEzsignfolderDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,75}$")
     /** The description of the Ezsignfolder */
     public var sEzsignfolderDescription: String
     public var aFkiEzsignfoldersignerassociationID: [Int]

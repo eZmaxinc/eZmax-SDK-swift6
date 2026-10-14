@@ -10,7 +10,7 @@ import Foundation
 /** A Paymentterm Object */
 public struct PaymenttermResponse: Sendable, Codable, Hashable {
 
-    public static let sPaymenttermCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[A-Z0-9]{1,4}$/")
+    public static let sPaymenttermCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[A-Z0-9]{1,4}$")
     public static let iPaymenttermDayRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Paymentterm */
     public var pkiPaymenttermID: Int

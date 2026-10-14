@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 # **usergroupdelegationCreateObjectV1**
 ```swift
-    open class func usergroupdelegationCreateObjectV1(usergroupdelegationCreateObjectV1Request: UsergroupdelegationCreateObjectV1Request, completion: @escaping (_ data: UsergroupdelegationCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func usergroupdelegationCreateObjectV1(usergroupdelegationCreateObjectV1Request: UsergroupdelegationCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupdelegationCreateObjectV1Response
 ```
 
 Create a new Usergroupdelegation
@@ -27,15 +27,11 @@ import EzmaxApi
 let usergroupdelegationCreateObjectV1Request = usergroupdelegation-createObject-v1-Request(aObjUsergroupdelegation: [usergroupdelegation-RequestCompound(pkiUsergroupdelegationID: 123, fkiUsergroupID: 123, fkiUserID: 123)]) // UsergroupdelegationCreateObjectV1Request | 
 
 // Create a new Usergroupdelegation
-ObjectUsergroupdelegationAPI.usergroupdelegationCreateObjectV1(usergroupdelegationCreateObjectV1Request: usergroupdelegationCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupdelegationAPI.usergroupdelegationCreateObjectV1(usergroupdelegationCreateObjectV1Request: usergroupdelegationCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -62,7 +58,7 @@ Name | Type | Description  | Notes
 
 # **usergroupdelegationDeleteObjectV1**
 ```swift
-    open class func usergroupdelegationDeleteObjectV1(pkiUsergroupdelegationID: Int, completion: @escaping (_ data: UsergroupdelegationDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func usergroupdelegationDeleteObjectV1(pkiUsergroupdelegationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupdelegationDeleteObjectV1Response
 ```
 
 Delete an existing Usergroupdelegation
@@ -77,15 +73,11 @@ import EzmaxApi
 let pkiUsergroupdelegationID = 987 // Int | The unique ID of the Usergroupdelegation
 
 // Delete an existing Usergroupdelegation
-ObjectUsergroupdelegationAPI.usergroupdelegationDeleteObjectV1(pkiUsergroupdelegationID: pkiUsergroupdelegationID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupdelegationAPI.usergroupdelegationDeleteObjectV1(pkiUsergroupdelegationID: pkiUsergroupdelegationID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -112,7 +104,7 @@ Name | Type | Description  | Notes
 
 # **usergroupdelegationEditObjectV1**
 ```swift
-    open class func usergroupdelegationEditObjectV1(pkiUsergroupdelegationID: Int, usergroupdelegationEditObjectV1Request: UsergroupdelegationEditObjectV1Request, completion: @escaping (_ data: UsergroupdelegationEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func usergroupdelegationEditObjectV1(pkiUsergroupdelegationID: Int, usergroupdelegationEditObjectV1Request: UsergroupdelegationEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupdelegationEditObjectV1Response
 ```
 
 Edit an existing Usergroupdelegation
@@ -128,15 +120,11 @@ let pkiUsergroupdelegationID = 987 // Int | The unique ID of the Usergroupdelega
 let usergroupdelegationEditObjectV1Request = usergroupdelegation-editObject-v1-Request(objUsergroupdelegation: usergroupdelegation-RequestCompound(pkiUsergroupdelegationID: 123, fkiUsergroupID: 123, fkiUserID: 123)) // UsergroupdelegationEditObjectV1Request | 
 
 // Edit an existing Usergroupdelegation
-ObjectUsergroupdelegationAPI.usergroupdelegationEditObjectV1(pkiUsergroupdelegationID: pkiUsergroupdelegationID, usergroupdelegationEditObjectV1Request: usergroupdelegationEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupdelegationAPI.usergroupdelegationEditObjectV1(pkiUsergroupdelegationID: pkiUsergroupdelegationID, usergroupdelegationEditObjectV1Request: usergroupdelegationEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -164,7 +152,7 @@ Name | Type | Description  | Notes
 
 # **usergroupdelegationGetObjectV2**
 ```swift
-    open class func usergroupdelegationGetObjectV2(pkiUsergroupdelegationID: Int, completion: @escaping (_ data: UsergroupdelegationGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func usergroupdelegationGetObjectV2(pkiUsergroupdelegationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupdelegationGetObjectV2Response
 ```
 
 Retrieve an existing Usergroupdelegation
@@ -179,15 +167,11 @@ import EzmaxApi
 let pkiUsergroupdelegationID = 987 // Int | The unique ID of the Usergroupdelegation
 
 // Retrieve an existing Usergroupdelegation
-ObjectUsergroupdelegationAPI.usergroupdelegationGetObjectV2(pkiUsergroupdelegationID: pkiUsergroupdelegationID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupdelegationAPI.usergroupdelegationGetObjectV2(pkiUsergroupdelegationID: pkiUsergroupdelegationID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

@@ -10,7 +10,7 @@ import Foundation
 /** Payload for Websocket GetWebsocketID V1 */
 public struct WebsocketResponseGetWebsocketIDV1MPayload: Sendable, Codable, Hashable {
 
-    public static let sWebsocketIDRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[a-zA-Z0-9_-]{15}=$/")
+    public static let sWebsocketIDRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[a-zA-Z0-9_-]{15}=$")
     /** The Unique ID of the Websocket Connection */
     public var sWebsocketID: String
 

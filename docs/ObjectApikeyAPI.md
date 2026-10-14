@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 # **apikeyCreateObjectV2**
 ```swift
-    open class func apikeyCreateObjectV2(apikeyCreateObjectV2Request: ApikeyCreateObjectV2Request, completion: @escaping (_ data: ApikeyCreateObjectV2Response?, _ error: Error?) -> Void)
+    open class func apikeyCreateObjectV2(apikeyCreateObjectV2Request: ApikeyCreateObjectV2Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ApikeyCreateObjectV2Response
 ```
 
 Create a new Apikey
@@ -33,15 +33,11 @@ import EzmaxApi
 let apikeyCreateObjectV2Request = apikey-createObject-v2-Request(aObjApikey: [apikey-RequestCompound(pkiApikeyID: 123, fkiUserID: 123, objApikeyDescription: Multilingual-ApikeyDescription(sApikeyDescription1: "sApikeyDescription1_example", sApikeyDescription2: "sApikeyDescription2_example"), bApikeyIsactive: true, bApikeyIssigned: true)]) // ApikeyCreateObjectV2Request | 
 
 // Create a new Apikey
-ObjectApikeyAPI.apikeyCreateObjectV2(apikeyCreateObjectV2Request: apikeyCreateObjectV2Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectApikeyAPI.apikeyCreateObjectV2(apikeyCreateObjectV2Request: apikeyCreateObjectV2Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -68,7 +64,7 @@ Name | Type | Description  | Notes
 
 # **apikeyEditObjectV1**
 ```swift
-    open class func apikeyEditObjectV1(pkiApikeyID: Int, apikeyEditObjectV1Request: ApikeyEditObjectV1Request, completion: @escaping (_ data: ApikeyEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func apikeyEditObjectV1(pkiApikeyID: Int, apikeyEditObjectV1Request: ApikeyEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ApikeyEditObjectV1Response
 ```
 
 Edit an existing Apikey
@@ -84,15 +80,11 @@ let pkiApikeyID = 987 // Int | The unique ID of the Apikey
 let apikeyEditObjectV1Request = apikey-editObject-v1-Request(objApikey: apikey-RequestCompound(pkiApikeyID: 123, fkiUserID: 123, objApikeyDescription: Multilingual-ApikeyDescription(sApikeyDescription1: "sApikeyDescription1_example", sApikeyDescription2: "sApikeyDescription2_example"), bApikeyIsactive: true, bApikeyIssigned: true)) // ApikeyEditObjectV1Request | 
 
 // Edit an existing Apikey
-ObjectApikeyAPI.apikeyEditObjectV1(pkiApikeyID: pkiApikeyID, apikeyEditObjectV1Request: apikeyEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectApikeyAPI.apikeyEditObjectV1(pkiApikeyID: pkiApikeyID, apikeyEditObjectV1Request: apikeyEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -120,7 +112,7 @@ Name | Type | Description  | Notes
 
 # **apikeyEditPermissionsV1**
 ```swift
-    open class func apikeyEditPermissionsV1(pkiApikeyID: Int, apikeyEditPermissionsV1Request: ApikeyEditPermissionsV1Request, completion: @escaping (_ data: ApikeyEditPermissionsV1Response?, _ error: Error?) -> Void)
+    open class func apikeyEditPermissionsV1(pkiApikeyID: Int, apikeyEditPermissionsV1Request: ApikeyEditPermissionsV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ApikeyEditPermissionsV1Response
 ```
 
 Edit multiple Permissions
@@ -136,15 +128,11 @@ let pkiApikeyID = 987 // Int |
 let apikeyEditPermissionsV1Request = apikey-editPermissions-v1-Request(aObjPermission: [permission-RequestCompound(pkiPermissionID: 123, fkiUserID: 123, fkiApikeyID: 123, fkiUsergroupID: 123, fkiCompanyID: 123, fkiModulesectionID: 123)]) // ApikeyEditPermissionsV1Request | 
 
 // Edit multiple Permissions
-ObjectApikeyAPI.apikeyEditPermissionsV1(pkiApikeyID: pkiApikeyID, apikeyEditPermissionsV1Request: apikeyEditPermissionsV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectApikeyAPI.apikeyEditPermissionsV1(pkiApikeyID: pkiApikeyID, apikeyEditPermissionsV1Request: apikeyEditPermissionsV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -172,7 +160,7 @@ Name | Type | Description  | Notes
 
 # **apikeyGenerateDelegatedCredentialsV1**
 ```swift
-    open class func apikeyGenerateDelegatedCredentialsV1(apikeyGenerateDelegatedCredentialsV1Request: ApikeyGenerateDelegatedCredentialsV1Request, completion: @escaping (_ data: ApikeyGenerateDelegatedCredentialsV1Response?, _ error: Error?) -> Void)
+    open class func apikeyGenerateDelegatedCredentialsV1(apikeyGenerateDelegatedCredentialsV1Request: ApikeyGenerateDelegatedCredentialsV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ApikeyGenerateDelegatedCredentialsV1Response
 ```
 
 Generate a delegated credentials
@@ -187,15 +175,11 @@ import EzmaxApi
 let apikeyGenerateDelegatedCredentialsV1Request = apikey-generateDelegatedCredentials-v1-Request(iExpirationMinutes: 123) // ApikeyGenerateDelegatedCredentialsV1Request | 
 
 // Generate a delegated credentials
-ObjectApikeyAPI.apikeyGenerateDelegatedCredentialsV1(apikeyGenerateDelegatedCredentialsV1Request: apikeyGenerateDelegatedCredentialsV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectApikeyAPI.apikeyGenerateDelegatedCredentialsV1(apikeyGenerateDelegatedCredentialsV1Request: apikeyGenerateDelegatedCredentialsV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -222,7 +206,7 @@ Name | Type | Description  | Notes
 
 # **apikeyGetCorsV1**
 ```swift
-    open class func apikeyGetCorsV1(pkiApikeyID: Int, completion: @escaping (_ data: ApikeyGetCorsV1Response?, _ error: Error?) -> Void)
+    open class func apikeyGetCorsV1(pkiApikeyID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ApikeyGetCorsV1Response
 ```
 
 Retrieve an existing Apikey's cors
@@ -235,15 +219,11 @@ import EzmaxApi
 let pkiApikeyID = 987 // Int | 
 
 // Retrieve an existing Apikey's cors
-ObjectApikeyAPI.apikeyGetCorsV1(pkiApikeyID: pkiApikeyID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectApikeyAPI.apikeyGetCorsV1(pkiApikeyID: pkiApikeyID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -270,7 +250,7 @@ Name | Type | Description  | Notes
 
 # **apikeyGetListV1**
 ```swift
-    open class func apikeyGetListV1(eOrderBy: EOrderBy_apikeyGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: ApikeyGetListV1Response?, _ error: Error?) -> Void)
+    open class func apikeyGetListV1(eOrderBy: EOrderBy_apikeyGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ApikeyGetListV1Response
 ```
 
 Retrieve Apikey list
@@ -289,15 +269,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Apikey list
-ObjectApikeyAPI.apikeyGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectApikeyAPI.apikeyGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -328,7 +304,7 @@ Name | Type | Description  | Notes
 
 # **apikeyGetObjectV2**
 ```swift
-    open class func apikeyGetObjectV2(pkiApikeyID: Int, completion: @escaping (_ data: ApikeyGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func apikeyGetObjectV2(pkiApikeyID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ApikeyGetObjectV2Response
 ```
 
 Retrieve an existing Apikey
@@ -343,15 +319,11 @@ import EzmaxApi
 let pkiApikeyID = 987 // Int | The unique ID of the Apikey
 
 // Retrieve an existing Apikey
-ObjectApikeyAPI.apikeyGetObjectV2(pkiApikeyID: pkiApikeyID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectApikeyAPI.apikeyGetObjectV2(pkiApikeyID: pkiApikeyID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -378,7 +350,7 @@ Name | Type | Description  | Notes
 
 # **apikeyGetPermissionsV1**
 ```swift
-    open class func apikeyGetPermissionsV1(pkiApikeyID: Int, completion: @escaping (_ data: ApikeyGetPermissionsV1Response?, _ error: Error?) -> Void)
+    open class func apikeyGetPermissionsV1(pkiApikeyID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ApikeyGetPermissionsV1Response
 ```
 
 Retrieve an existing Apikey's Permissions
@@ -391,15 +363,11 @@ import EzmaxApi
 let pkiApikeyID = 987 // Int | 
 
 // Retrieve an existing Apikey's Permissions
-ObjectApikeyAPI.apikeyGetPermissionsV1(pkiApikeyID: pkiApikeyID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectApikeyAPI.apikeyGetPermissionsV1(pkiApikeyID: pkiApikeyID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -426,7 +394,7 @@ Name | Type | Description  | Notes
 
 # **apikeyGetSubnetsV1**
 ```swift
-    open class func apikeyGetSubnetsV1(pkiApikeyID: Int, completion: @escaping (_ data: ApikeyGetSubnetsV1Response?, _ error: Error?) -> Void)
+    open class func apikeyGetSubnetsV1(pkiApikeyID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ApikeyGetSubnetsV1Response
 ```
 
 Retrieve an existing Apikey's subnets
@@ -439,15 +407,11 @@ import EzmaxApi
 let pkiApikeyID = 987 // Int | 
 
 // Retrieve an existing Apikey's subnets
-ObjectApikeyAPI.apikeyGetSubnetsV1(pkiApikeyID: pkiApikeyID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectApikeyAPI.apikeyGetSubnetsV1(pkiApikeyID: pkiApikeyID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -474,7 +438,7 @@ Name | Type | Description  | Notes
 
 # **apikeyRegenerateV1**
 ```swift
-    open class func apikeyRegenerateV1(pkiApikeyID: Int, apikeyRegenerateV1Request: ApikeyRegenerateV1Request, completion: @escaping (_ data: ApikeyRegenerateV1Response?, _ error: Error?) -> Void)
+    open class func apikeyRegenerateV1(pkiApikeyID: Int, apikeyRegenerateV1Request: ApikeyRegenerateV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ApikeyRegenerateV1Response
 ```
 
 Regenerate the Apikey
@@ -490,15 +454,11 @@ let pkiApikeyID = 987 // Int |
 let apikeyRegenerateV1Request = apikey-regenerate-v1-Request(bApikeyIssigned: true) // ApikeyRegenerateV1Request | 
 
 // Regenerate the Apikey
-ObjectApikeyAPI.apikeyRegenerateV1(pkiApikeyID: pkiApikeyID, apikeyRegenerateV1Request: apikeyRegenerateV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectApikeyAPI.apikeyRegenerateV1(pkiApikeyID: pkiApikeyID, apikeyRegenerateV1Request: apikeyRegenerateV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

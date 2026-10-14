@@ -11,7 +11,7 @@ import Foundation
 public struct CustomBrandingResponse: Sendable, Codable, Hashable {
 
     public static let iBrandingColorRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
-    public static let sBrandingLogointerfaceurlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
+    public static let sBrandingLogointerfaceurlRule = StringRule(minLength: nil, maxLength: nil, pattern: "^(https|http)://[^\\s/$.?#].[^\\s]*$")
     /** The primary color. This is a RGB color converted into integer */
     public var iBrandingColor: Int
     /** The url of the picture used as logo in the Branding */

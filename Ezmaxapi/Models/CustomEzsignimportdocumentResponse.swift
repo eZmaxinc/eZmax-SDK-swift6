@@ -11,10 +11,10 @@ import Foundation
 public struct CustomEzsignimportdocumentResponse: Sendable, Codable, Hashable {
 
     public static let pkiEzsignimportdocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
-    public static let sEzsignimportdocumentNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,150}$/")
+    public static let sEzsignimportdocumentNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,150}$")
     public static let fkiEzsigntemplateglobalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEzsignfolderIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sEzsignfolderDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,75}$/")
+    public static let sEzsignfolderDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,75}$")
     /** The unique ID of the Ezsignimportdocument */
     public var pkiEzsignimportdocumentID: Int
     /** The name of the Ezsignimportdocument */

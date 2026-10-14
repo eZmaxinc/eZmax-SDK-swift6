@@ -12,11 +12,11 @@ public struct BuyercontractResponse: Sendable, Codable, Hashable {
 
     public static let pkiBuyercontractIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiInscriptiontypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let dBuyercontractMinimumpriceRule = StringRule(minLength: 4, maxLength: 13, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
-    public static let dBuyercontractMaximumpriceRule = StringRule(minLength: 4, maxLength: 13, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
-    public static let dtBuyercontractDateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
-    public static let dtBuyercontractExpirationdateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
-    public static let dBuyercontractRemunerationRule = StringRule(minLength: 4, maxLength: 13, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
+    public static let dBuyercontractMinimumpriceRule = StringRule(minLength: 4, maxLength: 13, pattern: "^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$")
+    public static let dBuyercontractMaximumpriceRule = StringRule(minLength: 4, maxLength: 13, pattern: "^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$")
+    public static let dtBuyercontractDateRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$")
+    public static let dtBuyercontractExpirationdateRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$")
+    public static let dBuyercontractRemunerationRule = StringRule(minLength: 4, maxLength: 13, pattern: "^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$")
     /** The unique ID of the Buyercontract */
     public var pkiBuyercontractID: Int
     /** The unique ID of the Inscriptiontype */

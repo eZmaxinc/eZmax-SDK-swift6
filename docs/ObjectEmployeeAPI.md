@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 # **employeeBatchDownloadV1**
 ```swift
-    open class func employeeBatchDownloadV1(pkiEmployeeID: Int, employeeBatchDownloadV1Request: EmployeeBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func employeeBatchDownloadV1(pkiEmployeeID: Int, employeeBatchDownloadV1Request: EmployeeBatchDownloadV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> URL
 ```
 
 Download multiples attachments from a Employee
@@ -30,15 +30,11 @@ let pkiEmployeeID = 987 // Int |
 let employeeBatchDownloadV1Request = employee-batchDownload-v1-Request(aPkiAttachmentID: [123]) // EmployeeBatchDownloadV1Request | 
 
 // Download multiples attachments from a Employee
-ObjectEmployeeAPI.employeeBatchDownloadV1(pkiEmployeeID: pkiEmployeeID, employeeBatchDownloadV1Request: employeeBatchDownloadV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEmployeeAPI.employeeBatchDownloadV1(pkiEmployeeID: pkiEmployeeID, employeeBatchDownloadV1Request: employeeBatchDownloadV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -66,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **employeeGetAttachmentsV1**
 ```swift
-    open class func employeeGetAttachmentsV1(pkiEmployeeID: Int, completion: @escaping (_ data: EmployeeGetAttachmentsV1Response?, _ error: Error?) -> Void)
+    open class func employeeGetAttachmentsV1(pkiEmployeeID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EmployeeGetAttachmentsV1Response
 ```
 
 Retrieve Employee's attachments
@@ -79,15 +75,11 @@ import EzmaxApi
 let pkiEmployeeID = 987 // Int | 
 
 // Retrieve Employee's attachments
-ObjectEmployeeAPI.employeeGetAttachmentsV1(pkiEmployeeID: pkiEmployeeID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEmployeeAPI.employeeGetAttachmentsV1(pkiEmployeeID: pkiEmployeeID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -114,7 +106,7 @@ Name | Type | Description  | Notes
 
 # **employeeGetCommunicationCountV1**
 ```swift
-    open class func employeeGetCommunicationCountV1(pkiEmployeeID: Int, completion: @escaping (_ data: EmployeeGetCommunicationCountV1Response?, _ error: Error?) -> Void)
+    open class func employeeGetCommunicationCountV1(pkiEmployeeID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EmployeeGetCommunicationCountV1Response
 ```
 
 Retrieve Communication count
@@ -127,15 +119,11 @@ import EzmaxApi
 let pkiEmployeeID = 987 // Int | 
 
 // Retrieve Communication count
-ObjectEmployeeAPI.employeeGetCommunicationCountV1(pkiEmployeeID: pkiEmployeeID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEmployeeAPI.employeeGetCommunicationCountV1(pkiEmployeeID: pkiEmployeeID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -162,7 +150,7 @@ Name | Type | Description  | Notes
 
 # **employeeGetCommunicationListV1**
 ```swift
-    open class func employeeGetCommunicationListV1(pkiEmployeeID: Int, completion: @escaping (_ data: EmployeeGetCommunicationListV1Response?, _ error: Error?) -> Void)
+    open class func employeeGetCommunicationListV1(pkiEmployeeID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EmployeeGetCommunicationListV1Response
 ```
 
 Retrieve Communication list
@@ -175,15 +163,11 @@ import EzmaxApi
 let pkiEmployeeID = 987 // Int | 
 
 // Retrieve Communication list
-ObjectEmployeeAPI.employeeGetCommunicationListV1(pkiEmployeeID: pkiEmployeeID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEmployeeAPI.employeeGetCommunicationListV1(pkiEmployeeID: pkiEmployeeID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -210,7 +194,7 @@ Name | Type | Description  | Notes
 
 # **employeeGetCommunicationrecipientsV1**
 ```swift
-    open class func employeeGetCommunicationrecipientsV1(pkiEmployeeID: Int, completion: @escaping (_ data: EmployeeGetCommunicationrecipientsV1Response?, _ error: Error?) -> Void)
+    open class func employeeGetCommunicationrecipientsV1(pkiEmployeeID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EmployeeGetCommunicationrecipientsV1Response
 ```
 
 Retrieve Communication recipients
@@ -223,15 +207,11 @@ import EzmaxApi
 let pkiEmployeeID = 987 // Int | 
 
 // Retrieve Communication recipients
-ObjectEmployeeAPI.employeeGetCommunicationrecipientsV1(pkiEmployeeID: pkiEmployeeID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEmployeeAPI.employeeGetCommunicationrecipientsV1(pkiEmployeeID: pkiEmployeeID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -258,7 +238,7 @@ Name | Type | Description  | Notes
 
 # **employeeGetCommunicationsendersV1**
 ```swift
-    open class func employeeGetCommunicationsendersV1(pkiEmployeeID: Int, completion: @escaping (_ data: EmployeeGetCommunicationsendersV1Response?, _ error: Error?) -> Void)
+    open class func employeeGetCommunicationsendersV1(pkiEmployeeID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EmployeeGetCommunicationsendersV1Response
 ```
 
 Retrieve Communication senders
@@ -271,15 +251,11 @@ import EzmaxApi
 let pkiEmployeeID = 987 // Int | 
 
 // Retrieve Communication senders
-ObjectEmployeeAPI.employeeGetCommunicationsendersV1(pkiEmployeeID: pkiEmployeeID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEmployeeAPI.employeeGetCommunicationsendersV1(pkiEmployeeID: pkiEmployeeID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -306,7 +282,7 @@ Name | Type | Description  | Notes
 
 # **employeeGetListV1**
 ```swift
-    open class func employeeGetListV1(eOrderBy: EOrderBy_employeeGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: EmployeeGetListV1Response?, _ error: Error?) -> Void)
+    open class func employeeGetListV1(eOrderBy: EOrderBy_employeeGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EmployeeGetListV1Response
 ```
 
 Retrieve Employee list
@@ -325,15 +301,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Employee list
-ObjectEmployeeAPI.employeeGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEmployeeAPI.employeeGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -364,7 +336,7 @@ Name | Type | Description  | Notes
 
 # **employeeImportIntoEDMV1**
 ```swift
-    open class func employeeImportIntoEDMV1(pkiEmployeeID: Int, employeeImportIntoEDMV1Request: EmployeeImportIntoEDMV1Request, completion: @escaping (_ data: EmployeeImportIntoEDMV1Response?, _ error: Error?) -> Void)
+    open class func employeeImportIntoEDMV1(pkiEmployeeID: Int, employeeImportIntoEDMV1Request: EmployeeImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EmployeeImportIntoEDMV1Response
 ```
 
 Import attachments into the Employee
@@ -380,15 +352,11 @@ let pkiEmployeeID = 987 // Int |
 let employeeImportIntoEDMV1Request = employee-importIntoEDM-v1-Request(aObjAttachment: [Custom-AttachmentImportIntoEDM-Request(eAttachmentSource: "eAttachmentSource_example", fkiAttachmentID: 123, fkiInscriptionchecklistID: 123, sAttachmentUrl: "sAttachmentUrl_example", sAttachmentBase64: 123, sAttachmentName: "sAttachmentName_example", sAttachmentCategory: "sAttachmentCategory_example", eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123, sAttachmentMD5: "sAttachmentMD5_example", bAttachmentForceoverwrite: false, bAttachmentForcerestore: false)]) // EmployeeImportIntoEDMV1Request | 
 
 // Import attachments into the Employee
-ObjectEmployeeAPI.employeeImportIntoEDMV1(pkiEmployeeID: pkiEmployeeID, employeeImportIntoEDMV1Request: employeeImportIntoEDMV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEmployeeAPI.employeeImportIntoEDMV1(pkiEmployeeID: pkiEmployeeID, employeeImportIntoEDMV1Request: employeeImportIntoEDMV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

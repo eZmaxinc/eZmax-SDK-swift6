@@ -10,17 +10,17 @@ import Foundation
 /** Request for POST /1/webhookdocumentation/subscribe */
 public struct CustomEzmaxpartnerproductSubscribe: Sendable, Codable, Hashable {
 
-    public static let pksEzmaxcustomerCodeRule = StringRule(minLength: 2, maxLength: 6, pattern: "/^[a-z\\d]{2,6}$/")
+    public static let pksEzmaxcustomerCodeRule = StringRule(minLength: 2, maxLength: 6, pattern: "^[a-z\\d]{2,6}$")
     public static let fkiSystemconfigurationtypeIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEzmaxpartnerIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sEzmaxpartnerName1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    public static let sEzmaxpartnerName2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sEzmaxpartnerName1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
+    public static let sEzmaxpartnerName2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
     public static let fkiEzmaxpartnerproductIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sEzmaxpartnerproductName1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,35}$/")
-    public static let sEzmaxpartnerproductName2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,35}$/")
+    public static let sEzmaxpartnerproductName1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,35}$")
+    public static let sEzmaxpartnerproductName2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,35}$")
     public static let fkiEzmaxpartnerproductstageIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sEzmaxpartnerproductstageCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,15}$/")
-    public static let sUserLoginNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(?:([\\w.%+\\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$/")
+    public static let sEzmaxpartnerproductstageCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,15}$")
+    public static let sUserLoginNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^(?:([\\w.%+\\-!#$%&'*+/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$")
     public static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
     /** The Ezmaxcustomer code */

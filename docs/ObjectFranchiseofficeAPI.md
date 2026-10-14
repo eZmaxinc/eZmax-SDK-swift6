@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **franchiseofficeGetAutocompleteV2**
 ```swift
-    open class func franchiseofficeGetAutocompleteV2(sSelector: SSelector_franchiseofficeGetAutocompleteV2, eFilterActive: EFilterActive_franchiseofficeGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: FranchiseofficeGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func franchiseofficeGetAutocompleteV2(sSelector: SSelector_franchiseofficeGetAutocompleteV2, eFilterActive: EFilterActive_franchiseofficeGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> FranchiseofficeGetAutocompleteV2Response
 ```
 
 Retrieve Franchiseoffices and IDs
@@ -27,15 +27,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Franchiseoffices and IDs
-ObjectFranchiseofficeAPI.franchiseofficeGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectFranchiseofficeAPI.franchiseofficeGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

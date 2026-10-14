@@ -11,7 +11,7 @@ import Foundation
 public struct UsergroupexternalAutocompleteElementResponse: Sendable, Codable, Hashable {
 
     public static let pkiUsergroupexternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sUsergroupexternalNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,64}$/")
+    public static let sUsergroupexternalNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,64}$")
     /** The unique ID of the Usergroupexternal */
     public var pkiUsergroupexternalID: Int
     /** The name of the Usergroupexternal */

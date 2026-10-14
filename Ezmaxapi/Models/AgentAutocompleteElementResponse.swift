@@ -12,8 +12,8 @@ public struct AgentAutocompleteElementResponse: Sendable, Codable, Hashable {
 
     public static let pkiAgentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiDepartmentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sContactFirstnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,20}$/")
-    public static let sContactLastnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,25}$/")
+    public static let sContactFirstnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,20}$")
+    public static let sContactLastnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,25}$")
     /** The unique ID of the Agent. */
     public var pkiAgentID: Int
     /** The unique ID of the Department */

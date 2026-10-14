@@ -6,13 +6,17 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**supplierBatchDownloadV1**](ObjectSupplierAPI.md#supplierbatchdownloadv1) | **POST** /1/object/supplier/{pkiSupplierID}/batchDownload | Download multiples attachments from a Supplier
 [**supplierGetAttachmentsV1**](ObjectSupplierAPI.md#suppliergetattachmentsv1) | **GET** /1/object/supplier/{pkiSupplierID}/getAttachments | Retrieve Supplier&#39;s attachments
+[**supplierGetCommunicationCountV1**](ObjectSupplierAPI.md#suppliergetcommunicationcountv1) | **GET** /1/object/supplier/{pkiSupplierID}/getCommunicationCount | Retrieve Communication count
+[**supplierGetCommunicationListV1**](ObjectSupplierAPI.md#suppliergetcommunicationlistv1) | **GET** /1/object/supplier/{pkiSupplierID}/getCommunicationList | Retrieve Communication list
+[**supplierGetCommunicationrecipientsV1**](ObjectSupplierAPI.md#suppliergetcommunicationrecipientsv1) | **GET** /1/object/supplier/{pkiSupplierID}/getCommunicationrecipients | Retrieve Communication recipients
+[**supplierGetCommunicationsendersV1**](ObjectSupplierAPI.md#suppliergetcommunicationsendersv1) | **GET** /1/object/supplier/{pkiSupplierID}/getCommunicationsenders | Retrieve Communication senders
 [**supplierGetListV1**](ObjectSupplierAPI.md#suppliergetlistv1) | **GET** /1/object/supplier/getList | Retrieve Supplier list
 [**supplierImportIntoEDMV1**](ObjectSupplierAPI.md#supplierimportintoedmv1) | **POST** /1/object/supplier/{pkiSupplierID}/importIntoEDM | Import attachments into the Supplier
 
 
 # **supplierBatchDownloadV1**
 ```swift
-    open class func supplierBatchDownloadV1(pkiSupplierID: Int, supplierBatchDownloadV1Request: SupplierBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func supplierBatchDownloadV1(pkiSupplierID: Int, supplierBatchDownloadV1Request: SupplierBatchDownloadV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> URL
 ```
 
 Download multiples attachments from a Supplier
@@ -26,15 +30,11 @@ let pkiSupplierID = 987 // Int |
 let supplierBatchDownloadV1Request = supplier-batchDownload-v1-Request(aPkiAttachmentID: [123]) // SupplierBatchDownloadV1Request | 
 
 // Download multiples attachments from a Supplier
-ObjectSupplierAPI.supplierBatchDownloadV1(pkiSupplierID: pkiSupplierID, supplierBatchDownloadV1Request: supplierBatchDownloadV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectSupplierAPI.supplierBatchDownloadV1(pkiSupplierID: pkiSupplierID, supplierBatchDownloadV1Request: supplierBatchDownloadV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **supplierGetAttachmentsV1**
 ```swift
-    open class func supplierGetAttachmentsV1(pkiSupplierID: Int, completion: @escaping (_ data: SupplierGetAttachmentsV1Response?, _ error: Error?) -> Void)
+    open class func supplierGetAttachmentsV1(pkiSupplierID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SupplierGetAttachmentsV1Response
 ```
 
 Retrieve Supplier's attachments
@@ -75,15 +75,11 @@ import EzmaxApi
 let pkiSupplierID = 987 // Int | 
 
 // Retrieve Supplier's attachments
-ObjectSupplierAPI.supplierGetAttachmentsV1(pkiSupplierID: pkiSupplierID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectSupplierAPI.supplierGetAttachmentsV1(pkiSupplierID: pkiSupplierID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -108,9 +104,185 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **supplierGetCommunicationCountV1**
+```swift
+    open class func supplierGetCommunicationCountV1(pkiSupplierID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SupplierGetCommunicationCountV1Response
+```
+
+Retrieve Communication count
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiSupplierID = 987 // Int | 
+
+// Retrieve Communication count
+do {
+    let response = try await ObjectSupplierAPI.supplierGetCommunicationCountV1(pkiSupplierID: pkiSupplierID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiSupplierID** | **Int** |  | 
+
+### Return type
+
+[**SupplierGetCommunicationCountV1Response**](SupplierGetCommunicationCountV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **supplierGetCommunicationListV1**
+```swift
+    open class func supplierGetCommunicationListV1(pkiSupplierID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SupplierGetCommunicationListV1Response
+```
+
+Retrieve Communication list
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiSupplierID = 987 // Int | 
+
+// Retrieve Communication list
+do {
+    let response = try await ObjectSupplierAPI.supplierGetCommunicationListV1(pkiSupplierID: pkiSupplierID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiSupplierID** | **Int** |  | 
+
+### Return type
+
+[**SupplierGetCommunicationListV1Response**](SupplierGetCommunicationListV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **supplierGetCommunicationrecipientsV1**
+```swift
+    open class func supplierGetCommunicationrecipientsV1(pkiSupplierID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SupplierGetCommunicationrecipientsV1Response
+```
+
+Retrieve Communication recipients
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiSupplierID = 987 // Int | 
+
+// Retrieve Communication recipients
+do {
+    let response = try await ObjectSupplierAPI.supplierGetCommunicationrecipientsV1(pkiSupplierID: pkiSupplierID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiSupplierID** | **Int** |  | 
+
+### Return type
+
+[**SupplierGetCommunicationrecipientsV1Response**](SupplierGetCommunicationrecipientsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **supplierGetCommunicationsendersV1**
+```swift
+    open class func supplierGetCommunicationsendersV1(pkiSupplierID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SupplierGetCommunicationsendersV1Response
+```
+
+Retrieve Communication senders
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiSupplierID = 987 // Int | 
+
+// Retrieve Communication senders
+do {
+    let response = try await ObjectSupplierAPI.supplierGetCommunicationsendersV1(pkiSupplierID: pkiSupplierID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiSupplierID** | **Int** |  | 
+
+### Return type
+
+[**SupplierGetCommunicationsendersV1Response**](SupplierGetCommunicationsendersV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **supplierGetListV1**
 ```swift
-    open class func supplierGetListV1(eOrderBy: EOrderBy_supplierGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: SupplierGetListV1Response?, _ error: Error?) -> Void)
+    open class func supplierGetListV1(eOrderBy: EOrderBy_supplierGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SupplierGetListV1Response
 ```
 
 Retrieve Supplier list
@@ -129,15 +301,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Supplier list
-ObjectSupplierAPI.supplierGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectSupplierAPI.supplierGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -168,7 +336,7 @@ Name | Type | Description  | Notes
 
 # **supplierImportIntoEDMV1**
 ```swift
-    open class func supplierImportIntoEDMV1(pkiSupplierID: Int, supplierImportIntoEDMV1Request: SupplierImportIntoEDMV1Request, completion: @escaping (_ data: SupplierImportIntoEDMV1Response?, _ error: Error?) -> Void)
+    open class func supplierImportIntoEDMV1(pkiSupplierID: Int, supplierImportIntoEDMV1Request: SupplierImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SupplierImportIntoEDMV1Response
 ```
 
 Import attachments into the Supplier
@@ -184,15 +352,11 @@ let pkiSupplierID = 987 // Int |
 let supplierImportIntoEDMV1Request = supplier-importIntoEDM-v1-Request(aObjAttachment: [Custom-AttachmentImportIntoEDM-Request(eAttachmentSource: "eAttachmentSource_example", fkiAttachmentID: 123, fkiInscriptionchecklistID: 123, sAttachmentUrl: "sAttachmentUrl_example", sAttachmentBase64: 123, sAttachmentName: "sAttachmentName_example", sAttachmentCategory: "sAttachmentCategory_example", eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123, sAttachmentMD5: "sAttachmentMD5_example", bAttachmentForceoverwrite: false, bAttachmentForcerestore: false)]) // SupplierImportIntoEDMV1Request | 
 
 // Import attachments into the Supplier
-ObjectSupplierAPI.supplierImportIntoEDMV1(pkiSupplierID: pkiSupplierID, supplierImportIntoEDMV1Request: supplierImportIntoEDMV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectSupplierAPI.supplierImportIntoEDMV1(pkiSupplierID: pkiSupplierID, supplierImportIntoEDMV1Request: supplierImportIntoEDMV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

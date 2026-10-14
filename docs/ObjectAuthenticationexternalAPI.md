@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 # **authenticationexternalCreateObjectV1**
 ```swift
-    open class func authenticationexternalCreateObjectV1(authenticationexternalCreateObjectV1Request: AuthenticationexternalCreateObjectV1Request, completion: @escaping (_ data: AuthenticationexternalCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func authenticationexternalCreateObjectV1(authenticationexternalCreateObjectV1Request: AuthenticationexternalCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AuthenticationexternalCreateObjectV1Response
 ```
 
 Create a new Authenticationexternal
@@ -30,15 +30,11 @@ import EzmaxApi
 let authenticationexternalCreateObjectV1Request = authenticationexternal-createObject-v1-Request(aObjAuthenticationexternal: [authenticationexternal-RequestCompound(pkiAuthenticationexternalID: 123, sAuthenticationexternalDescription: "sAuthenticationexternalDescription_example", eAuthenticationexternalType: Field-eAuthenticationexternalType())]) // AuthenticationexternalCreateObjectV1Request | 
 
 // Create a new Authenticationexternal
-ObjectAuthenticationexternalAPI.authenticationexternalCreateObjectV1(authenticationexternalCreateObjectV1Request: authenticationexternalCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAuthenticationexternalAPI.authenticationexternalCreateObjectV1(authenticationexternalCreateObjectV1Request: authenticationexternalCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -65,7 +61,7 @@ Name | Type | Description  | Notes
 
 # **authenticationexternalDeleteObjectV1**
 ```swift
-    open class func authenticationexternalDeleteObjectV1(pkiAuthenticationexternalID: Int, completion: @escaping (_ data: AuthenticationexternalDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func authenticationexternalDeleteObjectV1(pkiAuthenticationexternalID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AuthenticationexternalDeleteObjectV1Response
 ```
 
 Delete an existing Authenticationexternal
@@ -80,15 +76,11 @@ import EzmaxApi
 let pkiAuthenticationexternalID = 987 // Int | The unique ID of the Authenticationexternal
 
 // Delete an existing Authenticationexternal
-ObjectAuthenticationexternalAPI.authenticationexternalDeleteObjectV1(pkiAuthenticationexternalID: pkiAuthenticationexternalID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAuthenticationexternalAPI.authenticationexternalDeleteObjectV1(pkiAuthenticationexternalID: pkiAuthenticationexternalID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -115,7 +107,7 @@ Name | Type | Description  | Notes
 
 # **authenticationexternalEditObjectV1**
 ```swift
-    open class func authenticationexternalEditObjectV1(pkiAuthenticationexternalID: Int, authenticationexternalEditObjectV1Request: AuthenticationexternalEditObjectV1Request, completion: @escaping (_ data: AuthenticationexternalEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func authenticationexternalEditObjectV1(pkiAuthenticationexternalID: Int, authenticationexternalEditObjectV1Request: AuthenticationexternalEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AuthenticationexternalEditObjectV1Response
 ```
 
 Edit an existing Authenticationexternal
@@ -131,15 +123,11 @@ let pkiAuthenticationexternalID = 987 // Int | The unique ID of the Authenticati
 let authenticationexternalEditObjectV1Request = authenticationexternal-editObject-v1-Request(objAuthenticationexternal: authenticationexternal-RequestCompound(pkiAuthenticationexternalID: 123, sAuthenticationexternalDescription: "sAuthenticationexternalDescription_example", eAuthenticationexternalType: Field-eAuthenticationexternalType())) // AuthenticationexternalEditObjectV1Request | 
 
 // Edit an existing Authenticationexternal
-ObjectAuthenticationexternalAPI.authenticationexternalEditObjectV1(pkiAuthenticationexternalID: pkiAuthenticationexternalID, authenticationexternalEditObjectV1Request: authenticationexternalEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAuthenticationexternalAPI.authenticationexternalEditObjectV1(pkiAuthenticationexternalID: pkiAuthenticationexternalID, authenticationexternalEditObjectV1Request: authenticationexternalEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -167,7 +155,7 @@ Name | Type | Description  | Notes
 
 # **authenticationexternalGetAutocompleteV2**
 ```swift
-    open class func authenticationexternalGetAutocompleteV2(sSelector: SSelector_authenticationexternalGetAutocompleteV2, eFilterActive: EFilterActive_authenticationexternalGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: AuthenticationexternalGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func authenticationexternalGetAutocompleteV2(sSelector: SSelector_authenticationexternalGetAutocompleteV2, eFilterActive: EFilterActive_authenticationexternalGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AuthenticationexternalGetAutocompleteV2Response
 ```
 
 Retrieve Authenticationexternals and IDs
@@ -185,15 +173,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Authenticationexternals and IDs
-ObjectAuthenticationexternalAPI.authenticationexternalGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAuthenticationexternalAPI.authenticationexternalGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -223,7 +207,7 @@ Name | Type | Description  | Notes
 
 # **authenticationexternalGetListV1**
 ```swift
-    open class func authenticationexternalGetListV1(eOrderBy: EOrderBy_authenticationexternalGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: AuthenticationexternalGetListV1Response?, _ error: Error?) -> Void)
+    open class func authenticationexternalGetListV1(eOrderBy: EOrderBy_authenticationexternalGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AuthenticationexternalGetListV1Response
 ```
 
 Retrieve Authenticationexternal list
@@ -242,15 +226,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Authenticationexternal list
-ObjectAuthenticationexternalAPI.authenticationexternalGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAuthenticationexternalAPI.authenticationexternalGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -281,7 +261,7 @@ Name | Type | Description  | Notes
 
 # **authenticationexternalGetObjectV2**
 ```swift
-    open class func authenticationexternalGetObjectV2(pkiAuthenticationexternalID: Int, completion: @escaping (_ data: AuthenticationexternalGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func authenticationexternalGetObjectV2(pkiAuthenticationexternalID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AuthenticationexternalGetObjectV2Response
 ```
 
 Retrieve an existing Authenticationexternal
@@ -296,15 +276,11 @@ import EzmaxApi
 let pkiAuthenticationexternalID = 987 // Int | The unique ID of the Authenticationexternal
 
 // Retrieve an existing Authenticationexternal
-ObjectAuthenticationexternalAPI.authenticationexternalGetObjectV2(pkiAuthenticationexternalID: pkiAuthenticationexternalID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAuthenticationexternalAPI.authenticationexternalGetObjectV2(pkiAuthenticationexternalID: pkiAuthenticationexternalID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -331,7 +307,7 @@ Name | Type | Description  | Notes
 
 # **authenticationexternalResetAuthorizationV1**
 ```swift
-    open class func authenticationexternalResetAuthorizationV1(pkiAuthenticationexternalID: Int, body: JSONValue, completion: @escaping (_ data: AuthenticationexternalResetAuthorizationV1Response?, _ error: Error?) -> Void)
+    open class func authenticationexternalResetAuthorizationV1(pkiAuthenticationexternalID: Int, body: JSONValue, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AuthenticationexternalResetAuthorizationV1Response
 ```
 
 Reset the Authenticationexternal authorization
@@ -347,15 +323,11 @@ let pkiAuthenticationexternalID = 987 // Int |
 let body = "TODO" // JSONValue | 
 
 // Reset the Authenticationexternal authorization
-ObjectAuthenticationexternalAPI.authenticationexternalResetAuthorizationV1(pkiAuthenticationexternalID: pkiAuthenticationexternalID, body: body) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAuthenticationexternalAPI.authenticationexternalResetAuthorizationV1(pkiAuthenticationexternalID: pkiAuthenticationexternalID, body: body)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

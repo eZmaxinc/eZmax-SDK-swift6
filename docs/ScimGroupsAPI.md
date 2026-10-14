@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 # **groupsCreateObjectScimV2**
 ```swift
-    open class func groupsCreateObjectScimV2(scimGroup: ScimGroup, completion: @escaping (_ data: ScimGroup?, _ error: Error?) -> Void)
+    open class func groupsCreateObjectScimV2(scimGroup: ScimGroup, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ScimGroup
 ```
 
 Create a new Usergroup
@@ -26,15 +26,11 @@ import EzmaxApi
 let scimGroup = Scim-Group(id: "id_example", displayName: "displayName_example", members: [Scim-GroupMember(value: "value_example", display: "display_example", type: "type_example", ref: "ref_example")]) // ScimGroup | 
 
 // Create a new Usergroup
-ScimGroupsAPI.groupsCreateObjectScimV2(scimGroup: scimGroup) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ScimGroupsAPI.groupsCreateObjectScimV2(scimGroup: scimGroup)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -61,7 +57,7 @@ Name | Type | Description  | Notes
 
 # **groupsDeleteObjectScimV2**
 ```swift
-    open class func groupsDeleteObjectScimV2(groupId: String, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+    open class func groupsDeleteObjectScimV2(groupId: String, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse)
 ```
 
 Delete an existing Usergroup
@@ -74,15 +70,10 @@ import EzmaxApi
 let groupId = "groupId_example" // String | 
 
 // Delete an existing Usergroup
-ScimGroupsAPI.groupsDeleteObjectScimV2(groupId: groupId) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    try await ScimGroupsAPI.groupsDeleteObjectScimV2(groupId: groupId)
+} catch {
+    print(error)
 }
 ```
 
@@ -109,7 +100,7 @@ Void (empty response body)
 
 # **groupsEditObjectScimV2**
 ```swift
-    open class func groupsEditObjectScimV2(groupId: String, scimGroup: ScimGroup, completion: @escaping (_ data: ScimGroup?, _ error: Error?) -> Void)
+    open class func groupsEditObjectScimV2(groupId: String, scimGroup: ScimGroup, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ScimGroup
 ```
 
 Edit an existing Usergroup
@@ -123,15 +114,11 @@ let groupId = "groupId_example" // String |
 let scimGroup = Scim-Group(id: "id_example", displayName: "displayName_example", members: [Scim-GroupMember(value: "value_example", display: "display_example", type: "type_example", ref: "ref_example")]) // ScimGroup | 
 
 // Edit an existing Usergroup
-ScimGroupsAPI.groupsEditObjectScimV2(groupId: groupId, scimGroup: scimGroup) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ScimGroupsAPI.groupsEditObjectScimV2(groupId: groupId, scimGroup: scimGroup)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -159,7 +146,7 @@ Name | Type | Description  | Notes
 
 # **groupsGetListScimV2**
 ```swift
-    open class func groupsGetListScimV2(filter: String? = nil, completion: @escaping (_ data: ScimGroup?, _ error: Error?) -> Void)
+    open class func groupsGetListScimV2(filter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ScimGroup
 ```
 
 Retrieve Usergroup list
@@ -172,15 +159,11 @@ import EzmaxApi
 let filter = "filter_example" // String | Filter expression for searching groups (optional)
 
 // Retrieve Usergroup list
-ScimGroupsAPI.groupsGetListScimV2(filter: filter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ScimGroupsAPI.groupsGetListScimV2(filter: filter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -207,7 +190,7 @@ Name | Type | Description  | Notes
 
 # **groupsGetObjectScimV2**
 ```swift
-    open class func groupsGetObjectScimV2(groupId: String, completion: @escaping (_ data: ScimGroup?, _ error: Error?) -> Void)
+    open class func groupsGetObjectScimV2(groupId: String, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ScimGroup
 ```
 
 Retrieve an existing Usergroup
@@ -220,15 +203,11 @@ import EzmaxApi
 let groupId = "groupId_example" // String | 
 
 // Retrieve an existing Usergroup
-ScimGroupsAPI.groupsGetObjectScimV2(groupId: groupId) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ScimGroupsAPI.groupsGetObjectScimV2(groupId: groupId)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

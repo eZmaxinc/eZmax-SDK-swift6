@@ -12,7 +12,7 @@ public struct OfficetaxreportListElement: Sendable, Codable, Hashable {
 
     public static let pkiOfficetaxreportIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiPeriodIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sUserLoginnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(?:([\\w.%+\\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$/")
+    public static let sUserLoginnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^(?:([\\w.%+\\-!#$%&'*+/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$")
     /** The unique ID of the Officetaxreport */
     public var pkiOfficetaxreportID: Int
     /** The unique ID of the Period */

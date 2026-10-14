@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **userCreateEzsignuserV1**
 ```swift
-    open class func userCreateEzsignuserV1(userCreateEzsignuserV1Request: [UserCreateEzsignuserV1Request], completion: @escaping (_ data: UserCreateEzsignuserV1Response?, _ error: Error?) -> Void)
+    open class func userCreateEzsignuserV1(userCreateEzsignuserV1Request: [UserCreateEzsignuserV1Request], apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UserCreateEzsignuserV1Response
 ```
 
 Create a new User of type Ezsignuser
@@ -24,15 +24,11 @@ import EzmaxApi
 let userCreateEzsignuserV1Request = [user-createEzsignuser-v1-Request(fkiLanguageID: 123, sUserFirstname: "sUserFirstname_example", sUserLastname: "sUserLastname_example", sEmailAddress: "sEmailAddress_example", sPhoneRegion: "sPhoneRegion_example", sPhoneExchange: "sPhoneExchange_example", sPhoneNumber: "sPhoneNumber_example", sPhoneExtension: "sPhoneExtension_example")] // [UserCreateEzsignuserV1Request] | 
 
 // Create a new User of type Ezsignuser
-ModuleUserAPI.userCreateEzsignuserV1(userCreateEzsignuserV1Request: userCreateEzsignuserV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ModuleUserAPI.userCreateEzsignuserV1(userCreateEzsignuserV1Request: userCreateEzsignuserV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

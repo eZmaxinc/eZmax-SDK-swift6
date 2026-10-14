@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 # **creditcardclientCreateObjectV1**
 ```swift
-    open class func creditcardclientCreateObjectV1(creditcardclientCreateObjectV1Request: CreditcardclientCreateObjectV1Request, completion: @escaping (_ data: CreditcardclientCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func creditcardclientCreateObjectV1(creditcardclientCreateObjectV1Request: CreditcardclientCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CreditcardclientCreateObjectV1Response
 ```
 
 Create a new Creditcardclient
@@ -30,15 +30,11 @@ import EzmaxApi
 let creditcardclientCreateObjectV1Request = creditcardclient-createObject-v1-Request(aObjCreditcardclient: [creditcardclient-RequestCompound(pkiCreditcardclientID: 123, fksCreditcardtokenID: "fksCreditcardtokenID_example", bCreditcardclientrelationIsdefault: true, sCreditcardclientDescription: "sCreditcardclientDescription_example", bCreditcardclientAllowedcompanypayment: true, bCreditcardclientAllowedezsign: true, bCreditcardclientAllowedtranquillit: true, objCreditcarddetail: creditcarddetail-Request(iCreditcarddetailExpirationmonth: 123, iCreditcarddetailExpirationyear: 123, sCreditcarddetailCivic: "sCreditcarddetailCivic_example", sCreditcarddetailStreet: "sCreditcarddetailStreet_example", sCreditcarddetailZip: "sCreditcarddetailZip_example"), sCreditcardclientCVV: "sCreditcardclientCVV_example")]) // CreditcardclientCreateObjectV1Request | 
 
 // Create a new Creditcardclient
-ObjectCreditcardclientAPI.creditcardclientCreateObjectV1(creditcardclientCreateObjectV1Request: creditcardclientCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCreditcardclientAPI.creditcardclientCreateObjectV1(creditcardclientCreateObjectV1Request: creditcardclientCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -65,7 +61,7 @@ Name | Type | Description  | Notes
 
 # **creditcardclientDeleteObjectV1**
 ```swift
-    open class func creditcardclientDeleteObjectV1(pkiCreditcardclientID: Int, completion: @escaping (_ data: CreditcardclientDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func creditcardclientDeleteObjectV1(pkiCreditcardclientID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CreditcardclientDeleteObjectV1Response
 ```
 
 Delete an existing Creditcardclient
@@ -80,15 +76,11 @@ import EzmaxApi
 let pkiCreditcardclientID = 987 // Int | The unique ID of the Creditcardclient
 
 // Delete an existing Creditcardclient
-ObjectCreditcardclientAPI.creditcardclientDeleteObjectV1(pkiCreditcardclientID: pkiCreditcardclientID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCreditcardclientAPI.creditcardclientDeleteObjectV1(pkiCreditcardclientID: pkiCreditcardclientID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -115,7 +107,7 @@ Name | Type | Description  | Notes
 
 # **creditcardclientEditObjectV1**
 ```swift
-    open class func creditcardclientEditObjectV1(pkiCreditcardclientID: Int, creditcardclientEditObjectV1Request: CreditcardclientEditObjectV1Request, completion: @escaping (_ data: CreditcardclientEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func creditcardclientEditObjectV1(pkiCreditcardclientID: Int, creditcardclientEditObjectV1Request: CreditcardclientEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CreditcardclientEditObjectV1Response
 ```
 
 Edit an existing Creditcardclient
@@ -131,15 +123,11 @@ let pkiCreditcardclientID = 987 // Int | The unique ID of the Creditcardclient
 let creditcardclientEditObjectV1Request = creditcardclient-editObject-v1-Request(objCreditcardclient: creditcardclient-RequestCompound(pkiCreditcardclientID: 123, fksCreditcardtokenID: "fksCreditcardtokenID_example", bCreditcardclientrelationIsdefault: true, sCreditcardclientDescription: "sCreditcardclientDescription_example", bCreditcardclientAllowedcompanypayment: true, bCreditcardclientAllowedezsign: true, bCreditcardclientAllowedtranquillit: true, objCreditcarddetail: creditcarddetail-Request(iCreditcarddetailExpirationmonth: 123, iCreditcarddetailExpirationyear: 123, sCreditcarddetailCivic: "sCreditcarddetailCivic_example", sCreditcarddetailStreet: "sCreditcarddetailStreet_example", sCreditcarddetailZip: "sCreditcarddetailZip_example"), sCreditcardclientCVV: "sCreditcardclientCVV_example")) // CreditcardclientEditObjectV1Request | 
 
 // Edit an existing Creditcardclient
-ObjectCreditcardclientAPI.creditcardclientEditObjectV1(pkiCreditcardclientID: pkiCreditcardclientID, creditcardclientEditObjectV1Request: creditcardclientEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCreditcardclientAPI.creditcardclientEditObjectV1(pkiCreditcardclientID: pkiCreditcardclientID, creditcardclientEditObjectV1Request: creditcardclientEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -167,7 +155,7 @@ Name | Type | Description  | Notes
 
 # **creditcardclientGetAutocompleteV2**
 ```swift
-    open class func creditcardclientGetAutocompleteV2(sSelector: SSelector_creditcardclientGetAutocompleteV2, eFilterActive: EFilterActive_creditcardclientGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: CreditcardclientGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func creditcardclientGetAutocompleteV2(sSelector: SSelector_creditcardclientGetAutocompleteV2, eFilterActive: EFilterActive_creditcardclientGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CreditcardclientGetAutocompleteV2Response
 ```
 
 Retrieve Creditcardclients and IDs
@@ -185,15 +173,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Creditcardclients and IDs
-ObjectCreditcardclientAPI.creditcardclientGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCreditcardclientAPI.creditcardclientGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -223,7 +207,7 @@ Name | Type | Description  | Notes
 
 # **creditcardclientGetListV1**
 ```swift
-    open class func creditcardclientGetListV1(eOrderBy: EOrderBy_creditcardclientGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: CreditcardclientGetListV1Response?, _ error: Error?) -> Void)
+    open class func creditcardclientGetListV1(eOrderBy: EOrderBy_creditcardclientGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CreditcardclientGetListV1Response
 ```
 
 Retrieve Creditcardclient list
@@ -242,15 +226,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Creditcardclient list
-ObjectCreditcardclientAPI.creditcardclientGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCreditcardclientAPI.creditcardclientGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -281,7 +261,7 @@ Name | Type | Description  | Notes
 
 # **creditcardclientGetObjectV2**
 ```swift
-    open class func creditcardclientGetObjectV2(pkiCreditcardclientID: Int, completion: @escaping (_ data: CreditcardclientGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func creditcardclientGetObjectV2(pkiCreditcardclientID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CreditcardclientGetObjectV2Response
 ```
 
 Retrieve an existing Creditcardclient
@@ -296,15 +276,11 @@ import EzmaxApi
 let pkiCreditcardclientID = 987 // Int | The unique ID of the Creditcardclient
 
 // Retrieve an existing Creditcardclient
-ObjectCreditcardclientAPI.creditcardclientGetObjectV2(pkiCreditcardclientID: pkiCreditcardclientID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCreditcardclientAPI.creditcardclientGetObjectV2(pkiCreditcardclientID: pkiCreditcardclientID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -331,7 +307,7 @@ Name | Type | Description  | Notes
 
 # **creditcardclientPatchObjectV1**
 ```swift
-    open class func creditcardclientPatchObjectV1(pkiCreditcardclientID: Int, creditcardclientPatchObjectV1Request: CreditcardclientPatchObjectV1Request, completion: @escaping (_ data: CreditcardclientPatchObjectV1Response?, _ error: Error?) -> Void)
+    open class func creditcardclientPatchObjectV1(pkiCreditcardclientID: Int, creditcardclientPatchObjectV1Request: CreditcardclientPatchObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CreditcardclientPatchObjectV1Response
 ```
 
 Patch an existing Creditcardclient
@@ -347,15 +323,11 @@ let pkiCreditcardclientID = 987 // Int | The unique ID of the Creditcardclient
 let creditcardclientPatchObjectV1Request = creditcardclient-patchObject-v1-Request(objCreditcardclient: creditcardclient-RequestPatch(bCreditcardclientrelationIsdefault: true)) // CreditcardclientPatchObjectV1Request | 
 
 // Patch an existing Creditcardclient
-ObjectCreditcardclientAPI.creditcardclientPatchObjectV1(pkiCreditcardclientID: pkiCreditcardclientID, creditcardclientPatchObjectV1Request: creditcardclientPatchObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCreditcardclientAPI.creditcardclientPatchObjectV1(pkiCreditcardclientID: pkiCreditcardclientID, creditcardclientPatchObjectV1Request: creditcardclientPatchObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

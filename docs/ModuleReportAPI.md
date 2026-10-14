@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **reportGetReportFromCacheV1**
 ```swift
-    open class func reportGetReportFromCacheV1(sReportgroupCacheID: String, completion: @escaping (_ data: CommonGetReportV1Response?, _ error: Error?) -> Void)
+    open class func reportGetReportFromCacheV1(sReportgroupCacheID: String, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CommonGetReportV1Response
 ```
 
 Retrieve report from cache
@@ -24,15 +24,11 @@ import EzmaxApi
 let sReportgroupCacheID = "sReportgroupCacheID_example" // String | 
 
 // Retrieve report from cache
-ModuleReportAPI.reportGetReportFromCacheV1(sReportgroupCacheID: sReportgroupCacheID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ModuleReportAPI.reportGetReportFromCacheV1(sReportgroupCacheID: sReportgroupCacheID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

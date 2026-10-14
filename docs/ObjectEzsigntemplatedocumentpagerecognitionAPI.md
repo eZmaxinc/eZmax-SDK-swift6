@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 # **ezsigntemplatedocumentpagerecognitionCreateObjectV1**
 ```swift
-    open class func ezsigntemplatedocumentpagerecognitionCreateObjectV1(ezsigntemplatedocumentpagerecognitionCreateObjectV1Request: EzsigntemplatedocumentpagerecognitionCreateObjectV1Request, completion: @escaping (_ data: EzsigntemplatedocumentpagerecognitionCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatedocumentpagerecognitionCreateObjectV1(ezsigntemplatedocumentpagerecognitionCreateObjectV1Request: EzsigntemplatedocumentpagerecognitionCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplatedocumentpagerecognitionCreateObjectV1Response
 ```
 
 Create a new Ezsigntemplatedocumentpagerecognition
@@ -27,15 +27,11 @@ import EzmaxApi
 let ezsigntemplatedocumentpagerecognitionCreateObjectV1Request = ezsigntemplatedocumentpagerecognition-createObject-v1-Request(aObjEzsigntemplatedocumentpagerecognition: [ezsigntemplatedocumentpagerecognition-RequestCompound(pkiEzsigntemplatedocumentpagerecognitionID: 123, fkiEzsigntemplatedocumentpageID: 123, eEzsigntemplatedocumentpagerecognitionOperator: Field-eEzsigntemplatedocumentpagerecognitionOperator(), eEzsigntemplatedocumentpagerecognitionSection: Field-eEzsigntemplatedocumentpagerecognitionSection(), iEzsigntemplatedocumentpagerecognitionSimilarpercentage: 123, iEzsigntemplatedocumentpagerecognitionX: 123, iEzsigntemplatedocumentpagerecognitionY: 123, iEzsigntemplatedocumentpagerecognitionWidth: 123, iEzsigntemplatedocumentpagerecognitionHeight: 123, tEzsigntemplatedocumentpagerecognitionText: "tEzsigntemplatedocumentpagerecognitionText_example")]) // EzsigntemplatedocumentpagerecognitionCreateObjectV1Request | 
 
 // Create a new Ezsigntemplatedocumentpagerecognition
-ObjectEzsigntemplatedocumentpagerecognitionAPI.ezsigntemplatedocumentpagerecognitionCreateObjectV1(ezsigntemplatedocumentpagerecognitionCreateObjectV1Request: ezsigntemplatedocumentpagerecognitionCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplatedocumentpagerecognitionAPI.ezsigntemplatedocumentpagerecognitionCreateObjectV1(ezsigntemplatedocumentpagerecognitionCreateObjectV1Request: ezsigntemplatedocumentpagerecognitionCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -62,7 +58,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatedocumentpagerecognitionDeleteObjectV1**
 ```swift
-    open class func ezsigntemplatedocumentpagerecognitionDeleteObjectV1(pkiEzsigntemplatedocumentpagerecognitionID: Int, completion: @escaping (_ data: EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatedocumentpagerecognitionDeleteObjectV1(pkiEzsigntemplatedocumentpagerecognitionID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response
 ```
 
 Delete an existing Ezsigntemplatedocumentpagerecognition
@@ -77,15 +73,11 @@ import EzmaxApi
 let pkiEzsigntemplatedocumentpagerecognitionID = 987 // Int | The unique ID of the Ezsigntemplatedocumentpagerecognition
 
 // Delete an existing Ezsigntemplatedocumentpagerecognition
-ObjectEzsigntemplatedocumentpagerecognitionAPI.ezsigntemplatedocumentpagerecognitionDeleteObjectV1(pkiEzsigntemplatedocumentpagerecognitionID: pkiEzsigntemplatedocumentpagerecognitionID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplatedocumentpagerecognitionAPI.ezsigntemplatedocumentpagerecognitionDeleteObjectV1(pkiEzsigntemplatedocumentpagerecognitionID: pkiEzsigntemplatedocumentpagerecognitionID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -112,7 +104,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatedocumentpagerecognitionEditObjectV1**
 ```swift
-    open class func ezsigntemplatedocumentpagerecognitionEditObjectV1(pkiEzsigntemplatedocumentpagerecognitionID: Int, ezsigntemplatedocumentpagerecognitionEditObjectV1Request: EzsigntemplatedocumentpagerecognitionEditObjectV1Request, completion: @escaping (_ data: EzsigntemplatedocumentpagerecognitionEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatedocumentpagerecognitionEditObjectV1(pkiEzsigntemplatedocumentpagerecognitionID: Int, ezsigntemplatedocumentpagerecognitionEditObjectV1Request: EzsigntemplatedocumentpagerecognitionEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplatedocumentpagerecognitionEditObjectV1Response
 ```
 
 Edit an existing Ezsigntemplatedocumentpagerecognition
@@ -128,15 +120,11 @@ let pkiEzsigntemplatedocumentpagerecognitionID = 987 // Int | The unique ID of t
 let ezsigntemplatedocumentpagerecognitionEditObjectV1Request = ezsigntemplatedocumentpagerecognition-editObject-v1-Request(objEzsigntemplatedocumentpagerecognition: ezsigntemplatedocumentpagerecognition-RequestCompound(pkiEzsigntemplatedocumentpagerecognitionID: 123, fkiEzsigntemplatedocumentpageID: 123, eEzsigntemplatedocumentpagerecognitionOperator: Field-eEzsigntemplatedocumentpagerecognitionOperator(), eEzsigntemplatedocumentpagerecognitionSection: Field-eEzsigntemplatedocumentpagerecognitionSection(), iEzsigntemplatedocumentpagerecognitionSimilarpercentage: 123, iEzsigntemplatedocumentpagerecognitionX: 123, iEzsigntemplatedocumentpagerecognitionY: 123, iEzsigntemplatedocumentpagerecognitionWidth: 123, iEzsigntemplatedocumentpagerecognitionHeight: 123, tEzsigntemplatedocumentpagerecognitionText: "tEzsigntemplatedocumentpagerecognitionText_example")) // EzsigntemplatedocumentpagerecognitionEditObjectV1Request | 
 
 // Edit an existing Ezsigntemplatedocumentpagerecognition
-ObjectEzsigntemplatedocumentpagerecognitionAPI.ezsigntemplatedocumentpagerecognitionEditObjectV1(pkiEzsigntemplatedocumentpagerecognitionID: pkiEzsigntemplatedocumentpagerecognitionID, ezsigntemplatedocumentpagerecognitionEditObjectV1Request: ezsigntemplatedocumentpagerecognitionEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplatedocumentpagerecognitionAPI.ezsigntemplatedocumentpagerecognitionEditObjectV1(pkiEzsigntemplatedocumentpagerecognitionID: pkiEzsigntemplatedocumentpagerecognitionID, ezsigntemplatedocumentpagerecognitionEditObjectV1Request: ezsigntemplatedocumentpagerecognitionEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -164,7 +152,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatedocumentpagerecognitionGetObjectV2**
 ```swift
-    open class func ezsigntemplatedocumentpagerecognitionGetObjectV2(pkiEzsigntemplatedocumentpagerecognitionID: Int, completion: @escaping (_ data: EzsigntemplatedocumentpagerecognitionGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatedocumentpagerecognitionGetObjectV2(pkiEzsigntemplatedocumentpagerecognitionID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplatedocumentpagerecognitionGetObjectV2Response
 ```
 
 Retrieve an existing Ezsigntemplatedocumentpagerecognition
@@ -179,15 +167,11 @@ import EzmaxApi
 let pkiEzsigntemplatedocumentpagerecognitionID = 987 // Int | The unique ID of the Ezsigntemplatedocumentpagerecognition
 
 // Retrieve an existing Ezsigntemplatedocumentpagerecognition
-ObjectEzsigntemplatedocumentpagerecognitionAPI.ezsigntemplatedocumentpagerecognitionGetObjectV2(pkiEzsigntemplatedocumentpagerecognitionID: pkiEzsigntemplatedocumentpagerecognitionID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplatedocumentpagerecognitionAPI.ezsigntemplatedocumentpagerecognitionGetObjectV2(pkiEzsigntemplatedocumentpagerecognitionID: pkiEzsigntemplatedocumentpagerecognitionID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

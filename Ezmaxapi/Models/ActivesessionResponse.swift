@@ -11,6 +11,8 @@ import Foundation
 public struct ActivesessionResponse: Sendable, Codable, Hashable {
 
     public static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiCompanyIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiDepartmentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let pksCustomerCodeRule = StringRule(minLength: 2, maxLength: 6, pattern: nil)
     public static let fkiSystemconfigurationtypeIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiSignatureIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
@@ -19,8 +21,12 @@ public struct ActivesessionResponse: Sendable, Codable, Hashable {
     public var eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
     public var fkiLanguageID: Int
+    /** The unique ID of the Company */
+    public var fkiCompanyID: Int
     /** The Name of the Company in the language of the requester */
     public var sCompanyNameX: String
+    /** The unique ID of the Department */
+    public var fkiDepartmentID: Int
     /** The Name of the Department in the language of the requester */
     public var sDepartmentNameX: String
     /** Whether the active session is in debug or not */
@@ -46,12 +52,14 @@ public struct ActivesessionResponse: Sendable, Codable, Hashable {
     /** The unique ID of the Signature */
     public var fkiSignatureID: Int?
 
-    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionOrigin: FieldEActivesessionOrigin, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, bActivesessionIssuperadmin: Bool, bActivesessionAttachment: Bool? = nil, bActivesessionCanafe: Bool? = nil, bActivesessionFinancial: Bool? = nil, bActivesessionRealestatecompleted: Bool? = nil, eActivesessionEzsign: FieldEActivesessionEzsign? = nil, eActivesessionEzsignaccess: FieldEActivesessionEzsignaccess, eActivesessionEzsignprepaid: FieldEActivesessionEzsignprepaid? = nil, eActivesessionRealestateinprogress: FieldEActivesessionRealestateinprogress? = nil, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int, fkiSignatureID: Int? = nil) {
+    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionOrigin: FieldEActivesessionOrigin, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, fkiCompanyID: Int, sCompanyNameX: String, fkiDepartmentID: Int, sDepartmentNameX: String, bActivesessionDebug: Bool, bActivesessionIssuperadmin: Bool, bActivesessionAttachment: Bool? = nil, bActivesessionCanafe: Bool? = nil, bActivesessionFinancial: Bool? = nil, bActivesessionRealestatecompleted: Bool? = nil, eActivesessionEzsign: FieldEActivesessionEzsign? = nil, eActivesessionEzsignaccess: FieldEActivesessionEzsignaccess, eActivesessionEzsignprepaid: FieldEActivesessionEzsignprepaid? = nil, eActivesessionRealestateinprogress: FieldEActivesessionRealestateinprogress? = nil, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int, fkiSignatureID: Int? = nil) {
         self.eActivesessionUsertype = eActivesessionUsertype
         self.eActivesessionOrigin = eActivesessionOrigin
         self.eActivesessionWeekdaystart = eActivesessionWeekdaystart
         self.fkiLanguageID = fkiLanguageID
+        self.fkiCompanyID = fkiCompanyID
         self.sCompanyNameX = sCompanyNameX
+        self.fkiDepartmentID = fkiDepartmentID
         self.sDepartmentNameX = sDepartmentNameX
         self.bActivesessionDebug = bActivesessionDebug
         self.bActivesessionIssuperadmin = bActivesessionIssuperadmin
@@ -73,7 +81,9 @@ public struct ActivesessionResponse: Sendable, Codable, Hashable {
         case eActivesessionOrigin
         case eActivesessionWeekdaystart
         case fkiLanguageID
+        case fkiCompanyID
         case sCompanyNameX
+        case fkiDepartmentID
         case sDepartmentNameX
         case bActivesessionDebug
         case bActivesessionIssuperadmin
@@ -98,7 +108,9 @@ public struct ActivesessionResponse: Sendable, Codable, Hashable {
         try container.encode(eActivesessionOrigin, forKey: .eActivesessionOrigin)
         try container.encode(eActivesessionWeekdaystart, forKey: .eActivesessionWeekdaystart)
         try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
+        try container.encode(fkiCompanyID, forKey: .fkiCompanyID)
         try container.encode(sCompanyNameX, forKey: .sCompanyNameX)
+        try container.encode(fkiDepartmentID, forKey: .fkiDepartmentID)
         try container.encode(sDepartmentNameX, forKey: .sDepartmentNameX)
         try container.encode(bActivesessionDebug, forKey: .bActivesessionDebug)
         try container.encode(bActivesessionIssuperadmin, forKey: .bActivesessionIssuperadmin)

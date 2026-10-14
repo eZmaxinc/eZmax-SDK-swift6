@@ -15,7 +15,7 @@ public struct ContactinformationsResponse: Sendable, Codable, Hashable {
     public static let fkiPhoneIDDefaultRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEmailIDDefaultRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiWebsiteIDDefaultRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
-    public static let sContactinformationsUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,255}$/")
+    public static let sContactinformationsUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,255}$")
     /** The unique ID of the Contactinformations */
     public var pkiContactinformationsID: Int
     /** The unique ID of the Address */

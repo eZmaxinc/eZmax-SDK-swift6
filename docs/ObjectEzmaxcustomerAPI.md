@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **ezmaxcustomerPatchObjectV1**
 ```swift
-    open class func ezmaxcustomerPatchObjectV1(pkiEzmaxcustomerID: Int, ezmaxcustomerPatchObjectV1Request: EzmaxcustomerPatchObjectV1Request, completion: @escaping (_ data: EzmaxcustomerPatchObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezmaxcustomerPatchObjectV1(pkiEzmaxcustomerID: Int, ezmaxcustomerPatchObjectV1Request: EzmaxcustomerPatchObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzmaxcustomerPatchObjectV1Response
 ```
 
 Patch an existing Ezmaxcustomer
@@ -25,15 +25,11 @@ let pkiEzmaxcustomerID = 987 // Int | The unique ID of the Ezmaxcustomer
 let ezmaxcustomerPatchObjectV1Request = ezmaxcustomer-patchObject-v1-Request(objEzmaxcustomer: ezmaxcustomer-RequestPatch(objEzmaxcustomerNote: Multilingual-EzmaxcustomerNote(tEzmaxcustomerNote1: "tEzmaxcustomerNote1_example", tEzmaxcustomerNote2: "tEzmaxcustomerNote2_example"))) // EzmaxcustomerPatchObjectV1Request | 
 
 // Patch an existing Ezmaxcustomer
-ObjectEzmaxcustomerAPI.ezmaxcustomerPatchObjectV1(pkiEzmaxcustomerID: pkiEzmaxcustomerID, ezmaxcustomerPatchObjectV1Request: ezmaxcustomerPatchObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzmaxcustomerAPI.ezmaxcustomerPatchObjectV1(pkiEzmaxcustomerID: pkiEzmaxcustomerID, ezmaxcustomerPatchObjectV1Request: ezmaxcustomerPatchObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

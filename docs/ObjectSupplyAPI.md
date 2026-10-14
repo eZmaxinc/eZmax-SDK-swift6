@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 # **supplyCreateObjectV1**
 ```swift
-    open class func supplyCreateObjectV1(supplyCreateObjectV1Request: SupplyCreateObjectV1Request, completion: @escaping (_ data: SupplyCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func supplyCreateObjectV1(supplyCreateObjectV1Request: SupplyCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SupplyCreateObjectV1Response
 ```
 
 Create a new Supply
@@ -29,15 +29,11 @@ import EzmaxApi
 let supplyCreateObjectV1Request = supply-createObject-v1-Request(aObjSupply: [supply-RequestCompound(pkiSupplyID: 123, fkiGlaccountID: 123, fkiGlaccountcontainerID: 123, fkiVariableexpenseID: 123, sSupplyCode: "sSupplyCode_example", objSupplyDescription: Multilingual-SupplyDescription(sSupplyDescription1: "sSupplyDescription1_example", sSupplyDescription2: "sSupplyDescription2_example"), dSupplyUnitprice: "dSupplyUnitprice_example", bSupplyIsactive: true, bSupplyVariableprice: true)]) // SupplyCreateObjectV1Request | 
 
 // Create a new Supply
-ObjectSupplyAPI.supplyCreateObjectV1(supplyCreateObjectV1Request: supplyCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectSupplyAPI.supplyCreateObjectV1(supplyCreateObjectV1Request: supplyCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -64,7 +60,7 @@ Name | Type | Description  | Notes
 
 # **supplyDeleteObjectV1**
 ```swift
-    open class func supplyDeleteObjectV1(pkiSupplyID: Int, completion: @escaping (_ data: SupplyDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func supplyDeleteObjectV1(pkiSupplyID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SupplyDeleteObjectV1Response
 ```
 
 Delete an existing Supply
@@ -79,15 +75,11 @@ import EzmaxApi
 let pkiSupplyID = 987 // Int | The unique ID of the Supply
 
 // Delete an existing Supply
-ObjectSupplyAPI.supplyDeleteObjectV1(pkiSupplyID: pkiSupplyID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectSupplyAPI.supplyDeleteObjectV1(pkiSupplyID: pkiSupplyID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -114,7 +106,7 @@ Name | Type | Description  | Notes
 
 # **supplyEditObjectV1**
 ```swift
-    open class func supplyEditObjectV1(pkiSupplyID: Int, supplyEditObjectV1Request: SupplyEditObjectV1Request, completion: @escaping (_ data: SupplyEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func supplyEditObjectV1(pkiSupplyID: Int, supplyEditObjectV1Request: SupplyEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SupplyEditObjectV1Response
 ```
 
 Edit an existing Supply
@@ -130,15 +122,11 @@ let pkiSupplyID = 987 // Int | The unique ID of the Supply
 let supplyEditObjectV1Request = supply-editObject-v1-Request(objSupply: supply-RequestCompound(pkiSupplyID: 123, fkiGlaccountID: 123, fkiGlaccountcontainerID: 123, fkiVariableexpenseID: 123, sSupplyCode: "sSupplyCode_example", objSupplyDescription: Multilingual-SupplyDescription(sSupplyDescription1: "sSupplyDescription1_example", sSupplyDescription2: "sSupplyDescription2_example"), dSupplyUnitprice: "dSupplyUnitprice_example", bSupplyIsactive: true, bSupplyVariableprice: true)) // SupplyEditObjectV1Request | 
 
 // Edit an existing Supply
-ObjectSupplyAPI.supplyEditObjectV1(pkiSupplyID: pkiSupplyID, supplyEditObjectV1Request: supplyEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectSupplyAPI.supplyEditObjectV1(pkiSupplyID: pkiSupplyID, supplyEditObjectV1Request: supplyEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -166,7 +154,7 @@ Name | Type | Description  | Notes
 
 # **supplyGetAutocompleteV2**
 ```swift
-    open class func supplyGetAutocompleteV2(sSelector: SSelector_supplyGetAutocompleteV2, eFilterActive: EFilterActive_supplyGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: SupplyGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func supplyGetAutocompleteV2(sSelector: SSelector_supplyGetAutocompleteV2, eFilterActive: EFilterActive_supplyGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SupplyGetAutocompleteV2Response
 ```
 
 Retrieve Supplys and IDs
@@ -184,15 +172,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Supplys and IDs
-ObjectSupplyAPI.supplyGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectSupplyAPI.supplyGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -222,7 +206,7 @@ Name | Type | Description  | Notes
 
 # **supplyGetListV1**
 ```swift
-    open class func supplyGetListV1(eOrderBy: EOrderBy_supplyGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: SupplyGetListV1Response?, _ error: Error?) -> Void)
+    open class func supplyGetListV1(eOrderBy: EOrderBy_supplyGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SupplyGetListV1Response
 ```
 
 Retrieve Supply list
@@ -241,15 +225,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Supply list
-ObjectSupplyAPI.supplyGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectSupplyAPI.supplyGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -280,7 +260,7 @@ Name | Type | Description  | Notes
 
 # **supplyGetObjectV2**
 ```swift
-    open class func supplyGetObjectV2(pkiSupplyID: Int, completion: @escaping (_ data: SupplyGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func supplyGetObjectV2(pkiSupplyID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SupplyGetObjectV2Response
 ```
 
 Retrieve an existing Supply
@@ -295,15 +275,11 @@ import EzmaxApi
 let pkiSupplyID = 987 // Int | The unique ID of the Supply
 
 // Retrieve an existing Supply
-ObjectSupplyAPI.supplyGetObjectV2(pkiSupplyID: pkiSupplyID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectSupplyAPI.supplyGetObjectV2(pkiSupplyID: pkiSupplyID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

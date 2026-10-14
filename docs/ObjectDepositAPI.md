@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 # **depositBatchDownloadV1**
 ```swift
-    open class func depositBatchDownloadV1(pkiDepositID: Int, depositBatchDownloadV1Request: DepositBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func depositBatchDownloadV1(pkiDepositID: Int, depositBatchDownloadV1Request: DepositBatchDownloadV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> URL
 ```
 
 Download multiples attachments from a Deposit
@@ -30,15 +30,11 @@ let pkiDepositID = 987 // Int |
 let depositBatchDownloadV1Request = deposit-batchDownload-v1-Request(aPkiAttachmentID: [123]) // DepositBatchDownloadV1Request | 
 
 // Download multiples attachments from a Deposit
-ObjectDepositAPI.depositBatchDownloadV1(pkiDepositID: pkiDepositID, depositBatchDownloadV1Request: depositBatchDownloadV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDepositAPI.depositBatchDownloadV1(pkiDepositID: pkiDepositID, depositBatchDownloadV1Request: depositBatchDownloadV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -66,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **depositGetAttachmentsV1**
 ```swift
-    open class func depositGetAttachmentsV1(pkiDepositID: Int, completion: @escaping (_ data: DepositGetAttachmentsV1Response?, _ error: Error?) -> Void)
+    open class func depositGetAttachmentsV1(pkiDepositID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DepositGetAttachmentsV1Response
 ```
 
 Retrieve Deposit's attachments
@@ -79,15 +75,11 @@ import EzmaxApi
 let pkiDepositID = 987 // Int | 
 
 // Retrieve Deposit's attachments
-ObjectDepositAPI.depositGetAttachmentsV1(pkiDepositID: pkiDepositID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDepositAPI.depositGetAttachmentsV1(pkiDepositID: pkiDepositID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -114,7 +106,7 @@ Name | Type | Description  | Notes
 
 # **depositGetCommunicationCountV1**
 ```swift
-    open class func depositGetCommunicationCountV1(pkiDepositID: Int, completion: @escaping (_ data: DepositGetCommunicationCountV1Response?, _ error: Error?) -> Void)
+    open class func depositGetCommunicationCountV1(pkiDepositID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DepositGetCommunicationCountV1Response
 ```
 
 Retrieve Communication count
@@ -127,15 +119,11 @@ import EzmaxApi
 let pkiDepositID = 987 // Int | 
 
 // Retrieve Communication count
-ObjectDepositAPI.depositGetCommunicationCountV1(pkiDepositID: pkiDepositID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDepositAPI.depositGetCommunicationCountV1(pkiDepositID: pkiDepositID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -162,7 +150,7 @@ Name | Type | Description  | Notes
 
 # **depositGetCommunicationListV1**
 ```swift
-    open class func depositGetCommunicationListV1(pkiDepositID: Int, completion: @escaping (_ data: DepositGetCommunicationListV1Response?, _ error: Error?) -> Void)
+    open class func depositGetCommunicationListV1(pkiDepositID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DepositGetCommunicationListV1Response
 ```
 
 Retrieve Communication list
@@ -175,15 +163,11 @@ import EzmaxApi
 let pkiDepositID = 987 // Int | 
 
 // Retrieve Communication list
-ObjectDepositAPI.depositGetCommunicationListV1(pkiDepositID: pkiDepositID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDepositAPI.depositGetCommunicationListV1(pkiDepositID: pkiDepositID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -210,7 +194,7 @@ Name | Type | Description  | Notes
 
 # **depositGetCommunicationrecipientsV1**
 ```swift
-    open class func depositGetCommunicationrecipientsV1(pkiDepositID: Int, completion: @escaping (_ data: DepositGetCommunicationrecipientsV1Response?, _ error: Error?) -> Void)
+    open class func depositGetCommunicationrecipientsV1(pkiDepositID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DepositGetCommunicationrecipientsV1Response
 ```
 
 Retrieve Communication recipients
@@ -223,15 +207,11 @@ import EzmaxApi
 let pkiDepositID = 987 // Int | 
 
 // Retrieve Communication recipients
-ObjectDepositAPI.depositGetCommunicationrecipientsV1(pkiDepositID: pkiDepositID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDepositAPI.depositGetCommunicationrecipientsV1(pkiDepositID: pkiDepositID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -258,7 +238,7 @@ Name | Type | Description  | Notes
 
 # **depositGetCommunicationsendersV1**
 ```swift
-    open class func depositGetCommunicationsendersV1(pkiDepositID: Int, completion: @escaping (_ data: DepositGetCommunicationsendersV1Response?, _ error: Error?) -> Void)
+    open class func depositGetCommunicationsendersV1(pkiDepositID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DepositGetCommunicationsendersV1Response
 ```
 
 Retrieve Communication senders
@@ -271,15 +251,11 @@ import EzmaxApi
 let pkiDepositID = 987 // Int | 
 
 // Retrieve Communication senders
-ObjectDepositAPI.depositGetCommunicationsendersV1(pkiDepositID: pkiDepositID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDepositAPI.depositGetCommunicationsendersV1(pkiDepositID: pkiDepositID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -306,7 +282,7 @@ Name | Type | Description  | Notes
 
 # **depositGetListV1**
 ```swift
-    open class func depositGetListV1(eOrderBy: EOrderBy_depositGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: DepositGetListV1Response?, _ error: Error?) -> Void)
+    open class func depositGetListV1(eOrderBy: EOrderBy_depositGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DepositGetListV1Response
 ```
 
 Retrieve Deposit list
@@ -325,15 +301,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Deposit list
-ObjectDepositAPI.depositGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDepositAPI.depositGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -364,7 +336,7 @@ Name | Type | Description  | Notes
 
 # **depositImportIntoEDMV1**
 ```swift
-    open class func depositImportIntoEDMV1(pkiDepositID: Int, depositImportIntoEDMV1Request: DepositImportIntoEDMV1Request, completion: @escaping (_ data: DepositImportIntoEDMV1Response?, _ error: Error?) -> Void)
+    open class func depositImportIntoEDMV1(pkiDepositID: Int, depositImportIntoEDMV1Request: DepositImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DepositImportIntoEDMV1Response
 ```
 
 Import attachments into the Deposit
@@ -378,15 +350,11 @@ let pkiDepositID = 987 // Int |
 let depositImportIntoEDMV1Request = deposit-importIntoEDM-v1-Request(aObjAttachment: [Custom-AttachmentImportIntoEDM-Request(eAttachmentSource: "eAttachmentSource_example", fkiAttachmentID: 123, fkiInscriptionchecklistID: 123, sAttachmentUrl: "sAttachmentUrl_example", sAttachmentBase64: 123, sAttachmentName: "sAttachmentName_example", sAttachmentCategory: "sAttachmentCategory_example", eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123, sAttachmentMD5: "sAttachmentMD5_example", bAttachmentForceoverwrite: false, bAttachmentForcerestore: false)]) // DepositImportIntoEDMV1Request | 
 
 // Import attachments into the Deposit
-ObjectDepositAPI.depositImportIntoEDMV1(pkiDepositID: pkiDepositID, depositImportIntoEDMV1Request: depositImportIntoEDMV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDepositAPI.depositImportIntoEDMV1(pkiDepositID: pkiDepositID, depositImportIntoEDMV1Request: depositImportIntoEDMV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

@@ -19,9 +19,9 @@ public struct EzsigndocumentResponse: Sendable, Codable, Hashable {
     public static let iEzsigndocumentSignaturesignedRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let iEzsigndocumentSignaturetotalRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let iEzsigndocumentFormfieldtotalRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sEzsigndocumentMD5initialRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{32}$/")
-    public static let sEzsigndocumentMD5signedRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{32}$/")
-    public static let sEzsigndocumentExternalidRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,128}$/")
+    public static let sEzsigndocumentMD5initialRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{32}$")
+    public static let sEzsigndocumentMD5signedRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{32}$")
+    public static let sEzsigndocumentExternalidRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,128}$")
     public static let iEzsigndocumentEzsignsignatureattachmenttotalRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsigndocument */
     public var pkiEzsigndocumentID: Int

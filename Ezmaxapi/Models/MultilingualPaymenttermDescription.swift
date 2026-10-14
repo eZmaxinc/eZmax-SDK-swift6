@@ -10,8 +10,8 @@ import Foundation
 /** Description of the Paymentterm */
 public struct MultilingualPaymenttermDescription: Sendable, Codable, Hashable {
 
-    public static let sPaymenttermDescription1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,40}$/")
-    public static let sPaymenttermDescription2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,40}$/")
+    public static let sPaymenttermDescription1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,40}$")
+    public static let sPaymenttermDescription2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,40}$")
     /** The description of the Paymentterm in French */
     public var sPaymenttermDescription1: String?
     /** The description of the Paymentterm in English */

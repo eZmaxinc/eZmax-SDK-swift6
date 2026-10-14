@@ -10,12 +10,13 @@ Method | HTTP request | Description
 [**adjustmentGetCommunicationListV1**](ObjectAdjustmentAPI.md#adjustmentgetcommunicationlistv1) | **GET** /1/object/adjustment/{pkiAdjustmentID}/getCommunicationList | Retrieve Communication list
 [**adjustmentGetCommunicationrecipientsV1**](ObjectAdjustmentAPI.md#adjustmentgetcommunicationrecipientsv1) | **GET** /1/object/adjustment/{pkiAdjustmentID}/getCommunicationrecipients | Retrieve Communication recipients
 [**adjustmentGetCommunicationsendersV1**](ObjectAdjustmentAPI.md#adjustmentgetcommunicationsendersv1) | **GET** /1/object/adjustment/{pkiAdjustmentID}/getCommunicationsenders | Retrieve Communication senders
+[**adjustmentGetListV1**](ObjectAdjustmentAPI.md#adjustmentgetlistv1) | **GET** /1/object/adjustment/getList | Retrieve Adjustment list
 [**adjustmentImportIntoEDMV1**](ObjectAdjustmentAPI.md#adjustmentimportintoedmv1) | **POST** /1/object/adjustment/{pkiAdjustmentID}/importIntoEDM | Import attachments into the Adjustment
 
 
 # **adjustmentBatchDownloadV1**
 ```swift
-    open class func adjustmentBatchDownloadV1(pkiAdjustmentID: Int, adjustmentBatchDownloadV1Request: AdjustmentBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func adjustmentBatchDownloadV1(pkiAdjustmentID: Int, adjustmentBatchDownloadV1Request: AdjustmentBatchDownloadV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> URL
 ```
 
 Download multiples attachments from an Adjustment
@@ -29,15 +30,11 @@ let pkiAdjustmentID = 987 // Int |
 let adjustmentBatchDownloadV1Request = adjustment-batchDownload-v1-Request(aPkiAttachmentID: [123]) // AdjustmentBatchDownloadV1Request | 
 
 // Download multiples attachments from an Adjustment
-ObjectAdjustmentAPI.adjustmentBatchDownloadV1(pkiAdjustmentID: pkiAdjustmentID, adjustmentBatchDownloadV1Request: adjustmentBatchDownloadV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAdjustmentAPI.adjustmentBatchDownloadV1(pkiAdjustmentID: pkiAdjustmentID, adjustmentBatchDownloadV1Request: adjustmentBatchDownloadV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -65,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **adjustmentGetAttachmentsV1**
 ```swift
-    open class func adjustmentGetAttachmentsV1(pkiAdjustmentID: Int, completion: @escaping (_ data: AdjustmentGetAttachmentsV1Response?, _ error: Error?) -> Void)
+    open class func adjustmentGetAttachmentsV1(pkiAdjustmentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AdjustmentGetAttachmentsV1Response
 ```
 
 Retrieve Adjustment's attachments
@@ -78,15 +75,11 @@ import EzmaxApi
 let pkiAdjustmentID = 987 // Int | 
 
 // Retrieve Adjustment's attachments
-ObjectAdjustmentAPI.adjustmentGetAttachmentsV1(pkiAdjustmentID: pkiAdjustmentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAdjustmentAPI.adjustmentGetAttachmentsV1(pkiAdjustmentID: pkiAdjustmentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -113,7 +106,7 @@ Name | Type | Description  | Notes
 
 # **adjustmentGetCommunicationCountV1**
 ```swift
-    open class func adjustmentGetCommunicationCountV1(pkiAdjustmentID: Int, completion: @escaping (_ data: AdjustmentGetCommunicationCountV1Response?, _ error: Error?) -> Void)
+    open class func adjustmentGetCommunicationCountV1(pkiAdjustmentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AdjustmentGetCommunicationCountV1Response
 ```
 
 Retrieve Communication count
@@ -126,15 +119,11 @@ import EzmaxApi
 let pkiAdjustmentID = 987 // Int | 
 
 // Retrieve Communication count
-ObjectAdjustmentAPI.adjustmentGetCommunicationCountV1(pkiAdjustmentID: pkiAdjustmentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAdjustmentAPI.adjustmentGetCommunicationCountV1(pkiAdjustmentID: pkiAdjustmentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -161,7 +150,7 @@ Name | Type | Description  | Notes
 
 # **adjustmentGetCommunicationListV1**
 ```swift
-    open class func adjustmentGetCommunicationListV1(pkiAdjustmentID: Int, completion: @escaping (_ data: AdjustmentGetCommunicationListV1Response?, _ error: Error?) -> Void)
+    open class func adjustmentGetCommunicationListV1(pkiAdjustmentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AdjustmentGetCommunicationListV1Response
 ```
 
 Retrieve Communication list
@@ -174,15 +163,11 @@ import EzmaxApi
 let pkiAdjustmentID = 987 // Int | 
 
 // Retrieve Communication list
-ObjectAdjustmentAPI.adjustmentGetCommunicationListV1(pkiAdjustmentID: pkiAdjustmentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAdjustmentAPI.adjustmentGetCommunicationListV1(pkiAdjustmentID: pkiAdjustmentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -209,7 +194,7 @@ Name | Type | Description  | Notes
 
 # **adjustmentGetCommunicationrecipientsV1**
 ```swift
-    open class func adjustmentGetCommunicationrecipientsV1(pkiAdjustmentID: Int, completion: @escaping (_ data: AdjustmentGetCommunicationrecipientsV1Response?, _ error: Error?) -> Void)
+    open class func adjustmentGetCommunicationrecipientsV1(pkiAdjustmentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AdjustmentGetCommunicationrecipientsV1Response
 ```
 
 Retrieve Communication recipients
@@ -222,15 +207,11 @@ import EzmaxApi
 let pkiAdjustmentID = 987 // Int | 
 
 // Retrieve Communication recipients
-ObjectAdjustmentAPI.adjustmentGetCommunicationrecipientsV1(pkiAdjustmentID: pkiAdjustmentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAdjustmentAPI.adjustmentGetCommunicationrecipientsV1(pkiAdjustmentID: pkiAdjustmentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -257,7 +238,7 @@ Name | Type | Description  | Notes
 
 # **adjustmentGetCommunicationsendersV1**
 ```swift
-    open class func adjustmentGetCommunicationsendersV1(pkiAdjustmentID: Int, completion: @escaping (_ data: AdjustmentGetCommunicationsendersV1Response?, _ error: Error?) -> Void)
+    open class func adjustmentGetCommunicationsendersV1(pkiAdjustmentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AdjustmentGetCommunicationsendersV1Response
 ```
 
 Retrieve Communication senders
@@ -270,15 +251,11 @@ import EzmaxApi
 let pkiAdjustmentID = 987 // Int | 
 
 // Retrieve Communication senders
-ObjectAdjustmentAPI.adjustmentGetCommunicationsendersV1(pkiAdjustmentID: pkiAdjustmentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAdjustmentAPI.adjustmentGetCommunicationsendersV1(pkiAdjustmentID: pkiAdjustmentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -303,9 +280,63 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **adjustmentGetListV1**
+```swift
+    open class func adjustmentGetListV1(eOrderBy: EOrderBy_adjustmentGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AdjustmentGetListV1Response
+```
+
+Retrieve Adjustment list
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let eOrderBy = "eOrderBy_example" // String | Specify how you want the results to be sorted (optional)
+let iRowMax = 987 // Int |  (optional)
+let iRowOffset = 987 // Int |  (optional) (default to 0)
+let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
+let sFilter = "sFilter_example" // String |  (optional)
+
+// Retrieve Adjustment list
+do {
+    let response = try await ObjectAdjustmentAPI.adjustmentGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **eOrderBy** | **String** | Specify how you want the results to be sorted | [optional] 
+ **iRowMax** | **Int** |  | [optional] 
+ **iRowOffset** | **Int** |  | [optional] [default to 0]
+ **acceptLanguage** | [**HeaderAcceptLanguage**](.md) |  | [optional] 
+ **sFilter** | **String** |  | [optional] 
+
+### Return type
+
+[**AdjustmentGetListV1Response**](AdjustmentGetListV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **adjustmentImportIntoEDMV1**
 ```swift
-    open class func adjustmentImportIntoEDMV1(pkiAdjustmentID: Int, adjustmentImportIntoEDMV1Request: AdjustmentImportIntoEDMV1Request, completion: @escaping (_ data: AdjustmentImportIntoEDMV1Response?, _ error: Error?) -> Void)
+    open class func adjustmentImportIntoEDMV1(pkiAdjustmentID: Int, adjustmentImportIntoEDMV1Request: AdjustmentImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AdjustmentImportIntoEDMV1Response
 ```
 
 Import attachments into the Adjustment
@@ -319,15 +350,11 @@ let pkiAdjustmentID = 987 // Int |
 let adjustmentImportIntoEDMV1Request = adjustment-importIntoEDM-v1-Request(aObjAttachment: [Custom-AttachmentImportIntoEDM-Request(eAttachmentSource: "eAttachmentSource_example", fkiAttachmentID: 123, fkiInscriptionchecklistID: 123, sAttachmentUrl: "sAttachmentUrl_example", sAttachmentBase64: 123, sAttachmentName: "sAttachmentName_example", sAttachmentCategory: "sAttachmentCategory_example", eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123, sAttachmentMD5: "sAttachmentMD5_example", bAttachmentForceoverwrite: false, bAttachmentForcerestore: false)]) // AdjustmentImportIntoEDMV1Request | 
 
 // Import attachments into the Adjustment
-ObjectAdjustmentAPI.adjustmentImportIntoEDMV1(pkiAdjustmentID: pkiAdjustmentID, adjustmentImportIntoEDMV1Request: adjustmentImportIntoEDMV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAdjustmentAPI.adjustmentImportIntoEDMV1(pkiAdjustmentID: pkiAdjustmentID, adjustmentImportIntoEDMV1Request: adjustmentImportIntoEDMV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

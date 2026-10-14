@@ -15,9 +15,9 @@ public struct EzdoctemplatedocumentResponseCompound: Sendable, Codable, Hashable
     public static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEzdoctemplatetypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEzdoctemplatefieldtypecategoryIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sEzdoctemplatedocumentNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    public static let sEzdoctemplatefieldtypecategoryDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,55}$/")
-    public static let sEzdoctemplatetypeDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sEzdoctemplatedocumentNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
+    public static let sEzdoctemplatefieldtypecategoryDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,55}$")
+    public static let sEzdoctemplatetypeDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
     /** The unique ID of the Ezdoctemplatedocument */
     public var pkiEzdoctemplatedocumentID: Int
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */

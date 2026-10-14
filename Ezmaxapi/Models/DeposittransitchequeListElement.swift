@@ -13,10 +13,10 @@ public struct DeposittransitchequeListElement: Sendable, Codable, Hashable {
     public static let pkiDeposittransitchequeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiBankaccountIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiDepositIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
-    public static let sDeposittransitchequeNumberRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,25}$/")
-    public static let dtDeposittransitchequeDateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
-    public static let dDeposittransitchequeAmountRule = StringRule(minLength: 4, maxLength: 13, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
-    public static let sCustomerNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sDeposittransitchequeNumberRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,25}$")
+    public static let dtDeposittransitchequeDateRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$")
+    public static let dDeposittransitchequeAmountRule = StringRule(minLength: 4, maxLength: 13, pattern: "^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$")
+    public static let sCustomerNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
     /** The unique ID of the Deposittransitcheque */
     public var pkiDeposittransitchequeID: Int
     /** The unique ID of the Bankaccount */

@@ -10,9 +10,9 @@ import Foundation
 /** A custom Creditcardtransactionresponse Object */
 public struct CustomCreditcardtransactionresponseResponse: Sendable, Codable, Hashable {
 
-    public static let sCreditcardtransactionISOcodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,2}$/")
-    public static let sCreditcardtransactionResponsecodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,3}$/")
-    public static let sCreditcardtransactionResponseterminalmessageRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sCreditcardtransactionISOcodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,2}$")
+    public static let sCreditcardtransactionResponsecodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,3}$")
+    public static let sCreditcardtransactionResponseterminalmessageRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
     /** The ISO code */
     public var sCreditcardtransactionISOcode: String
     /** The response code */

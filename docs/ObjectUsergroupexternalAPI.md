@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 # **usergroupexternalCreateObjectV1**
 ```swift
-    open class func usergroupexternalCreateObjectV1(usergroupexternalCreateObjectV1Request: UsergroupexternalCreateObjectV1Request, completion: @escaping (_ data: UsergroupexternalCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func usergroupexternalCreateObjectV1(usergroupexternalCreateObjectV1Request: UsergroupexternalCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupexternalCreateObjectV1Response
 ```
 
 Create a new Usergroupexternal
@@ -31,15 +31,11 @@ import EzmaxApi
 let usergroupexternalCreateObjectV1Request = usergroupexternal-createObject-v1-Request(aObjUsergroupexternal: [usergroupexternal-RequestCompound(pkiUsergroupexternalID: 123, sUsergroupexternalName: "sUsergroupexternalName_example", sUsergroupexternalID: "sUsergroupexternalID_example")]) // UsergroupexternalCreateObjectV1Request | 
 
 // Create a new Usergroupexternal
-ObjectUsergroupexternalAPI.usergroupexternalCreateObjectV1(usergroupexternalCreateObjectV1Request: usergroupexternalCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupexternalAPI.usergroupexternalCreateObjectV1(usergroupexternalCreateObjectV1Request: usergroupexternalCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -66,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **usergroupexternalDeleteObjectV1**
 ```swift
-    open class func usergroupexternalDeleteObjectV1(pkiUsergroupexternalID: Int, completion: @escaping (_ data: UsergroupexternalDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func usergroupexternalDeleteObjectV1(pkiUsergroupexternalID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupexternalDeleteObjectV1Response
 ```
 
 Delete an existing Usergroupexternal
@@ -81,15 +77,11 @@ import EzmaxApi
 let pkiUsergroupexternalID = 987 // Int | The unique ID of the Usergroupexternal
 
 // Delete an existing Usergroupexternal
-ObjectUsergroupexternalAPI.usergroupexternalDeleteObjectV1(pkiUsergroupexternalID: pkiUsergroupexternalID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupexternalAPI.usergroupexternalDeleteObjectV1(pkiUsergroupexternalID: pkiUsergroupexternalID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -116,7 +108,7 @@ Name | Type | Description  | Notes
 
 # **usergroupexternalEditObjectV1**
 ```swift
-    open class func usergroupexternalEditObjectV1(pkiUsergroupexternalID: Int, usergroupexternalEditObjectV1Request: UsergroupexternalEditObjectV1Request, completion: @escaping (_ data: UsergroupexternalEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func usergroupexternalEditObjectV1(pkiUsergroupexternalID: Int, usergroupexternalEditObjectV1Request: UsergroupexternalEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupexternalEditObjectV1Response
 ```
 
 Edit an existing Usergroupexternal
@@ -132,15 +124,11 @@ let pkiUsergroupexternalID = 987 // Int | The unique ID of the Usergroupexternal
 let usergroupexternalEditObjectV1Request = usergroupexternal-editObject-v1-Request(objUsergroupexternal: usergroupexternal-RequestCompound(pkiUsergroupexternalID: 123, sUsergroupexternalName: "sUsergroupexternalName_example", sUsergroupexternalID: "sUsergroupexternalID_example")) // UsergroupexternalEditObjectV1Request | 
 
 // Edit an existing Usergroupexternal
-ObjectUsergroupexternalAPI.usergroupexternalEditObjectV1(pkiUsergroupexternalID: pkiUsergroupexternalID, usergroupexternalEditObjectV1Request: usergroupexternalEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupexternalAPI.usergroupexternalEditObjectV1(pkiUsergroupexternalID: pkiUsergroupexternalID, usergroupexternalEditObjectV1Request: usergroupexternalEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -168,7 +156,7 @@ Name | Type | Description  | Notes
 
 # **usergroupexternalGetAutocompleteV2**
 ```swift
-    open class func usergroupexternalGetAutocompleteV2(sSelector: SSelector_usergroupexternalGetAutocompleteV2, eFilterActive: EFilterActive_usergroupexternalGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: UsergroupexternalGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func usergroupexternalGetAutocompleteV2(sSelector: SSelector_usergroupexternalGetAutocompleteV2, eFilterActive: EFilterActive_usergroupexternalGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupexternalGetAutocompleteV2Response
 ```
 
 Retrieve Usergroupexternals and IDs
@@ -186,15 +174,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Usergroupexternals and IDs
-ObjectUsergroupexternalAPI.usergroupexternalGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupexternalAPI.usergroupexternalGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -224,7 +208,7 @@ Name | Type | Description  | Notes
 
 # **usergroupexternalGetListV1**
 ```swift
-    open class func usergroupexternalGetListV1(eOrderBy: EOrderBy_usergroupexternalGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: UsergroupexternalGetListV1Response?, _ error: Error?) -> Void)
+    open class func usergroupexternalGetListV1(eOrderBy: EOrderBy_usergroupexternalGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupexternalGetListV1Response
 ```
 
 Retrieve Usergroupexternal list
@@ -243,15 +227,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Usergroupexternal list
-ObjectUsergroupexternalAPI.usergroupexternalGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupexternalAPI.usergroupexternalGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -282,7 +262,7 @@ Name | Type | Description  | Notes
 
 # **usergroupexternalGetObjectV2**
 ```swift
-    open class func usergroupexternalGetObjectV2(pkiUsergroupexternalID: Int, completion: @escaping (_ data: UsergroupexternalGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func usergroupexternalGetObjectV2(pkiUsergroupexternalID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupexternalGetObjectV2Response
 ```
 
 Retrieve an existing Usergroupexternal
@@ -297,15 +277,11 @@ import EzmaxApi
 let pkiUsergroupexternalID = 987 // Int | The unique ID of the Usergroupexternal
 
 // Retrieve an existing Usergroupexternal
-ObjectUsergroupexternalAPI.usergroupexternalGetObjectV2(pkiUsergroupexternalID: pkiUsergroupexternalID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupexternalAPI.usergroupexternalGetObjectV2(pkiUsergroupexternalID: pkiUsergroupexternalID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -332,7 +308,7 @@ Name | Type | Description  | Notes
 
 # **usergroupexternalGetUsergroupexternalmembershipsV1**
 ```swift
-    open class func usergroupexternalGetUsergroupexternalmembershipsV1(pkiUsergroupexternalID: Int, completion: @escaping (_ data: UsergroupexternalGetUsergroupexternalmembershipsV1Response?, _ error: Error?) -> Void)
+    open class func usergroupexternalGetUsergroupexternalmembershipsV1(pkiUsergroupexternalID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupexternalGetUsergroupexternalmembershipsV1Response
 ```
 
 Retrieve an existing Usergroupexternal's Usergroupexternalmemberships
@@ -345,15 +321,11 @@ import EzmaxApi
 let pkiUsergroupexternalID = 987 // Int | 
 
 // Retrieve an existing Usergroupexternal's Usergroupexternalmemberships
-ObjectUsergroupexternalAPI.usergroupexternalGetUsergroupexternalmembershipsV1(pkiUsergroupexternalID: pkiUsergroupexternalID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupexternalAPI.usergroupexternalGetUsergroupexternalmembershipsV1(pkiUsergroupexternalID: pkiUsergroupexternalID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -380,7 +352,7 @@ Name | Type | Description  | Notes
 
 # **usergroupexternalGetUsergroupsV1**
 ```swift
-    open class func usergroupexternalGetUsergroupsV1(pkiUsergroupexternalID: Int, completion: @escaping (_ data: UsergroupexternalGetUsergroupsV1Response?, _ error: Error?) -> Void)
+    open class func usergroupexternalGetUsergroupsV1(pkiUsergroupexternalID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupexternalGetUsergroupsV1Response
 ```
 
 Get Usergroupexternal's Usergroups
@@ -393,15 +365,11 @@ import EzmaxApi
 let pkiUsergroupexternalID = 987 // Int | 
 
 // Get Usergroupexternal's Usergroups
-ObjectUsergroupexternalAPI.usergroupexternalGetUsergroupsV1(pkiUsergroupexternalID: pkiUsergroupexternalID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupexternalAPI.usergroupexternalGetUsergroupsV1(pkiUsergroupexternalID: pkiUsergroupexternalID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

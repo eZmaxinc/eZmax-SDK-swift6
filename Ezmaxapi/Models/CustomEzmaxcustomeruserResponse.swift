@@ -12,8 +12,8 @@ public struct CustomEzmaxcustomeruserResponse: Sendable, Codable, Hashable {
 
     public static let fkiContacttitleIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
-    public static let sEzmaxcustomeruserFirstnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,20}$/")
-    public static let sEzmaxcustomeruserLastnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,20}$/")
+    public static let sEzmaxcustomeruserFirstnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,20}$")
+    public static let sEzmaxcustomeruserLastnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,20}$")
     public var objEzmaxcustomer: CustomEzmaxcustomerResponse
     /** The unique ID of the Contacttitle.  Valid values:  |Value|Description| |-|-| |1|Ms.| |2|Mr.| |4|(Blank)| |5|Me (For Notaries)| */
     public var fkiContacttitleID: Int

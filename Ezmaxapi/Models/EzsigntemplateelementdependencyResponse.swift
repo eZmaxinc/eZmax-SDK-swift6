@@ -15,7 +15,7 @@ public struct EzsigntemplateelementdependencyResponse: Sendable, Codable, Hashab
     public static let fkiEzsigntemplatesignatureIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEzsigntemplateformfieldIDValidationRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEzsigntemplateformfieldgroupIDValidationRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sEzsigntemplateelementdependencyValueRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sEzsigntemplateelementdependencyValueRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
     /** The unique ID of the Ezsigntemplateelementdependency */
     public var pkiEzsigntemplateelementdependencyID: Int
     /** The unique ID of the Ezsigntemplateformfield */

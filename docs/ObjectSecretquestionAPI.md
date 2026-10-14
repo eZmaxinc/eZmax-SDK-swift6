@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **secretquestionGetAutocompleteV2**
 ```swift
-    open class func secretquestionGetAutocompleteV2(sSelector: SSelector_secretquestionGetAutocompleteV2, eFilterActive: EFilterActive_secretquestionGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: SecretquestionGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func secretquestionGetAutocompleteV2(sSelector: SSelector_secretquestionGetAutocompleteV2, eFilterActive: EFilterActive_secretquestionGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SecretquestionGetAutocompleteV2Response
 ```
 
 Retrieve Secretquestions and IDs
@@ -27,15 +27,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Secretquestions and IDs
-ObjectSecretquestionAPI.secretquestionGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectSecretquestionAPI.secretquestionGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

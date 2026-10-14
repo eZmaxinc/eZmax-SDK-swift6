@@ -11,8 +11,8 @@ import Foundation
 public struct EzmaxmaillinglistListElement: Sendable, Codable, Hashable {
 
     public static let pkiEzmaxmaillinglistIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 127, exclusiveMaximum: false, multipleOf: nil)
-    public static let sEzmaxmaillinglistNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    public static let sEzmaxmaillinglistDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,255}$/")
+    public static let sEzmaxmaillinglistNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
+    public static let sEzmaxmaillinglistDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,255}$")
     /** The unique ID of the Ezmaxmaillinglist */
     public var pkiEzmaxmaillinglistID: Int
     /** The name of the Ezmaxmaillinglist in the language of the requester */

@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 # **officetaxreportBatchDownloadV1**
 ```swift
-    open class func officetaxreportBatchDownloadV1(pkiOfficetaxreportID: Int, officetaxreportBatchDownloadV1Request: OfficetaxreportBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func officetaxreportBatchDownloadV1(pkiOfficetaxreportID: Int, officetaxreportBatchDownloadV1Request: OfficetaxreportBatchDownloadV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> URL
 ```
 
 Download multiples attachments from an Officetaxreport
@@ -30,15 +30,11 @@ let pkiOfficetaxreportID = 987 // Int |
 let officetaxreportBatchDownloadV1Request = officetaxreport-batchDownload-v1-Request(aPkiAttachmentID: [123]) // OfficetaxreportBatchDownloadV1Request | 
 
 // Download multiples attachments from an Officetaxreport
-ObjectOfficetaxreportAPI.officetaxreportBatchDownloadV1(pkiOfficetaxreportID: pkiOfficetaxreportID, officetaxreportBatchDownloadV1Request: officetaxreportBatchDownloadV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectOfficetaxreportAPI.officetaxreportBatchDownloadV1(pkiOfficetaxreportID: pkiOfficetaxreportID, officetaxreportBatchDownloadV1Request: officetaxreportBatchDownloadV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -66,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **officetaxreportGetAttachmentsV1**
 ```swift
-    open class func officetaxreportGetAttachmentsV1(pkiOfficetaxreportID: Int, completion: @escaping (_ data: OfficetaxreportGetAttachmentsV1Response?, _ error: Error?) -> Void)
+    open class func officetaxreportGetAttachmentsV1(pkiOfficetaxreportID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> OfficetaxreportGetAttachmentsV1Response
 ```
 
 Retrieve Officetaxreport's attachments
@@ -79,15 +75,11 @@ import EzmaxApi
 let pkiOfficetaxreportID = 987 // Int | 
 
 // Retrieve Officetaxreport's attachments
-ObjectOfficetaxreportAPI.officetaxreportGetAttachmentsV1(pkiOfficetaxreportID: pkiOfficetaxreportID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectOfficetaxreportAPI.officetaxreportGetAttachmentsV1(pkiOfficetaxreportID: pkiOfficetaxreportID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -114,7 +106,7 @@ Name | Type | Description  | Notes
 
 # **officetaxreportGetCommunicationCountV1**
 ```swift
-    open class func officetaxreportGetCommunicationCountV1(pkiOfficetaxreportID: Int, completion: @escaping (_ data: OfficetaxreportGetCommunicationCountV1Response?, _ error: Error?) -> Void)
+    open class func officetaxreportGetCommunicationCountV1(pkiOfficetaxreportID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> OfficetaxreportGetCommunicationCountV1Response
 ```
 
 Retrieve Communication count
@@ -127,15 +119,11 @@ import EzmaxApi
 let pkiOfficetaxreportID = 987 // Int | 
 
 // Retrieve Communication count
-ObjectOfficetaxreportAPI.officetaxreportGetCommunicationCountV1(pkiOfficetaxreportID: pkiOfficetaxreportID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectOfficetaxreportAPI.officetaxreportGetCommunicationCountV1(pkiOfficetaxreportID: pkiOfficetaxreportID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -162,7 +150,7 @@ Name | Type | Description  | Notes
 
 # **officetaxreportGetCommunicationListV1**
 ```swift
-    open class func officetaxreportGetCommunicationListV1(pkiOfficetaxreportID: Int, completion: @escaping (_ data: OfficetaxreportGetCommunicationListV1Response?, _ error: Error?) -> Void)
+    open class func officetaxreportGetCommunicationListV1(pkiOfficetaxreportID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> OfficetaxreportGetCommunicationListV1Response
 ```
 
 Retrieve Communication list
@@ -175,15 +163,11 @@ import EzmaxApi
 let pkiOfficetaxreportID = 987 // Int | 
 
 // Retrieve Communication list
-ObjectOfficetaxreportAPI.officetaxreportGetCommunicationListV1(pkiOfficetaxreportID: pkiOfficetaxreportID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectOfficetaxreportAPI.officetaxreportGetCommunicationListV1(pkiOfficetaxreportID: pkiOfficetaxreportID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -210,7 +194,7 @@ Name | Type | Description  | Notes
 
 # **officetaxreportGetCommunicationrecipientsV1**
 ```swift
-    open class func officetaxreportGetCommunicationrecipientsV1(pkiOfficetaxreportID: Int, completion: @escaping (_ data: OfficetaxreportGetCommunicationrecipientsV1Response?, _ error: Error?) -> Void)
+    open class func officetaxreportGetCommunicationrecipientsV1(pkiOfficetaxreportID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> OfficetaxreportGetCommunicationrecipientsV1Response
 ```
 
 Retrieve Communication recipients
@@ -223,15 +207,11 @@ import EzmaxApi
 let pkiOfficetaxreportID = 987 // Int | 
 
 // Retrieve Communication recipients
-ObjectOfficetaxreportAPI.officetaxreportGetCommunicationrecipientsV1(pkiOfficetaxreportID: pkiOfficetaxreportID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectOfficetaxreportAPI.officetaxreportGetCommunicationrecipientsV1(pkiOfficetaxreportID: pkiOfficetaxreportID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -258,7 +238,7 @@ Name | Type | Description  | Notes
 
 # **officetaxreportGetCommunicationsendersV1**
 ```swift
-    open class func officetaxreportGetCommunicationsendersV1(pkiOfficetaxreportID: Int, completion: @escaping (_ data: OfficetaxreportGetCommunicationsendersV1Response?, _ error: Error?) -> Void)
+    open class func officetaxreportGetCommunicationsendersV1(pkiOfficetaxreportID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> OfficetaxreportGetCommunicationsendersV1Response
 ```
 
 Retrieve Communication senders
@@ -271,15 +251,11 @@ import EzmaxApi
 let pkiOfficetaxreportID = 987 // Int | 
 
 // Retrieve Communication senders
-ObjectOfficetaxreportAPI.officetaxreportGetCommunicationsendersV1(pkiOfficetaxreportID: pkiOfficetaxreportID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectOfficetaxreportAPI.officetaxreportGetCommunicationsendersV1(pkiOfficetaxreportID: pkiOfficetaxreportID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -306,7 +282,7 @@ Name | Type | Description  | Notes
 
 # **officetaxreportGetListV1**
 ```swift
-    open class func officetaxreportGetListV1(eOrderBy: EOrderBy_officetaxreportGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: OfficetaxreportGetListV1Response?, _ error: Error?) -> Void)
+    open class func officetaxreportGetListV1(eOrderBy: EOrderBy_officetaxreportGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> OfficetaxreportGetListV1Response
 ```
 
 Retrieve Officetaxreport list
@@ -325,15 +301,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Officetaxreport list
-ObjectOfficetaxreportAPI.officetaxreportGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectOfficetaxreportAPI.officetaxreportGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -364,7 +336,7 @@ Name | Type | Description  | Notes
 
 # **officetaxreportImportIntoEDMV1**
 ```swift
-    open class func officetaxreportImportIntoEDMV1(pkiOfficetaxreportID: Int, officetaxreportImportIntoEDMV1Request: OfficetaxreportImportIntoEDMV1Request, completion: @escaping (_ data: OfficetaxreportImportIntoEDMV1Response?, _ error: Error?) -> Void)
+    open class func officetaxreportImportIntoEDMV1(pkiOfficetaxreportID: Int, officetaxreportImportIntoEDMV1Request: OfficetaxreportImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> OfficetaxreportImportIntoEDMV1Response
 ```
 
 Import attachments into the Officetaxreport
@@ -378,15 +350,11 @@ let pkiOfficetaxreportID = 987 // Int |
 let officetaxreportImportIntoEDMV1Request = officetaxreport-importIntoEDM-v1-Request(aObjAttachment: [Custom-AttachmentImportIntoEDM-Request(eAttachmentSource: "eAttachmentSource_example", fkiAttachmentID: 123, fkiInscriptionchecklistID: 123, sAttachmentUrl: "sAttachmentUrl_example", sAttachmentBase64: 123, sAttachmentName: "sAttachmentName_example", sAttachmentCategory: "sAttachmentCategory_example", eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123, sAttachmentMD5: "sAttachmentMD5_example", bAttachmentForceoverwrite: false, bAttachmentForcerestore: false)]) // OfficetaxreportImportIntoEDMV1Request | 
 
 // Import attachments into the Officetaxreport
-ObjectOfficetaxreportAPI.officetaxreportImportIntoEDMV1(pkiOfficetaxreportID: pkiOfficetaxreportID, officetaxreportImportIntoEDMV1Request: officetaxreportImportIntoEDMV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectOfficetaxreportAPI.officetaxreportImportIntoEDMV1(pkiOfficetaxreportID: pkiOfficetaxreportID, officetaxreportImportIntoEDMV1Request: officetaxreportImportIntoEDMV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

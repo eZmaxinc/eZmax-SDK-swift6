@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **ezsigntsarequirementGetAutocompleteV2**
 ```swift
-    open class func ezsigntsarequirementGetAutocompleteV2(sSelector: SSelector_ezsigntsarequirementGetAutocompleteV2, fkiEzsignfoldertypeID: Int? = nil, eFilterActive: EFilterActive_ezsigntsarequirementGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: EzsigntsarequirementGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func ezsigntsarequirementGetAutocompleteV2(sSelector: SSelector_ezsigntsarequirementGetAutocompleteV2, fkiEzsignfoldertypeID: Int? = nil, eFilterActive: EFilterActive_ezsigntsarequirementGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntsarequirementGetAutocompleteV2Response
 ```
 
 Retrieve Ezsigntsarequirements and IDs
@@ -28,15 +28,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Ezsigntsarequirements and IDs
-ObjectEzsigntsarequirementAPI.ezsigntsarequirementGetAutocompleteV2(sSelector: sSelector, fkiEzsignfoldertypeID: fkiEzsignfoldertypeID, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntsarequirementAPI.ezsigntsarequirementGetAutocompleteV2(sSelector: sSelector, fkiEzsignfoldertypeID: fkiEzsignfoldertypeID, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

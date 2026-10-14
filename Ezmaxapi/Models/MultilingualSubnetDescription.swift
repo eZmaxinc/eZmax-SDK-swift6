@@ -10,8 +10,8 @@ import Foundation
 /** The description of the Subnet */
 public struct MultilingualSubnetDescription: Sendable, Codable, Hashable {
 
-    public static let sSubnetDescription1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    public static let sSubnetDescription2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sSubnetDescription1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
+    public static let sSubnetDescription2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
     /** The description of the Subnet in French */
     public var sSubnetDescription1: String?
     /** The description of the Subnet in English */

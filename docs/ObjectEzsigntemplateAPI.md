@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 # **ezsigntemplateCopyV1**
 ```swift
-    open class func ezsigntemplateCopyV1(pkiEzsigntemplateID: Int, ezsigntemplateCopyV1Request: EzsigntemplateCopyV1Request, completion: @escaping (_ data: EzsigntemplateCopyV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplateCopyV1(pkiEzsigntemplateID: Int, ezsigntemplateCopyV1Request: EzsigntemplateCopyV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplateCopyV1Response
 ```
 
 Copy the Ezsigntemplate
@@ -32,15 +32,11 @@ let pkiEzsigntemplateID = 987 // Int |
 let ezsigntemplateCopyV1Request = ezsigntemplate-copy-v1-Request(aFkiEzsignfoldertypeID: [123], bCopyCompany: false, bCopyUser: false) // EzsigntemplateCopyV1Request | 
 
 // Copy the Ezsigntemplate
-ObjectEzsigntemplateAPI.ezsigntemplateCopyV1(pkiEzsigntemplateID: pkiEzsigntemplateID, ezsigntemplateCopyV1Request: ezsigntemplateCopyV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplateAPI.ezsigntemplateCopyV1(pkiEzsigntemplateID: pkiEzsigntemplateID, ezsigntemplateCopyV1Request: ezsigntemplateCopyV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -68,7 +64,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplateCreateObjectV3**
 ```swift
-    open class func ezsigntemplateCreateObjectV3(ezsigntemplateCreateObjectV3Request: EzsigntemplateCreateObjectV3Request, completion: @escaping (_ data: EzsigntemplateCreateObjectV3Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplateCreateObjectV3(ezsigntemplateCreateObjectV3Request: EzsigntemplateCreateObjectV3Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplateCreateObjectV3Response
 ```
 
 Create a new Ezsigntemplate
@@ -83,15 +79,11 @@ import EzmaxApi
 let ezsigntemplateCreateObjectV3Request = ezsigntemplate-createObject-v3-Request(aObjEzsigntemplate: [ezsigntemplate-RequestCompoundV3(pkiEzsigntemplateID: 123, fkiEzsignfoldertypeID: 123, fkiLanguageID: 123, fkiEzdoctemplatedocumentID: 123, sEzsigntemplateDescription: "sEzsigntemplateDescription_example", sEzsigntemplateExternaldescription: "sEzsigntemplateExternaldescription_example", tEzsigntemplateComment: "", eEzsigntemplateRecognition: Field-eEzsigntemplateRecognition(), sEzsigntemplateFilenameregexp: "sEzsigntemplateFilenameregexp_example", bEzsigntemplateAdminonly: false, eEzsigntemplateType: Field-eEzsigntemplateType())]) // EzsigntemplateCreateObjectV3Request | 
 
 // Create a new Ezsigntemplate
-ObjectEzsigntemplateAPI.ezsigntemplateCreateObjectV3(ezsigntemplateCreateObjectV3Request: ezsigntemplateCreateObjectV3Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplateAPI.ezsigntemplateCreateObjectV3(ezsigntemplateCreateObjectV3Request: ezsigntemplateCreateObjectV3Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -118,7 +110,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplateDeleteObjectV1**
 ```swift
-    open class func ezsigntemplateDeleteObjectV1(pkiEzsigntemplateID: Int, completion: @escaping (_ data: EzsigntemplateDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplateDeleteObjectV1(pkiEzsigntemplateID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplateDeleteObjectV1Response
 ```
 
 Delete an existing Ezsigntemplate
@@ -133,15 +125,11 @@ import EzmaxApi
 let pkiEzsigntemplateID = 987 // Int | 
 
 // Delete an existing Ezsigntemplate
-ObjectEzsigntemplateAPI.ezsigntemplateDeleteObjectV1(pkiEzsigntemplateID: pkiEzsigntemplateID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplateAPI.ezsigntemplateDeleteObjectV1(pkiEzsigntemplateID: pkiEzsigntemplateID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -168,7 +156,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplateEditObjectV3**
 ```swift
-    open class func ezsigntemplateEditObjectV3(pkiEzsigntemplateID: Int, ezsigntemplateEditObjectV3Request: EzsigntemplateEditObjectV3Request, completion: @escaping (_ data: EzsigntemplateEditObjectV3Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplateEditObjectV3(pkiEzsigntemplateID: Int, ezsigntemplateEditObjectV3Request: EzsigntemplateEditObjectV3Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplateEditObjectV3Response
 ```
 
 Edit an existing Ezsigntemplate
@@ -184,15 +172,11 @@ let pkiEzsigntemplateID = 987 // Int |
 let ezsigntemplateEditObjectV3Request = ezsigntemplate-editObject-v3-Request(objEzsigntemplate: ezsigntemplate-RequestCompoundV3(pkiEzsigntemplateID: 123, fkiEzsignfoldertypeID: 123, fkiLanguageID: 123, fkiEzdoctemplatedocumentID: 123, sEzsigntemplateDescription: "sEzsigntemplateDescription_example", sEzsigntemplateExternaldescription: "sEzsigntemplateExternaldescription_example", tEzsigntemplateComment: "", eEzsigntemplateRecognition: Field-eEzsigntemplateRecognition(), sEzsigntemplateFilenameregexp: "sEzsigntemplateFilenameregexp_example", bEzsigntemplateAdminonly: false, eEzsigntemplateType: Field-eEzsigntemplateType())) // EzsigntemplateEditObjectV3Request | 
 
 // Edit an existing Ezsigntemplate
-ObjectEzsigntemplateAPI.ezsigntemplateEditObjectV3(pkiEzsigntemplateID: pkiEzsigntemplateID, ezsigntemplateEditObjectV3Request: ezsigntemplateEditObjectV3Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplateAPI.ezsigntemplateEditObjectV3(pkiEzsigntemplateID: pkiEzsigntemplateID, ezsigntemplateEditObjectV3Request: ezsigntemplateEditObjectV3Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -220,7 +204,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplateGetAutocompleteV2**
 ```swift
-    open class func ezsigntemplateGetAutocompleteV2(sSelector: SSelector_ezsigntemplateGetAutocompleteV2, eFilterActive: EFilterActive_ezsigntemplateGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, fkiEzsignfoldertypeID: Int? = nil, completion: @escaping (_ data: EzsigntemplateGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplateGetAutocompleteV2(sSelector: SSelector_ezsigntemplateGetAutocompleteV2, eFilterActive: EFilterActive_ezsigntemplateGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, fkiEzsignfoldertypeID: Int? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplateGetAutocompleteV2Response
 ```
 
 Retrieve Ezsigntemplates and IDs
@@ -239,15 +223,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let fkiEzsignfoldertypeID = 987 // Int | The fkiEzsignfoldertypeID to use with the selector Ezsigntemplatepublic (optional)
 
 // Retrieve Ezsigntemplates and IDs
-ObjectEzsigntemplateAPI.ezsigntemplateGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage, fkiEzsignfoldertypeID: fkiEzsignfoldertypeID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplateAPI.ezsigntemplateGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage, fkiEzsignfoldertypeID: fkiEzsignfoldertypeID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -278,7 +258,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplateGetListV1**
 ```swift
-    open class func ezsigntemplateGetListV1(eOrderBy: EOrderBy_ezsigntemplateGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: EzsigntemplateGetListV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplateGetListV1(eOrderBy: EOrderBy_ezsigntemplateGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplateGetListV1Response
 ```
 
 Retrieve Ezsigntemplate list
@@ -297,15 +277,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Ezsigntemplate list
-ObjectEzsigntemplateAPI.ezsigntemplateGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplateAPI.ezsigntemplateGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -336,7 +312,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplateGetObjectV3**
 ```swift
-    open class func ezsigntemplateGetObjectV3(pkiEzsigntemplateID: Int, completion: @escaping (_ data: EzsigntemplateGetObjectV3Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplateGetObjectV3(pkiEzsigntemplateID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplateGetObjectV3Response
 ```
 
 Retrieve an existing Ezsigntemplate
@@ -351,15 +327,11 @@ import EzmaxApi
 let pkiEzsigntemplateID = 987 // Int | 
 
 // Retrieve an existing Ezsigntemplate
-ObjectEzsigntemplateAPI.ezsigntemplateGetObjectV3(pkiEzsigntemplateID: pkiEzsigntemplateID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplateAPI.ezsigntemplateGetObjectV3(pkiEzsigntemplateID: pkiEzsigntemplateID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -386,7 +358,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplateGetObjectV4**
 ```swift
-    open class func ezsigntemplateGetObjectV4(pkiEzsigntemplateID: Int, completion: @escaping (_ data: EzsigntemplateGetObjectV4Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplateGetObjectV4(pkiEzsigntemplateID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplateGetObjectV4Response
 ```
 
 Retrieve an existing Ezsigntemplate
@@ -401,15 +373,11 @@ import EzmaxApi
 let pkiEzsigntemplateID = 987 // Int | 
 
 // Retrieve an existing Ezsigntemplate
-ObjectEzsigntemplateAPI.ezsigntemplateGetObjectV4(pkiEzsigntemplateID: pkiEzsigntemplateID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplateAPI.ezsigntemplateGetObjectV4(pkiEzsigntemplateID: pkiEzsigntemplateID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

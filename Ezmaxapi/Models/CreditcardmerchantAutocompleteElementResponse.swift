@@ -11,7 +11,7 @@ import Foundation
 public struct CreditcardmerchantAutocompleteElementResponse: Sendable, Codable, Hashable {
 
     public static let pkiCreditcardmerchantIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sCreditcardmerchantDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,25}$/")
+    public static let sCreditcardmerchantDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,25}$")
     /** The unique ID of the Creditcardmerchant */
     public var pkiCreditcardmerchantID: Int
     /** The description of the Creditcardmerchant */

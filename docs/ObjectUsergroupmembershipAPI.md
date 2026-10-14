@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 # **usergroupmembershipCreateObjectV1**
 ```swift
-    open class func usergroupmembershipCreateObjectV1(usergroupmembershipCreateObjectV1Request: UsergroupmembershipCreateObjectV1Request, completion: @escaping (_ data: UsergroupmembershipCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func usergroupmembershipCreateObjectV1(usergroupmembershipCreateObjectV1Request: UsergroupmembershipCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupmembershipCreateObjectV1Response
 ```
 
 Create a new Usergroupmembership
@@ -27,15 +27,11 @@ import EzmaxApi
 let usergroupmembershipCreateObjectV1Request = usergroupmembership-createObject-v1-Request(aObjUsergroupmembership: [usergroupmembership-RequestCompound(pkiUsergroupmembershipID: 123, fkiUsergroupID: 123, fkiUserID: 123, fkiUsergroupexternalID: 123)]) // UsergroupmembershipCreateObjectV1Request | 
 
 // Create a new Usergroupmembership
-ObjectUsergroupmembershipAPI.usergroupmembershipCreateObjectV1(usergroupmembershipCreateObjectV1Request: usergroupmembershipCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupmembershipAPI.usergroupmembershipCreateObjectV1(usergroupmembershipCreateObjectV1Request: usergroupmembershipCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -62,7 +58,7 @@ Name | Type | Description  | Notes
 
 # **usergroupmembershipDeleteObjectV1**
 ```swift
-    open class func usergroupmembershipDeleteObjectV1(pkiUsergroupmembershipID: Int, completion: @escaping (_ data: UsergroupmembershipDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func usergroupmembershipDeleteObjectV1(pkiUsergroupmembershipID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupmembershipDeleteObjectV1Response
 ```
 
 Delete an existing Usergroupmembership
@@ -77,15 +73,11 @@ import EzmaxApi
 let pkiUsergroupmembershipID = 987 // Int | 
 
 // Delete an existing Usergroupmembership
-ObjectUsergroupmembershipAPI.usergroupmembershipDeleteObjectV1(pkiUsergroupmembershipID: pkiUsergroupmembershipID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupmembershipAPI.usergroupmembershipDeleteObjectV1(pkiUsergroupmembershipID: pkiUsergroupmembershipID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -112,7 +104,7 @@ Name | Type | Description  | Notes
 
 # **usergroupmembershipEditObjectV1**
 ```swift
-    open class func usergroupmembershipEditObjectV1(pkiUsergroupmembershipID: Int, usergroupmembershipEditObjectV1Request: UsergroupmembershipEditObjectV1Request, completion: @escaping (_ data: UsergroupmembershipEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func usergroupmembershipEditObjectV1(pkiUsergroupmembershipID: Int, usergroupmembershipEditObjectV1Request: UsergroupmembershipEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupmembershipEditObjectV1Response
 ```
 
 Edit an existing Usergroupmembership
@@ -128,15 +120,11 @@ let pkiUsergroupmembershipID = 987 // Int |
 let usergroupmembershipEditObjectV1Request = usergroupmembership-editObject-v1-Request(objUsergroupmembership: usergroupmembership-RequestCompound(pkiUsergroupmembershipID: 123, fkiUsergroupID: 123, fkiUserID: 123, fkiUsergroupexternalID: 123)) // UsergroupmembershipEditObjectV1Request | 
 
 // Edit an existing Usergroupmembership
-ObjectUsergroupmembershipAPI.usergroupmembershipEditObjectV1(pkiUsergroupmembershipID: pkiUsergroupmembershipID, usergroupmembershipEditObjectV1Request: usergroupmembershipEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupmembershipAPI.usergroupmembershipEditObjectV1(pkiUsergroupmembershipID: pkiUsergroupmembershipID, usergroupmembershipEditObjectV1Request: usergroupmembershipEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -164,7 +152,7 @@ Name | Type | Description  | Notes
 
 # **usergroupmembershipGetObjectV2**
 ```swift
-    open class func usergroupmembershipGetObjectV2(pkiUsergroupmembershipID: Int, completion: @escaping (_ data: UsergroupmembershipGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func usergroupmembershipGetObjectV2(pkiUsergroupmembershipID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UsergroupmembershipGetObjectV2Response
 ```
 
 Retrieve an existing Usergroupmembership
@@ -179,15 +167,11 @@ import EzmaxApi
 let pkiUsergroupmembershipID = 987 // Int | 
 
 // Retrieve an existing Usergroupmembership
-ObjectUsergroupmembershipAPI.usergroupmembershipGetObjectV2(pkiUsergroupmembershipID: pkiUsergroupmembershipID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUsergroupmembershipAPI.usergroupmembershipGetObjectV2(pkiUsergroupmembershipID: pkiUsergroupmembershipID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

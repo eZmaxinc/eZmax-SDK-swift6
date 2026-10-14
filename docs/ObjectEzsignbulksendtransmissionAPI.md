@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 # **ezsignbulksendtransmissionGetBatchFileV1**
 ```swift
-    open class func ezsignbulksendtransmissionGetBatchFileV1(pkiEzsignbulksendtransmissionID: Int, bIncludeSigned: Bool? = nil, bIncludeAttachment: Bool? = nil, bIncludeProofdocument: Bool? = nil, bIncludeProof: Bool? = nil, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func ezsignbulksendtransmissionGetBatchFileV1(pkiEzsignbulksendtransmissionID: Int, bIncludeSigned: Bool? = nil, bIncludeAttachment: Bool? = nil, bIncludeProofdocument: Bool? = nil, bIncludeProof: Bool? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> URL
 ```
 
 Retrieve file to download documents in batch
@@ -30,15 +30,11 @@ let bIncludeProofdocument = true // Bool | Include the evidence report (optional
 let bIncludeProof = true // Bool | include the complete evidence archive including all of the above and more (optional)
 
 // Retrieve file to download documents in batch
-ObjectEzsignbulksendtransmissionAPI.ezsignbulksendtransmissionGetBatchFileV1(pkiEzsignbulksendtransmissionID: pkiEzsignbulksendtransmissionID, bIncludeSigned: bIncludeSigned, bIncludeAttachment: bIncludeAttachment, bIncludeProofdocument: bIncludeProofdocument, bIncludeProof: bIncludeProof) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignbulksendtransmissionAPI.ezsignbulksendtransmissionGetBatchFileV1(pkiEzsignbulksendtransmissionID: pkiEzsignbulksendtransmissionID, bIncludeSigned: bIncludeSigned, bIncludeAttachment: bIncludeAttachment, bIncludeProofdocument: bIncludeProofdocument, bIncludeProof: bIncludeProof)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -69,7 +65,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendtransmissionGetCsvErrorsV1**
 ```swift
-    open class func ezsignbulksendtransmissionGetCsvErrorsV1(pkiEzsignbulksendtransmissionID: Int, completion: @escaping (_ data: String?, _ error: Error?) -> Void)
+    open class func ezsignbulksendtransmissionGetCsvErrorsV1(pkiEzsignbulksendtransmissionID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> String
 ```
 
 Retrieve an existing Ezsignbulksendtransmission's Csv containing errors
@@ -84,15 +80,11 @@ import EzmaxApi
 let pkiEzsignbulksendtransmissionID = 987 // Int | 
 
 // Retrieve an existing Ezsignbulksendtransmission's Csv containing errors
-ObjectEzsignbulksendtransmissionAPI.ezsignbulksendtransmissionGetCsvErrorsV1(pkiEzsignbulksendtransmissionID: pkiEzsignbulksendtransmissionID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignbulksendtransmissionAPI.ezsignbulksendtransmissionGetCsvErrorsV1(pkiEzsignbulksendtransmissionID: pkiEzsignbulksendtransmissionID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -119,7 +111,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1**
 ```swift
-    open class func ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1(pkiEzsignbulksendtransmissionID: Int, completion: @escaping (_ data: EzsignbulksendtransmissionGetEzsignsignaturesAutomaticV1Response?, _ error: Error?) -> Void)
+    open class func ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1(pkiEzsignbulksendtransmissionID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignbulksendtransmissionGetEzsignsignaturesAutomaticV1Response
 ```
 
 Retrieve an existing Ezsignbulksendtransmission's automatic Ezsignsignatures
@@ -134,15 +126,11 @@ import EzmaxApi
 let pkiEzsignbulksendtransmissionID = 987 // Int | 
 
 // Retrieve an existing Ezsignbulksendtransmission's automatic Ezsignsignatures
-ObjectEzsignbulksendtransmissionAPI.ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1(pkiEzsignbulksendtransmissionID: pkiEzsignbulksendtransmissionID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignbulksendtransmissionAPI.ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1(pkiEzsignbulksendtransmissionID: pkiEzsignbulksendtransmissionID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -169,7 +157,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendtransmissionGetFormsDataV1**
 ```swift
-    open class func ezsignbulksendtransmissionGetFormsDataV1(pkiEzsignbulksendtransmissionID: Int, completion: @escaping (_ data: EzsignbulksendtransmissionGetFormsDataV1Response?, _ error: Error?) -> Void)
+    open class func ezsignbulksendtransmissionGetFormsDataV1(pkiEzsignbulksendtransmissionID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignbulksendtransmissionGetFormsDataV1Response
 ```
 
 Retrieve an existing Ezsignbulksendtransmission's forms data
@@ -184,15 +172,11 @@ import EzmaxApi
 let pkiEzsignbulksendtransmissionID = 987 // Int | 
 
 // Retrieve an existing Ezsignbulksendtransmission's forms data
-ObjectEzsignbulksendtransmissionAPI.ezsignbulksendtransmissionGetFormsDataV1(pkiEzsignbulksendtransmissionID: pkiEzsignbulksendtransmissionID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignbulksendtransmissionAPI.ezsignbulksendtransmissionGetFormsDataV1(pkiEzsignbulksendtransmissionID: pkiEzsignbulksendtransmissionID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -219,7 +203,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendtransmissionGetObjectV2**
 ```swift
-    open class func ezsignbulksendtransmissionGetObjectV2(pkiEzsignbulksendtransmissionID: Int, completion: @escaping (_ data: EzsignbulksendtransmissionGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsignbulksendtransmissionGetObjectV2(pkiEzsignbulksendtransmissionID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignbulksendtransmissionGetObjectV2Response
 ```
 
 Retrieve an existing Ezsignbulksendtransmission
@@ -234,15 +218,11 @@ import EzmaxApi
 let pkiEzsignbulksendtransmissionID = 987 // Int | 
 
 // Retrieve an existing Ezsignbulksendtransmission
-ObjectEzsignbulksendtransmissionAPI.ezsignbulksendtransmissionGetObjectV2(pkiEzsignbulksendtransmissionID: pkiEzsignbulksendtransmissionID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignbulksendtransmissionAPI.ezsignbulksendtransmissionGetObjectV2(pkiEzsignbulksendtransmissionID: pkiEzsignbulksendtransmissionID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

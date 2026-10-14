@@ -10,8 +10,8 @@ import Foundation
 /** Short description of the Ezmaxpartner */
 public struct MultilingualEzmaxpartnerShortdescription: Sendable, Codable, Hashable {
 
-    public static let sEzmaxpartnerShortdescription1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,256}$/")
-    public static let sEzmaxpartnerShortdescription2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,256}$/")
+    public static let sEzmaxpartnerShortdescription1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,256}$")
+    public static let sEzmaxpartnerShortdescription2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,256}$")
     /** The short description of the Ezmaxpartner in french */
     public var sEzmaxpartnerShortdescription1: String?
     /** The short description of the Ezmaxpartner in english */

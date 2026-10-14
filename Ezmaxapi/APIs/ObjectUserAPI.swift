@@ -277,6 +277,7 @@ open class ObjectUserAPI {
         case agentBrokerEmployeeEzsignUserNormal = "AgentBrokerEmployeeEzsignUserNormal"
         case agentBrokerEmployeeNormalBuiltIn = "AgentBrokerEmployeeNormalBuiltIn"
         case agentBrokerEzsignuserNormal = "AgentBrokerEzsignuserNormal"
+        case attachmentSpecificUser = "AttachmentSpecificUser"
         case clonableUsers = "ClonableUsers"
         case ezsignuserBuiltIn = "EzsignuserBuiltIn"
         case ezsignuser = "Ezsignuser"
@@ -298,13 +299,14 @@ open class ObjectUserAPI {
      
      - parameter sSelector: (path) The type of Users to return 
      - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
+     - parameter fkiAttachmentID: (query) Specify for which fkiAttachmentID we want to find users for. Only used when sSelector is AttachmentSpecificUser. (optional)
      - parameter sQuery: (query) Allow to filter the returned results (optional)
      - parameter acceptLanguage: (header)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: UserGetAutocompleteV2Response
      */
-    open class func userGetAutocompleteV2(sSelector: SSelector_userGetAutocompleteV2, eFilterActive: EFilterActive_userGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UserGetAutocompleteV2Response {
-        return try await userGetAutocompleteV2WithRequestBuilder(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage, apiConfiguration: apiConfiguration).execute().body
+    open class func userGetAutocompleteV2(sSelector: SSelector_userGetAutocompleteV2, eFilterActive: EFilterActive_userGetAutocompleteV2? = nil, fkiAttachmentID: String? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UserGetAutocompleteV2Response {
+        return try await userGetAutocompleteV2WithRequestBuilder(sSelector: sSelector, eFilterActive: eFilterActive, fkiAttachmentID: fkiAttachmentID, sQuery: sQuery, acceptLanguage: acceptLanguage, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -316,12 +318,13 @@ open class ObjectUserAPI {
        - name: Authorization
      - parameter sSelector: (path) The type of Users to return 
      - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
+     - parameter fkiAttachmentID: (query) Specify for which fkiAttachmentID we want to find users for. Only used when sSelector is AttachmentSpecificUser. (optional)
      - parameter sQuery: (query) Allow to filter the returned results (optional)
      - parameter acceptLanguage: (header)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<UserGetAutocompleteV2Response> 
      */
-    open class func userGetAutocompleteV2WithRequestBuilder(sSelector: SSelector_userGetAutocompleteV2, eFilterActive: EFilterActive_userGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<UserGetAutocompleteV2Response> {
+    open class func userGetAutocompleteV2WithRequestBuilder(sSelector: SSelector_userGetAutocompleteV2, eFilterActive: EFilterActive_userGetAutocompleteV2? = nil, fkiAttachmentID: String? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<UserGetAutocompleteV2Response> {
         var localVariablePath = "/2/object/user/getAutocomplete/{sSelector}"
         let sSelectorPreEscape = "\(sSelector.rawValue)"
         let sSelectorPostEscape = sSelectorPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -330,10 +333,12 @@ open class ObjectUserAPI {
         let localVariableParameters: [String: any Sendable]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
-        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+        let localVariableQueryParameters: [String: (wrappedValue: (any Sendable)?, isExplode: Bool)] = [
             "eFilterActive": (wrappedValue: eFilterActive?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "fkiAttachmentID": (wrappedValue: fkiAttachmentID?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "sQuery": (wrappedValue: sQuery?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-        ])
+        ]
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems(localVariableQueryParameters)
 
         let localVariableNillableHeaders: [String: (any Sendable)?] = [
             "Accept-Language": acceptLanguage?.asParameter(codableHelper: apiConfiguration.codableHelper),
@@ -542,12 +547,13 @@ open class ObjectUserAPI {
         let localVariableParameters: [String: any Sendable]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
-        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+        let localVariableQueryParameters: [String: (wrappedValue: (any Sendable)?, isExplode: Bool)] = [
             "eOrderBy": (wrappedValue: eOrderBy?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "iRowMax": (wrappedValue: iRowMax?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "iRowOffset": (wrappedValue: iRowOffset?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "sFilter": (wrappedValue: sFilter?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-        ])
+        ]
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems(localVariableQueryParameters)
 
         let localVariableNillableHeaders: [String: (any Sendable)?] = [
             "Accept-Language": acceptLanguage?.asParameter(codableHelper: apiConfiguration.codableHelper),

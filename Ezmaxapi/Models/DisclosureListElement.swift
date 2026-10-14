@@ -13,14 +13,14 @@ public struct DisclosureListElement: Sendable, Codable, Hashable {
     public static let pkiDisclosureIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiAgentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiBrokerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sDisclosureRelationRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,25}$/")
-    public static let dtDisclosureRedactiondateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
-    public static let dtDisclosureAcceptationdateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
-    public static let dtDisclosureReceptiondateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
-    public static let sDisclosureNumberRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,5}$/")
-    public static let sContactFirstnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,20}$/")
-    public static let sContactLastnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,25}$/")
-    public static let sBrokerNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,60}$/")
+    public static let sDisclosureRelationRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,25}$")
+    public static let dtDisclosureRedactiondateRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$")
+    public static let dtDisclosureAcceptationdateRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$")
+    public static let dtDisclosureReceptiondateRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$")
+    public static let sDisclosureNumberRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,5}$")
+    public static let sContactFirstnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,20}$")
+    public static let sContactLastnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,25}$")
+    public static let sBrokerNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,60}$")
     /** The unique ID of the Disclosure */
     public var pkiDisclosureID: Int
     /** The unique ID of the Agent. */

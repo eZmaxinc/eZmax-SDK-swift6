@@ -17,9 +17,9 @@ public struct EzsigntemplateannotationResponseCompound: Sendable, Codable, Hasha
     public static let iEzsigntemplateannotationWidthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let iEzsigntemplateannotationHeightRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let iEzsigntemplatedocumentpagePagenumberRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sEzsigntemplateannotationDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,80}$/")
-    public static let sEzsigntemplateannotationDefaulttextRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,65535}$/")
-    public static let sEzsigntemplateannotationDropdownvaluesRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,65535}$/")
+    public static let sEzsigntemplateannotationDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,80}$")
+    public static let sEzsigntemplateannotationDefaulttextRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,65535}$")
+    public static let sEzsigntemplateannotationDropdownvaluesRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,65535}$")
     /** The unique ID of the Ezsigntemplateannotation */
     public var pkiEzsigntemplateannotationID: Int
     /** The unique ID of the Textstylestatic */

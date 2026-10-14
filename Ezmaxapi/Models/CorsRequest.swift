@@ -12,7 +12,7 @@ public struct CorsRequest: Sendable, Codable, Hashable {
 
     public static let pkiCorsIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiApikeyIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sCorsEntryurlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
+    public static let sCorsEntryurlRule = StringRule(minLength: nil, maxLength: nil, pattern: "^(https|http)://[^\\s/$.?#].[^\\s]*$")
     /** The unique ID of the Cors */
     public var pkiCorsID: Int?
     /** The unique ID of the Apikey */

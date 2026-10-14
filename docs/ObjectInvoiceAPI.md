@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 # **invoiceBatchDownloadV1**
 ```swift
-    open class func invoiceBatchDownloadV1(pkiInvoiceID: Int, invoiceBatchDownloadV1Request: InvoiceBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func invoiceBatchDownloadV1(pkiInvoiceID: Int, invoiceBatchDownloadV1Request: InvoiceBatchDownloadV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> URL
 ```
 
 Download multiples attachments from an Invoice
@@ -30,15 +30,11 @@ let pkiInvoiceID = 987 // Int |
 let invoiceBatchDownloadV1Request = invoice-batchDownload-v1-Request(aPkiAttachmentID: [123]) // InvoiceBatchDownloadV1Request | 
 
 // Download multiples attachments from an Invoice
-ObjectInvoiceAPI.invoiceBatchDownloadV1(pkiInvoiceID: pkiInvoiceID, invoiceBatchDownloadV1Request: invoiceBatchDownloadV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInvoiceAPI.invoiceBatchDownloadV1(pkiInvoiceID: pkiInvoiceID, invoiceBatchDownloadV1Request: invoiceBatchDownloadV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -66,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **invoiceGetAttachmentsV1**
 ```swift
-    open class func invoiceGetAttachmentsV1(pkiInvoiceID: Int, completion: @escaping (_ data: InvoiceGetAttachmentsV1Response?, _ error: Error?) -> Void)
+    open class func invoiceGetAttachmentsV1(pkiInvoiceID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InvoiceGetAttachmentsV1Response
 ```
 
 Retrieve Invoice's Attachments
@@ -81,15 +77,11 @@ import EzmaxApi
 let pkiInvoiceID = 987 // Int | 
 
 // Retrieve Invoice's Attachments
-ObjectInvoiceAPI.invoiceGetAttachmentsV1(pkiInvoiceID: pkiInvoiceID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInvoiceAPI.invoiceGetAttachmentsV1(pkiInvoiceID: pkiInvoiceID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -116,7 +108,7 @@ Name | Type | Description  | Notes
 
 # **invoiceGetCommunicationCountV1**
 ```swift
-    open class func invoiceGetCommunicationCountV1(pkiInvoiceID: Int, completion: @escaping (_ data: InvoiceGetCommunicationCountV1Response?, _ error: Error?) -> Void)
+    open class func invoiceGetCommunicationCountV1(pkiInvoiceID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InvoiceGetCommunicationCountV1Response
 ```
 
 Retrieve Communication count
@@ -131,15 +123,11 @@ import EzmaxApi
 let pkiInvoiceID = 987 // Int | 
 
 // Retrieve Communication count
-ObjectInvoiceAPI.invoiceGetCommunicationCountV1(pkiInvoiceID: pkiInvoiceID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInvoiceAPI.invoiceGetCommunicationCountV1(pkiInvoiceID: pkiInvoiceID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -166,7 +154,7 @@ Name | Type | Description  | Notes
 
 # **invoiceGetCommunicationListV1**
 ```swift
-    open class func invoiceGetCommunicationListV1(pkiInvoiceID: Int, completion: @escaping (_ data: InvoiceGetCommunicationListV1Response?, _ error: Error?) -> Void)
+    open class func invoiceGetCommunicationListV1(pkiInvoiceID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InvoiceGetCommunicationListV1Response
 ```
 
 Retrieve Communication list
@@ -181,15 +169,11 @@ import EzmaxApi
 let pkiInvoiceID = 987 // Int | 
 
 // Retrieve Communication list
-ObjectInvoiceAPI.invoiceGetCommunicationListV1(pkiInvoiceID: pkiInvoiceID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInvoiceAPI.invoiceGetCommunicationListV1(pkiInvoiceID: pkiInvoiceID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -216,7 +200,7 @@ Name | Type | Description  | Notes
 
 # **invoiceGetCommunicationrecipientsV1**
 ```swift
-    open class func invoiceGetCommunicationrecipientsV1(pkiInvoiceID: Int, completion: @escaping (_ data: InvoiceGetCommunicationrecipientsV1Response?, _ error: Error?) -> Void)
+    open class func invoiceGetCommunicationrecipientsV1(pkiInvoiceID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InvoiceGetCommunicationrecipientsV1Response
 ```
 
 Retrieve Invoice's Communicationrecipient
@@ -231,15 +215,11 @@ import EzmaxApi
 let pkiInvoiceID = 987 // Int | 
 
 // Retrieve Invoice's Communicationrecipient
-ObjectInvoiceAPI.invoiceGetCommunicationrecipientsV1(pkiInvoiceID: pkiInvoiceID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInvoiceAPI.invoiceGetCommunicationrecipientsV1(pkiInvoiceID: pkiInvoiceID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -266,7 +246,7 @@ Name | Type | Description  | Notes
 
 # **invoiceGetCommunicationsendersV1**
 ```swift
-    open class func invoiceGetCommunicationsendersV1(pkiInvoiceID: Int, completion: @escaping (_ data: InvoiceGetCommunicationsendersV1Response?, _ error: Error?) -> Void)
+    open class func invoiceGetCommunicationsendersV1(pkiInvoiceID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InvoiceGetCommunicationsendersV1Response
 ```
 
 Retrieve Invoice's Communicationsender
@@ -281,15 +261,11 @@ import EzmaxApi
 let pkiInvoiceID = 987 // Int | 
 
 // Retrieve Invoice's Communicationsender
-ObjectInvoiceAPI.invoiceGetCommunicationsendersV1(pkiInvoiceID: pkiInvoiceID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInvoiceAPI.invoiceGetCommunicationsendersV1(pkiInvoiceID: pkiInvoiceID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -316,7 +292,7 @@ Name | Type | Description  | Notes
 
 # **invoiceGetListV1**
 ```swift
-    open class func invoiceGetListV1(eOrderBy: EOrderBy_invoiceGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: InvoiceGetListV1Response?, _ error: Error?) -> Void)
+    open class func invoiceGetListV1(eOrderBy: EOrderBy_invoiceGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InvoiceGetListV1Response
 ```
 
 Retrieve Invoice list
@@ -335,15 +311,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Invoice list
-ObjectInvoiceAPI.invoiceGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInvoiceAPI.invoiceGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -374,7 +346,7 @@ Name | Type | Description  | Notes
 
 # **invoiceImportIntoEDMV1**
 ```swift
-    open class func invoiceImportIntoEDMV1(pkiInvoiceID: Int, invoiceImportIntoEDMV1Request: InvoiceImportIntoEDMV1Request, completion: @escaping (_ data: InvoiceImportIntoEDMV1Response?, _ error: Error?) -> Void)
+    open class func invoiceImportIntoEDMV1(pkiInvoiceID: Int, invoiceImportIntoEDMV1Request: InvoiceImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InvoiceImportIntoEDMV1Response
 ```
 
 Import attachments into the Invoice
@@ -390,15 +362,11 @@ let pkiInvoiceID = 987 // Int |
 let invoiceImportIntoEDMV1Request = invoice-importIntoEDM-v1-Request(aObjAttachment: [Custom-AttachmentImportIntoEDM-Request(eAttachmentSource: "eAttachmentSource_example", fkiAttachmentID: 123, fkiInscriptionchecklistID: 123, sAttachmentUrl: "sAttachmentUrl_example", sAttachmentBase64: 123, sAttachmentName: "sAttachmentName_example", sAttachmentCategory: "sAttachmentCategory_example", eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123, sAttachmentMD5: "sAttachmentMD5_example", bAttachmentForceoverwrite: false, bAttachmentForcerestore: false)]) // InvoiceImportIntoEDMV1Request | 
 
 // Import attachments into the Invoice
-ObjectInvoiceAPI.invoiceImportIntoEDMV1(pkiInvoiceID: pkiInvoiceID, invoiceImportIntoEDMV1Request: invoiceImportIntoEDMV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInvoiceAPI.invoiceImportIntoEDMV1(pkiInvoiceID: pkiInvoiceID, invoiceImportIntoEDMV1Request: invoiceImportIntoEDMV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

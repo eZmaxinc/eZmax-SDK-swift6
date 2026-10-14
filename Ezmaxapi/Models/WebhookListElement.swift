@@ -10,7 +10,7 @@ import Foundation
 /** A Webhook List Element */
 public struct WebhookListElement: Sendable, Codable, Hashable {
 
-    public static let sWebhookUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
+    public static let sWebhookUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "^(https|http)://[^\\s/$.?#].[^\\s]*$")
     /** The unique ID of the Webhook */
     public var pkiWebhookID: Int
     /** The description of the Webhook */

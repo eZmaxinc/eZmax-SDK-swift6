@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 # **rejectedoffertopurchaseBatchDownloadV1**
 ```swift
-    open class func rejectedoffertopurchaseBatchDownloadV1(pkiRejectedoffertopurchaseID: Int, rejectedoffertopurchaseBatchDownloadV1Request: RejectedoffertopurchaseBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func rejectedoffertopurchaseBatchDownloadV1(pkiRejectedoffertopurchaseID: Int, rejectedoffertopurchaseBatchDownloadV1Request: RejectedoffertopurchaseBatchDownloadV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> URL
 ```
 
 Download multiples attachments from a Rejectedoffertopurchase
@@ -30,15 +30,11 @@ let pkiRejectedoffertopurchaseID = 987 // Int |
 let rejectedoffertopurchaseBatchDownloadV1Request = rejectedoffertopurchase-batchDownload-v1-Request(aPkiAttachmentID: [123]) // RejectedoffertopurchaseBatchDownloadV1Request | 
 
 // Download multiples attachments from a Rejectedoffertopurchase
-ObjectRejectedoffertopurchaseAPI.rejectedoffertopurchaseBatchDownloadV1(pkiRejectedoffertopurchaseID: pkiRejectedoffertopurchaseID, rejectedoffertopurchaseBatchDownloadV1Request: rejectedoffertopurchaseBatchDownloadV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectRejectedoffertopurchaseAPI.rejectedoffertopurchaseBatchDownloadV1(pkiRejectedoffertopurchaseID: pkiRejectedoffertopurchaseID, rejectedoffertopurchaseBatchDownloadV1Request: rejectedoffertopurchaseBatchDownloadV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -66,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **rejectedoffertopurchaseGetAttachmentsV1**
 ```swift
-    open class func rejectedoffertopurchaseGetAttachmentsV1(pkiRejectedoffertopurchaseID: Int, completion: @escaping (_ data: RejectedoffertopurchaseGetAttachmentsV1Response?, _ error: Error?) -> Void)
+    open class func rejectedoffertopurchaseGetAttachmentsV1(pkiRejectedoffertopurchaseID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> RejectedoffertopurchaseGetAttachmentsV1Response
 ```
 
 Retrieve Rejectedoffertopurchase's attachments
@@ -79,15 +75,11 @@ import EzmaxApi
 let pkiRejectedoffertopurchaseID = 987 // Int | 
 
 // Retrieve Rejectedoffertopurchase's attachments
-ObjectRejectedoffertopurchaseAPI.rejectedoffertopurchaseGetAttachmentsV1(pkiRejectedoffertopurchaseID: pkiRejectedoffertopurchaseID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectRejectedoffertopurchaseAPI.rejectedoffertopurchaseGetAttachmentsV1(pkiRejectedoffertopurchaseID: pkiRejectedoffertopurchaseID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -114,7 +106,7 @@ Name | Type | Description  | Notes
 
 # **rejectedoffertopurchaseGetCommunicationCountV1**
 ```swift
-    open class func rejectedoffertopurchaseGetCommunicationCountV1(pkiRejectedoffertopurchaseID: Int, completion: @escaping (_ data: RejectedoffertopurchaseGetCommunicationCountV1Response?, _ error: Error?) -> Void)
+    open class func rejectedoffertopurchaseGetCommunicationCountV1(pkiRejectedoffertopurchaseID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> RejectedoffertopurchaseGetCommunicationCountV1Response
 ```
 
 Retrieve Communication count
@@ -129,15 +121,11 @@ import EzmaxApi
 let pkiRejectedoffertopurchaseID = 987 // Int | 
 
 // Retrieve Communication count
-ObjectRejectedoffertopurchaseAPI.rejectedoffertopurchaseGetCommunicationCountV1(pkiRejectedoffertopurchaseID: pkiRejectedoffertopurchaseID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectRejectedoffertopurchaseAPI.rejectedoffertopurchaseGetCommunicationCountV1(pkiRejectedoffertopurchaseID: pkiRejectedoffertopurchaseID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -164,7 +152,7 @@ Name | Type | Description  | Notes
 
 # **rejectedoffertopurchaseGetCommunicationListV1**
 ```swift
-    open class func rejectedoffertopurchaseGetCommunicationListV1(pkiRejectedoffertopurchaseID: Int, completion: @escaping (_ data: RejectedoffertopurchaseGetCommunicationListV1Response?, _ error: Error?) -> Void)
+    open class func rejectedoffertopurchaseGetCommunicationListV1(pkiRejectedoffertopurchaseID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> RejectedoffertopurchaseGetCommunicationListV1Response
 ```
 
 Retrieve Communication list
@@ -179,15 +167,11 @@ import EzmaxApi
 let pkiRejectedoffertopurchaseID = 987 // Int | 
 
 // Retrieve Communication list
-ObjectRejectedoffertopurchaseAPI.rejectedoffertopurchaseGetCommunicationListV1(pkiRejectedoffertopurchaseID: pkiRejectedoffertopurchaseID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectRejectedoffertopurchaseAPI.rejectedoffertopurchaseGetCommunicationListV1(pkiRejectedoffertopurchaseID: pkiRejectedoffertopurchaseID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -214,7 +198,7 @@ Name | Type | Description  | Notes
 
 # **rejectedoffertopurchaseGetCommunicationrecipientsV1**
 ```swift
-    open class func rejectedoffertopurchaseGetCommunicationrecipientsV1(pkiRejectedoffertopurchaseID: Int, completion: @escaping (_ data: RejectedoffertopurchaseGetCommunicationrecipientsV1Response?, _ error: Error?) -> Void)
+    open class func rejectedoffertopurchaseGetCommunicationrecipientsV1(pkiRejectedoffertopurchaseID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> RejectedoffertopurchaseGetCommunicationrecipientsV1Response
 ```
 
 Retrieve Rejectedoffertopurchase's Communicationrecipient
@@ -229,15 +213,11 @@ import EzmaxApi
 let pkiRejectedoffertopurchaseID = 987 // Int | 
 
 // Retrieve Rejectedoffertopurchase's Communicationrecipient
-ObjectRejectedoffertopurchaseAPI.rejectedoffertopurchaseGetCommunicationrecipientsV1(pkiRejectedoffertopurchaseID: pkiRejectedoffertopurchaseID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectRejectedoffertopurchaseAPI.rejectedoffertopurchaseGetCommunicationrecipientsV1(pkiRejectedoffertopurchaseID: pkiRejectedoffertopurchaseID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -264,7 +244,7 @@ Name | Type | Description  | Notes
 
 # **rejectedoffertopurchaseGetCommunicationsendersV1**
 ```swift
-    open class func rejectedoffertopurchaseGetCommunicationsendersV1(pkiRejectedoffertopurchaseID: Int, completion: @escaping (_ data: RejectedoffertopurchaseGetCommunicationsendersV1Response?, _ error: Error?) -> Void)
+    open class func rejectedoffertopurchaseGetCommunicationsendersV1(pkiRejectedoffertopurchaseID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> RejectedoffertopurchaseGetCommunicationsendersV1Response
 ```
 
 Retrieve Rejectedoffertopurchase's Communicationsender
@@ -279,15 +259,11 @@ import EzmaxApi
 let pkiRejectedoffertopurchaseID = 987 // Int | 
 
 // Retrieve Rejectedoffertopurchase's Communicationsender
-ObjectRejectedoffertopurchaseAPI.rejectedoffertopurchaseGetCommunicationsendersV1(pkiRejectedoffertopurchaseID: pkiRejectedoffertopurchaseID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectRejectedoffertopurchaseAPI.rejectedoffertopurchaseGetCommunicationsendersV1(pkiRejectedoffertopurchaseID: pkiRejectedoffertopurchaseID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -314,7 +290,7 @@ Name | Type | Description  | Notes
 
 # **rejectedoffertopurchaseGetListV1**
 ```swift
-    open class func rejectedoffertopurchaseGetListV1(eOrderBy: EOrderBy_rejectedoffertopurchaseGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: RejectedoffertopurchaseGetListV1Response?, _ error: Error?) -> Void)
+    open class func rejectedoffertopurchaseGetListV1(eOrderBy: EOrderBy_rejectedoffertopurchaseGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> RejectedoffertopurchaseGetListV1Response
 ```
 
 Retrieve Rejectedoffertopurchase list
@@ -333,15 +309,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Rejectedoffertopurchase list
-ObjectRejectedoffertopurchaseAPI.rejectedoffertopurchaseGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectRejectedoffertopurchaseAPI.rejectedoffertopurchaseGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -372,7 +344,7 @@ Name | Type | Description  | Notes
 
 # **rejectedoffertopurchaseImportIntoEDMV1**
 ```swift
-    open class func rejectedoffertopurchaseImportIntoEDMV1(pkiRejectedoffertopurchaseID: Int, rejectedoffertopurchaseImportIntoEDMV1Request: RejectedoffertopurchaseImportIntoEDMV1Request, completion: @escaping (_ data: RejectedoffertopurchaseImportIntoEDMV1Response?, _ error: Error?) -> Void)
+    open class func rejectedoffertopurchaseImportIntoEDMV1(pkiRejectedoffertopurchaseID: Int, rejectedoffertopurchaseImportIntoEDMV1Request: RejectedoffertopurchaseImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> RejectedoffertopurchaseImportIntoEDMV1Response
 ```
 
 Import attachments into the Rejectedoffertopurchase
@@ -388,15 +360,11 @@ let pkiRejectedoffertopurchaseID = 987 // Int |
 let rejectedoffertopurchaseImportIntoEDMV1Request = rejectedoffertopurchase-importIntoEDM-v1-Request(aObjAttachment: [Custom-AttachmentImportIntoEDM-Request(eAttachmentSource: "eAttachmentSource_example", fkiAttachmentID: 123, fkiInscriptionchecklistID: 123, sAttachmentUrl: "sAttachmentUrl_example", sAttachmentBase64: 123, sAttachmentName: "sAttachmentName_example", sAttachmentCategory: "sAttachmentCategory_example", eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123, sAttachmentMD5: "sAttachmentMD5_example", bAttachmentForceoverwrite: false, bAttachmentForcerestore: false)]) // RejectedoffertopurchaseImportIntoEDMV1Request | 
 
 // Import attachments into the Rejectedoffertopurchase
-ObjectRejectedoffertopurchaseAPI.rejectedoffertopurchaseImportIntoEDMV1(pkiRejectedoffertopurchaseID: pkiRejectedoffertopurchaseID, rejectedoffertopurchaseImportIntoEDMV1Request: rejectedoffertopurchaseImportIntoEDMV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectRejectedoffertopurchaseAPI.rejectedoffertopurchaseImportIntoEDMV1(pkiRejectedoffertopurchaseID: pkiRejectedoffertopurchaseID, rejectedoffertopurchaseImportIntoEDMV1Request: rejectedoffertopurchaseImportIntoEDMV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

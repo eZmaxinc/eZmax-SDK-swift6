@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **ezmaxpartnerGetCustomDeveloppersV1**
 ```swift
-    open class func ezmaxpartnerGetCustomDeveloppersV1(eOrderBy: EOrderBy_ezmaxpartnerGetCustomDeveloppersV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: EzmaxpartnerGetCustomDeveloppersV1Response?, _ error: Error?) -> Void)
+    open class func ezmaxpartnerGetCustomDeveloppersV1(eOrderBy: EOrderBy_ezmaxpartnerGetCustomDeveloppersV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzmaxpartnerGetCustomDeveloppersV1Response
 ```
 
 Retrieve Ezmaxpartner custom developpers list
@@ -27,15 +27,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Ezmaxpartner custom developpers list
-ObjectEzmaxpartnerAPI.ezmaxpartnerGetCustomDeveloppersV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzmaxpartnerAPI.ezmaxpartnerGetCustomDeveloppersV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -66,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **ezmaxpartnerGetObjectV2**
 ```swift
-    open class func ezmaxpartnerGetObjectV2(pkiEzmaxpartnerID: Int, completion: @escaping (_ data: EzmaxpartnerGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezmaxpartnerGetObjectV2(pkiEzmaxpartnerID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzmaxpartnerGetObjectV2Response
 ```
 
 Retrieve an existing Ezmaxpartner
@@ -81,15 +77,11 @@ import EzmaxApi
 let pkiEzmaxpartnerID = 987 // Int | The unique ID of the Ezmaxpartner
 
 // Retrieve an existing Ezmaxpartner
-ObjectEzmaxpartnerAPI.ezmaxpartnerGetObjectV2(pkiEzmaxpartnerID: pkiEzmaxpartnerID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzmaxpartnerAPI.ezmaxpartnerGetObjectV2(pkiEzmaxpartnerID: pkiEzmaxpartnerID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

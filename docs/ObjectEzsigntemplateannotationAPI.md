@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 # **ezsigntemplateannotationCreateObjectV1**
 ```swift
-    open class func ezsigntemplateannotationCreateObjectV1(ezsigntemplateannotationCreateObjectV1Request: EzsigntemplateannotationCreateObjectV1Request, completion: @escaping (_ data: EzsigntemplateannotationCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplateannotationCreateObjectV1(ezsigntemplateannotationCreateObjectV1Request: EzsigntemplateannotationCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplateannotationCreateObjectV1Response
 ```
 
 Create a new Ezsigntemplateannotation
@@ -27,15 +27,11 @@ import EzmaxApi
 let ezsigntemplateannotationCreateObjectV1Request = ezsigntemplateannotation-createObject-v1-Request(aObjEzsigntemplateannotation: [ezsigntemplateannotation-RequestCompound(pkiEzsigntemplateannotationID: 123, fkiEzsigntemplatedocumentID: 123, eEzsigntemplateannotationHorizontalalignment: Field-eEzsigntemplateannotationHorizontalalignment(), eEzsigntemplateannotationVerticalalignment: Field-eEzsigntemplateannotationVerticalalignment(), eEzsigntemplateannotationType: Field-eEzsigntemplateannotationType(), iEzsigntemplateannotationX: 123, iEzsigntemplateannotationY: 123, iEzsigntemplateannotationWidth: 123, iEzsigntemplateannotationHeight: 123, iEzsigntemplatedocumentpagePagenumber: 123, sEzsigntemplateannotationDescription: "sEzsigntemplateannotationDescription_example", sEzsigntemplateannotationDefaulttext: "sEzsigntemplateannotationDefaulttext_example", sEzsigntemplateannotationDropdownvalues: "sEzsigntemplateannotationDropdownvalues_example", objTextstylestatic: textstylestatic-RequestCompound(fkiFontID: 123, bTextstylestaticBold: true, bTextstylestaticUnderline: true, bTextstylestaticItalic: true, bTextstylestaticStrikethrough: true, iTextstylestaticFontcolor: 123, iTextstylestaticSize: 123))]) // EzsigntemplateannotationCreateObjectV1Request | 
 
 // Create a new Ezsigntemplateannotation
-ObjectEzsigntemplateannotationAPI.ezsigntemplateannotationCreateObjectV1(ezsigntemplateannotationCreateObjectV1Request: ezsigntemplateannotationCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplateannotationAPI.ezsigntemplateannotationCreateObjectV1(ezsigntemplateannotationCreateObjectV1Request: ezsigntemplateannotationCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -62,7 +58,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplateannotationDeleteObjectV1**
 ```swift
-    open class func ezsigntemplateannotationDeleteObjectV1(pkiEzsigntemplateannotationID: Int, completion: @escaping (_ data: EzsigntemplateannotationDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplateannotationDeleteObjectV1(pkiEzsigntemplateannotationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplateannotationDeleteObjectV1Response
 ```
 
 Delete an existing Ezsigntemplateannotation
@@ -77,15 +73,11 @@ import EzmaxApi
 let pkiEzsigntemplateannotationID = 987 // Int | The unique ID of the Ezsigntemplateannotation
 
 // Delete an existing Ezsigntemplateannotation
-ObjectEzsigntemplateannotationAPI.ezsigntemplateannotationDeleteObjectV1(pkiEzsigntemplateannotationID: pkiEzsigntemplateannotationID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplateannotationAPI.ezsigntemplateannotationDeleteObjectV1(pkiEzsigntemplateannotationID: pkiEzsigntemplateannotationID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -112,7 +104,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplateannotationEditObjectV1**
 ```swift
-    open class func ezsigntemplateannotationEditObjectV1(pkiEzsigntemplateannotationID: Int, ezsigntemplateannotationEditObjectV1Request: EzsigntemplateannotationEditObjectV1Request, completion: @escaping (_ data: EzsigntemplateannotationEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplateannotationEditObjectV1(pkiEzsigntemplateannotationID: Int, ezsigntemplateannotationEditObjectV1Request: EzsigntemplateannotationEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplateannotationEditObjectV1Response
 ```
 
 Edit an existing Ezsigntemplateannotation
@@ -128,15 +120,11 @@ let pkiEzsigntemplateannotationID = 987 // Int | The unique ID of the Ezsigntemp
 let ezsigntemplateannotationEditObjectV1Request = ezsigntemplateannotation-editObject-v1-Request(objEzsigntemplateannotation: ezsigntemplateannotation-RequestCompound(pkiEzsigntemplateannotationID: 123, fkiEzsigntemplatedocumentID: 123, eEzsigntemplateannotationHorizontalalignment: Field-eEzsigntemplateannotationHorizontalalignment(), eEzsigntemplateannotationVerticalalignment: Field-eEzsigntemplateannotationVerticalalignment(), eEzsigntemplateannotationType: Field-eEzsigntemplateannotationType(), iEzsigntemplateannotationX: 123, iEzsigntemplateannotationY: 123, iEzsigntemplateannotationWidth: 123, iEzsigntemplateannotationHeight: 123, iEzsigntemplatedocumentpagePagenumber: 123, sEzsigntemplateannotationDescription: "sEzsigntemplateannotationDescription_example", sEzsigntemplateannotationDefaulttext: "sEzsigntemplateannotationDefaulttext_example", sEzsigntemplateannotationDropdownvalues: "sEzsigntemplateannotationDropdownvalues_example", objTextstylestatic: textstylestatic-RequestCompound(fkiFontID: 123, bTextstylestaticBold: true, bTextstylestaticUnderline: true, bTextstylestaticItalic: true, bTextstylestaticStrikethrough: true, iTextstylestaticFontcolor: 123, iTextstylestaticSize: 123))) // EzsigntemplateannotationEditObjectV1Request | 
 
 // Edit an existing Ezsigntemplateannotation
-ObjectEzsigntemplateannotationAPI.ezsigntemplateannotationEditObjectV1(pkiEzsigntemplateannotationID: pkiEzsigntemplateannotationID, ezsigntemplateannotationEditObjectV1Request: ezsigntemplateannotationEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplateannotationAPI.ezsigntemplateannotationEditObjectV1(pkiEzsigntemplateannotationID: pkiEzsigntemplateannotationID, ezsigntemplateannotationEditObjectV1Request: ezsigntemplateannotationEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -164,7 +152,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplateannotationGetObjectV2**
 ```swift
-    open class func ezsigntemplateannotationGetObjectV2(pkiEzsigntemplateannotationID: Int, completion: @escaping (_ data: EzsigntemplateannotationGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplateannotationGetObjectV2(pkiEzsigntemplateannotationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplateannotationGetObjectV2Response
 ```
 
 Retrieve an existing Ezsigntemplateannotation
@@ -179,15 +167,11 @@ import EzmaxApi
 let pkiEzsigntemplateannotationID = 987 // Int | The unique ID of the Ezsigntemplateannotation
 
 // Retrieve an existing Ezsigntemplateannotation
-ObjectEzsigntemplateannotationAPI.ezsigntemplateannotationGetObjectV2(pkiEzsigntemplateannotationID: pkiEzsigntemplateannotationID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplateannotationAPI.ezsigntemplateannotationGetObjectV2(pkiEzsigntemplateannotationID: pkiEzsigntemplateannotationID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

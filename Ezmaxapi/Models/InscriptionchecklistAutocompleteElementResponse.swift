@@ -11,7 +11,7 @@ import Foundation
 public struct InscriptionchecklistAutocompleteElementResponse: Sendable, Codable, Hashable {
 
     public static let pkiInscriptionchecklistIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
-    public static let sInscriptionchecklistelementNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,55}$/")
+    public static let sInscriptionchecklistelementNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,55}$")
     /** The unique ID of the Inscriptionchecklist */
     public var pkiInscriptionchecklistID: Int
     /** The name of the Inscriptionchecklistelement in the language of the requester */

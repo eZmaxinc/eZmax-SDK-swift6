@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 # **bankaccountBatchDownloadV1**
 ```swift
-    open class func bankaccountBatchDownloadV1(pkiBankaccountID: Int, bankaccountBatchDownloadV1Request: BankaccountBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func bankaccountBatchDownloadV1(pkiBankaccountID: Int, bankaccountBatchDownloadV1Request: BankaccountBatchDownloadV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> URL
 ```
 
 Download multiples attachments from a Bankaccount
@@ -31,15 +31,11 @@ let pkiBankaccountID = 987 // Int |
 let bankaccountBatchDownloadV1Request = bankaccount-batchDownload-v1-Request(aPkiAttachmentID: [123]) // BankaccountBatchDownloadV1Request | 
 
 // Download multiples attachments from a Bankaccount
-ObjectBankaccountAPI.bankaccountBatchDownloadV1(pkiBankaccountID: pkiBankaccountID, bankaccountBatchDownloadV1Request: bankaccountBatchDownloadV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBankaccountAPI.bankaccountBatchDownloadV1(pkiBankaccountID: pkiBankaccountID, bankaccountBatchDownloadV1Request: bankaccountBatchDownloadV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -67,7 +63,7 @@ Name | Type | Description  | Notes
 
 # **bankaccountGetAttachmentsV1**
 ```swift
-    open class func bankaccountGetAttachmentsV1(pkiBankaccountID: Int, completion: @escaping (_ data: BankaccountGetAttachmentsV1Response?, _ error: Error?) -> Void)
+    open class func bankaccountGetAttachmentsV1(pkiBankaccountID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BankaccountGetAttachmentsV1Response
 ```
 
 Retrieve Bankaccount's attachments
@@ -80,15 +76,11 @@ import EzmaxApi
 let pkiBankaccountID = 987 // Int | 
 
 // Retrieve Bankaccount's attachments
-ObjectBankaccountAPI.bankaccountGetAttachmentsV1(pkiBankaccountID: pkiBankaccountID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBankaccountAPI.bankaccountGetAttachmentsV1(pkiBankaccountID: pkiBankaccountID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -115,7 +107,7 @@ Name | Type | Description  | Notes
 
 # **bankaccountGetAutocompleteV2**
 ```swift
-    open class func bankaccountGetAutocompleteV2(sSelector: SSelector_bankaccountGetAutocompleteV2, eFilterActive: EFilterActive_bankaccountGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: BankaccountGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func bankaccountGetAutocompleteV2(sSelector: SSelector_bankaccountGetAutocompleteV2, eFilterActive: EFilterActive_bankaccountGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BankaccountGetAutocompleteV2Response
 ```
 
 Retrieve Bankaccounts and IDs
@@ -133,15 +125,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Bankaccounts and IDs
-ObjectBankaccountAPI.bankaccountGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBankaccountAPI.bankaccountGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -171,7 +159,7 @@ Name | Type | Description  | Notes
 
 # **bankaccountGetCommunicationCountV1**
 ```swift
-    open class func bankaccountGetCommunicationCountV1(pkiBankaccountID: Int, completion: @escaping (_ data: BankaccountGetCommunicationCountV1Response?, _ error: Error?) -> Void)
+    open class func bankaccountGetCommunicationCountV1(pkiBankaccountID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BankaccountGetCommunicationCountV1Response
 ```
 
 Retrieve Communication count
@@ -184,15 +172,11 @@ import EzmaxApi
 let pkiBankaccountID = 987 // Int | 
 
 // Retrieve Communication count
-ObjectBankaccountAPI.bankaccountGetCommunicationCountV1(pkiBankaccountID: pkiBankaccountID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBankaccountAPI.bankaccountGetCommunicationCountV1(pkiBankaccountID: pkiBankaccountID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -219,7 +203,7 @@ Name | Type | Description  | Notes
 
 # **bankaccountGetCommunicationListV1**
 ```swift
-    open class func bankaccountGetCommunicationListV1(pkiBankaccountID: Int, completion: @escaping (_ data: BankaccountGetCommunicationListV1Response?, _ error: Error?) -> Void)
+    open class func bankaccountGetCommunicationListV1(pkiBankaccountID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BankaccountGetCommunicationListV1Response
 ```
 
 Retrieve Communication list
@@ -232,15 +216,11 @@ import EzmaxApi
 let pkiBankaccountID = 987 // Int | 
 
 // Retrieve Communication list
-ObjectBankaccountAPI.bankaccountGetCommunicationListV1(pkiBankaccountID: pkiBankaccountID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBankaccountAPI.bankaccountGetCommunicationListV1(pkiBankaccountID: pkiBankaccountID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -267,7 +247,7 @@ Name | Type | Description  | Notes
 
 # **bankaccountGetCommunicationrecipientsV1**
 ```swift
-    open class func bankaccountGetCommunicationrecipientsV1(pkiBankaccountID: Int, completion: @escaping (_ data: BankaccountGetCommunicationrecipientsV1Response?, _ error: Error?) -> Void)
+    open class func bankaccountGetCommunicationrecipientsV1(pkiBankaccountID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BankaccountGetCommunicationrecipientsV1Response
 ```
 
 Retrieve Communication recipients
@@ -280,15 +260,11 @@ import EzmaxApi
 let pkiBankaccountID = 987 // Int | 
 
 // Retrieve Communication recipients
-ObjectBankaccountAPI.bankaccountGetCommunicationrecipientsV1(pkiBankaccountID: pkiBankaccountID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBankaccountAPI.bankaccountGetCommunicationrecipientsV1(pkiBankaccountID: pkiBankaccountID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -315,7 +291,7 @@ Name | Type | Description  | Notes
 
 # **bankaccountGetCommunicationsendersV1**
 ```swift
-    open class func bankaccountGetCommunicationsendersV1(pkiBankaccountID: Int, completion: @escaping (_ data: BankaccountGetCommunicationsendersV1Response?, _ error: Error?) -> Void)
+    open class func bankaccountGetCommunicationsendersV1(pkiBankaccountID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BankaccountGetCommunicationsendersV1Response
 ```
 
 Retrieve Communication senders
@@ -328,15 +304,11 @@ import EzmaxApi
 let pkiBankaccountID = 987 // Int | 
 
 // Retrieve Communication senders
-ObjectBankaccountAPI.bankaccountGetCommunicationsendersV1(pkiBankaccountID: pkiBankaccountID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBankaccountAPI.bankaccountGetCommunicationsendersV1(pkiBankaccountID: pkiBankaccountID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -363,7 +335,7 @@ Name | Type | Description  | Notes
 
 # **bankaccountGetListV1**
 ```swift
-    open class func bankaccountGetListV1(eOrderBy: EOrderBy_bankaccountGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: BankaccountGetListV1Response?, _ error: Error?) -> Void)
+    open class func bankaccountGetListV1(eOrderBy: EOrderBy_bankaccountGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BankaccountGetListV1Response
 ```
 
 Retrieve Bankaccount list
@@ -382,15 +354,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Bankaccount list
-ObjectBankaccountAPI.bankaccountGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBankaccountAPI.bankaccountGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -421,7 +389,7 @@ Name | Type | Description  | Notes
 
 # **bankaccountImportIntoEDMV1**
 ```swift
-    open class func bankaccountImportIntoEDMV1(pkiBankaccountID: Int, bankaccountImportIntoEDMV1Request: BankaccountImportIntoEDMV1Request, completion: @escaping (_ data: BankaccountImportIntoEDMV1Response?, _ error: Error?) -> Void)
+    open class func bankaccountImportIntoEDMV1(pkiBankaccountID: Int, bankaccountImportIntoEDMV1Request: BankaccountImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BankaccountImportIntoEDMV1Response
 ```
 
 Import attachments into the Bankaccount
@@ -435,15 +403,11 @@ let pkiBankaccountID = 987 // Int |
 let bankaccountImportIntoEDMV1Request = bankaccount-importIntoEDM-v1-Request(aObjAttachment: [Custom-AttachmentImportIntoEDM-Request(eAttachmentSource: "eAttachmentSource_example", fkiAttachmentID: 123, fkiInscriptionchecklistID: 123, sAttachmentUrl: "sAttachmentUrl_example", sAttachmentBase64: 123, sAttachmentName: "sAttachmentName_example", sAttachmentCategory: "sAttachmentCategory_example", eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123, sAttachmentMD5: "sAttachmentMD5_example", bAttachmentForceoverwrite: false, bAttachmentForcerestore: false)]) // BankaccountImportIntoEDMV1Request | 
 
 // Import attachments into the Bankaccount
-ObjectBankaccountAPI.bankaccountImportIntoEDMV1(pkiBankaccountID: pkiBankaccountID, bankaccountImportIntoEDMV1Request: bankaccountImportIntoEDMV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBankaccountAPI.bankaccountImportIntoEDMV1(pkiBankaccountID: pkiBankaccountID, bankaccountImportIntoEDMV1Request: bankaccountImportIntoEDMV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

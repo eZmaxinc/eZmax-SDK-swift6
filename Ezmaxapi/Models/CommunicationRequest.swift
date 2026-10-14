@@ -15,7 +15,7 @@ public struct CommunicationRequest: Sendable, Codable, Hashable {
         case url = "Url"
     }
     public static let pkiCommunicationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sCommunicationSubjectRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,200}$/")
+    public static let sCommunicationSubjectRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,200}$")
     public static let iCommunicationAttachmentlinkexpirationRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 30, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Communication. */
     public var pkiCommunicationID: Int?

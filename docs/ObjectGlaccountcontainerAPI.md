@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **glaccountcontainerGetAutocompleteV2**
 ```swift
-    open class func glaccountcontainerGetAutocompleteV2(sSelector: SSelector_glaccountcontainerGetAutocompleteV2, eFilterActive: EFilterActive_glaccountcontainerGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: GlaccountcontainerGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func glaccountcontainerGetAutocompleteV2(sSelector: SSelector_glaccountcontainerGetAutocompleteV2, eFilterActive: EFilterActive_glaccountcontainerGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> GlaccountcontainerGetAutocompleteV2Response
 ```
 
 Retrieve Glaccountcontainers and IDs
@@ -27,15 +27,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Glaccountcontainers and IDs
-ObjectGlaccountcontainerAPI.glaccountcontainerGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectGlaccountcontainerAPI.glaccountcontainerGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

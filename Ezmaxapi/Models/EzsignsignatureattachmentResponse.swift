@@ -12,7 +12,7 @@ public struct EzsignsignatureattachmentResponse: Sendable, Codable, Hashable {
 
     public static let pkiEzsignsignatureattachmentIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEzsignsignatureIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sEzsignsignatureattachmentNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,75}$/")
+    public static let sEzsignsignatureattachmentNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,75}$")
     /** The unique ID of the Ezsignsignatureattachment */
     public var pkiEzsignsignatureattachmentID: Int
     /** The unique ID of the Ezsignsignature */

@@ -11,7 +11,7 @@ import Foundation
 public struct PdfalevelAutocompleteElementResponse: Sendable, Codable, Hashable {
 
     public static let pkiPdfalevelIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sPdfalevelNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,15}$/")
+    public static let sPdfalevelNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,15}$")
     /** The unique ID of the Pdfalevel */
     public var pkiPdfalevelID: Int
     /** The name of the Pdfalevel */

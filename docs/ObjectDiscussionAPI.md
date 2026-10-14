@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 # **discussionChatV1**
 ```swift
-    open class func discussionChatV1(discussionChatV1Request: DiscussionChatV1Request, completion: @escaping (_ data: DiscussionChatV1200Response?, _ error: Error?) -> Void)
+    open class func discussionChatV1(discussionChatV1Request: DiscussionChatV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DiscussionChatV1200Response
 ```
 
 Have a Discussion with the AI Chatbot
@@ -29,15 +29,11 @@ import EzmaxApi
 let discussionChatV1Request = discussion-chat-v1-Request(fkiDiscussionID: 123, eDiscussionRobot: Field-eDiscussionRobot(), tDiscussionMessage: "tDiscussionMessage_example") // DiscussionChatV1Request | 
 
 // Have a Discussion with the AI Chatbot
-ObjectDiscussionAPI.discussionChatV1(discussionChatV1Request: discussionChatV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDiscussionAPI.discussionChatV1(discussionChatV1Request: discussionChatV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -64,7 +60,7 @@ Name | Type | Description  | Notes
 
 # **discussionCreateObjectV1**
 ```swift
-    open class func discussionCreateObjectV1(discussionCreateObjectV1Request: DiscussionCreateObjectV1Request, completion: @escaping (_ data: DiscussionCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func discussionCreateObjectV1(discussionCreateObjectV1Request: DiscussionCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DiscussionCreateObjectV1Response
 ```
 
 Create a new Discussion
@@ -79,15 +75,11 @@ import EzmaxApi
 let discussionCreateObjectV1Request = discussion-createObject-v1-Request(aObjDiscussion: [discussion-RequestCompound(pkiDiscussionID: 123, sDiscussionDescription: "sDiscussionDescription_example", bDiscussionClosed: true)]) // DiscussionCreateObjectV1Request | 
 
 // Create a new Discussion
-ObjectDiscussionAPI.discussionCreateObjectV1(discussionCreateObjectV1Request: discussionCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDiscussionAPI.discussionCreateObjectV1(discussionCreateObjectV1Request: discussionCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -114,7 +106,7 @@ Name | Type | Description  | Notes
 
 # **discussionDeleteObjectV1**
 ```swift
-    open class func discussionDeleteObjectV1(pkiDiscussionID: Int, completion: @escaping (_ data: DiscussionDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func discussionDeleteObjectV1(pkiDiscussionID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DiscussionDeleteObjectV1Response
 ```
 
 Delete an existing Discussion
@@ -129,15 +121,11 @@ import EzmaxApi
 let pkiDiscussionID = 987 // Int | The unique ID of the Discussion
 
 // Delete an existing Discussion
-ObjectDiscussionAPI.discussionDeleteObjectV1(pkiDiscussionID: pkiDiscussionID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDiscussionAPI.discussionDeleteObjectV1(pkiDiscussionID: pkiDiscussionID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -164,7 +152,7 @@ Name | Type | Description  | Notes
 
 # **discussionGetObjectV2**
 ```swift
-    open class func discussionGetObjectV2(pkiDiscussionID: Int, completion: @escaping (_ data: DiscussionGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func discussionGetObjectV2(pkiDiscussionID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DiscussionGetObjectV2Response
 ```
 
 Retrieve an existing Discussion
@@ -179,15 +167,11 @@ import EzmaxApi
 let pkiDiscussionID = 987 // Int | The unique ID of the Discussion
 
 // Retrieve an existing Discussion
-ObjectDiscussionAPI.discussionGetObjectV2(pkiDiscussionID: pkiDiscussionID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDiscussionAPI.discussionGetObjectV2(pkiDiscussionID: pkiDiscussionID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -214,7 +198,7 @@ Name | Type | Description  | Notes
 
 # **discussionPatchObjectV1**
 ```swift
-    open class func discussionPatchObjectV1(pkiDiscussionID: Int, discussionPatchObjectV1Request: DiscussionPatchObjectV1Request, completion: @escaping (_ data: DiscussionPatchObjectV1Response?, _ error: Error?) -> Void)
+    open class func discussionPatchObjectV1(pkiDiscussionID: Int, discussionPatchObjectV1Request: DiscussionPatchObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DiscussionPatchObjectV1Response
 ```
 
 Patch an existing Discussion
@@ -230,15 +214,11 @@ let pkiDiscussionID = 987 // Int | The unique ID of the Discussion
 let discussionPatchObjectV1Request = discussion-patchObject-v1-Request(objDiscussion: discussion-RequestPatch(sDiscussionDescription: "sDiscussionDescription_example", bDiscussionClosed: true)) // DiscussionPatchObjectV1Request | 
 
 // Patch an existing Discussion
-ObjectDiscussionAPI.discussionPatchObjectV1(pkiDiscussionID: pkiDiscussionID, discussionPatchObjectV1Request: discussionPatchObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDiscussionAPI.discussionPatchObjectV1(pkiDiscussionID: pkiDiscussionID, discussionPatchObjectV1Request: discussionPatchObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -266,7 +246,7 @@ Name | Type | Description  | Notes
 
 # **discussionUpdateDiscussionreadstatusV1**
 ```swift
-    open class func discussionUpdateDiscussionreadstatusV1(pkiDiscussionID: Int, discussionUpdateDiscussionreadstatusV1Request: DiscussionUpdateDiscussionreadstatusV1Request, completion: @escaping (_ data: DiscussionUpdateDiscussionreadstatusV1Response?, _ error: Error?) -> Void)
+    open class func discussionUpdateDiscussionreadstatusV1(pkiDiscussionID: Int, discussionUpdateDiscussionreadstatusV1Request: DiscussionUpdateDiscussionreadstatusV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DiscussionUpdateDiscussionreadstatusV1Response
 ```
 
 Update the read status of the discussion
@@ -280,15 +260,11 @@ let pkiDiscussionID = 987 // Int |
 let discussionUpdateDiscussionreadstatusV1Request = discussion-updateDiscussionreadstatus-v1-Request(dtDiscussionreadstatusDate: "dtDiscussionreadstatusDate_example") // DiscussionUpdateDiscussionreadstatusV1Request | 
 
 // Update the read status of the discussion
-ObjectDiscussionAPI.discussionUpdateDiscussionreadstatusV1(pkiDiscussionID: pkiDiscussionID, discussionUpdateDiscussionreadstatusV1Request: discussionUpdateDiscussionreadstatusV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDiscussionAPI.discussionUpdateDiscussionreadstatusV1(pkiDiscussionID: pkiDiscussionID, discussionUpdateDiscussionreadstatusV1Request: discussionUpdateDiscussionreadstatusV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

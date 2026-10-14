@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 # **tranqcontractGetCommunicationCountV1**
 ```swift
-    open class func tranqcontractGetCommunicationCountV1(pkiTranqcontractID: Int, completion: @escaping (_ data: TranqcontractGetCommunicationCountV1Response?, _ error: Error?) -> Void)
+    open class func tranqcontractGetCommunicationCountV1(pkiTranqcontractID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> TranqcontractGetCommunicationCountV1Response
 ```
 
 Retrieve Communication count
@@ -28,15 +28,11 @@ import EzmaxApi
 let pkiTranqcontractID = 987 // Int | 
 
 // Retrieve Communication count
-ObjectTranqcontractAPI.tranqcontractGetCommunicationCountV1(pkiTranqcontractID: pkiTranqcontractID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectTranqcontractAPI.tranqcontractGetCommunicationCountV1(pkiTranqcontractID: pkiTranqcontractID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -63,7 +59,7 @@ Name | Type | Description  | Notes
 
 # **tranqcontractGetCommunicationListV1**
 ```swift
-    open class func tranqcontractGetCommunicationListV1(pkiTranqcontractID: Int, completion: @escaping (_ data: TranqcontractGetCommunicationListV1Response?, _ error: Error?) -> Void)
+    open class func tranqcontractGetCommunicationListV1(pkiTranqcontractID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> TranqcontractGetCommunicationListV1Response
 ```
 
 Retrieve Communication list
@@ -78,15 +74,11 @@ import EzmaxApi
 let pkiTranqcontractID = 987 // Int | 
 
 // Retrieve Communication list
-ObjectTranqcontractAPI.tranqcontractGetCommunicationListV1(pkiTranqcontractID: pkiTranqcontractID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectTranqcontractAPI.tranqcontractGetCommunicationListV1(pkiTranqcontractID: pkiTranqcontractID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -113,7 +105,7 @@ Name | Type | Description  | Notes
 
 # **tranqcontractGetCommunicationrecipientsV1**
 ```swift
-    open class func tranqcontractGetCommunicationrecipientsV1(pkiTranqcontractID: Int, completion: @escaping (_ data: TranqcontractGetCommunicationrecipientsV1Response?, _ error: Error?) -> Void)
+    open class func tranqcontractGetCommunicationrecipientsV1(pkiTranqcontractID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> TranqcontractGetCommunicationrecipientsV1Response
 ```
 
 Retrieve Tranqcontract's Communicationrecipient
@@ -128,15 +120,11 @@ import EzmaxApi
 let pkiTranqcontractID = 987 // Int | 
 
 // Retrieve Tranqcontract's Communicationrecipient
-ObjectTranqcontractAPI.tranqcontractGetCommunicationrecipientsV1(pkiTranqcontractID: pkiTranqcontractID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectTranqcontractAPI.tranqcontractGetCommunicationrecipientsV1(pkiTranqcontractID: pkiTranqcontractID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -163,7 +151,7 @@ Name | Type | Description  | Notes
 
 # **tranqcontractGetCommunicationsendersV1**
 ```swift
-    open class func tranqcontractGetCommunicationsendersV1(pkiTranqcontractID: Int, completion: @escaping (_ data: TranqcontractGetCommunicationsendersV1Response?, _ error: Error?) -> Void)
+    open class func tranqcontractGetCommunicationsendersV1(pkiTranqcontractID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> TranqcontractGetCommunicationsendersV1Response
 ```
 
 Retrieve Tranqcontract's Communicationsender
@@ -178,15 +166,11 @@ import EzmaxApi
 let pkiTranqcontractID = 987 // Int | 
 
 // Retrieve Tranqcontract's Communicationsender
-ObjectTranqcontractAPI.tranqcontractGetCommunicationsendersV1(pkiTranqcontractID: pkiTranqcontractID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectTranqcontractAPI.tranqcontractGetCommunicationsendersV1(pkiTranqcontractID: pkiTranqcontractID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -213,7 +197,7 @@ Name | Type | Description  | Notes
 
 # **tranqcontractImportIntoEDMV1**
 ```swift
-    open class func tranqcontractImportIntoEDMV1(pkiTranqcontractID: Int, tranqcontractImportIntoEDMV1Request: TranqcontractImportIntoEDMV1Request, completion: @escaping (_ data: TranqcontractImportIntoEDMV1Response?, _ error: Error?) -> Void)
+    open class func tranqcontractImportIntoEDMV1(pkiTranqcontractID: Int, tranqcontractImportIntoEDMV1Request: TranqcontractImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> TranqcontractImportIntoEDMV1Response
 ```
 
 Import attachments into the Tranqcontract
@@ -229,15 +213,11 @@ let pkiTranqcontractID = 987 // Int |
 let tranqcontractImportIntoEDMV1Request = tranqcontract-importIntoEDM-v1-Request(aObjAttachment: [Custom-AttachmentImportIntoEDM-Request(eAttachmentSource: "eAttachmentSource_example", fkiAttachmentID: 123, fkiInscriptionchecklistID: 123, sAttachmentUrl: "sAttachmentUrl_example", sAttachmentBase64: 123, sAttachmentName: "sAttachmentName_example", sAttachmentCategory: "sAttachmentCategory_example", eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123, sAttachmentMD5: "sAttachmentMD5_example", bAttachmentForceoverwrite: false, bAttachmentForcerestore: false)]) // TranqcontractImportIntoEDMV1Request | 
 
 // Import attachments into the Tranqcontract
-ObjectTranqcontractAPI.tranqcontractImportIntoEDMV1(pkiTranqcontractID: pkiTranqcontractID, tranqcontractImportIntoEDMV1Request: tranqcontractImportIntoEDMV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectTranqcontractAPI.tranqcontractImportIntoEDMV1(pkiTranqcontractID: pkiTranqcontractID, tranqcontractImportIntoEDMV1Request: tranqcontractImportIntoEDMV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

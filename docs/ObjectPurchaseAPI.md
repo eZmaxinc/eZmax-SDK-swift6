@@ -6,13 +6,17 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**purchaseBatchDownloadV1**](ObjectPurchaseAPI.md#purchasebatchdownloadv1) | **POST** /1/object/purchase/{pkiPurchaseID}/batchDownload | Download multiples attachments from a Purchase
 [**purchaseGetAttachmentsV1**](ObjectPurchaseAPI.md#purchasegetattachmentsv1) | **GET** /1/object/purchase/{pkiPurchaseID}/getAttachments | Retrieve Purchase&#39;s attachments
+[**purchaseGetCommunicationCountV1**](ObjectPurchaseAPI.md#purchasegetcommunicationcountv1) | **GET** /1/object/purchase/{pkiPurchaseID}/getCommunicationCount | Retrieve Communication count
+[**purchaseGetCommunicationListV1**](ObjectPurchaseAPI.md#purchasegetcommunicationlistv1) | **GET** /1/object/purchase/{pkiPurchaseID}/getCommunicationList | Retrieve Communication list
+[**purchaseGetCommunicationrecipientsV1**](ObjectPurchaseAPI.md#purchasegetcommunicationrecipientsv1) | **GET** /1/object/purchase/{pkiPurchaseID}/getCommunicationrecipients | Retrieve Communication recipients
+[**purchaseGetCommunicationsendersV1**](ObjectPurchaseAPI.md#purchasegetcommunicationsendersv1) | **GET** /1/object/purchase/{pkiPurchaseID}/getCommunicationsenders | Retrieve Communication senders
 [**purchaseGetListV1**](ObjectPurchaseAPI.md#purchasegetlistv1) | **GET** /1/object/purchase/getList | Retrieve Purchase list
 [**purchaseImportIntoEDMV1**](ObjectPurchaseAPI.md#purchaseimportintoedmv1) | **POST** /1/object/purchase/{pkiPurchaseID}/importIntoEDM | Import attachments into the Purchase
 
 
 # **purchaseBatchDownloadV1**
 ```swift
-    open class func purchaseBatchDownloadV1(pkiPurchaseID: Int, purchaseBatchDownloadV1Request: PurchaseBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func purchaseBatchDownloadV1(pkiPurchaseID: Int, purchaseBatchDownloadV1Request: PurchaseBatchDownloadV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> URL
 ```
 
 Download multiples attachments from a Purchase
@@ -26,15 +30,11 @@ let pkiPurchaseID = 987 // Int |
 let purchaseBatchDownloadV1Request = purchase-batchDownload-v1-Request(aPkiAttachmentID: [123]) // PurchaseBatchDownloadV1Request | 
 
 // Download multiples attachments from a Purchase
-ObjectPurchaseAPI.purchaseBatchDownloadV1(pkiPurchaseID: pkiPurchaseID, purchaseBatchDownloadV1Request: purchaseBatchDownloadV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectPurchaseAPI.purchaseBatchDownloadV1(pkiPurchaseID: pkiPurchaseID, purchaseBatchDownloadV1Request: purchaseBatchDownloadV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **purchaseGetAttachmentsV1**
 ```swift
-    open class func purchaseGetAttachmentsV1(pkiPurchaseID: Int, completion: @escaping (_ data: PurchaseGetAttachmentsV1Response?, _ error: Error?) -> Void)
+    open class func purchaseGetAttachmentsV1(pkiPurchaseID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PurchaseGetAttachmentsV1Response
 ```
 
 Retrieve Purchase's attachments
@@ -75,15 +75,11 @@ import EzmaxApi
 let pkiPurchaseID = 987 // Int | 
 
 // Retrieve Purchase's attachments
-ObjectPurchaseAPI.purchaseGetAttachmentsV1(pkiPurchaseID: pkiPurchaseID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectPurchaseAPI.purchaseGetAttachmentsV1(pkiPurchaseID: pkiPurchaseID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -108,9 +104,185 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **purchaseGetCommunicationCountV1**
+```swift
+    open class func purchaseGetCommunicationCountV1(pkiPurchaseID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PurchaseGetCommunicationCountV1Response
+```
+
+Retrieve Communication count
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiPurchaseID = 987 // Int | 
+
+// Retrieve Communication count
+do {
+    let response = try await ObjectPurchaseAPI.purchaseGetCommunicationCountV1(pkiPurchaseID: pkiPurchaseID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiPurchaseID** | **Int** |  | 
+
+### Return type
+
+[**PurchaseGetCommunicationCountV1Response**](PurchaseGetCommunicationCountV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **purchaseGetCommunicationListV1**
+```swift
+    open class func purchaseGetCommunicationListV1(pkiPurchaseID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PurchaseGetCommunicationListV1Response
+```
+
+Retrieve Communication list
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiPurchaseID = 987 // Int | 
+
+// Retrieve Communication list
+do {
+    let response = try await ObjectPurchaseAPI.purchaseGetCommunicationListV1(pkiPurchaseID: pkiPurchaseID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiPurchaseID** | **Int** |  | 
+
+### Return type
+
+[**PurchaseGetCommunicationListV1Response**](PurchaseGetCommunicationListV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **purchaseGetCommunicationrecipientsV1**
+```swift
+    open class func purchaseGetCommunicationrecipientsV1(pkiPurchaseID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PurchaseGetCommunicationrecipientsV1Response
+```
+
+Retrieve Communication recipients
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiPurchaseID = 987 // Int | 
+
+// Retrieve Communication recipients
+do {
+    let response = try await ObjectPurchaseAPI.purchaseGetCommunicationrecipientsV1(pkiPurchaseID: pkiPurchaseID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiPurchaseID** | **Int** |  | 
+
+### Return type
+
+[**PurchaseGetCommunicationrecipientsV1Response**](PurchaseGetCommunicationrecipientsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **purchaseGetCommunicationsendersV1**
+```swift
+    open class func purchaseGetCommunicationsendersV1(pkiPurchaseID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PurchaseGetCommunicationsendersV1Response
+```
+
+Retrieve Communication senders
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiPurchaseID = 987 // Int | 
+
+// Retrieve Communication senders
+do {
+    let response = try await ObjectPurchaseAPI.purchaseGetCommunicationsendersV1(pkiPurchaseID: pkiPurchaseID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiPurchaseID** | **Int** |  | 
+
+### Return type
+
+[**PurchaseGetCommunicationsendersV1Response**](PurchaseGetCommunicationsendersV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **purchaseGetListV1**
 ```swift
-    open class func purchaseGetListV1(eOrderBy: EOrderBy_purchaseGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: PurchaseGetListV1Response?, _ error: Error?) -> Void)
+    open class func purchaseGetListV1(eOrderBy: EOrderBy_purchaseGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PurchaseGetListV1Response
 ```
 
 Retrieve Purchase list
@@ -129,15 +301,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Purchase list
-ObjectPurchaseAPI.purchaseGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectPurchaseAPI.purchaseGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -168,7 +336,7 @@ Name | Type | Description  | Notes
 
 # **purchaseImportIntoEDMV1**
 ```swift
-    open class func purchaseImportIntoEDMV1(pkiPurchaseID: Int, purchaseImportIntoEDMV1Request: PurchaseImportIntoEDMV1Request, completion: @escaping (_ data: PurchaseImportIntoEDMV1Response?, _ error: Error?) -> Void)
+    open class func purchaseImportIntoEDMV1(pkiPurchaseID: Int, purchaseImportIntoEDMV1Request: PurchaseImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PurchaseImportIntoEDMV1Response
 ```
 
 Import attachments into the Purchase
@@ -182,15 +350,11 @@ let pkiPurchaseID = 987 // Int |
 let purchaseImportIntoEDMV1Request = purchase-importIntoEDM-v1-Request(aObjAttachment: [Custom-AttachmentImportIntoEDM-Request(eAttachmentSource: "eAttachmentSource_example", fkiAttachmentID: 123, fkiInscriptionchecklistID: 123, sAttachmentUrl: "sAttachmentUrl_example", sAttachmentBase64: 123, sAttachmentName: "sAttachmentName_example", sAttachmentCategory: "sAttachmentCategory_example", eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123, sAttachmentMD5: "sAttachmentMD5_example", bAttachmentForceoverwrite: false, bAttachmentForcerestore: false)]) // PurchaseImportIntoEDMV1Request | 
 
 // Import attachments into the Purchase
-ObjectPurchaseAPI.purchaseImportIntoEDMV1(pkiPurchaseID: pkiPurchaseID, purchaseImportIntoEDMV1Request: purchaseImportIntoEDMV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectPurchaseAPI.purchaseImportIntoEDMV1(pkiPurchaseID: pkiPurchaseID, purchaseImportIntoEDMV1Request: purchaseImportIntoEDMV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

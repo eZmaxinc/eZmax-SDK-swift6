@@ -96,6 +96,174 @@ open class ObjectSalaryAPI {
     }
 
     /**
+     Retrieve Communication count
+     
+     - parameter pkiSalaryID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: SalaryGetCommunicationCountV1Response
+     */
+    open class func salaryGetCommunicationCountV1(pkiSalaryID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SalaryGetCommunicationCountV1Response {
+        return try await salaryGetCommunicationCountV1WithRequestBuilder(pkiSalaryID: pkiSalaryID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Communication count
+     - GET /1/object/salary/{pkiSalaryID}/getCommunicationCount
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiSalaryID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<SalaryGetCommunicationCountV1Response> 
+     */
+    open class func salaryGetCommunicationCountV1WithRequestBuilder(pkiSalaryID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<SalaryGetCommunicationCountV1Response> {
+        var localVariablePath = "/1/object/salary/{pkiSalaryID}/getCommunicationCount"
+        let pkiSalaryIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiSalaryID))"
+        let pkiSalaryIDPostEscape = pkiSalaryIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiSalaryID}", with: pkiSalaryIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<SalaryGetCommunicationCountV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Retrieve Communication list
+     
+     - parameter pkiSalaryID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: SalaryGetCommunicationListV1Response
+     */
+    open class func salaryGetCommunicationListV1(pkiSalaryID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SalaryGetCommunicationListV1Response {
+        return try await salaryGetCommunicationListV1WithRequestBuilder(pkiSalaryID: pkiSalaryID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Communication list
+     - GET /1/object/salary/{pkiSalaryID}/getCommunicationList
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiSalaryID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<SalaryGetCommunicationListV1Response> 
+     */
+    open class func salaryGetCommunicationListV1WithRequestBuilder(pkiSalaryID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<SalaryGetCommunicationListV1Response> {
+        var localVariablePath = "/1/object/salary/{pkiSalaryID}/getCommunicationList"
+        let pkiSalaryIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiSalaryID))"
+        let pkiSalaryIDPostEscape = pkiSalaryIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiSalaryID}", with: pkiSalaryIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<SalaryGetCommunicationListV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Retrieve Communication recipients
+     
+     - parameter pkiSalaryID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: SalaryGetCommunicationrecipientsV1Response
+     */
+    open class func salaryGetCommunicationrecipientsV1(pkiSalaryID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SalaryGetCommunicationrecipientsV1Response {
+        return try await salaryGetCommunicationrecipientsV1WithRequestBuilder(pkiSalaryID: pkiSalaryID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Communication recipients
+     - GET /1/object/salary/{pkiSalaryID}/getCommunicationrecipients
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiSalaryID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<SalaryGetCommunicationrecipientsV1Response> 
+     */
+    open class func salaryGetCommunicationrecipientsV1WithRequestBuilder(pkiSalaryID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<SalaryGetCommunicationrecipientsV1Response> {
+        var localVariablePath = "/1/object/salary/{pkiSalaryID}/getCommunicationrecipients"
+        let pkiSalaryIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiSalaryID))"
+        let pkiSalaryIDPostEscape = pkiSalaryIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiSalaryID}", with: pkiSalaryIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<SalaryGetCommunicationrecipientsV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Retrieve Communication senders
+     
+     - parameter pkiSalaryID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: SalaryGetCommunicationsendersV1Response
+     */
+    open class func salaryGetCommunicationsendersV1(pkiSalaryID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SalaryGetCommunicationsendersV1Response {
+        return try await salaryGetCommunicationsendersV1WithRequestBuilder(pkiSalaryID: pkiSalaryID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Communication senders
+     - GET /1/object/salary/{pkiSalaryID}/getCommunicationsenders
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiSalaryID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<SalaryGetCommunicationsendersV1Response> 
+     */
+    open class func salaryGetCommunicationsendersV1WithRequestBuilder(pkiSalaryID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<SalaryGetCommunicationsendersV1Response> {
+        var localVariablePath = "/1/object/salary/{pkiSalaryID}/getCommunicationsenders"
+        let pkiSalaryIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiSalaryID))"
+        let pkiSalaryIDPostEscape = pkiSalaryIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiSalaryID}", with: pkiSalaryIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<SalaryGetCommunicationsendersV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
      * enum for parameter eOrderBy
      */
     public enum EOrderBy_salaryGetListV1: String, Sendable, CaseIterable {
@@ -167,12 +335,13 @@ open class ObjectSalaryAPI {
         let localVariableParameters: [String: any Sendable]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
-        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+        let localVariableQueryParameters: [String: (wrappedValue: (any Sendable)?, isExplode: Bool)] = [
             "eOrderBy": (wrappedValue: eOrderBy?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "iRowMax": (wrappedValue: iRowMax?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "iRowOffset": (wrappedValue: iRowOffset?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "sFilter": (wrappedValue: sFilter?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-        ])
+        ]
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems(localVariableQueryParameters)
 
         let localVariableNillableHeaders: [String: (any Sendable)?] = [
             "Accept-Language": acceptLanguage?.asParameter(codableHelper: apiConfiguration.codableHelper),

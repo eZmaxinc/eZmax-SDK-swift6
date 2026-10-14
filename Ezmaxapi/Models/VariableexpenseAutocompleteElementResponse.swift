@@ -10,7 +10,7 @@ import Foundation
 /** A Variableexpense AutocompleteElement Response */
 public struct VariableexpenseAutocompleteElementResponse: Sendable, Codable, Hashable {
 
-    public static let sVariableexpenseDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,40}$/")
+    public static let sVariableexpenseDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,40}$")
     public static let pkiVariableexpenseIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     /** The description of the Variableexpense in the language of the requester */
     public var sVariableexpenseDescriptionX: String

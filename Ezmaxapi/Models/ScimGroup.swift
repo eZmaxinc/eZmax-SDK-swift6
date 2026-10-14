@@ -9,7 +9,7 @@ import Foundation
 
 public struct ScimGroup: Sendable, Codable, Hashable {
 
-    public static let displayNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let displayNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
     public var id: String?
     /** The Name of the Usergroup in the language of the requester */
     public var displayName: String

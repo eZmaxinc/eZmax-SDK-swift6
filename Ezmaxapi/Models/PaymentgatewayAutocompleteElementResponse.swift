@@ -11,7 +11,7 @@ import Foundation
 public struct PaymentgatewayAutocompleteElementResponse: Sendable, Codable, Hashable {
 
     public static let pkiPaymentgatewayIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sPaymentgatewayDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,50}$/")
+    public static let sPaymentgatewayDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,50}$")
     /** The unique ID of the Paymentgateway */
     public var pkiPaymentgatewayID: Int
     /** The description of the Paymentgateway in the language of the requester */

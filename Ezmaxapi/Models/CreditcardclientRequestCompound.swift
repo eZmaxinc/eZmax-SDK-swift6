@@ -11,9 +11,9 @@ import Foundation
 public struct CreditcardclientRequestCompound: Sendable, Codable, Hashable {
 
     public static let pkiCreditcardclientIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    public static let fksCreditcardtokenIDRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\{?[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\\}?$/")
-    public static let sCreditcardclientDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    public static let sCreditcardclientCVVRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{3,4}$/")
+    public static let fksCreditcardtokenIDRule = StringRule(minLength: nil, maxLength: nil, pattern: "^\\{?[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\\}?$")
+    public static let sCreditcardclientDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
+    public static let sCreditcardclientCVVRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[0-9]{3,4}$")
     /** The unique ID of the Creditcardclient */
     public var pkiCreditcardclientID: Int?
     /** The creditcard token identifier */

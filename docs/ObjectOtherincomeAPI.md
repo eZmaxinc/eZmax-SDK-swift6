@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 # **otherincomeBatchDownloadV1**
 ```swift
-    open class func otherincomeBatchDownloadV1(pkiOtherincomeID: Int, otherincomeBatchDownloadV1Request: OtherincomeBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func otherincomeBatchDownloadV1(pkiOtherincomeID: Int, otherincomeBatchDownloadV1Request: OtherincomeBatchDownloadV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> URL
 ```
 
 Download multiples attachments from a Otherincome
@@ -30,15 +30,11 @@ let pkiOtherincomeID = 987 // Int |
 let otherincomeBatchDownloadV1Request = otherincome-batchDownload-v1-Request(aPkiAttachmentID: [123]) // OtherincomeBatchDownloadV1Request | 
 
 // Download multiples attachments from a Otherincome
-ObjectOtherincomeAPI.otherincomeBatchDownloadV1(pkiOtherincomeID: pkiOtherincomeID, otherincomeBatchDownloadV1Request: otherincomeBatchDownloadV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectOtherincomeAPI.otherincomeBatchDownloadV1(pkiOtherincomeID: pkiOtherincomeID, otherincomeBatchDownloadV1Request: otherincomeBatchDownloadV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -66,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **otherincomeGetAttachmentsV1**
 ```swift
-    open class func otherincomeGetAttachmentsV1(pkiOtherincomeID: Int, completion: @escaping (_ data: OtherincomeGetAttachmentsV1Response?, _ error: Error?) -> Void)
+    open class func otherincomeGetAttachmentsV1(pkiOtherincomeID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> OtherincomeGetAttachmentsV1Response
 ```
 
 Retrieve Otherincome's attachments
@@ -79,15 +75,11 @@ import EzmaxApi
 let pkiOtherincomeID = 987 // Int | 
 
 // Retrieve Otherincome's attachments
-ObjectOtherincomeAPI.otherincomeGetAttachmentsV1(pkiOtherincomeID: pkiOtherincomeID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectOtherincomeAPI.otherincomeGetAttachmentsV1(pkiOtherincomeID: pkiOtherincomeID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -114,7 +106,7 @@ Name | Type | Description  | Notes
 
 # **otherincomeGetCommunicationCountV1**
 ```swift
-    open class func otherincomeGetCommunicationCountV1(pkiOtherincomeID: Int, completion: @escaping (_ data: OtherincomeGetCommunicationCountV1Response?, _ error: Error?) -> Void)
+    open class func otherincomeGetCommunicationCountV1(pkiOtherincomeID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> OtherincomeGetCommunicationCountV1Response
 ```
 
 Retrieve Communication count
@@ -129,15 +121,11 @@ import EzmaxApi
 let pkiOtherincomeID = 987 // Int | 
 
 // Retrieve Communication count
-ObjectOtherincomeAPI.otherincomeGetCommunicationCountV1(pkiOtherincomeID: pkiOtherincomeID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectOtherincomeAPI.otherincomeGetCommunicationCountV1(pkiOtherincomeID: pkiOtherincomeID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -164,7 +152,7 @@ Name | Type | Description  | Notes
 
 # **otherincomeGetCommunicationListV1**
 ```swift
-    open class func otherincomeGetCommunicationListV1(pkiOtherincomeID: Int, completion: @escaping (_ data: OtherincomeGetCommunicationListV1Response?, _ error: Error?) -> Void)
+    open class func otherincomeGetCommunicationListV1(pkiOtherincomeID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> OtherincomeGetCommunicationListV1Response
 ```
 
 Retrieve Communication list
@@ -179,15 +167,11 @@ import EzmaxApi
 let pkiOtherincomeID = 987 // Int | 
 
 // Retrieve Communication list
-ObjectOtherincomeAPI.otherincomeGetCommunicationListV1(pkiOtherincomeID: pkiOtherincomeID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectOtherincomeAPI.otherincomeGetCommunicationListV1(pkiOtherincomeID: pkiOtherincomeID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -214,7 +198,7 @@ Name | Type | Description  | Notes
 
 # **otherincomeGetCommunicationrecipientsV1**
 ```swift
-    open class func otherincomeGetCommunicationrecipientsV1(pkiOtherincomeID: Int, completion: @escaping (_ data: OtherincomeGetCommunicationrecipientsV1Response?, _ error: Error?) -> Void)
+    open class func otherincomeGetCommunicationrecipientsV1(pkiOtherincomeID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> OtherincomeGetCommunicationrecipientsV1Response
 ```
 
 Retrieve Otherincome's Communicationrecipient
@@ -229,15 +213,11 @@ import EzmaxApi
 let pkiOtherincomeID = 987 // Int | 
 
 // Retrieve Otherincome's Communicationrecipient
-ObjectOtherincomeAPI.otherincomeGetCommunicationrecipientsV1(pkiOtherincomeID: pkiOtherincomeID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectOtherincomeAPI.otherincomeGetCommunicationrecipientsV1(pkiOtherincomeID: pkiOtherincomeID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -264,7 +244,7 @@ Name | Type | Description  | Notes
 
 # **otherincomeGetCommunicationsendersV1**
 ```swift
-    open class func otherincomeGetCommunicationsendersV1(pkiOtherincomeID: Int, completion: @escaping (_ data: OtherincomeGetCommunicationsendersV1Response?, _ error: Error?) -> Void)
+    open class func otherincomeGetCommunicationsendersV1(pkiOtherincomeID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> OtherincomeGetCommunicationsendersV1Response
 ```
 
 Retrieve Otherincome's Communicationsender
@@ -279,15 +259,11 @@ import EzmaxApi
 let pkiOtherincomeID = 987 // Int | 
 
 // Retrieve Otherincome's Communicationsender
-ObjectOtherincomeAPI.otherincomeGetCommunicationsendersV1(pkiOtherincomeID: pkiOtherincomeID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectOtherincomeAPI.otherincomeGetCommunicationsendersV1(pkiOtherincomeID: pkiOtherincomeID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -314,7 +290,7 @@ Name | Type | Description  | Notes
 
 # **otherincomeGetListV1**
 ```swift
-    open class func otherincomeGetListV1(eOrderBy: EOrderBy_otherincomeGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: OtherincomeGetListV1Response?, _ error: Error?) -> Void)
+    open class func otherincomeGetListV1(eOrderBy: EOrderBy_otherincomeGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> OtherincomeGetListV1Response
 ```
 
 Retrieve Otherincome list
@@ -333,15 +309,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Otherincome list
-ObjectOtherincomeAPI.otherincomeGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectOtherincomeAPI.otherincomeGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -372,7 +344,7 @@ Name | Type | Description  | Notes
 
 # **otherincomeImportIntoEDMV1**
 ```swift
-    open class func otherincomeImportIntoEDMV1(pkiOtherincomeID: Int, otherincomeImportIntoEDMV1Request: OtherincomeImportIntoEDMV1Request, completion: @escaping (_ data: OtherincomeImportIntoEDMV1Response?, _ error: Error?) -> Void)
+    open class func otherincomeImportIntoEDMV1(pkiOtherincomeID: Int, otherincomeImportIntoEDMV1Request: OtherincomeImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> OtherincomeImportIntoEDMV1Response
 ```
 
 Import attachments into the Otherincome
@@ -388,15 +360,11 @@ let pkiOtherincomeID = 987 // Int |
 let otherincomeImportIntoEDMV1Request = otherincome-importIntoEDM-v1-Request(aObjAttachment: [Custom-AttachmentImportIntoEDM-Request(eAttachmentSource: "eAttachmentSource_example", fkiAttachmentID: 123, fkiInscriptionchecklistID: 123, sAttachmentUrl: "sAttachmentUrl_example", sAttachmentBase64: 123, sAttachmentName: "sAttachmentName_example", sAttachmentCategory: "sAttachmentCategory_example", eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123, sAttachmentMD5: "sAttachmentMD5_example", bAttachmentForceoverwrite: false, bAttachmentForcerestore: false)]) // OtherincomeImportIntoEDMV1Request | 
 
 // Import attachments into the Otherincome
-ObjectOtherincomeAPI.otherincomeImportIntoEDMV1(pkiOtherincomeID: pkiOtherincomeID, otherincomeImportIntoEDMV1Request: otherincomeImportIntoEDMV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectOtherincomeAPI.otherincomeImportIntoEDMV1(pkiOtherincomeID: pkiOtherincomeID, otherincomeImportIntoEDMV1Request: otherincomeImportIntoEDMV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

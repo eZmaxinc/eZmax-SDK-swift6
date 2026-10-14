@@ -11,8 +11,8 @@ import Foundation
 public struct AuthenticationexternalResponseCompound: Sendable, Codable, Hashable {
 
     public static let pkiAuthenticationexternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sAuthenticationexternalDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    public static let sAuthenticationexternalAuthorizationurlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^https:\/\/[^\\s\/$.?#].[^\\s]*$/")
+    public static let sAuthenticationexternalDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
+    public static let sAuthenticationexternalAuthorizationurlRule = StringRule(minLength: nil, maxLength: nil, pattern: "^https://[^\\s/$.?#].[^\\s]*$")
     /** The unique ID of the Authenticationexternal */
     public var pkiAuthenticationexternalID: Int
     /** The description of the Authenticationexternal */

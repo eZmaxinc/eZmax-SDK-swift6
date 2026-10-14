@@ -11,7 +11,7 @@ import Foundation
 public struct AttachmentrejectreasonAutocompleteElementResponse: Sendable, Codable, Hashable {
 
     public static let pkiAttachmentrejectreasonIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sAttachmentrejectreasonnameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,75}$/")
+    public static let sAttachmentrejectreasonnameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,75}$")
     /** The unique ID of the Attachmentrejectreason */
     public var pkiAttachmentrejectreasonID: Int
     /** The name of the Attachmentrejectreason in the language of the requester */

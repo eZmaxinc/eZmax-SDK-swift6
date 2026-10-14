@@ -12,12 +12,12 @@ public struct OtherincomeListElement: Sendable, Codable, Hashable {
 
     public static let pkiOtherincomeIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiOtherincometypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sOtherincometypeDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,255}$/")
-    public static let sOtherincomeDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(\\n|.){0,75}$/")
-    public static let dOtherincomeRemunerationsubtotalRule = StringRule(minLength: 4, maxLength: 13, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
-    public static let dOtherincomeRemunerationtaxesRule = StringRule(minLength: 4, maxLength: 13, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
-    public static let dOtherincomeRemunerationtotalRule = StringRule(minLength: 4, maxLength: 13, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
-    public static let dtOtherincomePaidRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
+    public static let sOtherincometypeDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,255}$")
+    public static let sOtherincomeDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "^(\\n|.){0,75}$")
+    public static let dOtherincomeRemunerationsubtotalRule = StringRule(minLength: 4, maxLength: 13, pattern: "^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$")
+    public static let dOtherincomeRemunerationtaxesRule = StringRule(minLength: 4, maxLength: 13, pattern: "^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$")
+    public static let dOtherincomeRemunerationtotalRule = StringRule(minLength: 4, maxLength: 13, pattern: "^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$")
+    public static let dtOtherincomePaidRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$")
     /** The unique ID of the Otherincome */
     public var pkiOtherincomeID: Int
     /** The unique ID of the Otherincometype */

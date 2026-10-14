@@ -10,21 +10,21 @@ import Foundation
 /** Payload for POST /1/object/invoice/{pkiInvoiceID}/importIntoEDM */
 public struct InvoiceImportIntoEDMV1ResponseMPayload: Sendable, Codable, Hashable {
 
-    public var aPkiAttachmentID: [Int]
+    public var aObjAttachment: [CustomAttachmentImportIntoEDMResponse]
 
-    public init(aPkiAttachmentID: [Int]) {
-        self.aPkiAttachmentID = aPkiAttachmentID
+    public init(aObjAttachment: [CustomAttachmentImportIntoEDMResponse]) {
+        self.aObjAttachment = aObjAttachment
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case aPkiAttachmentID = "a_pkiAttachmentID"
+        case aObjAttachment = "a_objAttachment"
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(aPkiAttachmentID, forKey: .aPkiAttachmentID)
+        try container.encode(aObjAttachment, forKey: .aObjAttachment)
     }
 }
 

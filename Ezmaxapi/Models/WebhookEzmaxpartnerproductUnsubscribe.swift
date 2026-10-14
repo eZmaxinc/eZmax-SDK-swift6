@@ -10,7 +10,7 @@ import Foundation
 /** This is the base Webhook object */
 public struct WebhookEzmaxpartnerproductUnsubscribe: Sendable, Codable, Hashable {
 
-    public static let sExternalIDRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,128}$/")
+    public static let sExternalIDRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,128}$")
     public var objWebhook: CustomWebhookResponse
     /** An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt. */
     public var aObjAttempt: [AttemptResponseCompound]

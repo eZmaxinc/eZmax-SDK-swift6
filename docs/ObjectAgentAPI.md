@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 # **agentBatchDownloadV1**
 ```swift
-    open class func agentBatchDownloadV1(pkiAgentID: Int, agentBatchDownloadV1Request: AgentBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func agentBatchDownloadV1(pkiAgentID: Int, agentBatchDownloadV1Request: AgentBatchDownloadV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> URL
 ```
 
 Download multiples attachments from a Agent
@@ -31,15 +31,11 @@ let pkiAgentID = 987 // Int |
 let agentBatchDownloadV1Request = agent-batchDownload-v1-Request(aPkiAttachmentID: [123]) // AgentBatchDownloadV1Request | 
 
 // Download multiples attachments from a Agent
-ObjectAgentAPI.agentBatchDownloadV1(pkiAgentID: pkiAgentID, agentBatchDownloadV1Request: agentBatchDownloadV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAgentAPI.agentBatchDownloadV1(pkiAgentID: pkiAgentID, agentBatchDownloadV1Request: agentBatchDownloadV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -67,7 +63,7 @@ Name | Type | Description  | Notes
 
 # **agentGetAttachmentsV1**
 ```swift
-    open class func agentGetAttachmentsV1(pkiAgentID: Int, completion: @escaping (_ data: AgentGetAttachmentsV1Response?, _ error: Error?) -> Void)
+    open class func agentGetAttachmentsV1(pkiAgentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AgentGetAttachmentsV1Response
 ```
 
 Retrieve Agent's attachments
@@ -80,15 +76,11 @@ import EzmaxApi
 let pkiAgentID = 987 // Int | 
 
 // Retrieve Agent's attachments
-ObjectAgentAPI.agentGetAttachmentsV1(pkiAgentID: pkiAgentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAgentAPI.agentGetAttachmentsV1(pkiAgentID: pkiAgentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -115,7 +107,7 @@ Name | Type | Description  | Notes
 
 # **agentGetAutocompleteV2**
 ```swift
-    open class func agentGetAutocompleteV2(sSelector: SSelector_agentGetAutocompleteV2, eFilterActive: EFilterActive_agentGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: AgentGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func agentGetAutocompleteV2(sSelector: SSelector_agentGetAutocompleteV2, eFilterActive: EFilterActive_agentGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AgentGetAutocompleteV2Response
 ```
 
 Retrieve Agents and IDs
@@ -133,15 +125,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Agents and IDs
-ObjectAgentAPI.agentGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAgentAPI.agentGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -171,7 +159,7 @@ Name | Type | Description  | Notes
 
 # **agentGetCommunicationCountV1**
 ```swift
-    open class func agentGetCommunicationCountV1(pkiAgentID: Int, completion: @escaping (_ data: AgentGetCommunicationCountV1Response?, _ error: Error?) -> Void)
+    open class func agentGetCommunicationCountV1(pkiAgentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AgentGetCommunicationCountV1Response
 ```
 
 Retrieve Communication count
@@ -184,15 +172,11 @@ import EzmaxApi
 let pkiAgentID = 987 // Int | 
 
 // Retrieve Communication count
-ObjectAgentAPI.agentGetCommunicationCountV1(pkiAgentID: pkiAgentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAgentAPI.agentGetCommunicationCountV1(pkiAgentID: pkiAgentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -219,7 +203,7 @@ Name | Type | Description  | Notes
 
 # **agentGetCommunicationListV1**
 ```swift
-    open class func agentGetCommunicationListV1(pkiAgentID: Int, completion: @escaping (_ data: AgentGetCommunicationListV1Response?, _ error: Error?) -> Void)
+    open class func agentGetCommunicationListV1(pkiAgentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AgentGetCommunicationListV1Response
 ```
 
 Retrieve Communication list
@@ -232,15 +216,11 @@ import EzmaxApi
 let pkiAgentID = 987 // Int | 
 
 // Retrieve Communication list
-ObjectAgentAPI.agentGetCommunicationListV1(pkiAgentID: pkiAgentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAgentAPI.agentGetCommunicationListV1(pkiAgentID: pkiAgentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -267,7 +247,7 @@ Name | Type | Description  | Notes
 
 # **agentGetCommunicationrecipientsV1**
 ```swift
-    open class func agentGetCommunicationrecipientsV1(pkiAgentID: Int, completion: @escaping (_ data: AgentGetCommunicationrecipientsV1Response?, _ error: Error?) -> Void)
+    open class func agentGetCommunicationrecipientsV1(pkiAgentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AgentGetCommunicationrecipientsV1Response
 ```
 
 Retrieve Communication recipients
@@ -280,15 +260,11 @@ import EzmaxApi
 let pkiAgentID = 987 // Int | 
 
 // Retrieve Communication recipients
-ObjectAgentAPI.agentGetCommunicationrecipientsV1(pkiAgentID: pkiAgentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAgentAPI.agentGetCommunicationrecipientsV1(pkiAgentID: pkiAgentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -315,7 +291,7 @@ Name | Type | Description  | Notes
 
 # **agentGetCommunicationsendersV1**
 ```swift
-    open class func agentGetCommunicationsendersV1(pkiAgentID: Int, completion: @escaping (_ data: AgentGetCommunicationsendersV1Response?, _ error: Error?) -> Void)
+    open class func agentGetCommunicationsendersV1(pkiAgentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AgentGetCommunicationsendersV1Response
 ```
 
 Retrieve Communication senders
@@ -328,15 +304,11 @@ import EzmaxApi
 let pkiAgentID = 987 // Int | 
 
 // Retrieve Communication senders
-ObjectAgentAPI.agentGetCommunicationsendersV1(pkiAgentID: pkiAgentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAgentAPI.agentGetCommunicationsendersV1(pkiAgentID: pkiAgentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -363,7 +335,7 @@ Name | Type | Description  | Notes
 
 # **agentGetListV1**
 ```swift
-    open class func agentGetListV1(eOrderBy: EOrderBy_agentGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: AgentGetListV1Response?, _ error: Error?) -> Void)
+    open class func agentGetListV1(eOrderBy: EOrderBy_agentGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AgentGetListV1Response
 ```
 
 Retrieve Agent list
@@ -382,15 +354,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Agent list
-ObjectAgentAPI.agentGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAgentAPI.agentGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -421,7 +389,7 @@ Name | Type | Description  | Notes
 
 # **agentImportIntoEDMV1**
 ```swift
-    open class func agentImportIntoEDMV1(pkiAgentID: Int, agentImportIntoEDMV1Request: AgentImportIntoEDMV1Request, completion: @escaping (_ data: AgentImportIntoEDMV1Response?, _ error: Error?) -> Void)
+    open class func agentImportIntoEDMV1(pkiAgentID: Int, agentImportIntoEDMV1Request: AgentImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AgentImportIntoEDMV1Response
 ```
 
 Import attachments into the Agent
@@ -437,15 +405,11 @@ let pkiAgentID = 987 // Int |
 let agentImportIntoEDMV1Request = agent-importIntoEDM-v1-Request(aObjAttachment: [Custom-AttachmentImportIntoEDM-Request(eAttachmentSource: "eAttachmentSource_example", fkiAttachmentID: 123, fkiInscriptionchecklistID: 123, sAttachmentUrl: "sAttachmentUrl_example", sAttachmentBase64: 123, sAttachmentName: "sAttachmentName_example", sAttachmentCategory: "sAttachmentCategory_example", eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123, sAttachmentMD5: "sAttachmentMD5_example", bAttachmentForceoverwrite: false, bAttachmentForcerestore: false)]) // AgentImportIntoEDMV1Request | 
 
 // Import attachments into the Agent
-ObjectAgentAPI.agentImportIntoEDMV1(pkiAgentID: pkiAgentID, agentImportIntoEDMV1Request: agentImportIntoEDMV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAgentAPI.agentImportIntoEDMV1(pkiAgentID: pkiAgentID, agentImportIntoEDMV1Request: agentImportIntoEDMV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

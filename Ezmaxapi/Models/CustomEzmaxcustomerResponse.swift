@@ -10,7 +10,7 @@ import Foundation
 /** A Ezmaxcustomer Object */
 public struct CustomEzmaxcustomerResponse: Sendable, Codable, Hashable {
 
-    public static let fksEzmaxcustomerCodeRule = StringRule(minLength: 2, maxLength: 6, pattern: "/^[a-z\\d]{2,6}$/")
+    public static let fksEzmaxcustomerCodeRule = StringRule(minLength: 2, maxLength: 6, pattern: "^[a-z\\d]{2,6}$")
     public static let fkiSystemconfigurationtypeIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The Ezmaxcustomer code */
     public var fksEzmaxcustomerCode: String

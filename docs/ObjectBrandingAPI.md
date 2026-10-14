@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 # **brandingCreateObjectV2**
 ```swift
-    open class func brandingCreateObjectV2(brandingCreateObjectV2Request: BrandingCreateObjectV2Request, completion: @escaping (_ data: BrandingCreateObjectV2Response?, _ error: Error?) -> Void)
+    open class func brandingCreateObjectV2(brandingCreateObjectV2Request: BrandingCreateObjectV2Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BrandingCreateObjectV2Response
 ```
 
 Create a new Branding
@@ -28,15 +28,11 @@ import EzmaxApi
 let brandingCreateObjectV2Request = branding-createObject-v2-Request(aObjBranding: [branding-RequestCompoundV2(pkiBrandingID: 123, fkiDomainID: 123, objBrandingDescription: Multilingual-BrandingDescription(sBrandingDescription1: "sBrandingDescription1_example", sBrandingDescription2: "sBrandingDescription2_example"), eBrandingLogo: Field-eBrandingLogo(), eBrandingAlignlogo: Field-eBrandingAlignlogo(), sBrandingBase64: 123, iBrandingColor: 123, sBrandingName: "sBrandingName_example", sEmailAddress: "sEmailAddress_example", bBrandingIsactive: true)]) // BrandingCreateObjectV2Request | 
 
 // Create a new Branding
-ObjectBrandingAPI.brandingCreateObjectV2(brandingCreateObjectV2Request: brandingCreateObjectV2Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBrandingAPI.brandingCreateObjectV2(brandingCreateObjectV2Request: brandingCreateObjectV2Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -63,7 +59,7 @@ Name | Type | Description  | Notes
 
 # **brandingEditObjectV2**
 ```swift
-    open class func brandingEditObjectV2(pkiBrandingID: Int, brandingEditObjectV2Request: BrandingEditObjectV2Request, completion: @escaping (_ data: BrandingEditObjectV2Response?, _ error: Error?) -> Void)
+    open class func brandingEditObjectV2(pkiBrandingID: Int, brandingEditObjectV2Request: BrandingEditObjectV2Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BrandingEditObjectV2Response
 ```
 
 Edit an existing Branding
@@ -79,15 +75,11 @@ let pkiBrandingID = 987 // Int |
 let brandingEditObjectV2Request = branding-editObject-v2-Request(objBranding: branding-RequestCompoundV2(pkiBrandingID: 123, fkiDomainID: 123, objBrandingDescription: Multilingual-BrandingDescription(sBrandingDescription1: "sBrandingDescription1_example", sBrandingDescription2: "sBrandingDescription2_example"), eBrandingLogo: Field-eBrandingLogo(), eBrandingAlignlogo: Field-eBrandingAlignlogo(), sBrandingBase64: 123, iBrandingColor: 123, sBrandingName: "sBrandingName_example", sEmailAddress: "sEmailAddress_example", bBrandingIsactive: true)) // BrandingEditObjectV2Request | 
 
 // Edit an existing Branding
-ObjectBrandingAPI.brandingEditObjectV2(pkiBrandingID: pkiBrandingID, brandingEditObjectV2Request: brandingEditObjectV2Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBrandingAPI.brandingEditObjectV2(pkiBrandingID: pkiBrandingID, brandingEditObjectV2Request: brandingEditObjectV2Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -115,7 +107,7 @@ Name | Type | Description  | Notes
 
 # **brandingGetAutocompleteV2**
 ```swift
-    open class func brandingGetAutocompleteV2(sSelector: SSelector_brandingGetAutocompleteV2, eFilterActive: EFilterActive_brandingGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: BrandingGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func brandingGetAutocompleteV2(sSelector: SSelector_brandingGetAutocompleteV2, eFilterActive: EFilterActive_brandingGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BrandingGetAutocompleteV2Response
 ```
 
 Retrieve Brandings and IDs
@@ -133,15 +125,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Brandings and IDs
-ObjectBrandingAPI.brandingGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBrandingAPI.brandingGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -171,7 +159,7 @@ Name | Type | Description  | Notes
 
 # **brandingGetListV1**
 ```swift
-    open class func brandingGetListV1(eOrderBy: EOrderBy_brandingGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: BrandingGetListV1Response?, _ error: Error?) -> Void)
+    open class func brandingGetListV1(eOrderBy: EOrderBy_brandingGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BrandingGetListV1Response
 ```
 
 Retrieve Branding list
@@ -190,15 +178,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Branding list
-ObjectBrandingAPI.brandingGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBrandingAPI.brandingGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -229,7 +213,7 @@ Name | Type | Description  | Notes
 
 # **brandingGetObjectV3**
 ```swift
-    open class func brandingGetObjectV3(pkiBrandingID: Int, completion: @escaping (_ data: BrandingGetObjectV3Response?, _ error: Error?) -> Void)
+    open class func brandingGetObjectV3(pkiBrandingID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BrandingGetObjectV3Response
 ```
 
 Retrieve an existing Branding
@@ -244,15 +228,11 @@ import EzmaxApi
 let pkiBrandingID = 987 // Int | 
 
 // Retrieve an existing Branding
-ObjectBrandingAPI.brandingGetObjectV3(pkiBrandingID: pkiBrandingID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBrandingAPI.brandingGetObjectV3(pkiBrandingID: pkiBrandingID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

@@ -11,7 +11,7 @@ import Foundation
 public struct CustomEzsignfolderezsigntemplatepublicResponse: Sendable, Codable, Hashable {
 
     public static let pkiEzsignfolderIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sEzsignfolderDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,75}$/")
+    public static let sEzsignfolderDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,75}$")
     /** The unique ID of the Ezsignfolder */
     public var pkiEzsignfolderID: Int
     /** The description of the Ezsignfolder */

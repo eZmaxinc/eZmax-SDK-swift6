@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 # **inscriptiontempBatchDownloadV1**
 ```swift
-    open class func inscriptiontempBatchDownloadV1(pkiInscriptiontempID: Int, inscriptiontempBatchDownloadV1Request: InscriptiontempBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func inscriptiontempBatchDownloadV1(pkiInscriptiontempID: Int, inscriptiontempBatchDownloadV1Request: InscriptiontempBatchDownloadV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> URL
 ```
 
 Download multiples attachments from a Inscriptiontemp
@@ -30,15 +30,11 @@ let pkiInscriptiontempID = 987 // Int |
 let inscriptiontempBatchDownloadV1Request = inscriptiontemp-batchDownload-v1-Request(aPkiAttachmentID: [123]) // InscriptiontempBatchDownloadV1Request | 
 
 // Download multiples attachments from a Inscriptiontemp
-ObjectInscriptiontempAPI.inscriptiontempBatchDownloadV1(pkiInscriptiontempID: pkiInscriptiontempID, inscriptiontempBatchDownloadV1Request: inscriptiontempBatchDownloadV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInscriptiontempAPI.inscriptiontempBatchDownloadV1(pkiInscriptiontempID: pkiInscriptiontempID, inscriptiontempBatchDownloadV1Request: inscriptiontempBatchDownloadV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -66,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **inscriptiontempGetAttachmentsV1**
 ```swift
-    open class func inscriptiontempGetAttachmentsV1(pkiInscriptiontempID: Int, completion: @escaping (_ data: InscriptiontempGetAttachmentsV1Response?, _ error: Error?) -> Void)
+    open class func inscriptiontempGetAttachmentsV1(pkiInscriptiontempID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptiontempGetAttachmentsV1Response
 ```
 
 Retrieve Inscriptiontemp's attachments
@@ -79,15 +75,11 @@ import EzmaxApi
 let pkiInscriptiontempID = 987 // Int | 
 
 // Retrieve Inscriptiontemp's attachments
-ObjectInscriptiontempAPI.inscriptiontempGetAttachmentsV1(pkiInscriptiontempID: pkiInscriptiontempID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInscriptiontempAPI.inscriptiontempGetAttachmentsV1(pkiInscriptiontempID: pkiInscriptiontempID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -114,7 +106,7 @@ Name | Type | Description  | Notes
 
 # **inscriptiontempGetCommunicationCountV1**
 ```swift
-    open class func inscriptiontempGetCommunicationCountV1(pkiInscriptiontempID: Int, completion: @escaping (_ data: InscriptiontempGetCommunicationCountV1Response?, _ error: Error?) -> Void)
+    open class func inscriptiontempGetCommunicationCountV1(pkiInscriptiontempID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptiontempGetCommunicationCountV1Response
 ```
 
 Retrieve Communication count
@@ -129,15 +121,11 @@ import EzmaxApi
 let pkiInscriptiontempID = 987 // Int | 
 
 // Retrieve Communication count
-ObjectInscriptiontempAPI.inscriptiontempGetCommunicationCountV1(pkiInscriptiontempID: pkiInscriptiontempID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInscriptiontempAPI.inscriptiontempGetCommunicationCountV1(pkiInscriptiontempID: pkiInscriptiontempID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -164,7 +152,7 @@ Name | Type | Description  | Notes
 
 # **inscriptiontempGetCommunicationListV1**
 ```swift
-    open class func inscriptiontempGetCommunicationListV1(pkiInscriptiontempID: Int, completion: @escaping (_ data: InscriptiontempGetCommunicationListV1Response?, _ error: Error?) -> Void)
+    open class func inscriptiontempGetCommunicationListV1(pkiInscriptiontempID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptiontempGetCommunicationListV1Response
 ```
 
 Retrieve Communication list
@@ -179,15 +167,11 @@ import EzmaxApi
 let pkiInscriptiontempID = 987 // Int | 
 
 // Retrieve Communication list
-ObjectInscriptiontempAPI.inscriptiontempGetCommunicationListV1(pkiInscriptiontempID: pkiInscriptiontempID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInscriptiontempAPI.inscriptiontempGetCommunicationListV1(pkiInscriptiontempID: pkiInscriptiontempID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -214,7 +198,7 @@ Name | Type | Description  | Notes
 
 # **inscriptiontempGetCommunicationrecipientsV1**
 ```swift
-    open class func inscriptiontempGetCommunicationrecipientsV1(pkiInscriptiontempID: Int, completion: @escaping (_ data: InscriptiontempGetCommunicationrecipientsV1Response?, _ error: Error?) -> Void)
+    open class func inscriptiontempGetCommunicationrecipientsV1(pkiInscriptiontempID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptiontempGetCommunicationrecipientsV1Response
 ```
 
 Retrieve Inscriptiontemp's Communicationrecipient
@@ -229,15 +213,11 @@ import EzmaxApi
 let pkiInscriptiontempID = 987 // Int | 
 
 // Retrieve Inscriptiontemp's Communicationrecipient
-ObjectInscriptiontempAPI.inscriptiontempGetCommunicationrecipientsV1(pkiInscriptiontempID: pkiInscriptiontempID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInscriptiontempAPI.inscriptiontempGetCommunicationrecipientsV1(pkiInscriptiontempID: pkiInscriptiontempID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -264,7 +244,7 @@ Name | Type | Description  | Notes
 
 # **inscriptiontempGetCommunicationsendersV1**
 ```swift
-    open class func inscriptiontempGetCommunicationsendersV1(pkiInscriptiontempID: Int, completion: @escaping (_ data: InscriptiontempGetCommunicationsendersV1Response?, _ error: Error?) -> Void)
+    open class func inscriptiontempGetCommunicationsendersV1(pkiInscriptiontempID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptiontempGetCommunicationsendersV1Response
 ```
 
 Retrieve Inscriptiontemp's Communicationsender
@@ -279,15 +259,11 @@ import EzmaxApi
 let pkiInscriptiontempID = 987 // Int | 
 
 // Retrieve Inscriptiontemp's Communicationsender
-ObjectInscriptiontempAPI.inscriptiontempGetCommunicationsendersV1(pkiInscriptiontempID: pkiInscriptiontempID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInscriptiontempAPI.inscriptiontempGetCommunicationsendersV1(pkiInscriptiontempID: pkiInscriptiontempID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -314,7 +290,7 @@ Name | Type | Description  | Notes
 
 # **inscriptiontempGetListV1**
 ```swift
-    open class func inscriptiontempGetListV1(eOrderBy: EOrderBy_inscriptiontempGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: InscriptiontempGetListV1Response?, _ error: Error?) -> Void)
+    open class func inscriptiontempGetListV1(eOrderBy: EOrderBy_inscriptiontempGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptiontempGetListV1Response
 ```
 
 Retrieve Inscriptiontemp list
@@ -333,15 +309,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Inscriptiontemp list
-ObjectInscriptiontempAPI.inscriptiontempGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInscriptiontempAPI.inscriptiontempGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -372,7 +344,7 @@ Name | Type | Description  | Notes
 
 # **inscriptiontempImportIntoEDMV1**
 ```swift
-    open class func inscriptiontempImportIntoEDMV1(pkiInscriptiontempID: Int, inscriptiontempImportIntoEDMV1Request: InscriptiontempImportIntoEDMV1Request, completion: @escaping (_ data: InscriptiontempImportIntoEDMV1Response?, _ error: Error?) -> Void)
+    open class func inscriptiontempImportIntoEDMV1(pkiInscriptiontempID: Int, inscriptiontempImportIntoEDMV1Request: InscriptiontempImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptiontempImportIntoEDMV1Response
 ```
 
 Import attachments into the Inscriptiontemp
@@ -388,15 +360,11 @@ let pkiInscriptiontempID = 987 // Int |
 let inscriptiontempImportIntoEDMV1Request = inscriptiontemp-importIntoEDM-v1-Request(aObjAttachment: [Custom-AttachmentImportIntoEDM-Request(eAttachmentSource: "eAttachmentSource_example", fkiAttachmentID: 123, fkiInscriptionchecklistID: 123, sAttachmentUrl: "sAttachmentUrl_example", sAttachmentBase64: 123, sAttachmentName: "sAttachmentName_example", sAttachmentCategory: "sAttachmentCategory_example", eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123, sAttachmentMD5: "sAttachmentMD5_example", bAttachmentForceoverwrite: false, bAttachmentForcerestore: false)]) // InscriptiontempImportIntoEDMV1Request | 
 
 // Import attachments into the Inscriptiontemp
-ObjectInscriptiontempAPI.inscriptiontempImportIntoEDMV1(pkiInscriptiontempID: pkiInscriptiontempID, inscriptiontempImportIntoEDMV1Request: inscriptiontempImportIntoEDMV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInscriptiontempAPI.inscriptiontempImportIntoEDMV1(pkiInscriptiontempID: pkiInscriptiontempID, inscriptiontempImportIntoEDMV1Request: inscriptiontempImportIntoEDMV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

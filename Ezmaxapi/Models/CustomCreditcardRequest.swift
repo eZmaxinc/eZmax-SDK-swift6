@@ -10,8 +10,8 @@ import Foundation
 /** A Custom Creditcard Object */
 public struct CustomCreditcardRequest: Sendable, Codable, Hashable {
 
-    public static let fksCreditcardtokenIDRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\{?[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\\}?$/")
-    public static let sCreditcardCVVRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\d]{3,4}$/")
+    public static let fksCreditcardtokenIDRule = StringRule(minLength: nil, maxLength: nil, pattern: "^\\{?[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\\}?$")
+    public static let sCreditcardCVVRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[\\d]{3,4}$")
     /** The creditcard token identifier */
     public var fksCreditcardtokenID: String
     /** The creditcard card CVV */

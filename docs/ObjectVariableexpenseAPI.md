@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 # **variableexpenseCreateObjectV1**
 ```swift
-    open class func variableexpenseCreateObjectV1(variableexpenseCreateObjectV1Request: VariableexpenseCreateObjectV1Request, completion: @escaping (_ data: VariableexpenseCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func variableexpenseCreateObjectV1(variableexpenseCreateObjectV1Request: VariableexpenseCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> VariableexpenseCreateObjectV1Response
 ```
 
 Create a new Variableexpense
@@ -28,15 +28,11 @@ import EzmaxApi
 let variableexpenseCreateObjectV1Request = variableexpense-createObject-v1-Request(aObjVariableexpense: [variableexpense-RequestCompound(pkiVariableexpenseID: 123, sVariableexpenseCode: "sVariableexpenseCode_example", objVariableexpenseDescription: Multilingual-VariableexpenseDescription(sVariableexpenseDescription1: "sVariableexpenseDescription1_example", sVariableexpenseDescription2: "sVariableexpenseDescription2_example"), eVariableexpenseTaxable: Field-eVariableexpenseTaxable(), bVariableexpenseIsactive: true)]) // VariableexpenseCreateObjectV1Request | 
 
 // Create a new Variableexpense
-ObjectVariableexpenseAPI.variableexpenseCreateObjectV1(variableexpenseCreateObjectV1Request: variableexpenseCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectVariableexpenseAPI.variableexpenseCreateObjectV1(variableexpenseCreateObjectV1Request: variableexpenseCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -63,7 +59,7 @@ Name | Type | Description  | Notes
 
 # **variableexpenseEditObjectV1**
 ```swift
-    open class func variableexpenseEditObjectV1(pkiVariableexpenseID: Int, variableexpenseEditObjectV1Request: VariableexpenseEditObjectV1Request, completion: @escaping (_ data: VariableexpenseEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func variableexpenseEditObjectV1(pkiVariableexpenseID: Int, variableexpenseEditObjectV1Request: VariableexpenseEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> VariableexpenseEditObjectV1Response
 ```
 
 Edit an existing Variableexpense
@@ -79,15 +75,11 @@ let pkiVariableexpenseID = 987 // Int |
 let variableexpenseEditObjectV1Request = variableexpense-editObject-v1-Request(objVariableexpense: variableexpense-RequestCompound(pkiVariableexpenseID: 123, sVariableexpenseCode: "sVariableexpenseCode_example", objVariableexpenseDescription: Multilingual-VariableexpenseDescription(sVariableexpenseDescription1: "sVariableexpenseDescription1_example", sVariableexpenseDescription2: "sVariableexpenseDescription2_example"), eVariableexpenseTaxable: Field-eVariableexpenseTaxable(), bVariableexpenseIsactive: true)) // VariableexpenseEditObjectV1Request | 
 
 // Edit an existing Variableexpense
-ObjectVariableexpenseAPI.variableexpenseEditObjectV1(pkiVariableexpenseID: pkiVariableexpenseID, variableexpenseEditObjectV1Request: variableexpenseEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectVariableexpenseAPI.variableexpenseEditObjectV1(pkiVariableexpenseID: pkiVariableexpenseID, variableexpenseEditObjectV1Request: variableexpenseEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -115,7 +107,7 @@ Name | Type | Description  | Notes
 
 # **variableexpenseGetAutocompleteV2**
 ```swift
-    open class func variableexpenseGetAutocompleteV2(sSelector: SSelector_variableexpenseGetAutocompleteV2, eFilterActive: EFilterActive_variableexpenseGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: VariableexpenseGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func variableexpenseGetAutocompleteV2(sSelector: SSelector_variableexpenseGetAutocompleteV2, eFilterActive: EFilterActive_variableexpenseGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> VariableexpenseGetAutocompleteV2Response
 ```
 
 Retrieve Variableexpenses and IDs
@@ -133,15 +125,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Variableexpenses and IDs
-ObjectVariableexpenseAPI.variableexpenseGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectVariableexpenseAPI.variableexpenseGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -171,7 +159,7 @@ Name | Type | Description  | Notes
 
 # **variableexpenseGetListV1**
 ```swift
-    open class func variableexpenseGetListV1(eOrderBy: EOrderBy_variableexpenseGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: VariableexpenseGetListV1Response?, _ error: Error?) -> Void)
+    open class func variableexpenseGetListV1(eOrderBy: EOrderBy_variableexpenseGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> VariableexpenseGetListV1Response
 ```
 
 Retrieve Variableexpense list
@@ -190,15 +178,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Variableexpense list
-ObjectVariableexpenseAPI.variableexpenseGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectVariableexpenseAPI.variableexpenseGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -229,7 +213,7 @@ Name | Type | Description  | Notes
 
 # **variableexpenseGetObjectV2**
 ```swift
-    open class func variableexpenseGetObjectV2(pkiVariableexpenseID: Int, completion: @escaping (_ data: VariableexpenseGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func variableexpenseGetObjectV2(pkiVariableexpenseID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> VariableexpenseGetObjectV2Response
 ```
 
 Retrieve an existing Variableexpense
@@ -244,15 +228,11 @@ import EzmaxApi
 let pkiVariableexpenseID = 987 // Int | 
 
 // Retrieve an existing Variableexpense
-ObjectVariableexpenseAPI.variableexpenseGetObjectV2(pkiVariableexpenseID: pkiVariableexpenseID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectVariableexpenseAPI.variableexpenseGetObjectV2(pkiVariableexpenseID: pkiVariableexpenseID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

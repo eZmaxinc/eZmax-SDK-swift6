@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 # **ezsignsigningreasonCreateObjectV1**
 ```swift
-    open class func ezsignsigningreasonCreateObjectV1(ezsignsigningreasonCreateObjectV1Request: EzsignsigningreasonCreateObjectV1Request, completion: @escaping (_ data: EzsignsigningreasonCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignsigningreasonCreateObjectV1(ezsignsigningreasonCreateObjectV1Request: EzsignsigningreasonCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignsigningreasonCreateObjectV1Response
 ```
 
 Create a new Ezsignsigningreason
@@ -28,15 +28,11 @@ import EzmaxApi
 let ezsignsigningreasonCreateObjectV1Request = ezsignsigningreason-createObject-v1-Request(aObjEzsignsigningreason: [ezsignsigningreason-RequestCompound(pkiEzsignsigningreasonID: 123, objEzsignsigningreasonDescription: Multilingual-EzsignsigningreasonDescription(sEzsignsigningreasonDescription1: "sEzsignsigningreasonDescription1_example", sEzsignsigningreasonDescription2: "sEzsignsigningreasonDescription2_example"), bEzsignsigningreasonIsactive: true)]) // EzsignsigningreasonCreateObjectV1Request | 
 
 // Create a new Ezsignsigningreason
-ObjectEzsignsigningreasonAPI.ezsignsigningreasonCreateObjectV1(ezsignsigningreasonCreateObjectV1Request: ezsignsigningreasonCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignsigningreasonAPI.ezsignsigningreasonCreateObjectV1(ezsignsigningreasonCreateObjectV1Request: ezsignsigningreasonCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -63,7 +59,7 @@ Name | Type | Description  | Notes
 
 # **ezsignsigningreasonEditObjectV1**
 ```swift
-    open class func ezsignsigningreasonEditObjectV1(pkiEzsignsigningreasonID: Int, ezsignsigningreasonEditObjectV1Request: EzsignsigningreasonEditObjectV1Request, completion: @escaping (_ data: EzsignsigningreasonEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignsigningreasonEditObjectV1(pkiEzsignsigningreasonID: Int, ezsignsigningreasonEditObjectV1Request: EzsignsigningreasonEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignsigningreasonEditObjectV1Response
 ```
 
 Edit an existing Ezsignsigningreason
@@ -79,15 +75,11 @@ let pkiEzsignsigningreasonID = 987 // Int | The unique ID of the Ezsignsigningre
 let ezsignsigningreasonEditObjectV1Request = ezsignsigningreason-editObject-v1-Request(objEzsignsigningreason: ezsignsigningreason-RequestCompound(pkiEzsignsigningreasonID: 123, objEzsignsigningreasonDescription: Multilingual-EzsignsigningreasonDescription(sEzsignsigningreasonDescription1: "sEzsignsigningreasonDescription1_example", sEzsignsigningreasonDescription2: "sEzsignsigningreasonDescription2_example"), bEzsignsigningreasonIsactive: true)) // EzsignsigningreasonEditObjectV1Request | 
 
 // Edit an existing Ezsignsigningreason
-ObjectEzsignsigningreasonAPI.ezsignsigningreasonEditObjectV1(pkiEzsignsigningreasonID: pkiEzsignsigningreasonID, ezsignsigningreasonEditObjectV1Request: ezsignsigningreasonEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignsigningreasonAPI.ezsignsigningreasonEditObjectV1(pkiEzsignsigningreasonID: pkiEzsignsigningreasonID, ezsignsigningreasonEditObjectV1Request: ezsignsigningreasonEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -115,7 +107,7 @@ Name | Type | Description  | Notes
 
 # **ezsignsigningreasonGetAutocompleteV2**
 ```swift
-    open class func ezsignsigningreasonGetAutocompleteV2(sSelector: SSelector_ezsignsigningreasonGetAutocompleteV2, eFilterActive: EFilterActive_ezsignsigningreasonGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: EzsignsigningreasonGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func ezsignsigningreasonGetAutocompleteV2(sSelector: SSelector_ezsignsigningreasonGetAutocompleteV2, eFilterActive: EFilterActive_ezsignsigningreasonGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignsigningreasonGetAutocompleteV2Response
 ```
 
 Retrieve Ezsignsigningreasons and IDs
@@ -133,15 +125,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Ezsignsigningreasons and IDs
-ObjectEzsignsigningreasonAPI.ezsignsigningreasonGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignsigningreasonAPI.ezsignsigningreasonGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -171,7 +159,7 @@ Name | Type | Description  | Notes
 
 # **ezsignsigningreasonGetListV1**
 ```swift
-    open class func ezsignsigningreasonGetListV1(eOrderBy: EOrderBy_ezsignsigningreasonGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: EzsignsigningreasonGetListV1Response?, _ error: Error?) -> Void)
+    open class func ezsignsigningreasonGetListV1(eOrderBy: EOrderBy_ezsignsigningreasonGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignsigningreasonGetListV1Response
 ```
 
 Retrieve Ezsignsigningreason list
@@ -190,15 +178,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Ezsignsigningreason list
-ObjectEzsignsigningreasonAPI.ezsignsigningreasonGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignsigningreasonAPI.ezsignsigningreasonGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -229,7 +213,7 @@ Name | Type | Description  | Notes
 
 # **ezsignsigningreasonGetObjectV2**
 ```swift
-    open class func ezsignsigningreasonGetObjectV2(pkiEzsignsigningreasonID: Int, completion: @escaping (_ data: EzsignsigningreasonGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsignsigningreasonGetObjectV2(pkiEzsignsigningreasonID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignsigningreasonGetObjectV2Response
 ```
 
 Retrieve an existing Ezsignsigningreason
@@ -244,15 +228,11 @@ import EzmaxApi
 let pkiEzsignsigningreasonID = 987 // Int | The unique ID of the Ezsignsigningreason
 
 // Retrieve an existing Ezsignsigningreason
-ObjectEzsignsigningreasonAPI.ezsignsigningreasonGetObjectV2(pkiEzsignsigningreasonID: pkiEzsignsigningreasonID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignsigningreasonAPI.ezsignsigningreasonGetObjectV2(pkiEzsignsigningreasonID: pkiEzsignsigningreasonID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

@@ -13,8 +13,8 @@ public struct PurchaseListElement: Sendable, Codable, Hashable {
     public static let fkiFranchiseofficeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiSupplierIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiPeriodIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let dPurchaseTotalRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
-    public static let sSupplierNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let dPurchaseTotalRule = StringRule(minLength: nil, maxLength: nil, pattern: "^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$")
+    public static let sSupplierNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
     /** The unique ID of the Purchase */
     public var pkiPurchaseID: Int
     /** The unique ID of the Franchisereoffice */

@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 # **billingentityinternalCreateObjectV1**
 ```swift
-    open class func billingentityinternalCreateObjectV1(billingentityinternalCreateObjectV1Request: BillingentityinternalCreateObjectV1Request, completion: @escaping (_ data: BillingentityinternalCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func billingentityinternalCreateObjectV1(billingentityinternalCreateObjectV1Request: BillingentityinternalCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BillingentityinternalCreateObjectV1Response
 ```
 
 Create a new Billingentityinternal
@@ -28,15 +28,11 @@ import EzmaxApi
 let billingentityinternalCreateObjectV1Request = billingentityinternal-createObject-v1-Request(aObjBillingentityinternal: [billingentityinternal-RequestCompound(pkiBillingentityinternalID: 123, objBillingentityinternalDescription: Multilingual-BillingentityinternalDescription(sBillingentityinternalDescription1: "sBillingentityinternalDescription1_example", sBillingentityinternalDescription2: "sBillingentityinternalDescription2_example"), aObjBillingentityinternalproduct: [billingentityinternalproduct-RequestCompound(pkiBillingentityinternalproductID: 123, fkiEzmaxproductID: 123, fkiBillingentityexternalID: 123)])]) // BillingentityinternalCreateObjectV1Request | 
 
 // Create a new Billingentityinternal
-ObjectBillingentityinternalAPI.billingentityinternalCreateObjectV1(billingentityinternalCreateObjectV1Request: billingentityinternalCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBillingentityinternalAPI.billingentityinternalCreateObjectV1(billingentityinternalCreateObjectV1Request: billingentityinternalCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -63,7 +59,7 @@ Name | Type | Description  | Notes
 
 # **billingentityinternalEditObjectV1**
 ```swift
-    open class func billingentityinternalEditObjectV1(pkiBillingentityinternalID: Int, billingentityinternalEditObjectV1Request: BillingentityinternalEditObjectV1Request, completion: @escaping (_ data: BillingentityinternalEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func billingentityinternalEditObjectV1(pkiBillingentityinternalID: Int, billingentityinternalEditObjectV1Request: BillingentityinternalEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BillingentityinternalEditObjectV1Response
 ```
 
 Edit an existing Billingentityinternal
@@ -79,15 +75,11 @@ let pkiBillingentityinternalID = 987 // Int |
 let billingentityinternalEditObjectV1Request = billingentityinternal-editObject-v1-Request(objBillingentityinternal: billingentityinternal-RequestCompound(pkiBillingentityinternalID: 123, objBillingentityinternalDescription: Multilingual-BillingentityinternalDescription(sBillingentityinternalDescription1: "sBillingentityinternalDescription1_example", sBillingentityinternalDescription2: "sBillingentityinternalDescription2_example"), aObjBillingentityinternalproduct: [billingentityinternalproduct-RequestCompound(pkiBillingentityinternalproductID: 123, fkiEzmaxproductID: 123, fkiBillingentityexternalID: 123)])) // BillingentityinternalEditObjectV1Request | 
 
 // Edit an existing Billingentityinternal
-ObjectBillingentityinternalAPI.billingentityinternalEditObjectV1(pkiBillingentityinternalID: pkiBillingentityinternalID, billingentityinternalEditObjectV1Request: billingentityinternalEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBillingentityinternalAPI.billingentityinternalEditObjectV1(pkiBillingentityinternalID: pkiBillingentityinternalID, billingentityinternalEditObjectV1Request: billingentityinternalEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -115,7 +107,7 @@ Name | Type | Description  | Notes
 
 # **billingentityinternalGetAutocompleteV2**
 ```swift
-    open class func billingentityinternalGetAutocompleteV2(sSelector: SSelector_billingentityinternalGetAutocompleteV2, eFilterActive: EFilterActive_billingentityinternalGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: BillingentityinternalGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func billingentityinternalGetAutocompleteV2(sSelector: SSelector_billingentityinternalGetAutocompleteV2, eFilterActive: EFilterActive_billingentityinternalGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BillingentityinternalGetAutocompleteV2Response
 ```
 
 Retrieve Billingentityinternals and IDs
@@ -133,15 +125,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Billingentityinternals and IDs
-ObjectBillingentityinternalAPI.billingentityinternalGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBillingentityinternalAPI.billingentityinternalGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -171,7 +159,7 @@ Name | Type | Description  | Notes
 
 # **billingentityinternalGetListV1**
 ```swift
-    open class func billingentityinternalGetListV1(eOrderBy: EOrderBy_billingentityinternalGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: BillingentityinternalGetListV1Response?, _ error: Error?) -> Void)
+    open class func billingentityinternalGetListV1(eOrderBy: EOrderBy_billingentityinternalGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BillingentityinternalGetListV1Response
 ```
 
 Retrieve Billingentityinternal list
@@ -190,15 +178,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Billingentityinternal list
-ObjectBillingentityinternalAPI.billingentityinternalGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBillingentityinternalAPI.billingentityinternalGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -229,7 +213,7 @@ Name | Type | Description  | Notes
 
 # **billingentityinternalGetObjectV2**
 ```swift
-    open class func billingentityinternalGetObjectV2(pkiBillingentityinternalID: Int, completion: @escaping (_ data: BillingentityinternalGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func billingentityinternalGetObjectV2(pkiBillingentityinternalID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BillingentityinternalGetObjectV2Response
 ```
 
 Retrieve an existing Billingentityinternal
@@ -244,15 +228,11 @@ import EzmaxApi
 let pkiBillingentityinternalID = 987 // Int | 
 
 // Retrieve an existing Billingentityinternal
-ObjectBillingentityinternalAPI.billingentityinternalGetObjectV2(pkiBillingentityinternalID: pkiBillingentityinternalID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBillingentityinternalAPI.billingentityinternalGetObjectV2(pkiBillingentityinternalID: pkiBillingentityinternalID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

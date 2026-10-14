@@ -10,8 +10,8 @@ import Foundation
 /** A Usergroup Object */
 public struct UsergroupResponse: Sendable, Codable, Hashable {
 
-    public static let pkiUsergroupIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sUsergroupNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let pkiUsergroupIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let sUsergroupNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
     /** The unique ID of the Usergroup */
     public var pkiUsergroupID: Int
     public var objUsergroupName: MultilingualUsergroupName

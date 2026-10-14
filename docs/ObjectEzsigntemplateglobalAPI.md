@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **ezsigntemplateglobalGetAutocompleteV2**
 ```swift
-    open class func ezsigntemplateglobalGetAutocompleteV2(sSelector: SSelector_ezsigntemplateglobalGetAutocompleteV2, eFilterActive: EFilterActive_ezsigntemplateglobalGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: EzsigntemplateglobalGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplateglobalGetAutocompleteV2(sSelector: SSelector_ezsigntemplateglobalGetAutocompleteV2, eFilterActive: EFilterActive_ezsigntemplateglobalGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplateglobalGetAutocompleteV2Response
 ```
 
 Retrieve Ezsigntemplateglobals and IDs
@@ -28,15 +28,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Ezsigntemplateglobals and IDs
-ObjectEzsigntemplateglobalAPI.ezsigntemplateglobalGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplateglobalAPI.ezsigntemplateglobalGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -66,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplateglobalGetObjectV2**
 ```swift
-    open class func ezsigntemplateglobalGetObjectV2(pkiEzsigntemplateglobalID: Int, completion: @escaping (_ data: EzsigntemplateglobalGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplateglobalGetObjectV2(pkiEzsigntemplateglobalID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplateglobalGetObjectV2Response
 ```
 
 Retrieve an existing Ezsigntemplateglobal
@@ -81,15 +77,11 @@ import EzmaxApi
 let pkiEzsigntemplateglobalID = 987 // Int | 
 
 // Retrieve an existing Ezsigntemplateglobal
-ObjectEzsigntemplateglobalAPI.ezsigntemplateglobalGetObjectV2(pkiEzsigntemplateglobalID: pkiEzsigntemplateglobalID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplateglobalAPI.ezsigntemplateglobalGetObjectV2(pkiEzsigntemplateglobalID: pkiEzsigntemplateglobalID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

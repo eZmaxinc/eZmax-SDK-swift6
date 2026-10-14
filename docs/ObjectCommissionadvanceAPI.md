@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 # **commissionadvanceBatchDownloadV1**
 ```swift
-    open class func commissionadvanceBatchDownloadV1(pkiCommissionadvanceID: Int, commissionadvanceBatchDownloadV1Request: CommissionadvanceBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func commissionadvanceBatchDownloadV1(pkiCommissionadvanceID: Int, commissionadvanceBatchDownloadV1Request: CommissionadvanceBatchDownloadV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> URL
 ```
 
 Download multiples attachments from a Commission advance
@@ -29,15 +29,11 @@ let pkiCommissionadvanceID = 987 // Int |
 let commissionadvanceBatchDownloadV1Request = commissionadvance-batchDownload-v1-Request(aPkiAttachmentID: [123]) // CommissionadvanceBatchDownloadV1Request | 
 
 // Download multiples attachments from a Commission advance
-ObjectCommissionadvanceAPI.commissionadvanceBatchDownloadV1(pkiCommissionadvanceID: pkiCommissionadvanceID, commissionadvanceBatchDownloadV1Request: commissionadvanceBatchDownloadV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCommissionadvanceAPI.commissionadvanceBatchDownloadV1(pkiCommissionadvanceID: pkiCommissionadvanceID, commissionadvanceBatchDownloadV1Request: commissionadvanceBatchDownloadV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -65,7 +61,7 @@ Name | Type | Description  | Notes
 
 # **commissionadvanceGetAttachmentsV1**
 ```swift
-    open class func commissionadvanceGetAttachmentsV1(pkiCommissionadvanceID: Int, completion: @escaping (_ data: CommissionadvanceGetAttachmentsV1Response?, _ error: Error?) -> Void)
+    open class func commissionadvanceGetAttachmentsV1(pkiCommissionadvanceID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CommissionadvanceGetAttachmentsV1Response
 ```
 
 Retrieve Commissionadvance's attachments
@@ -78,15 +74,11 @@ import EzmaxApi
 let pkiCommissionadvanceID = 987 // Int | 
 
 // Retrieve Commissionadvance's attachments
-ObjectCommissionadvanceAPI.commissionadvanceGetAttachmentsV1(pkiCommissionadvanceID: pkiCommissionadvanceID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCommissionadvanceAPI.commissionadvanceGetAttachmentsV1(pkiCommissionadvanceID: pkiCommissionadvanceID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -113,7 +105,7 @@ Name | Type | Description  | Notes
 
 # **commissionadvanceGetCommunicationCountV1**
 ```swift
-    open class func commissionadvanceGetCommunicationCountV1(pkiCommissionadvanceID: Int, completion: @escaping (_ data: CommissionadvanceGetCommunicationCountV1Response?, _ error: Error?) -> Void)
+    open class func commissionadvanceGetCommunicationCountV1(pkiCommissionadvanceID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CommissionadvanceGetCommunicationCountV1Response
 ```
 
 Retrieve Communication count
@@ -126,15 +118,11 @@ import EzmaxApi
 let pkiCommissionadvanceID = 987 // Int | 
 
 // Retrieve Communication count
-ObjectCommissionadvanceAPI.commissionadvanceGetCommunicationCountV1(pkiCommissionadvanceID: pkiCommissionadvanceID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCommissionadvanceAPI.commissionadvanceGetCommunicationCountV1(pkiCommissionadvanceID: pkiCommissionadvanceID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -161,7 +149,7 @@ Name | Type | Description  | Notes
 
 # **commissionadvanceGetCommunicationListV1**
 ```swift
-    open class func commissionadvanceGetCommunicationListV1(pkiCommissionadvanceID: Int, completion: @escaping (_ data: CommissionadvanceGetCommunicationListV1Response?, _ error: Error?) -> Void)
+    open class func commissionadvanceGetCommunicationListV1(pkiCommissionadvanceID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CommissionadvanceGetCommunicationListV1Response
 ```
 
 Retrieve Communication list
@@ -174,15 +162,11 @@ import EzmaxApi
 let pkiCommissionadvanceID = 987 // Int | 
 
 // Retrieve Communication list
-ObjectCommissionadvanceAPI.commissionadvanceGetCommunicationListV1(pkiCommissionadvanceID: pkiCommissionadvanceID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCommissionadvanceAPI.commissionadvanceGetCommunicationListV1(pkiCommissionadvanceID: pkiCommissionadvanceID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -209,7 +193,7 @@ Name | Type | Description  | Notes
 
 # **commissionadvanceGetCommunicationrecipientsV1**
 ```swift
-    open class func commissionadvanceGetCommunicationrecipientsV1(pkiCommissionadvanceID: Int, completion: @escaping (_ data: CommissionadvanceGetCommunicationrecipientsV1Response?, _ error: Error?) -> Void)
+    open class func commissionadvanceGetCommunicationrecipientsV1(pkiCommissionadvanceID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CommissionadvanceGetCommunicationrecipientsV1Response
 ```
 
 Retrieve Communication recipients
@@ -222,15 +206,11 @@ import EzmaxApi
 let pkiCommissionadvanceID = 987 // Int | 
 
 // Retrieve Communication recipients
-ObjectCommissionadvanceAPI.commissionadvanceGetCommunicationrecipientsV1(pkiCommissionadvanceID: pkiCommissionadvanceID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCommissionadvanceAPI.commissionadvanceGetCommunicationrecipientsV1(pkiCommissionadvanceID: pkiCommissionadvanceID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -257,7 +237,7 @@ Name | Type | Description  | Notes
 
 # **commissionadvanceGetCommunicationsendersV1**
 ```swift
-    open class func commissionadvanceGetCommunicationsendersV1(pkiCommissionadvanceID: Int, completion: @escaping (_ data: CommissionadvanceGetCommunicationsendersV1Response?, _ error: Error?) -> Void)
+    open class func commissionadvanceGetCommunicationsendersV1(pkiCommissionadvanceID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CommissionadvanceGetCommunicationsendersV1Response
 ```
 
 Retrieve Communication senders
@@ -270,15 +250,11 @@ import EzmaxApi
 let pkiCommissionadvanceID = 987 // Int | 
 
 // Retrieve Communication senders
-ObjectCommissionadvanceAPI.commissionadvanceGetCommunicationsendersV1(pkiCommissionadvanceID: pkiCommissionadvanceID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCommissionadvanceAPI.commissionadvanceGetCommunicationsendersV1(pkiCommissionadvanceID: pkiCommissionadvanceID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -305,7 +281,7 @@ Name | Type | Description  | Notes
 
 # **commissionadvanceImportIntoEDMV1**
 ```swift
-    open class func commissionadvanceImportIntoEDMV1(pkiCommissionadvanceID: Int, commissionadvanceImportIntoEDMV1Request: CommissionadvanceImportIntoEDMV1Request, completion: @escaping (_ data: CommissionadvanceImportIntoEDMV1Response?, _ error: Error?) -> Void)
+    open class func commissionadvanceImportIntoEDMV1(pkiCommissionadvanceID: Int, commissionadvanceImportIntoEDMV1Request: CommissionadvanceImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CommissionadvanceImportIntoEDMV1Response
 ```
 
 Import attachments into the Commissionadvance
@@ -319,15 +295,11 @@ let pkiCommissionadvanceID = 987 // Int |
 let commissionadvanceImportIntoEDMV1Request = commissionadvance-importIntoEDM-v1-Request(aObjAttachment: [Custom-AttachmentImportIntoEDM-Request(eAttachmentSource: "eAttachmentSource_example", fkiAttachmentID: 123, fkiInscriptionchecklistID: 123, sAttachmentUrl: "sAttachmentUrl_example", sAttachmentBase64: 123, sAttachmentName: "sAttachmentName_example", sAttachmentCategory: "sAttachmentCategory_example", eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123, sAttachmentMD5: "sAttachmentMD5_example", bAttachmentForceoverwrite: false, bAttachmentForcerestore: false)]) // CommissionadvanceImportIntoEDMV1Request | 
 
 // Import attachments into the Commissionadvance
-ObjectCommissionadvanceAPI.commissionadvanceImportIntoEDMV1(pkiCommissionadvanceID: pkiCommissionadvanceID, commissionadvanceImportIntoEDMV1Request: commissionadvanceImportIntoEDMV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCommissionadvanceAPI.commissionadvanceImportIntoEDMV1(pkiCommissionadvanceID: pkiCommissionadvanceID, commissionadvanceImportIntoEDMV1Request: commissionadvanceImportIntoEDMV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

@@ -12,7 +12,7 @@ public struct EzsignsignaturepaymentdetailResponseCompound: Sendable, Codable, H
 
     public static let pkiEzsignsignaturepaymentdetailIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiGlaccountcontainerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let dEzsignsignaturepaymentdetailAmountRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
+    public static let dEzsignsignaturepaymentdetailAmountRule = StringRule(minLength: nil, maxLength: nil, pattern: "^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$")
     /** The unique ID of the Ezsignsignaturepaymentdetail */
     public var pkiEzsignsignaturepaymentdetailID: Int
     /** The unique ID of the Glaccountcontainer */

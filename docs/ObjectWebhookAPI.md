@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 # **webhookCreateObjectV2**
 ```swift
-    open class func webhookCreateObjectV2(webhookCreateObjectV2Request: WebhookCreateObjectV2Request, completion: @escaping (_ data: WebhookCreateObjectV2Response?, _ error: Error?) -> Void)
+    open class func webhookCreateObjectV2(webhookCreateObjectV2Request: WebhookCreateObjectV2Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> WebhookCreateObjectV2Response
 ```
 
 Create a new Webhook
@@ -32,15 +32,11 @@ import EzmaxApi
 let webhookCreateObjectV2Request = webhook-createObject-v2-Request(aObjWebhook: [webhook-RequestCompound(pkiWebhookID: 123, fkiAuthenticationexternalID: 123, fkiEzsignfoldertypeID: 123, sWebhookDescription: "sWebhookDescription_example", eWebhookModule: Field-eWebhookModule(), eWebhookEzsignevent: Field-eWebhookEzsignevent(), eWebhookManagementevent: Field-eWebhookManagementevent(), eWebhookRealestateevent: Field-eWebhookRealestateevent(), sWebhookUrl: "sWebhookUrl_example", sWebhookEmailfailed: "sWebhookEmailfailed_example", bWebhookIsactive: true, bWebhookIssigned: true, bWebhookSkipsslvalidation: false, aObjWebhookheader: [webhookheader-RequestCompound(pkiWebhookheaderID: 123, sWebhookheaderName: "sWebhookheaderName_example", sWebhookheaderValue: "sWebhookheaderValue_example")])]) // WebhookCreateObjectV2Request | 
 
 // Create a new Webhook
-ObjectWebhookAPI.webhookCreateObjectV2(webhookCreateObjectV2Request: webhookCreateObjectV2Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectWebhookAPI.webhookCreateObjectV2(webhookCreateObjectV2Request: webhookCreateObjectV2Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -67,7 +63,7 @@ Name | Type | Description  | Notes
 
 # **webhookDeleteObjectV1**
 ```swift
-    open class func webhookDeleteObjectV1(pkiWebhookID: Int, completion: @escaping (_ data: WebhookDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func webhookDeleteObjectV1(pkiWebhookID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> WebhookDeleteObjectV1Response
 ```
 
 Delete an existing Webhook
@@ -82,15 +78,11 @@ import EzmaxApi
 let pkiWebhookID = 987 // Int | 
 
 // Delete an existing Webhook
-ObjectWebhookAPI.webhookDeleteObjectV1(pkiWebhookID: pkiWebhookID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectWebhookAPI.webhookDeleteObjectV1(pkiWebhookID: pkiWebhookID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -117,7 +109,7 @@ Name | Type | Description  | Notes
 
 # **webhookEditObjectV1**
 ```swift
-    open class func webhookEditObjectV1(pkiWebhookID: Int, webhookEditObjectV1Request: WebhookEditObjectV1Request, completion: @escaping (_ data: WebhookEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func webhookEditObjectV1(pkiWebhookID: Int, webhookEditObjectV1Request: WebhookEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> WebhookEditObjectV1Response
 ```
 
 Edit an existing Webhook
@@ -133,15 +125,11 @@ let pkiWebhookID = 987 // Int |
 let webhookEditObjectV1Request = webhook-editObject-v1-Request(objWebhook: webhook-RequestCompound(pkiWebhookID: 123, fkiAuthenticationexternalID: 123, fkiEzsignfoldertypeID: 123, sWebhookDescription: "sWebhookDescription_example", eWebhookModule: Field-eWebhookModule(), eWebhookEzsignevent: Field-eWebhookEzsignevent(), eWebhookManagementevent: Field-eWebhookManagementevent(), eWebhookRealestateevent: Field-eWebhookRealestateevent(), sWebhookUrl: "sWebhookUrl_example", sWebhookEmailfailed: "sWebhookEmailfailed_example", bWebhookIsactive: true, bWebhookIssigned: true, bWebhookSkipsslvalidation: false, aObjWebhookheader: [webhookheader-RequestCompound(pkiWebhookheaderID: 123, sWebhookheaderName: "sWebhookheaderName_example", sWebhookheaderValue: "sWebhookheaderValue_example")])) // WebhookEditObjectV1Request | 
 
 // Edit an existing Webhook
-ObjectWebhookAPI.webhookEditObjectV1(pkiWebhookID: pkiWebhookID, webhookEditObjectV1Request: webhookEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectWebhookAPI.webhookEditObjectV1(pkiWebhookID: pkiWebhookID, webhookEditObjectV1Request: webhookEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -169,7 +157,7 @@ Name | Type | Description  | Notes
 
 # **webhookGetHistoryV1**
 ```swift
-    open class func webhookGetHistoryV1(pkiWebhookID: Int, eWebhookHistoryinterval: EWebhookHistoryinterval_webhookGetHistoryV1, completion: @escaping (_ data: WebhookGetHistoryV1Response?, _ error: Error?) -> Void)
+    open class func webhookGetHistoryV1(pkiWebhookID: Int, eWebhookHistoryinterval: EWebhookHistoryinterval_webhookGetHistoryV1, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> WebhookGetHistoryV1Response
 ```
 
 Retrieve the logs for recent Webhook calls
@@ -185,15 +173,11 @@ let pkiWebhookID = 987 // Int |
 let eWebhookHistoryinterval = "eWebhookHistoryinterval_example" // String | The number of days to return
 
 // Retrieve the logs for recent Webhook calls
-ObjectWebhookAPI.webhookGetHistoryV1(pkiWebhookID: pkiWebhookID, eWebhookHistoryinterval: eWebhookHistoryinterval) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectWebhookAPI.webhookGetHistoryV1(pkiWebhookID: pkiWebhookID, eWebhookHistoryinterval: eWebhookHistoryinterval)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -221,7 +205,7 @@ Name | Type | Description  | Notes
 
 # **webhookGetListV1**
 ```swift
-    open class func webhookGetListV1(eOrderBy: EOrderBy_webhookGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: WebhookGetListV1Response?, _ error: Error?) -> Void)
+    open class func webhookGetListV1(eOrderBy: EOrderBy_webhookGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> WebhookGetListV1Response
 ```
 
 Retrieve Webhook list
@@ -240,15 +224,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Webhook list
-ObjectWebhookAPI.webhookGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectWebhookAPI.webhookGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -279,7 +259,7 @@ Name | Type | Description  | Notes
 
 # **webhookGetObjectV2**
 ```swift
-    open class func webhookGetObjectV2(pkiWebhookID: Int, completion: @escaping (_ data: WebhookGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func webhookGetObjectV2(pkiWebhookID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> WebhookGetObjectV2Response
 ```
 
 Retrieve an existing Webhook
@@ -294,15 +274,11 @@ import EzmaxApi
 let pkiWebhookID = 987 // Int | 
 
 // Retrieve an existing Webhook
-ObjectWebhookAPI.webhookGetObjectV2(pkiWebhookID: pkiWebhookID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectWebhookAPI.webhookGetObjectV2(pkiWebhookID: pkiWebhookID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -329,7 +305,7 @@ Name | Type | Description  | Notes
 
 # **webhookRegenerateApikeyV1**
 ```swift
-    open class func webhookRegenerateApikeyV1(pkiWebhookID: Int, webhookRegenerateApikeyV1Request: WebhookRegenerateApikeyV1Request, completion: @escaping (_ data: WebhookRegenerateApikeyV1Response?, _ error: Error?) -> Void)
+    open class func webhookRegenerateApikeyV1(pkiWebhookID: Int, webhookRegenerateApikeyV1Request: WebhookRegenerateApikeyV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> WebhookRegenerateApikeyV1Response
 ```
 
 Regenerate the Apikey
@@ -345,15 +321,11 @@ let pkiWebhookID = 987 // Int |
 let webhookRegenerateApikeyV1Request = webhook-regenerateApikey-v1-Request(bWebhookIssigned: true) // WebhookRegenerateApikeyV1Request | 
 
 // Regenerate the Apikey
-ObjectWebhookAPI.webhookRegenerateApikeyV1(pkiWebhookID: pkiWebhookID, webhookRegenerateApikeyV1Request: webhookRegenerateApikeyV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectWebhookAPI.webhookRegenerateApikeyV1(pkiWebhookID: pkiWebhookID, webhookRegenerateApikeyV1Request: webhookRegenerateApikeyV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -381,7 +353,7 @@ Name | Type | Description  | Notes
 
 # **webhookSendWebhookV1**
 ```swift
-    open class func webhookSendWebhookV1(webhookSendWebhookV1Request: WebhookSendWebhookV1Request, completion: @escaping (_ data: WebhookSendWebhookV1Response?, _ error: Error?) -> Void)
+    open class func webhookSendWebhookV1(webhookSendWebhookV1Request: WebhookSendWebhookV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> WebhookSendWebhookV1Response
 ```
 
 Emit a Webhook event
@@ -394,15 +366,11 @@ import EzmaxApi
 let webhookSendWebhookV1Request = webhook-sendWebhook-v1-Request(eWebhookModule: Field-eWebhookModule(), eWebhookEzsignevent: Custom-eWebhookEzsignevent(), eWebhookManagementevent: Field-eWebhookManagementevent(), eWebhookRealestateevent: Field-eWebhookRealestateevent(), fkiEzsignfolderID: 123, fkiEzsigndocumentID: 123, fkiEzsignsignerID: 123, fkiUserID: 123, fkiUserstagedID: 123) // WebhookSendWebhookV1Request | 
 
 // Emit a Webhook event
-ObjectWebhookAPI.webhookSendWebhookV1(webhookSendWebhookV1Request: webhookSendWebhookV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectWebhookAPI.webhookSendWebhookV1(webhookSendWebhookV1Request: webhookSendWebhookV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -429,7 +397,7 @@ Name | Type | Description  | Notes
 
 # **webhookTestV1**
 ```swift
-    open class func webhookTestV1(pkiWebhookID: Int, body: JSONValue, completion: @escaping (_ data: WebhookTestV1Response?, _ error: Error?) -> Void)
+    open class func webhookTestV1(pkiWebhookID: Int, body: JSONValue, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> WebhookTestV1Response
 ```
 
 Test the Webhook by calling the Url
@@ -445,15 +413,11 @@ let pkiWebhookID = 987 // Int |
 let body = "TODO" // JSONValue | 
 
 // Test the Webhook by calling the Url
-ObjectWebhookAPI.webhookTestV1(pkiWebhookID: pkiWebhookID, body: body) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectWebhookAPI.webhookTestV1(pkiWebhookID: pkiWebhookID, body: body)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 # **attachmentDeleteV1**
 ```swift
-    open class func attachmentDeleteV1(pkiAttachmentID: Int, body: JSONValue, completion: @escaping (_ data: AttachmentDeleteV1Response?, _ error: Error?) -> Void)
+    open class func attachmentDeleteV1(pkiAttachmentID: Int, body: JSONValue, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AttachmentDeleteV1Response
 ```
 
 Delete an existing attachment
@@ -32,15 +32,11 @@ let pkiAttachmentID = 987 // Int |
 let body = "TODO" // JSONValue | 
 
 // Delete an existing attachment
-ObjectAttachmentAPI.attachmentDeleteV1(pkiAttachmentID: pkiAttachmentID, body: body) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAttachmentAPI.attachmentDeleteV1(pkiAttachmentID: pkiAttachmentID, body: body)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -68,7 +64,7 @@ Name | Type | Description  | Notes
 
 # **attachmentDocumentTypeV1**
 ```swift
-    open class func attachmentDocumentTypeV1(pkiAttachmentID: Int, attachmentDocumentTypeV1Request: AttachmentDocumentTypeV1Request, completion: @escaping (_ data: AttachmentDocumentTypeV1Response?, _ error: Error?) -> Void)
+    open class func attachmentDocumentTypeV1(pkiAttachmentID: Int, attachmentDocumentTypeV1Request: AttachmentDocumentTypeV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AttachmentDocumentTypeV1Response
 ```
 
 Change attachment document type
@@ -84,15 +80,11 @@ let pkiAttachmentID = 987 // Int |
 let attachmentDocumentTypeV1Request = attachment-documentType-v1-Request(fkiDocumenttypechecklistID: 123) // AttachmentDocumentTypeV1Request | 
 
 // Change attachment document type
-ObjectAttachmentAPI.attachmentDocumentTypeV1(pkiAttachmentID: pkiAttachmentID, attachmentDocumentTypeV1Request: attachmentDocumentTypeV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAttachmentAPI.attachmentDocumentTypeV1(pkiAttachmentID: pkiAttachmentID, attachmentDocumentTypeV1Request: attachmentDocumentTypeV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -120,7 +112,7 @@ Name | Type | Description  | Notes
 
 # **attachmentDownloadV1**
 ```swift
-    open class func attachmentDownloadV1(pkiAttachmentID: Int, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+    open class func attachmentDownloadV1(pkiAttachmentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse)
 ```
 
 Retrieve the content
@@ -135,15 +127,10 @@ import EzmaxApi
 let pkiAttachmentID = 987 // Int | 
 
 // Retrieve the content
-ObjectAttachmentAPI.attachmentDownloadV1(pkiAttachmentID: pkiAttachmentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    try await ObjectAttachmentAPI.attachmentDownloadV1(pkiAttachmentID: pkiAttachmentID)
+} catch {
+    print(error)
 }
 ```
 
@@ -170,7 +157,7 @@ Void (empty response body)
 
 # **attachmentGetAttachmentlogsV1**
 ```swift
-    open class func attachmentGetAttachmentlogsV1(pkiAttachmentID: Int, completion: @escaping (_ data: AttachmentGetAttachmentlogsV1Response?, _ error: Error?) -> Void)
+    open class func attachmentGetAttachmentlogsV1(pkiAttachmentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AttachmentGetAttachmentlogsV1Response
 ```
 
 Retrieve the Attachmentlogs
@@ -185,15 +172,11 @@ import EzmaxApi
 let pkiAttachmentID = 987 // Int | 
 
 // Retrieve the Attachmentlogs
-ObjectAttachmentAPI.attachmentGetAttachmentlogsV1(pkiAttachmentID: pkiAttachmentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAttachmentAPI.attachmentGetAttachmentlogsV1(pkiAttachmentID: pkiAttachmentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -220,7 +203,7 @@ Name | Type | Description  | Notes
 
 # **attachmentPrivacyV1**
 ```swift
-    open class func attachmentPrivacyV1(pkiAttachmentID: Int, attachmentPrivacyV1Request: AttachmentPrivacyV1Request, completion: @escaping (_ data: AttachmentPrivacyV1Response?, _ error: Error?) -> Void)
+    open class func attachmentPrivacyV1(pkiAttachmentID: Int, attachmentPrivacyV1Request: AttachmentPrivacyV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AttachmentPrivacyV1Response
 ```
 
 Change the attachment privacy
@@ -236,15 +219,11 @@ let pkiAttachmentID = 987 // Int |
 let attachmentPrivacyV1Request = attachment-privacy-v1-Request(eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123) // AttachmentPrivacyV1Request | 
 
 // Change the attachment privacy
-ObjectAttachmentAPI.attachmentPrivacyV1(pkiAttachmentID: pkiAttachmentID, attachmentPrivacyV1Request: attachmentPrivacyV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAttachmentAPI.attachmentPrivacyV1(pkiAttachmentID: pkiAttachmentID, attachmentPrivacyV1Request: attachmentPrivacyV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -272,7 +251,7 @@ Name | Type | Description  | Notes
 
 # **attachmentRenameV1**
 ```swift
-    open class func attachmentRenameV1(pkiAttachmentID: Int, attachmentRenameV1Request: AttachmentRenameV1Request, completion: @escaping (_ data: AttachmentRenameV1Response?, _ error: Error?) -> Void)
+    open class func attachmentRenameV1(pkiAttachmentID: Int, attachmentRenameV1Request: AttachmentRenameV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AttachmentRenameV1Response
 ```
 
 Rename an attachment
@@ -288,15 +267,11 @@ let pkiAttachmentID = 987 // Int |
 let attachmentRenameV1Request = attachment-rename-v1-Request(sAttachmentName: "sAttachmentName_example", sAttachmentCategory: "sAttachmentCategory_example", bForceOverride: true) // AttachmentRenameV1Request | 
 
 // Rename an attachment
-ObjectAttachmentAPI.attachmentRenameV1(pkiAttachmentID: pkiAttachmentID, attachmentRenameV1Request: attachmentRenameV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAttachmentAPI.attachmentRenameV1(pkiAttachmentID: pkiAttachmentID, attachmentRenameV1Request: attachmentRenameV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -324,7 +299,7 @@ Name | Type | Description  | Notes
 
 # **attachmentRestoreV1**
 ```swift
-    open class func attachmentRestoreV1(pkiAttachmentID: Int, attachmentRestoreV1Request: AttachmentRestoreV1Request, completion: @escaping (_ data: AttachmentRestoreV1Response?, _ error: Error?) -> Void)
+    open class func attachmentRestoreV1(pkiAttachmentID: Int, attachmentRestoreV1Request: AttachmentRestoreV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AttachmentRestoreV1Response
 ```
 
 Restore a deleted attachment
@@ -340,15 +315,11 @@ let pkiAttachmentID = 987 // Int |
 let attachmentRestoreV1Request = attachment-restore-v1-Request(bForceOverride: true) // AttachmentRestoreV1Request | 
 
 // Restore a deleted attachment
-ObjectAttachmentAPI.attachmentRestoreV1(pkiAttachmentID: pkiAttachmentID, attachmentRestoreV1Request: attachmentRestoreV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAttachmentAPI.attachmentRestoreV1(pkiAttachmentID: pkiAttachmentID, attachmentRestoreV1Request: attachmentRestoreV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -376,7 +347,7 @@ Name | Type | Description  | Notes
 
 # **attachmentValidateV1**
 ```swift
-    open class func attachmentValidateV1(pkiAttachmentID: Int, attachmentValidateV1Request: AttachmentValidateV1Request, completion: @escaping (_ data: AttachmentValidateV1Response?, _ error: Error?) -> Void)
+    open class func attachmentValidateV1(pkiAttachmentID: Int, attachmentValidateV1Request: AttachmentValidateV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AttachmentValidateV1Response
 ```
 
 Validate an existing attachment
@@ -392,15 +363,11 @@ let pkiAttachmentID = 987 // Int |
 let attachmentValidateV1Request = attachment-validate-v1-Request(fkiAttachmentrejectreasonID: 123, eAttachmentVerified: Field-eAttachmentVerified(), tAttachmentRejectioncomment: "tAttachmentRejectioncomment_example", aSNotificationEmailAddress: ["aSNotificationEmailAddress_example"], tNotificationMessage: "tNotificationMessage_example", bNotificationIncludeAttachment: false) // AttachmentValidateV1Request | 
 
 // Validate an existing attachment
-ObjectAttachmentAPI.attachmentValidateV1(pkiAttachmentID: pkiAttachmentID, attachmentValidateV1Request: attachmentValidateV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectAttachmentAPI.attachmentValidateV1(pkiAttachmentID: pkiAttachmentID, attachmentValidateV1Request: attachmentValidateV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

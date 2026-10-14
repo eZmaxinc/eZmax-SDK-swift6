@@ -47,12 +47,13 @@ open class ObjectEzsignbulksendtransmissionAPI {
         let localVariableParameters: [String: any Sendable]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
-        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+        let localVariableQueryParameters: [String: (wrappedValue: (any Sendable)?, isExplode: Bool)] = [
             "bIncludeSigned": (wrappedValue: bIncludeSigned?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "bIncludeAttachment": (wrappedValue: bIncludeAttachment?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "bIncludeProofdocument": (wrappedValue: bIncludeProofdocument?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "bIncludeProof": (wrappedValue: bIncludeProof?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-        ])
+        ]
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems(localVariableQueryParameters)
 
         let localVariableNillableHeaders: [String: (any Sendable)?] = [
             :

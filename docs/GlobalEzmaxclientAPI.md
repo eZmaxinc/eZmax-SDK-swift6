@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **globalEzmaxclientVersionV1**
 ```swift
-    open class func globalEzmaxclientVersionV1(pksEzmaxclientOs: FieldPksEzmaxclientOs, completion: @escaping (_ data: GlobalEzmaxclientVersionV1Response?, _ error: Error?) -> Void)
+    open class func globalEzmaxclientVersionV1(pksEzmaxclientOs: FieldPksEzmaxclientOs, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> GlobalEzmaxclientVersionV1Response
 ```
 
 Retrieve the latest version of the Ezmaxclient
@@ -24,15 +24,11 @@ import EzmaxApi
 let pksEzmaxclientOs = Field-pksEzmaxclientOs() // FieldPksEzmaxclientOs | 
 
 // Retrieve the latest version of the Ezmaxclient
-GlobalEzmaxclientAPI.globalEzmaxclientVersionV1(pksEzmaxclientOs: pksEzmaxclientOs) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await GlobalEzmaxclientAPI.globalEzmaxclientVersionV1(pksEzmaxclientOs: pksEzmaxclientOs)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

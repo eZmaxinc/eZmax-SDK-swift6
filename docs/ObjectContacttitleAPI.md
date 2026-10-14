@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **contacttitleGetAutocompleteV2**
 ```swift
-    open class func contacttitleGetAutocompleteV2(sSelector: SSelector_contacttitleGetAutocompleteV2, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: ContacttitleGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func contacttitleGetAutocompleteV2(sSelector: SSelector_contacttitleGetAutocompleteV2, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ContacttitleGetAutocompleteV2Response
 ```
 
 Retrieve Contacttitles and IDs
@@ -26,15 +26,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Contacttitles and IDs
-ObjectContacttitleAPI.contacttitleGetAutocompleteV2(sSelector: sSelector, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectContacttitleAPI.contacttitleGetAutocompleteV2(sSelector: sSelector, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

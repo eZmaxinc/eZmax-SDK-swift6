@@ -51,19 +51,19 @@ public struct AttachmentResponseCompound: Sendable, Codable, Hashable {
     public static let fkiTranqcontractIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiTemplateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiDocumenttypechecklistIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
-    public static let sDocumenttypeNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,55}$/")
+    public static let sDocumenttypeNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,55}$")
     public static let fkiFolderIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiRejectedoffertopurchaseIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiDisclosureIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiReconciliationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEzsigndocumentIDReferenceRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sAttachmentNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(?!\\.{1,2}$)(?!.*[ .]$)(?!(?:CON|PRN|AUX|NUL|COM(?:[1-9]|[¹²³])|LPT(?:[1-9]|[¹²³]))(?:\\.|$))[^\\x00-\\x1F<>:\"\/\\\\\\\\|?*]{1,75}$/")
-    public static let sAttachmentCategoryRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(?!\\.{1,2}$)(?!.*[ .]$)(?!(?:CON|PRN|AUX|NUL|COM(?:[1-9]|[¹²³])|LPT(?:[1-9]|[¹²³]))(?:\\.|$))[^\\x00-\\x1F<>:\"\/\\\\\\\\|?*]{0,75}$/")
+    public static let sAttachmentNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^(?!\\.{1,2}$)(?!.*[ .]$)(?!(?:CON|PRN|AUX|NUL|COM(?:[1-9]|[¹²³])|LPT(?:[1-9]|[¹²³]))(?:\\.|$))[^\\x00-\\x1F<>:\"/\\\\\\\\|?*]{1,75}$")
+    public static let sAttachmentCategoryRule = StringRule(minLength: nil, maxLength: nil, pattern: "^(?!\\.{1,2}$)(?!.*[ .]$)(?!(?:CON|PRN|AUX|NUL|COM(?:[1-9]|[¹²³])|LPT(?:[1-9]|[¹²³]))(?:\\.|$))[^\\x00-\\x1F<>:\"/\\\\\\\\|?*]{0,75}$")
     public static let fkiUserIDSpecificRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let iAttachmentSizeRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 4294967295, exclusiveMaximum: false, multipleOf: nil)
     public static let iAttachmentEDMmoduleflagRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sAttachmentMD5Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[a-f0-9]{32}$/")
-    public static let tAttachmentRejectioncommentRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,65535}$/")
+    public static let sAttachmentMD5Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^[a-f0-9]{32}$")
+    public static let tAttachmentRejectioncommentRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,65535}$")
     public static let fkiUserIDOwnerRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Attachment. */
     public var pkiAttachmentID: Int
@@ -169,6 +169,7 @@ public struct AttachmentResponseCompound: Sendable, Codable, Hashable {
     public var eAttachmentPrivacy: FieldEAttachmentPrivacy
     /** The unique ID of the User */
     public var fkiUserIDSpecific: Int?
+    public var objUserSpecific: CustomUserNameResponse?
     public var eAttachmentType: FieldEAttachmentType
     /** The size of the Attachment */
     public var iAttachmentSize: Int
@@ -187,7 +188,7 @@ public struct AttachmentResponseCompound: Sendable, Codable, Hashable {
     public var fkiUserIDOwner: Int?
     public var objAudit: CommonAudit?
 
-    public init(pkiAttachmentID: Int, fkiComputerID: Int? = nil, fkiAdjustmentID: Int? = nil, fkiAgentID: Int? = nil, fkiBankaccountID: Int? = nil, fkiBrokerID: Int? = nil, fkiCommissionadvanceID: Int? = nil, fkiCommunicationID: Int? = nil, fkiCustomerID: Int? = nil, fkiCustomertemplateID: Int? = nil, fkiDepositID: Int? = nil, fkiDeposittransitchequeID: Int? = nil, fkiElectronicfundstransferID: Int? = nil, fkiEmployeeID: Int? = nil, fkiExternalbrokerID: Int? = nil, fkiEzcomadvanceserverID: Int? = nil, fkiEzcomcompanyID: Int? = nil, fkiEzsigndocumentID: Int? = nil, fkiGhacqcontractID: Int? = nil, fkiInscriptionID: Int? = nil, fkiInscriptiontempID: Int? = nil, fkiInscriptionnotauthenticatedID: Int? = nil, fkiInvoiceID: Int? = nil, fkiBuyercontractID: Int? = nil, fkiFranchisebrokerID: Int? = nil, fkiFranchiseagenceID: Int? = nil, fkiFranchiseofficeID: Int? = nil, fkiFranchisefranchiseID: Int? = nil, fkiFranchisecomplaintID: Int? = nil, fkiLeadID: Int? = nil, fkiMarketingprogramID: Int? = nil, fkiMarketingfollowID: Int? = nil, fkiNotaryID: Int? = nil, fkiOfficetaxreportID: Int? = nil, fkiOtherincomeID: Int? = nil, fkiPaymentpreparationID: Int? = nil, fkiPurchaseID: Int? = nil, fkiSalaryID: Int? = nil, fkiSupplierID: Int? = nil, fkiTranqcontractID: Int? = nil, fkiTemplateID: Int? = nil, fkiDocumenttypechecklistID: Int? = nil, sDocumenttypeNameX: String? = nil, fkiFolderID: Int? = nil, fkiRejectedoffertopurchaseID: Int? = nil, fkiDisclosureID: Int? = nil, fkiReconciliationID: Int? = nil, fkiEzsigndocumentIDReference: Int? = nil, eAttachmentDocumenttype: FieldEAttachmentDocumenttype, sAttachmentName: String, sAttachmentCategory: String, eAttachmentPrivacy: FieldEAttachmentPrivacy, fkiUserIDSpecific: Int? = nil, eAttachmentType: FieldEAttachmentType, iAttachmentSize: Int, iAttachmentEDMmoduleflag: Int? = nil, sAttachmentMD5: String, bAttachmentDeleted: Bool, bAttachmentValid: Bool, eAttachmentVerified: FieldEAttachmentVerified, tAttachmentRejectioncomment: String? = nil, fkiUserIDOwner: Int? = nil, objAudit: CommonAudit? = nil) {
+    public init(pkiAttachmentID: Int, fkiComputerID: Int? = nil, fkiAdjustmentID: Int? = nil, fkiAgentID: Int? = nil, fkiBankaccountID: Int? = nil, fkiBrokerID: Int? = nil, fkiCommissionadvanceID: Int? = nil, fkiCommunicationID: Int? = nil, fkiCustomerID: Int? = nil, fkiCustomertemplateID: Int? = nil, fkiDepositID: Int? = nil, fkiDeposittransitchequeID: Int? = nil, fkiElectronicfundstransferID: Int? = nil, fkiEmployeeID: Int? = nil, fkiExternalbrokerID: Int? = nil, fkiEzcomadvanceserverID: Int? = nil, fkiEzcomcompanyID: Int? = nil, fkiEzsigndocumentID: Int? = nil, fkiGhacqcontractID: Int? = nil, fkiInscriptionID: Int? = nil, fkiInscriptiontempID: Int? = nil, fkiInscriptionnotauthenticatedID: Int? = nil, fkiInvoiceID: Int? = nil, fkiBuyercontractID: Int? = nil, fkiFranchisebrokerID: Int? = nil, fkiFranchiseagenceID: Int? = nil, fkiFranchiseofficeID: Int? = nil, fkiFranchisefranchiseID: Int? = nil, fkiFranchisecomplaintID: Int? = nil, fkiLeadID: Int? = nil, fkiMarketingprogramID: Int? = nil, fkiMarketingfollowID: Int? = nil, fkiNotaryID: Int? = nil, fkiOfficetaxreportID: Int? = nil, fkiOtherincomeID: Int? = nil, fkiPaymentpreparationID: Int? = nil, fkiPurchaseID: Int? = nil, fkiSalaryID: Int? = nil, fkiSupplierID: Int? = nil, fkiTranqcontractID: Int? = nil, fkiTemplateID: Int? = nil, fkiDocumenttypechecklistID: Int? = nil, sDocumenttypeNameX: String? = nil, fkiFolderID: Int? = nil, fkiRejectedoffertopurchaseID: Int? = nil, fkiDisclosureID: Int? = nil, fkiReconciliationID: Int? = nil, fkiEzsigndocumentIDReference: Int? = nil, eAttachmentDocumenttype: FieldEAttachmentDocumenttype, sAttachmentName: String, sAttachmentCategory: String, eAttachmentPrivacy: FieldEAttachmentPrivacy, fkiUserIDSpecific: Int? = nil, objUserSpecific: CustomUserNameResponse? = nil, eAttachmentType: FieldEAttachmentType, iAttachmentSize: Int, iAttachmentEDMmoduleflag: Int? = nil, sAttachmentMD5: String, bAttachmentDeleted: Bool, bAttachmentValid: Bool, eAttachmentVerified: FieldEAttachmentVerified, tAttachmentRejectioncomment: String? = nil, fkiUserIDOwner: Int? = nil, objAudit: CommonAudit? = nil) {
         self.pkiAttachmentID = pkiAttachmentID
         self.fkiComputerID = fkiComputerID
         self.fkiAdjustmentID = fkiAdjustmentID
@@ -241,6 +242,7 @@ public struct AttachmentResponseCompound: Sendable, Codable, Hashable {
         self.sAttachmentCategory = sAttachmentCategory
         self.eAttachmentPrivacy = eAttachmentPrivacy
         self.fkiUserIDSpecific = fkiUserIDSpecific
+        self.objUserSpecific = objUserSpecific
         self.eAttachmentType = eAttachmentType
         self.iAttachmentSize = iAttachmentSize
         self.iAttachmentEDMmoduleflag = iAttachmentEDMmoduleflag
@@ -307,6 +309,7 @@ public struct AttachmentResponseCompound: Sendable, Codable, Hashable {
         case sAttachmentCategory
         case eAttachmentPrivacy
         case fkiUserIDSpecific
+        case objUserSpecific
         case eAttachmentType
         case iAttachmentSize
         case iAttachmentEDMmoduleflag
@@ -376,6 +379,7 @@ public struct AttachmentResponseCompound: Sendable, Codable, Hashable {
         try container.encode(sAttachmentCategory, forKey: .sAttachmentCategory)
         try container.encode(eAttachmentPrivacy, forKey: .eAttachmentPrivacy)
         try container.encodeIfPresent(fkiUserIDSpecific, forKey: .fkiUserIDSpecific)
+        try container.encodeIfPresent(objUserSpecific, forKey: .objUserSpecific)
         try container.encode(eAttachmentType, forKey: .eAttachmentType)
         try container.encode(iAttachmentSize, forKey: .iAttachmentSize)
         try container.encodeIfPresent(iAttachmentEDMmoduleflag, forKey: .iAttachmentEDMmoduleflag)

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 # **activesessionGenerateFederationTokenV1**
 ```swift
-    open class func activesessionGenerateFederationTokenV1(activesessionGenerateFederationTokenV1Request: ActivesessionGenerateFederationTokenV1Request, completion: @escaping (_ data: ActivesessionGenerateFederationTokenV1Response?, _ error: Error?) -> Void)
+    open class func activesessionGenerateFederationTokenV1(activesessionGenerateFederationTokenV1Request: ActivesessionGenerateFederationTokenV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ActivesessionGenerateFederationTokenV1Response
 ```
 
 Generate a federation token
@@ -27,15 +27,11 @@ import EzmaxApi
 let activesessionGenerateFederationTokenV1Request = activesession-generateFederationToken-v1-Request(fksEzmaxcustomerCode: "fksEzmaxcustomerCode_example") // ActivesessionGenerateFederationTokenV1Request | 
 
 // Generate a federation token
-ObjectActivesessionAPI.activesessionGenerateFederationTokenV1(activesessionGenerateFederationTokenV1Request: activesessionGenerateFederationTokenV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectActivesessionAPI.activesessionGenerateFederationTokenV1(activesessionGenerateFederationTokenV1Request: activesessionGenerateFederationTokenV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -62,7 +58,7 @@ Name | Type | Description  | Notes
 
 # **activesessionGetCurrentV1**
 ```swift
-    open class func activesessionGetCurrentV1(completion: @escaping (_ data: ActivesessionGetCurrentV1Response?, _ error: Error?) -> Void)
+    open class func activesessionGetCurrentV1(apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ActivesessionGetCurrentV1Response
 ```
 
 Get Current Activesession
@@ -76,15 +72,11 @@ import EzmaxApi
 
 
 // Get Current Activesession
-ObjectActivesessionAPI.activesessionGetCurrentV1() { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectActivesessionAPI.activesessionGetCurrentV1()
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -108,7 +100,7 @@ This endpoint does not need any parameter.
 
 # **activesessionGetCurrentV2**
 ```swift
-    open class func activesessionGetCurrentV2(completion: @escaping (_ data: ActivesessionGetCurrentV2Response?, _ error: Error?) -> Void)
+    open class func activesessionGetCurrentV2(apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ActivesessionGetCurrentV2Response
 ```
 
 Get Current Activesession
@@ -122,15 +114,11 @@ import EzmaxApi
 
 
 // Get Current Activesession
-ObjectActivesessionAPI.activesessionGetCurrentV2() { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectActivesessionAPI.activesessionGetCurrentV2()
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -154,7 +142,7 @@ This endpoint does not need any parameter.
 
 # **activesessionGetListV1**
 ```swift
-    open class func activesessionGetListV1(eOrderBy: EOrderBy_activesessionGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: ActivesessionGetListV1Response?, _ error: Error?) -> Void)
+    open class func activesessionGetListV1(eOrderBy: EOrderBy_activesessionGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ActivesessionGetListV1Response
 ```
 
 Retrieve Activesession list
@@ -171,15 +159,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Activesession list
-ObjectActivesessionAPI.activesessionGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectActivesessionAPI.activesessionGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

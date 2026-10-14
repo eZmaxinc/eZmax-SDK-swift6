@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 # **ezsigndiscussionCreateObjectV1**
 ```swift
-    open class func ezsigndiscussionCreateObjectV1(ezsigndiscussionCreateObjectV1Request: EzsigndiscussionCreateObjectV1Request, completion: @escaping (_ data: EzsigndiscussionCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndiscussionCreateObjectV1(ezsigndiscussionCreateObjectV1Request: EzsigndiscussionCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndiscussionCreateObjectV1Response
 ```
 
 Create a new Ezsigndiscussion
@@ -26,15 +26,11 @@ import EzmaxApi
 let ezsigndiscussionCreateObjectV1Request = ezsigndiscussion-createObject-v1-Request(aObjEzsigndiscussion: [ezsigndiscussion-RequestCompound(pkiEzsigndiscussionID: 123, fkiEzsigndocumentID: 123, iEzsigndiscussionPagenumber: 123, iEzsigndiscussionX: 123, iEzsigndiscussionY: 123, objDiscussion: discussion-Request(pkiDiscussionID: 123, sDiscussionDescription: "sDiscussionDescription_example", bDiscussionClosed: true))]) // EzsigndiscussionCreateObjectV1Request | 
 
 // Create a new Ezsigndiscussion
-ObjectEzsigndiscussionAPI.ezsigndiscussionCreateObjectV1(ezsigndiscussionCreateObjectV1Request: ezsigndiscussionCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndiscussionAPI.ezsigndiscussionCreateObjectV1(ezsigndiscussionCreateObjectV1Request: ezsigndiscussionCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -61,7 +57,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndiscussionDeleteObjectV1**
 ```swift
-    open class func ezsigndiscussionDeleteObjectV1(pkiEzsigndiscussionID: Int, completion: @escaping (_ data: EzsigndiscussionDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndiscussionDeleteObjectV1(pkiEzsigndiscussionID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndiscussionDeleteObjectV1Response
 ```
 
 Delete an existing Ezsigndiscussion
@@ -76,15 +72,11 @@ import EzmaxApi
 let pkiEzsigndiscussionID = 987 // Int | The unique ID of the Ezsigndiscussion
 
 // Delete an existing Ezsigndiscussion
-ObjectEzsigndiscussionAPI.ezsigndiscussionDeleteObjectV1(pkiEzsigndiscussionID: pkiEzsigndiscussionID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndiscussionAPI.ezsigndiscussionDeleteObjectV1(pkiEzsigndiscussionID: pkiEzsigndiscussionID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -111,7 +103,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndiscussionGetObjectV2**
 ```swift
-    open class func ezsigndiscussionGetObjectV2(pkiEzsigndiscussionID: Int, completion: @escaping (_ data: EzsigndiscussionGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsigndiscussionGetObjectV2(pkiEzsigndiscussionID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndiscussionGetObjectV2Response
 ```
 
 Retrieve an existing Ezsigndiscussion
@@ -126,15 +118,11 @@ import EzmaxApi
 let pkiEzsigndiscussionID = 987 // Int | The unique ID of the Ezsigndiscussion
 
 // Retrieve an existing Ezsigndiscussion
-ObjectEzsigndiscussionAPI.ezsigndiscussionGetObjectV2(pkiEzsigndiscussionID: pkiEzsigndiscussionID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndiscussionAPI.ezsigndiscussionGetObjectV2(pkiEzsigndiscussionID: pkiEzsigndiscussionID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 # **ezsigntemplateformfieldgroupCreateObjectV1**
 ```swift
-    open class func ezsigntemplateformfieldgroupCreateObjectV1(ezsigntemplateformfieldgroupCreateObjectV1Request: EzsigntemplateformfieldgroupCreateObjectV1Request, completion: @escaping (_ data: EzsigntemplateformfieldgroupCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplateformfieldgroupCreateObjectV1(ezsigntemplateformfieldgroupCreateObjectV1Request: EzsigntemplateformfieldgroupCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplateformfieldgroupCreateObjectV1Response
 ```
 
 Create a new Ezsigntemplateformfieldgroup
@@ -27,15 +27,11 @@ import EzmaxApi
 let ezsigntemplateformfieldgroupCreateObjectV1Request = ezsigntemplateformfieldgroup-createObject-v1-Request(aObjEzsigntemplateformfieldgroup: [ezsigntemplateformfieldgroup-RequestCompound(pkiEzsigntemplateformfieldgroupID: 123, fkiEzsigntemplatedocumentID: 123, eEzsigntemplateformfieldgroupType: Field-eEzsigntemplateformfieldgroupType(), eEzsigntemplateformfieldgroupSignerrequirement: Field-eEzsigntemplateformfieldgroupSignerrequirement(), sEzsigntemplateformfieldgroupLabel: "sEzsigntemplateformfieldgroupLabel_example", iEzsigntemplateformfieldgroupStep: 123, sEzsigntemplateformfieldgroupDefaultvalue: "sEzsigntemplateformfieldgroupDefaultvalue_example", iEzsigntemplateformfieldgroupFilledmin: 123, iEzsigntemplateformfieldgroupFilledmax: 123, bEzsigntemplateformfieldgroupReadonly: false, iEzsigntemplateformfieldgroupMaxlength: 123, bEzsigntemplateformfieldgroupEncrypted: false, sEzsigntemplateformfieldgroupRegexp: "sEzsigntemplateformfieldgroupRegexp_example", sEzsigntemplateformfieldgroupTextvalidationcustommessage: "sEzsigntemplateformfieldgroupTextvalidationcustommessage_example", eEzsigntemplateformfieldgroupTextvalidation: Enum-Textvalidation(), tEzsigntemplateformfieldgroupTooltip: "tEzsigntemplateformfieldgroupTooltip_example", eEzsigntemplateformfieldgroupTooltipposition: Field-eEzsigntemplateformfieldgroupTooltipposition(), aObjEzsigntemplateformfieldgroupsigner: [ezsigntemplateformfieldgroupsigner-RequestCompound(pkiEzsigntemplateformfieldgroupsignerID: 123, fkiEzsigntemplatesignerID: 123)], aObjDropdownElement: [Custom-DropdownElement-RequestCompound(sLabel: "sLabel_example", sValue: "sValue_example")], aObjEzsigntemplateformfield: [ezsigntemplateformfield-RequestCompound(pkiEzsigntemplateformfieldID: 123, eEzsigntemplateformfieldPositioning: Field-eEzsigntemplateformfieldPositioning(), iEzsigntemplatedocumentpagePagenumber: 123, sEzsigntemplateformfieldLabel: "sEzsigntemplateformfieldLabel_example", sEzsigntemplateformfieldValue: "sEzsigntemplateformfieldValue_example", iEzsigntemplateformfieldX: 123, iEzsigntemplateformfieldY: 123, iEzsigntemplateformfieldWidth: 123, iEzsigntemplateformfieldHeight: 123, bEzsigntemplateformfieldAutocomplete: false, bEzsigntemplateformfieldSelected: false, eEzsigntemplateformfieldDependencyrequirement: Field-eEzsigntemplateformfieldDependencyrequirement(), sEzsigntemplateformfieldPositioningpattern: "sEzsigntemplateformfieldPositioningpattern_example", iEzsigntemplateformfieldPositioningoffsetx: 123, iEzsigntemplateformfieldPositioningoffsety: 123, eEzsigntemplateformfieldPositioningoccurence: Field-eEzsigntemplateformfieldPositioningoccurence(), eEzsigntemplateformfieldHorizontalalignment: Enum-Horizontalalignment(), objTextstylestatic: textstylestatic-RequestCompound(fkiFontID: 123, bTextstylestaticBold: true, bTextstylestaticUnderline: true, bTextstylestaticItalic: true, bTextstylestaticStrikethrough: true, iTextstylestaticFontcolor: 123, iTextstylestaticSize: 123), aObjEzsigntemplateelementdependency: [ezsigntemplateelementdependency-RequestCompound(pkiEzsigntemplateelementdependencyID: 123, fkiEzsigntemplateformfieldIDValidation: 123, fkiEzsigntemplateformfieldgroupIDValidation: 123, sEzsigntemplateelementdependencyEzsigntemplateformfieldgrouplabel: "sEzsigntemplateelementdependencyEzsigntemplateformfieldgrouplabel_example", sEzsigntemplateelementdependencyEzsigntemplateformfieldlabel: "sEzsigntemplateelementdependencyEzsigntemplateformfieldlabel_example", eEzsigntemplateelementdependencyValidation: Field-eEzsigntemplateelementdependencyValidation(), bEzsigntemplateelementdependencySelected: false, eEzsigntemplateelementdependencyOperator: Field-eEzsigntemplateelementdependencyOperator(), sEzsigntemplateelementdependencyValue: "sEzsigntemplateelementdependencyValue_example")])])]) // EzsigntemplateformfieldgroupCreateObjectV1Request | 
 
 // Create a new Ezsigntemplateformfieldgroup
-ObjectEzsigntemplateformfieldgroupAPI.ezsigntemplateformfieldgroupCreateObjectV1(ezsigntemplateformfieldgroupCreateObjectV1Request: ezsigntemplateformfieldgroupCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplateformfieldgroupAPI.ezsigntemplateformfieldgroupCreateObjectV1(ezsigntemplateformfieldgroupCreateObjectV1Request: ezsigntemplateformfieldgroupCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -62,7 +58,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplateformfieldgroupDeleteObjectV1**
 ```swift
-    open class func ezsigntemplateformfieldgroupDeleteObjectV1(pkiEzsigntemplateformfieldgroupID: Int, completion: @escaping (_ data: EzsigntemplateformfieldgroupDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplateformfieldgroupDeleteObjectV1(pkiEzsigntemplateformfieldgroupID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplateformfieldgroupDeleteObjectV1Response
 ```
 
 Delete an existing Ezsigntemplateformfieldgroup
@@ -77,15 +73,11 @@ import EzmaxApi
 let pkiEzsigntemplateformfieldgroupID = 987 // Int | 
 
 // Delete an existing Ezsigntemplateformfieldgroup
-ObjectEzsigntemplateformfieldgroupAPI.ezsigntemplateformfieldgroupDeleteObjectV1(pkiEzsigntemplateformfieldgroupID: pkiEzsigntemplateformfieldgroupID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplateformfieldgroupAPI.ezsigntemplateformfieldgroupDeleteObjectV1(pkiEzsigntemplateformfieldgroupID: pkiEzsigntemplateformfieldgroupID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -112,7 +104,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplateformfieldgroupEditObjectV1**
 ```swift
-    open class func ezsigntemplateformfieldgroupEditObjectV1(pkiEzsigntemplateformfieldgroupID: Int, ezsigntemplateformfieldgroupEditObjectV1Request: EzsigntemplateformfieldgroupEditObjectV1Request, completion: @escaping (_ data: EzsigntemplateformfieldgroupEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplateformfieldgroupEditObjectV1(pkiEzsigntemplateformfieldgroupID: Int, ezsigntemplateformfieldgroupEditObjectV1Request: EzsigntemplateformfieldgroupEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplateformfieldgroupEditObjectV1Response
 ```
 
 Edit an existing Ezsigntemplateformfieldgroup
@@ -128,15 +120,11 @@ let pkiEzsigntemplateformfieldgroupID = 987 // Int |
 let ezsigntemplateformfieldgroupEditObjectV1Request = ezsigntemplateformfieldgroup-editObject-v1-Request(objEzsigntemplateformfieldgroup: ezsigntemplateformfieldgroup-RequestCompound(pkiEzsigntemplateformfieldgroupID: 123, fkiEzsigntemplatedocumentID: 123, eEzsigntemplateformfieldgroupType: Field-eEzsigntemplateformfieldgroupType(), eEzsigntemplateformfieldgroupSignerrequirement: Field-eEzsigntemplateformfieldgroupSignerrequirement(), sEzsigntemplateformfieldgroupLabel: "sEzsigntemplateformfieldgroupLabel_example", iEzsigntemplateformfieldgroupStep: 123, sEzsigntemplateformfieldgroupDefaultvalue: "sEzsigntemplateformfieldgroupDefaultvalue_example", iEzsigntemplateformfieldgroupFilledmin: 123, iEzsigntemplateformfieldgroupFilledmax: 123, bEzsigntemplateformfieldgroupReadonly: false, iEzsigntemplateformfieldgroupMaxlength: 123, bEzsigntemplateformfieldgroupEncrypted: false, sEzsigntemplateformfieldgroupRegexp: "sEzsigntemplateformfieldgroupRegexp_example", sEzsigntemplateformfieldgroupTextvalidationcustommessage: "sEzsigntemplateformfieldgroupTextvalidationcustommessage_example", eEzsigntemplateformfieldgroupTextvalidation: Enum-Textvalidation(), tEzsigntemplateformfieldgroupTooltip: "tEzsigntemplateformfieldgroupTooltip_example", eEzsigntemplateformfieldgroupTooltipposition: Field-eEzsigntemplateformfieldgroupTooltipposition(), aObjEzsigntemplateformfieldgroupsigner: [ezsigntemplateformfieldgroupsigner-RequestCompound(pkiEzsigntemplateformfieldgroupsignerID: 123, fkiEzsigntemplatesignerID: 123)], aObjDropdownElement: [Custom-DropdownElement-RequestCompound(sLabel: "sLabel_example", sValue: "sValue_example")], aObjEzsigntemplateformfield: [ezsigntemplateformfield-RequestCompound(pkiEzsigntemplateformfieldID: 123, eEzsigntemplateformfieldPositioning: Field-eEzsigntemplateformfieldPositioning(), iEzsigntemplatedocumentpagePagenumber: 123, sEzsigntemplateformfieldLabel: "sEzsigntemplateformfieldLabel_example", sEzsigntemplateformfieldValue: "sEzsigntemplateformfieldValue_example", iEzsigntemplateformfieldX: 123, iEzsigntemplateformfieldY: 123, iEzsigntemplateformfieldWidth: 123, iEzsigntemplateformfieldHeight: 123, bEzsigntemplateformfieldAutocomplete: false, bEzsigntemplateformfieldSelected: false, eEzsigntemplateformfieldDependencyrequirement: Field-eEzsigntemplateformfieldDependencyrequirement(), sEzsigntemplateformfieldPositioningpattern: "sEzsigntemplateformfieldPositioningpattern_example", iEzsigntemplateformfieldPositioningoffsetx: 123, iEzsigntemplateformfieldPositioningoffsety: 123, eEzsigntemplateformfieldPositioningoccurence: Field-eEzsigntemplateformfieldPositioningoccurence(), eEzsigntemplateformfieldHorizontalalignment: Enum-Horizontalalignment(), objTextstylestatic: textstylestatic-RequestCompound(fkiFontID: 123, bTextstylestaticBold: true, bTextstylestaticUnderline: true, bTextstylestaticItalic: true, bTextstylestaticStrikethrough: true, iTextstylestaticFontcolor: 123, iTextstylestaticSize: 123), aObjEzsigntemplateelementdependency: [ezsigntemplateelementdependency-RequestCompound(pkiEzsigntemplateelementdependencyID: 123, fkiEzsigntemplateformfieldIDValidation: 123, fkiEzsigntemplateformfieldgroupIDValidation: 123, sEzsigntemplateelementdependencyEzsigntemplateformfieldgrouplabel: "sEzsigntemplateelementdependencyEzsigntemplateformfieldgrouplabel_example", sEzsigntemplateelementdependencyEzsigntemplateformfieldlabel: "sEzsigntemplateelementdependencyEzsigntemplateformfieldlabel_example", eEzsigntemplateelementdependencyValidation: Field-eEzsigntemplateelementdependencyValidation(), bEzsigntemplateelementdependencySelected: false, eEzsigntemplateelementdependencyOperator: Field-eEzsigntemplateelementdependencyOperator(), sEzsigntemplateelementdependencyValue: "sEzsigntemplateelementdependencyValue_example")])])) // EzsigntemplateformfieldgroupEditObjectV1Request | 
 
 // Edit an existing Ezsigntemplateformfieldgroup
-ObjectEzsigntemplateformfieldgroupAPI.ezsigntemplateformfieldgroupEditObjectV1(pkiEzsigntemplateformfieldgroupID: pkiEzsigntemplateformfieldgroupID, ezsigntemplateformfieldgroupEditObjectV1Request: ezsigntemplateformfieldgroupEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplateformfieldgroupAPI.ezsigntemplateformfieldgroupEditObjectV1(pkiEzsigntemplateformfieldgroupID: pkiEzsigntemplateformfieldgroupID, ezsigntemplateformfieldgroupEditObjectV1Request: ezsigntemplateformfieldgroupEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -164,7 +152,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplateformfieldgroupGetObjectV2**
 ```swift
-    open class func ezsigntemplateformfieldgroupGetObjectV2(pkiEzsigntemplateformfieldgroupID: Int, completion: @escaping (_ data: EzsigntemplateformfieldgroupGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplateformfieldgroupGetObjectV2(pkiEzsigntemplateformfieldgroupID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplateformfieldgroupGetObjectV2Response
 ```
 
 Retrieve an existing Ezsigntemplateformfieldgroup
@@ -179,15 +167,11 @@ import EzmaxApi
 let pkiEzsigntemplateformfieldgroupID = 987 // Int | 
 
 // Retrieve an existing Ezsigntemplateformfieldgroup
-ObjectEzsigntemplateformfieldgroupAPI.ezsigntemplateformfieldgroupGetObjectV2(pkiEzsigntemplateformfieldgroupID: pkiEzsigntemplateformfieldgroupID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplateformfieldgroupAPI.ezsigntemplateformfieldgroupGetObjectV2(pkiEzsigntemplateformfieldgroupID: pkiEzsigntemplateformfieldgroupID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

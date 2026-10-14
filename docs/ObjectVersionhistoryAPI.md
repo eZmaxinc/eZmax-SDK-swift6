@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **versionhistoryGetObjectV2**
 ```swift
-    open class func versionhistoryGetObjectV2(pkiVersionhistoryID: Int, completion: @escaping (_ data: VersionhistoryGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func versionhistoryGetObjectV2(pkiVersionhistoryID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> VersionhistoryGetObjectV2Response
 ```
 
 Retrieve an existing Versionhistory
@@ -24,15 +24,11 @@ import EzmaxApi
 let pkiVersionhistoryID = 987 // Int | 
 
 // Retrieve an existing Versionhistory
-ObjectVersionhistoryAPI.versionhistoryGetObjectV2(pkiVersionhistoryID: pkiVersionhistoryID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectVersionhistoryAPI.versionhistoryGetObjectV2(pkiVersionhistoryID: pkiVersionhistoryID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

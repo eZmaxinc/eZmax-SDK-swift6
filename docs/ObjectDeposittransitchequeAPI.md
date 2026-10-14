@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 # **deposittransitchequeBatchDownloadV1**
 ```swift
-    open class func deposittransitchequeBatchDownloadV1(pkiDeposittransitchequeID: Int, deposittransitchequeBatchDownloadV1Request: DeposittransitchequeBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func deposittransitchequeBatchDownloadV1(pkiDeposittransitchequeID: Int, deposittransitchequeBatchDownloadV1Request: DeposittransitchequeBatchDownloadV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> URL
 ```
 
 Download multiples attachments from a Deposittransitcheque
@@ -30,15 +30,11 @@ let pkiDeposittransitchequeID = 987 // Int |
 let deposittransitchequeBatchDownloadV1Request = deposittransitcheque-batchDownload-v1-Request(aPkiAttachmentID: [123]) // DeposittransitchequeBatchDownloadV1Request | 
 
 // Download multiples attachments from a Deposittransitcheque
-ObjectDeposittransitchequeAPI.deposittransitchequeBatchDownloadV1(pkiDeposittransitchequeID: pkiDeposittransitchequeID, deposittransitchequeBatchDownloadV1Request: deposittransitchequeBatchDownloadV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDeposittransitchequeAPI.deposittransitchequeBatchDownloadV1(pkiDeposittransitchequeID: pkiDeposittransitchequeID, deposittransitchequeBatchDownloadV1Request: deposittransitchequeBatchDownloadV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -66,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **deposittransitchequeGetAttachmentsV1**
 ```swift
-    open class func deposittransitchequeGetAttachmentsV1(pkiDeposittransitchequeID: Int, completion: @escaping (_ data: DeposittransitchequeGetAttachmentsV1Response?, _ error: Error?) -> Void)
+    open class func deposittransitchequeGetAttachmentsV1(pkiDeposittransitchequeID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DeposittransitchequeGetAttachmentsV1Response
 ```
 
 Retrieve Deposittransitcheque's attachments
@@ -79,15 +75,11 @@ import EzmaxApi
 let pkiDeposittransitchequeID = 987 // Int | 
 
 // Retrieve Deposittransitcheque's attachments
-ObjectDeposittransitchequeAPI.deposittransitchequeGetAttachmentsV1(pkiDeposittransitchequeID: pkiDeposittransitchequeID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDeposittransitchequeAPI.deposittransitchequeGetAttachmentsV1(pkiDeposittransitchequeID: pkiDeposittransitchequeID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -114,7 +106,7 @@ Name | Type | Description  | Notes
 
 # **deposittransitchequeGetCommunicationCountV1**
 ```swift
-    open class func deposittransitchequeGetCommunicationCountV1(pkiDeposittransitchequeID: Int, completion: @escaping (_ data: DeposittransitchequeGetCommunicationCountV1Response?, _ error: Error?) -> Void)
+    open class func deposittransitchequeGetCommunicationCountV1(pkiDeposittransitchequeID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DeposittransitchequeGetCommunicationCountV1Response
 ```
 
 Retrieve Communication count
@@ -127,15 +119,11 @@ import EzmaxApi
 let pkiDeposittransitchequeID = 987 // Int | 
 
 // Retrieve Communication count
-ObjectDeposittransitchequeAPI.deposittransitchequeGetCommunicationCountV1(pkiDeposittransitchequeID: pkiDeposittransitchequeID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDeposittransitchequeAPI.deposittransitchequeGetCommunicationCountV1(pkiDeposittransitchequeID: pkiDeposittransitchequeID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -162,7 +150,7 @@ Name | Type | Description  | Notes
 
 # **deposittransitchequeGetCommunicationListV1**
 ```swift
-    open class func deposittransitchequeGetCommunicationListV1(pkiDeposittransitchequeID: Int, completion: @escaping (_ data: DeposittransitchequeGetCommunicationListV1Response?, _ error: Error?) -> Void)
+    open class func deposittransitchequeGetCommunicationListV1(pkiDeposittransitchequeID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DeposittransitchequeGetCommunicationListV1Response
 ```
 
 Retrieve Communication list
@@ -175,15 +163,11 @@ import EzmaxApi
 let pkiDeposittransitchequeID = 987 // Int | 
 
 // Retrieve Communication list
-ObjectDeposittransitchequeAPI.deposittransitchequeGetCommunicationListV1(pkiDeposittransitchequeID: pkiDeposittransitchequeID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDeposittransitchequeAPI.deposittransitchequeGetCommunicationListV1(pkiDeposittransitchequeID: pkiDeposittransitchequeID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -210,7 +194,7 @@ Name | Type | Description  | Notes
 
 # **deposittransitchequeGetCommunicationrecipientsV1**
 ```swift
-    open class func deposittransitchequeGetCommunicationrecipientsV1(pkiDeposittransitchequeID: Int, completion: @escaping (_ data: DeposittransitchequeGetCommunicationrecipientsV1Response?, _ error: Error?) -> Void)
+    open class func deposittransitchequeGetCommunicationrecipientsV1(pkiDeposittransitchequeID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DeposittransitchequeGetCommunicationrecipientsV1Response
 ```
 
 Retrieve Communication recipients
@@ -223,15 +207,11 @@ import EzmaxApi
 let pkiDeposittransitchequeID = 987 // Int | 
 
 // Retrieve Communication recipients
-ObjectDeposittransitchequeAPI.deposittransitchequeGetCommunicationrecipientsV1(pkiDeposittransitchequeID: pkiDeposittransitchequeID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDeposittransitchequeAPI.deposittransitchequeGetCommunicationrecipientsV1(pkiDeposittransitchequeID: pkiDeposittransitchequeID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -258,7 +238,7 @@ Name | Type | Description  | Notes
 
 # **deposittransitchequeGetCommunicationsendersV1**
 ```swift
-    open class func deposittransitchequeGetCommunicationsendersV1(pkiDeposittransitchequeID: Int, completion: @escaping (_ data: DeposittransitchequeGetCommunicationsendersV1Response?, _ error: Error?) -> Void)
+    open class func deposittransitchequeGetCommunicationsendersV1(pkiDeposittransitchequeID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DeposittransitchequeGetCommunicationsendersV1Response
 ```
 
 Retrieve Communication senders
@@ -271,15 +251,11 @@ import EzmaxApi
 let pkiDeposittransitchequeID = 987 // Int | 
 
 // Retrieve Communication senders
-ObjectDeposittransitchequeAPI.deposittransitchequeGetCommunicationsendersV1(pkiDeposittransitchequeID: pkiDeposittransitchequeID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDeposittransitchequeAPI.deposittransitchequeGetCommunicationsendersV1(pkiDeposittransitchequeID: pkiDeposittransitchequeID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -306,7 +282,7 @@ Name | Type | Description  | Notes
 
 # **deposittransitchequeGetListV1**
 ```swift
-    open class func deposittransitchequeGetListV1(eOrderBy: EOrderBy_deposittransitchequeGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: DeposittransitchequeGetListV1Response?, _ error: Error?) -> Void)
+    open class func deposittransitchequeGetListV1(eOrderBy: EOrderBy_deposittransitchequeGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DeposittransitchequeGetListV1Response
 ```
 
 Retrieve Deposittransitcheque list
@@ -325,15 +301,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Deposittransitcheque list
-ObjectDeposittransitchequeAPI.deposittransitchequeGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDeposittransitchequeAPI.deposittransitchequeGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -364,7 +336,7 @@ Name | Type | Description  | Notes
 
 # **deposittransitchequeImportIntoEDMV1**
 ```swift
-    open class func deposittransitchequeImportIntoEDMV1(pkiDeposittransitchequeID: Int, deposittransitchequeImportIntoEDMV1Request: DeposittransitchequeImportIntoEDMV1Request, completion: @escaping (_ data: DeposittransitchequeImportIntoEDMV1Response?, _ error: Error?) -> Void)
+    open class func deposittransitchequeImportIntoEDMV1(pkiDeposittransitchequeID: Int, deposittransitchequeImportIntoEDMV1Request: DeposittransitchequeImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DeposittransitchequeImportIntoEDMV1Response
 ```
 
 Import attachments into the Deposittransitcheque
@@ -378,15 +350,11 @@ let pkiDeposittransitchequeID = 987 // Int |
 let deposittransitchequeImportIntoEDMV1Request = deposittransitcheque-importIntoEDM-v1-Request(aObjAttachment: [Custom-AttachmentImportIntoEDM-Request(eAttachmentSource: "eAttachmentSource_example", fkiAttachmentID: 123, fkiInscriptionchecklistID: 123, sAttachmentUrl: "sAttachmentUrl_example", sAttachmentBase64: 123, sAttachmentName: "sAttachmentName_example", sAttachmentCategory: "sAttachmentCategory_example", eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123, sAttachmentMD5: "sAttachmentMD5_example", bAttachmentForceoverwrite: false, bAttachmentForcerestore: false)]) // DeposittransitchequeImportIntoEDMV1Request | 
 
 // Import attachments into the Deposittransitcheque
-ObjectDeposittransitchequeAPI.deposittransitchequeImportIntoEDMV1(pkiDeposittransitchequeID: pkiDeposittransitchequeID, deposittransitchequeImportIntoEDMV1Request: deposittransitchequeImportIntoEDMV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDeposittransitchequeAPI.deposittransitchequeImportIntoEDMV1(pkiDeposittransitchequeID: pkiDeposittransitchequeID, deposittransitchequeImportIntoEDMV1Request: deposittransitchequeImportIntoEDMV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

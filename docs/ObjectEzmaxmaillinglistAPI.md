@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **ezmaxmaillinglistGetListV1**
 ```swift
-    open class func ezmaxmaillinglistGetListV1(eOrderBy: EOrderBy_ezmaxmaillinglistGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: EzmaxmaillinglistGetListV1Response?, _ error: Error?) -> Void)
+    open class func ezmaxmaillinglistGetListV1(eOrderBy: EOrderBy_ezmaxmaillinglistGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzmaxmaillinglistGetListV1Response
 ```
 
 Retrieve Ezmaxmaillinglist list
@@ -28,15 +28,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Ezmaxmaillinglist list
-ObjectEzmaxmaillinglistAPI.ezmaxmaillinglistGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzmaxmaillinglistAPI.ezmaxmaillinglistGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

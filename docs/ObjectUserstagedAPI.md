@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 # **userstagedCreateUserV1**
 ```swift
-    open class func userstagedCreateUserV1(pkiUserstagedID: Int, body: JSONValue, completion: @escaping (_ data: UserstagedCreateUserV1Response?, _ error: Error?) -> Void)
+    open class func userstagedCreateUserV1(pkiUserstagedID: Int, body: JSONValue, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UserstagedCreateUserV1Response
 ```
 
 Create a User from a Userstaged and then map it
@@ -29,15 +29,11 @@ let pkiUserstagedID = 987 // Int |
 let body = "TODO" // JSONValue | 
 
 // Create a User from a Userstaged and then map it
-ObjectUserstagedAPI.userstagedCreateUserV1(pkiUserstagedID: pkiUserstagedID, body: body) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUserstagedAPI.userstagedCreateUserV1(pkiUserstagedID: pkiUserstagedID, body: body)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -65,7 +61,7 @@ Name | Type | Description  | Notes
 
 # **userstagedDeleteObjectV1**
 ```swift
-    open class func userstagedDeleteObjectV1(pkiUserstagedID: Int, completion: @escaping (_ data: UserstagedDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func userstagedDeleteObjectV1(pkiUserstagedID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UserstagedDeleteObjectV1Response
 ```
 
 Delete an existing Userstaged
@@ -80,15 +76,11 @@ import EzmaxApi
 let pkiUserstagedID = 987 // Int | 
 
 // Delete an existing Userstaged
-ObjectUserstagedAPI.userstagedDeleteObjectV1(pkiUserstagedID: pkiUserstagedID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUserstagedAPI.userstagedDeleteObjectV1(pkiUserstagedID: pkiUserstagedID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -115,7 +107,7 @@ Name | Type | Description  | Notes
 
 # **userstagedGetListV1**
 ```swift
-    open class func userstagedGetListV1(eOrderBy: EOrderBy_userstagedGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: UserstagedGetListV1Response?, _ error: Error?) -> Void)
+    open class func userstagedGetListV1(eOrderBy: EOrderBy_userstagedGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UserstagedGetListV1Response
 ```
 
 Retrieve Userstaged list
@@ -134,15 +126,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Userstaged list
-ObjectUserstagedAPI.userstagedGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUserstagedAPI.userstagedGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -173,7 +161,7 @@ Name | Type | Description  | Notes
 
 # **userstagedGetObjectV2**
 ```swift
-    open class func userstagedGetObjectV2(pkiUserstagedID: Int, completion: @escaping (_ data: UserstagedGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func userstagedGetObjectV2(pkiUserstagedID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UserstagedGetObjectV2Response
 ```
 
 Retrieve an existing Userstaged
@@ -188,15 +176,11 @@ import EzmaxApi
 let pkiUserstagedID = 987 // Int | 
 
 // Retrieve an existing Userstaged
-ObjectUserstagedAPI.userstagedGetObjectV2(pkiUserstagedID: pkiUserstagedID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUserstagedAPI.userstagedGetObjectV2(pkiUserstagedID: pkiUserstagedID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -223,7 +207,7 @@ Name | Type | Description  | Notes
 
 # **userstagedMapV1**
 ```swift
-    open class func userstagedMapV1(pkiUserstagedID: Int, userstagedMapV1Request: UserstagedMapV1Request, completion: @escaping (_ data: UserstagedMapV1Response?, _ error: Error?) -> Void)
+    open class func userstagedMapV1(pkiUserstagedID: Int, userstagedMapV1Request: UserstagedMapV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> UserstagedMapV1Response
 ```
 
 Map the Userstaged to an existing user
@@ -239,15 +223,11 @@ let pkiUserstagedID = 987 // Int |
 let userstagedMapV1Request = userstaged-map-v1-Request(fkiUserID: 123) // UserstagedMapV1Request | 
 
 // Map the Userstaged to an existing user
-ObjectUserstagedAPI.userstagedMapV1(pkiUserstagedID: pkiUserstagedID, userstagedMapV1Request: userstagedMapV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectUserstagedAPI.userstagedMapV1(pkiUserstagedID: pkiUserstagedID, userstagedMapV1Request: userstagedMapV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 # **ezsignbulksendsignermappingCreateObjectV1**
 ```swift
-    open class func ezsignbulksendsignermappingCreateObjectV1(ezsignbulksendsignermappingCreateObjectV1Request: EzsignbulksendsignermappingCreateObjectV1Request, completion: @escaping (_ data: EzsignbulksendsignermappingCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignbulksendsignermappingCreateObjectV1(ezsignbulksendsignermappingCreateObjectV1Request: EzsignbulksendsignermappingCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignbulksendsignermappingCreateObjectV1Response
 ```
 
 Create a new Ezsignbulksendsignermapping
@@ -28,15 +28,11 @@ import EzmaxApi
 let ezsignbulksendsignermappingCreateObjectV1Request = ezsignbulksendsignermapping-createObject-v1-Request(aObjEzsignbulksendsignermapping: [ezsignbulksendsignermapping-RequestCompound(pkiEzsignbulksendsignermappingID: 123, fkiEzsignbulksendID: 123, fkiUserID: 123, bEzsignbulksendsignermappingReceivecopy: false, sEzsignbulksendsignermappingDescription: "sEzsignbulksendsignermappingDescription_example")]) // EzsignbulksendsignermappingCreateObjectV1Request | 
 
 // Create a new Ezsignbulksendsignermapping
-ObjectEzsignbulksendsignermappingAPI.ezsignbulksendsignermappingCreateObjectV1(ezsignbulksendsignermappingCreateObjectV1Request: ezsignbulksendsignermappingCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignbulksendsignermappingAPI.ezsignbulksendsignermappingCreateObjectV1(ezsignbulksendsignermappingCreateObjectV1Request: ezsignbulksendsignermappingCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -63,7 +59,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendsignermappingCreateObjectV2**
 ```swift
-    open class func ezsignbulksendsignermappingCreateObjectV2(ezsignbulksendsignermappingCreateObjectV2Request: EzsignbulksendsignermappingCreateObjectV2Request, completion: @escaping (_ data: EzsignbulksendsignermappingCreateObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsignbulksendsignermappingCreateObjectV2(ezsignbulksendsignermappingCreateObjectV2Request: EzsignbulksendsignermappingCreateObjectV2Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignbulksendsignermappingCreateObjectV2Response
 ```
 
 Create a new Ezsignbulksendsignermapping
@@ -78,15 +74,11 @@ import EzmaxApi
 let ezsignbulksendsignermappingCreateObjectV2Request = ezsignbulksendsignermapping-createObject-v2-Request(aObjEzsignbulksendsignermapping: [ezsignbulksendsignermapping-RequestCompoundV2(pkiEzsignbulksendsignermappingID: 123, fkiEzsignbulksendID: 123, fkiUserID: 123, eEzsignbulksendsignermappingRole: Field-eEzsignbulksendsignermappingRole(), sEzsignbulksendsignermappingDescription: "sEzsignbulksendsignermappingDescription_example")]) // EzsignbulksendsignermappingCreateObjectV2Request | 
 
 // Create a new Ezsignbulksendsignermapping
-ObjectEzsignbulksendsignermappingAPI.ezsignbulksendsignermappingCreateObjectV2(ezsignbulksendsignermappingCreateObjectV2Request: ezsignbulksendsignermappingCreateObjectV2Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignbulksendsignermappingAPI.ezsignbulksendsignermappingCreateObjectV2(ezsignbulksendsignermappingCreateObjectV2Request: ezsignbulksendsignermappingCreateObjectV2Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -113,7 +105,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendsignermappingDeleteObjectV1**
 ```swift
-    open class func ezsignbulksendsignermappingDeleteObjectV1(pkiEzsignbulksendsignermappingID: Int, completion: @escaping (_ data: EzsignbulksendsignermappingDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignbulksendsignermappingDeleteObjectV1(pkiEzsignbulksendsignermappingID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignbulksendsignermappingDeleteObjectV1Response
 ```
 
 Delete an existing Ezsignbulksendsignermapping
@@ -128,15 +120,11 @@ import EzmaxApi
 let pkiEzsignbulksendsignermappingID = 987 // Int | 
 
 // Delete an existing Ezsignbulksendsignermapping
-ObjectEzsignbulksendsignermappingAPI.ezsignbulksendsignermappingDeleteObjectV1(pkiEzsignbulksendsignermappingID: pkiEzsignbulksendsignermappingID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignbulksendsignermappingAPI.ezsignbulksendsignermappingDeleteObjectV1(pkiEzsignbulksendsignermappingID: pkiEzsignbulksendsignermappingID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -163,7 +151,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendsignermappingGetObjectV2**
 ```swift
-    open class func ezsignbulksendsignermappingGetObjectV2(pkiEzsignbulksendsignermappingID: Int, completion: @escaping (_ data: EzsignbulksendsignermappingGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsignbulksendsignermappingGetObjectV2(pkiEzsignbulksendsignermappingID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignbulksendsignermappingGetObjectV2Response
 ```
 
 Retrieve an existing Ezsignbulksendsignermapping
@@ -178,15 +166,11 @@ import EzmaxApi
 let pkiEzsignbulksendsignermappingID = 987 // Int | 
 
 // Retrieve an existing Ezsignbulksendsignermapping
-ObjectEzsignbulksendsignermappingAPI.ezsignbulksendsignermappingGetObjectV2(pkiEzsignbulksendsignermappingID: pkiEzsignbulksendsignermappingID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignbulksendsignermappingAPI.ezsignbulksendsignermappingGetObjectV2(pkiEzsignbulksendsignermappingID: pkiEzsignbulksendsignermappingID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -213,7 +197,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendsignermappingGetObjectV3**
 ```swift
-    open class func ezsignbulksendsignermappingGetObjectV3(pkiEzsignbulksendsignermappingID: Int, completion: @escaping (_ data: EzsignbulksendsignermappingGetObjectV3Response?, _ error: Error?) -> Void)
+    open class func ezsignbulksendsignermappingGetObjectV3(pkiEzsignbulksendsignermappingID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignbulksendsignermappingGetObjectV3Response
 ```
 
 Retrieve an existing Ezsignbulksendsignermapping
@@ -228,15 +212,11 @@ import EzmaxApi
 let pkiEzsignbulksendsignermappingID = 987 // Int | 
 
 // Retrieve an existing Ezsignbulksendsignermapping
-ObjectEzsignbulksendsignermappingAPI.ezsignbulksendsignermappingGetObjectV3(pkiEzsignbulksendsignermappingID: pkiEzsignbulksendsignermappingID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignbulksendsignermappingAPI.ezsignbulksendsignermappingGetObjectV3(pkiEzsignbulksendsignermappingID: pkiEzsignbulksendsignermappingID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

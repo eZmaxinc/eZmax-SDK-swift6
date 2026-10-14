@@ -10,12 +10,13 @@ Method | HTTP request | Description
 [**electronicfundstransferGetCommunicationListV1**](ObjectElectronicfundstransferAPI.md#electronicfundstransfergetcommunicationlistv1) | **GET** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationList | Retrieve Communication list
 [**electronicfundstransferGetCommunicationrecipientsV1**](ObjectElectronicfundstransferAPI.md#electronicfundstransfergetcommunicationrecipientsv1) | **GET** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationrecipients | Retrieve Electronicfundstransfer&#39;s Communicationrecipient
 [**electronicfundstransferGetCommunicationsendersV1**](ObjectElectronicfundstransferAPI.md#electronicfundstransfergetcommunicationsendersv1) | **GET** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationsenders | Retrieve Electronicfundstransfer&#39;s Communicationsender
+[**electronicfundstransferGetListV1**](ObjectElectronicfundstransferAPI.md#electronicfundstransfergetlistv1) | **GET** /1/object/electronicfundstransfer/getList | Retrieve Electronicfundstransfer list
 [**electronicfundstransferImportIntoEDMV1**](ObjectElectronicfundstransferAPI.md#electronicfundstransferimportintoedmv1) | **POST** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/importIntoEDM | Import attachments into the Electronicfundstransfer
 
 
 # **electronicfundstransferBatchDownloadV1**
 ```swift
-    open class func electronicfundstransferBatchDownloadV1(pkiElectronicfundstransferID: Int, electronicfundstransferBatchDownloadV1Request: ElectronicfundstransferBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func electronicfundstransferBatchDownloadV1(pkiElectronicfundstransferID: Int, electronicfundstransferBatchDownloadV1Request: ElectronicfundstransferBatchDownloadV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> URL
 ```
 
 Download multiples attachments from an Electronicfundstransfer
@@ -29,15 +30,11 @@ let pkiElectronicfundstransferID = 987 // Int |
 let electronicfundstransferBatchDownloadV1Request = electronicfundstransfer-batchDownload-v1-Request(aPkiAttachmentID: [123]) // ElectronicfundstransferBatchDownloadV1Request | 
 
 // Download multiples attachments from an Electronicfundstransfer
-ObjectElectronicfundstransferAPI.electronicfundstransferBatchDownloadV1(pkiElectronicfundstransferID: pkiElectronicfundstransferID, electronicfundstransferBatchDownloadV1Request: electronicfundstransferBatchDownloadV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectElectronicfundstransferAPI.electronicfundstransferBatchDownloadV1(pkiElectronicfundstransferID: pkiElectronicfundstransferID, electronicfundstransferBatchDownloadV1Request: electronicfundstransferBatchDownloadV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -65,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **electronicfundstransferGetAttachmentsV1**
 ```swift
-    open class func electronicfundstransferGetAttachmentsV1(pkiElectronicfundstransferID: Int, completion: @escaping (_ data: ElectronicfundstransferGetAttachmentsV1Response?, _ error: Error?) -> Void)
+    open class func electronicfundstransferGetAttachmentsV1(pkiElectronicfundstransferID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ElectronicfundstransferGetAttachmentsV1Response
 ```
 
 Retrieve Electronicfundstransfer's attachments
@@ -78,15 +75,11 @@ import EzmaxApi
 let pkiElectronicfundstransferID = 987 // Int | 
 
 // Retrieve Electronicfundstransfer's attachments
-ObjectElectronicfundstransferAPI.electronicfundstransferGetAttachmentsV1(pkiElectronicfundstransferID: pkiElectronicfundstransferID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectElectronicfundstransferAPI.electronicfundstransferGetAttachmentsV1(pkiElectronicfundstransferID: pkiElectronicfundstransferID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -113,7 +106,7 @@ Name | Type | Description  | Notes
 
 # **electronicfundstransferGetCommunicationCountV1**
 ```swift
-    open class func electronicfundstransferGetCommunicationCountV1(pkiElectronicfundstransferID: Int, completion: @escaping (_ data: ElectronicfundstransferGetCommunicationCountV1Response?, _ error: Error?) -> Void)
+    open class func electronicfundstransferGetCommunicationCountV1(pkiElectronicfundstransferID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ElectronicfundstransferGetCommunicationCountV1Response
 ```
 
 Retrieve Communication count
@@ -128,15 +121,11 @@ import EzmaxApi
 let pkiElectronicfundstransferID = 987 // Int | 
 
 // Retrieve Communication count
-ObjectElectronicfundstransferAPI.electronicfundstransferGetCommunicationCountV1(pkiElectronicfundstransferID: pkiElectronicfundstransferID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectElectronicfundstransferAPI.electronicfundstransferGetCommunicationCountV1(pkiElectronicfundstransferID: pkiElectronicfundstransferID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -163,7 +152,7 @@ Name | Type | Description  | Notes
 
 # **electronicfundstransferGetCommunicationListV1**
 ```swift
-    open class func electronicfundstransferGetCommunicationListV1(pkiElectronicfundstransferID: Int, completion: @escaping (_ data: ElectronicfundstransferGetCommunicationListV1Response?, _ error: Error?) -> Void)
+    open class func electronicfundstransferGetCommunicationListV1(pkiElectronicfundstransferID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ElectronicfundstransferGetCommunicationListV1Response
 ```
 
 Retrieve Communication list
@@ -178,15 +167,11 @@ import EzmaxApi
 let pkiElectronicfundstransferID = 987 // Int | 
 
 // Retrieve Communication list
-ObjectElectronicfundstransferAPI.electronicfundstransferGetCommunicationListV1(pkiElectronicfundstransferID: pkiElectronicfundstransferID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectElectronicfundstransferAPI.electronicfundstransferGetCommunicationListV1(pkiElectronicfundstransferID: pkiElectronicfundstransferID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -213,7 +198,7 @@ Name | Type | Description  | Notes
 
 # **electronicfundstransferGetCommunicationrecipientsV1**
 ```swift
-    open class func electronicfundstransferGetCommunicationrecipientsV1(pkiElectronicfundstransferID: Int, completion: @escaping (_ data: ElectronicfundstransferGetCommunicationrecipientsV1Response?, _ error: Error?) -> Void)
+    open class func electronicfundstransferGetCommunicationrecipientsV1(pkiElectronicfundstransferID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ElectronicfundstransferGetCommunicationrecipientsV1Response
 ```
 
 Retrieve Electronicfundstransfer's Communicationrecipient
@@ -228,15 +213,11 @@ import EzmaxApi
 let pkiElectronicfundstransferID = 987 // Int | 
 
 // Retrieve Electronicfundstransfer's Communicationrecipient
-ObjectElectronicfundstransferAPI.electronicfundstransferGetCommunicationrecipientsV1(pkiElectronicfundstransferID: pkiElectronicfundstransferID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectElectronicfundstransferAPI.electronicfundstransferGetCommunicationrecipientsV1(pkiElectronicfundstransferID: pkiElectronicfundstransferID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -263,7 +244,7 @@ Name | Type | Description  | Notes
 
 # **electronicfundstransferGetCommunicationsendersV1**
 ```swift
-    open class func electronicfundstransferGetCommunicationsendersV1(pkiElectronicfundstransferID: Int, completion: @escaping (_ data: ElectronicfundstransferGetCommunicationsendersV1Response?, _ error: Error?) -> Void)
+    open class func electronicfundstransferGetCommunicationsendersV1(pkiElectronicfundstransferID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ElectronicfundstransferGetCommunicationsendersV1Response
 ```
 
 Retrieve Electronicfundstransfer's Communicationsender
@@ -278,15 +259,11 @@ import EzmaxApi
 let pkiElectronicfundstransferID = 987 // Int | 
 
 // Retrieve Electronicfundstransfer's Communicationsender
-ObjectElectronicfundstransferAPI.electronicfundstransferGetCommunicationsendersV1(pkiElectronicfundstransferID: pkiElectronicfundstransferID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectElectronicfundstransferAPI.electronicfundstransferGetCommunicationsendersV1(pkiElectronicfundstransferID: pkiElectronicfundstransferID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -311,9 +288,63 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **electronicfundstransferGetListV1**
+```swift
+    open class func electronicfundstransferGetListV1(eOrderBy: EOrderBy_electronicfundstransferGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ElectronicfundstransferGetListV1Response
+```
+
+Retrieve Electronicfundstransfer list
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let eOrderBy = "eOrderBy_example" // String | Specify how you want the results to be sorted (optional)
+let iRowMax = 987 // Int |  (optional)
+let iRowOffset = 987 // Int |  (optional) (default to 0)
+let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
+let sFilter = "sFilter_example" // String |  (optional)
+
+// Retrieve Electronicfundstransfer list
+do {
+    let response = try await ObjectElectronicfundstransferAPI.electronicfundstransferGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **eOrderBy** | **String** | Specify how you want the results to be sorted | [optional] 
+ **iRowMax** | **Int** |  | [optional] 
+ **iRowOffset** | **Int** |  | [optional] [default to 0]
+ **acceptLanguage** | [**HeaderAcceptLanguage**](.md) |  | [optional] 
+ **sFilter** | **String** |  | [optional] 
+
+### Return type
+
+[**ElectronicfundstransferGetListV1Response**](ElectronicfundstransferGetListV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **electronicfundstransferImportIntoEDMV1**
 ```swift
-    open class func electronicfundstransferImportIntoEDMV1(pkiElectronicfundstransferID: Int, electronicfundstransferImportIntoEDMV1Request: ElectronicfundstransferImportIntoEDMV1Request, completion: @escaping (_ data: ElectronicfundstransferImportIntoEDMV1Response?, _ error: Error?) -> Void)
+    open class func electronicfundstransferImportIntoEDMV1(pkiElectronicfundstransferID: Int, electronicfundstransferImportIntoEDMV1Request: ElectronicfundstransferImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ElectronicfundstransferImportIntoEDMV1Response
 ```
 
 Import attachments into the Electronicfundstransfer
@@ -329,15 +360,11 @@ let pkiElectronicfundstransferID = 987 // Int |
 let electronicfundstransferImportIntoEDMV1Request = electronicfundstransfer-importIntoEDM-v1-Request(aObjAttachment: [Custom-AttachmentImportIntoEDM-Request(eAttachmentSource: "eAttachmentSource_example", fkiAttachmentID: 123, fkiInscriptionchecklistID: 123, sAttachmentUrl: "sAttachmentUrl_example", sAttachmentBase64: 123, sAttachmentName: "sAttachmentName_example", sAttachmentCategory: "sAttachmentCategory_example", eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123, sAttachmentMD5: "sAttachmentMD5_example", bAttachmentForceoverwrite: false, bAttachmentForcerestore: false)]) // ElectronicfundstransferImportIntoEDMV1Request | 
 
 // Import attachments into the Electronicfundstransfer
-ObjectElectronicfundstransferAPI.electronicfundstransferImportIntoEDMV1(pkiElectronicfundstransferID: pkiElectronicfundstransferID, electronicfundstransferImportIntoEDMV1Request: electronicfundstransferImportIntoEDMV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectElectronicfundstransferAPI.electronicfundstransferImportIntoEDMV1(pkiElectronicfundstransferID: pkiElectronicfundstransferID, electronicfundstransferImportIntoEDMV1Request: electronicfundstransferImportIntoEDMV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

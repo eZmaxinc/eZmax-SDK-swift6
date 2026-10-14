@@ -54,7 +54,7 @@ Method | HTTP request | Description
 
 # **ezsigndocumentApplyEzsigntemplateV1**
 ```swift
-    open class func ezsigndocumentApplyEzsigntemplateV1(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateV1Request: EzsigndocumentApplyEzsigntemplateV1Request, completion: @escaping (_ data: EzsigndocumentApplyEzsigntemplateV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentApplyEzsigntemplateV1(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateV1Request: EzsigndocumentApplyEzsigntemplateV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentApplyEzsigntemplateV1Response
 ```
 
 Apply an Ezsigntemplate to the Ezsigndocument
@@ -70,15 +70,11 @@ let pkiEzsigndocumentID = 987 // Int |
 let ezsigndocumentApplyEzsigntemplateV1Request = ezsigndocument-applyEzsigntemplate-v1-Request(fkiEzsigntemplateID: 123, aSEzsigntemplatesigner: ["aSEzsigntemplatesigner_example"], aPkiEzsignfoldersignerassociationID: [123]) // EzsigndocumentApplyEzsigntemplateV1Request | 
 
 // Apply an Ezsigntemplate to the Ezsigndocument
-ObjectEzsigndocumentAPI.ezsigndocumentApplyEzsigntemplateV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentApplyEzsigntemplateV1Request: ezsigndocumentApplyEzsigntemplateV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentApplyEzsigntemplateV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentApplyEzsigntemplateV1Request: ezsigndocumentApplyEzsigntemplateV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -106,7 +102,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentApplyEzsigntemplateV2**
 ```swift
-    open class func ezsigndocumentApplyEzsigntemplateV2(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateV2Request: EzsigndocumentApplyEzsigntemplateV2Request, completion: @escaping (_ data: EzsigndocumentApplyEzsigntemplateV2Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentApplyEzsigntemplateV2(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateV2Request: EzsigndocumentApplyEzsigntemplateV2Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentApplyEzsigntemplateV2Response
 ```
 
 Apply an Ezsigntemplate to the Ezsigndocument
@@ -122,15 +118,11 @@ let pkiEzsigndocumentID = 987 // Int |
 let ezsigndocumentApplyEzsigntemplateV2Request = ezsigndocument-applyEzsigntemplate-v2-Request(fkiEzsigntemplateID: 123, aSEzsigntemplatesigner: ["aSEzsigntemplatesigner_example"], aPkiEzsignfoldersignerassociationID: [123]) // EzsigndocumentApplyEzsigntemplateV2Request | 
 
 // Apply an Ezsigntemplate to the Ezsigndocument
-ObjectEzsigndocumentAPI.ezsigndocumentApplyEzsigntemplateV2(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentApplyEzsigntemplateV2Request: ezsigndocumentApplyEzsigntemplateV2Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentApplyEzsigntemplateV2(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentApplyEzsigntemplateV2Request: ezsigndocumentApplyEzsigntemplateV2Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -158,7 +150,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentApplyEzsigntemplateV3**
 ```swift
-    open class func ezsigndocumentApplyEzsigntemplateV3(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateV3Request: EzsigndocumentApplyEzsigntemplateV3Request, completion: @escaping (_ data: EzsigndocumentApplyEzsigntemplateV3Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentApplyEzsigntemplateV3(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateV3Request: EzsigndocumentApplyEzsigntemplateV3Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentApplyEzsigntemplateV3Response
 ```
 
 Apply an Ezsigntemplate to the Ezsigndocument
@@ -174,15 +166,11 @@ let pkiEzsigndocumentID = 987 // Int |
 let ezsigndocumentApplyEzsigntemplateV3Request = ezsigndocument-applyEzsigntemplate-v3-Request(fkiEzsigntemplateID: 123, aSEzsigntemplatesigner: ["aSEzsigntemplatesigner_example"], aFkiEzsignfoldersignerassociationID: [123], aSEzsigntemplateannotationDescription: ["aSEzsigntemplateannotationDescription_example"], aSEzsigntemplateannotationDefaulttext: ["aSEzsigntemplateannotationDefaulttext_example"]) // EzsigndocumentApplyEzsigntemplateV3Request | 
 
 // Apply an Ezsigntemplate to the Ezsigndocument
-ObjectEzsigndocumentAPI.ezsigndocumentApplyEzsigntemplateV3(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentApplyEzsigntemplateV3Request: ezsigndocumentApplyEzsigntemplateV3Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentApplyEzsigntemplateV3(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentApplyEzsigntemplateV3Request: ezsigndocumentApplyEzsigntemplateV3Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -210,7 +198,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentApplyEzsigntemplateglobalV1**
 ```swift
-    open class func ezsigndocumentApplyEzsigntemplateglobalV1(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateglobalV1Request: EzsigndocumentApplyEzsigntemplateglobalV1Request, completion: @escaping (_ data: EzsigndocumentApplyEzsigntemplateglobalV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentApplyEzsigntemplateglobalV1(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateglobalV1Request: EzsigndocumentApplyEzsigntemplateglobalV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentApplyEzsigntemplateglobalV1Response
 ```
 
 Apply an Ezsigntemplateglobal to the Ezsigndocument
@@ -226,15 +214,11 @@ let pkiEzsigndocumentID = 987 // Int |
 let ezsigndocumentApplyEzsigntemplateglobalV1Request = ezsigndocument-applyEzsigntemplateglobal-v1-Request(fkiEzsigntemplateglobalID: 123, aSEzsigntemplateglobalsigner: ["aSEzsigntemplateglobalsigner_example"], aPkiEzsignfoldersignerassociationID: [123]) // EzsigndocumentApplyEzsigntemplateglobalV1Request | 
 
 // Apply an Ezsigntemplateglobal to the Ezsigndocument
-ObjectEzsigndocumentAPI.ezsigndocumentApplyEzsigntemplateglobalV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentApplyEzsigntemplateglobalV1Request: ezsigndocumentApplyEzsigntemplateglobalV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentApplyEzsigntemplateglobalV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentApplyEzsigntemplateglobalV1Request: ezsigndocumentApplyEzsigntemplateglobalV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -262,7 +246,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentApplyEzsigntemplateglobalV2**
 ```swift
-    open class func ezsigndocumentApplyEzsigntemplateglobalV2(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateglobalV2Request: EzsigndocumentApplyEzsigntemplateglobalV2Request, completion: @escaping (_ data: EzsigndocumentApplyEzsigntemplateglobalV2Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentApplyEzsigntemplateglobalV2(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateglobalV2Request: EzsigndocumentApplyEzsigntemplateglobalV2Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentApplyEzsigntemplateglobalV2Response
 ```
 
 Apply an Ezsigntemplateglobal to the Ezsigndocument
@@ -278,15 +262,11 @@ let pkiEzsigndocumentID = 987 // Int |
 let ezsigndocumentApplyEzsigntemplateglobalV2Request = ezsigndocument-applyEzsigntemplateglobal-v2-Request(fkiEzsigntemplateglobalID: 123, aSEzsigntemplateglobalsigner: ["aSEzsigntemplateglobalsigner_example"], aFkiEzsignfoldersignerassociationID: [123], aSEzsigntemplateglobalannotationDescription: ["aSEzsigntemplateglobalannotationDescription_example"], aSEzsigntemplateglobalannotationDefaulttext: ["aSEzsigntemplateglobalannotationDefaulttext_example"]) // EzsigndocumentApplyEzsigntemplateglobalV2Request | 
 
 // Apply an Ezsigntemplateglobal to the Ezsigndocument
-ObjectEzsigndocumentAPI.ezsigndocumentApplyEzsigntemplateglobalV2(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentApplyEzsigntemplateglobalV2Request: ezsigndocumentApplyEzsigntemplateglobalV2Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentApplyEzsigntemplateglobalV2(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentApplyEzsigntemplateglobalV2Request: ezsigndocumentApplyEzsigntemplateglobalV2Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -314,7 +294,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentCreateEzsignelementsPositionedByWordV1**
 ```swift
-    open class func ezsigndocumentCreateEzsignelementsPositionedByWordV1(pkiEzsigndocumentID: Int, ezsigndocumentCreateEzsignelementsPositionedByWordV1Request: EzsigndocumentCreateEzsignelementsPositionedByWordV1Request, completion: @escaping (_ data: EzsigndocumentCreateEzsignelementsPositionedByWordV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentCreateEzsignelementsPositionedByWordV1(pkiEzsigndocumentID: Int, ezsigndocumentCreateEzsignelementsPositionedByWordV1Request: EzsigndocumentCreateEzsignelementsPositionedByWordV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentCreateEzsignelementsPositionedByWordV1Response
 ```
 
 Create multiple Ezsignsignatures/Ezsignformfieldgroups
@@ -330,15 +310,11 @@ let pkiEzsigndocumentID = 987 // Int |
 let ezsigndocumentCreateEzsignelementsPositionedByWordV1Request = ezsigndocument-createEzsignelementsPositionedByWord-v1-Request(aObjEzsignformfieldgroup: [Custom-EzsignformfieldgroupCreateEzsignelementsPositionedByWord-Request(pkiEzsignformfieldgroupID: 123, fkiEzsigndocumentID: 123, eEzsignformfieldgroupType: Field-eEzsignformfieldgroupType(), eEzsignformfieldgroupSignerrequirement: Field-eEzsignformfieldgroupSignerrequirement(), sEzsignformfieldgroupLabel: "sEzsignformfieldgroupLabel_example", iEzsignformfieldgroupStep: 123, sEzsignformfieldgroupDefaultvalue: "sEzsignformfieldgroupDefaultvalue_example", iEzsignformfieldgroupFilledmin: 123, iEzsignformfieldgroupFilledmax: 123, bEzsignformfieldgroupReadonly: false, iEzsignformfieldgroupMaxlength: 123, bEzsignformfieldgroupEncrypted: false, sEzsignformfieldgroupRegexp: "sEzsignformfieldgroupRegexp_example", sEzsignformfieldgroupTextvalidationcustommessage: "sEzsignformfieldgroupTextvalidationcustommessage_example", tEzsignformfieldgroupTooltip: "tEzsignformfieldgroupTooltip_example", eEzsignformfieldgroupTooltipposition: Field-eEzsignformfieldgroupTooltipposition(), eEzsignformfieldgroupTextvalidation: Enum-Textvalidation(), aObjEzsignformfieldgroupsigner: [ezsignformfieldgroupsigner-RequestCompound(pkiEzsignformfieldgroupsignerID: 123, fkiEzsignfoldersignerassociationID: 123)], aObjDropdownElement: [Custom-DropdownElement-RequestCompound(sLabel: "sLabel_example", sValue: "sValue_example")], aObjEzsignformfield: [ezsignformfield-RequestCompound(pkiEzsignformfieldID: 123, iEzsignpagePagenumber: 123, sEzsignformfieldLabel: "sEzsignformfieldLabel_example", sEzsignformfieldValue: "sEzsignformfieldValue_example", iEzsignformfieldX: 123, iEzsignformfieldY: 123, iEzsignformfieldWidth: 123, iEzsignformfieldHeight: 123, bEzsignformfieldAutocomplete: false, bEzsignformfieldSelected: false, sEzsignformfieldEnteredvalue: "sEzsignformfieldEnteredvalue_example", eEzsignformfieldDependencyrequirement: Field-eEzsignformfieldDependencyrequirement(), eEzsignformfieldHorizontalalignment: Enum-Horizontalalignment(), objTextstylestatic: textstylestatic-RequestCompound(fkiFontID: 123, bTextstylestaticBold: true, bTextstylestaticUnderline: true, bTextstylestaticItalic: true, bTextstylestaticStrikethrough: true, iTextstylestaticFontcolor: 123, iTextstylestaticSize: 123), aObjEzsignelementdependency: [ezsignelementdependency-RequestCompound(pkiEzsignelementdependencyID: 123, fkiEzsignformfieldIDValidation: 123, fkiEzsignformfieldgroupIDValidation: 123, sEzsignelementdependencyEzsignformfieldgrouplabel: "sEzsignelementdependencyEzsignformfieldgrouplabel_example", sEzsignelementdependencyEzsignformfieldlabel: "sEzsignelementdependencyEzsignformfieldlabel_example", eEzsignelementdependencyValidation: Field-eEzsignelementdependencyValidation(), bEzsignelementdependencySelected: false, eEzsignelementdependencyOperator: Field-eEzsignelementdependencyOperator(), sEzsignelementdependencyValue: "sEzsignelementdependencyValue_example")])], objCreateezsignelementspositionedbyword: Custom-CreateEzsignelementsPositionedByWord-Request(sCreateezsignelementspositionedbywordPattern: "sCreateezsignelementspositionedbywordPattern_example", iCreateezsignelementspositionedbywordOffsetx: 123, iCreateezsignelementspositionedbywordOffsety: 123, eCreateezsignelementspositionedbywordOccurance: "eCreateezsignelementspositionedbywordOccurance_example"))], aObjEzsignsignature: [Custom-EzsignsignatureCreateEzsignelementsPositionedByWord-Request(pkiEzsignsignatureID: 123, fkiEzsignfoldersignerassociationID: 123, fkiPaymentgatewayID: 123, iEzsignpagePagenumber: 123, iEzsignsignatureX: 123, iEzsignsignatureY: 123, iEzsignsignatureWidth: 123, iEzsignsignatureHeight: 123, iEzsignsignatureStep: 123, eEzsignsignatureType: Field-eEzsignsignatureType(), eEzsignsignatureSignaturepad: Field-eEzsignsignatureSignaturepad(), eEzsignsignatureSignaturepadrequired: Field-eEzsignsignatureSignaturepadrequired(), fkiEzsigndocumentID: 123, tEzsignsignatureTooltip: "tEzsignsignatureTooltip_example", eEzsignsignatureTooltipposition: Field-eEzsignsignatureTooltipposition(), eEzsignsignatureFont: Field-eEzsignsignatureFont(), fkiEzsignfoldersignerassociationIDValidation: 123, bEzsignsignatureHandwritten: false, bEzsignsignatureReason: false, bEzsignsignatureRequired: false, eEzsignsignatureAttachmentnamesource: Field-eEzsignsignatureAttachmentnamesource(), sEzsignsignatureAttachmentdescription: "sEzsignsignatureAttachmentdescription_example", eEzsignsignatureConsultationtrigger: Field-eEzsignsignatureConsultationtrigger(), iEzsignsignatureValidationstep: 123, iEzsignsignatureMaxlength: 123, sEzsignsignatureDefaultvalue: "sEzsignsignatureDefaultvalue_example", eEzsignsignatureTextvalidation: nil, sEzsignsignatureTextvalidationcustommessage: "sEzsignsignatureTextvalidationcustommessage_example", sEzsignsignatureRegexp: "sEzsignsignatureRegexp_example", eEzsignsignatureDependencyrequirement: Field-eEzsignsignatureDependencyrequirement(), sEzsignsignatureCreditcardamountdescription: "sEzsignsignatureCreditcardamountdescription_example", dEzsignsignatureCreditcardamount: "dEzsignsignatureCreditcardamount_example", bEzsignsignatureCreditcardcustomamount: false, bEzsignsignatureCustomdate: false, aObjEzsignsignaturecustomdate: [ezsignsignaturecustomdate-RequestCompound(pkiEzsignsignaturecustomdateID: 123, iEzsignsignaturecustomdateX: 123, iEzsignsignaturecustomdateY: 123, iEzsignsignaturecustomdateOffsetx: 123, iEzsignsignaturecustomdateOffsety: 123, sEzsignsignaturecustomdateFormat: "sEzsignsignaturecustomdateFormat_example")], aObjEzsignelementdependency: [nil], aObjEzsignsignaturepaymentdetail: [ezsignsignaturepaymentdetail-RequestCompound(pkiEzsignsignaturepaymentdetailID: 123, fkiGlaccountcontainerID: 123, tEzsignsignaturepaymentdetailDescription: "tEzsignsignaturepaymentdetailDescription_example", dEzsignsignaturepaymentdetailAmount: "dEzsignsignaturepaymentdetailAmount_example", eEzsignsignaturepaymentdetailTaxable: Field-eEzsignsignaturepaymentdetailTaxable())], objCreateezsignelementspositionedbyword: nil)]) // EzsigndocumentCreateEzsignelementsPositionedByWordV1Request | 
 
 // Create multiple Ezsignsignatures/Ezsignformfieldgroups
-ObjectEzsigndocumentAPI.ezsigndocumentCreateEzsignelementsPositionedByWordV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentCreateEzsignelementsPositionedByWordV1Request: ezsigndocumentCreateEzsignelementsPositionedByWordV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentCreateEzsignelementsPositionedByWordV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentCreateEzsignelementsPositionedByWordV1Request: ezsigndocumentCreateEzsignelementsPositionedByWordV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -366,7 +342,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentCreateEzsignelementsPositionedByWordV2**
 ```swift
-    open class func ezsigndocumentCreateEzsignelementsPositionedByWordV2(pkiEzsigndocumentID: Int, ezsigndocumentCreateEzsignelementsPositionedByWordV2Request: EzsigndocumentCreateEzsignelementsPositionedByWordV2Request, completion: @escaping (_ data: EzsigndocumentCreateEzsignelementsPositionedByWordV2Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentCreateEzsignelementsPositionedByWordV2(pkiEzsigndocumentID: Int, ezsigndocumentCreateEzsignelementsPositionedByWordV2Request: EzsigndocumentCreateEzsignelementsPositionedByWordV2Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentCreateEzsignelementsPositionedByWordV2Response
 ```
 
 Create multiple Ezsignsignatures/Ezsignformfieldgroups
@@ -382,15 +358,11 @@ let pkiEzsigndocumentID = 987 // Int |
 let ezsigndocumentCreateEzsignelementsPositionedByWordV2Request = ezsigndocument-createEzsignelementsPositionedByWord-v2-Request(aObjEzsignformfieldgroup: [Custom-EzsignformfieldgroupCreateEzsignelementsPositionedByWord-Request(pkiEzsignformfieldgroupID: 123, fkiEzsigndocumentID: 123, eEzsignformfieldgroupType: Field-eEzsignformfieldgroupType(), eEzsignformfieldgroupSignerrequirement: Field-eEzsignformfieldgroupSignerrequirement(), sEzsignformfieldgroupLabel: "sEzsignformfieldgroupLabel_example", iEzsignformfieldgroupStep: 123, sEzsignformfieldgroupDefaultvalue: "sEzsignformfieldgroupDefaultvalue_example", iEzsignformfieldgroupFilledmin: 123, iEzsignformfieldgroupFilledmax: 123, bEzsignformfieldgroupReadonly: false, iEzsignformfieldgroupMaxlength: 123, bEzsignformfieldgroupEncrypted: false, sEzsignformfieldgroupRegexp: "sEzsignformfieldgroupRegexp_example", sEzsignformfieldgroupTextvalidationcustommessage: "sEzsignformfieldgroupTextvalidationcustommessage_example", tEzsignformfieldgroupTooltip: "tEzsignformfieldgroupTooltip_example", eEzsignformfieldgroupTooltipposition: Field-eEzsignformfieldgroupTooltipposition(), eEzsignformfieldgroupTextvalidation: Enum-Textvalidation(), aObjEzsignformfieldgroupsigner: [ezsignformfieldgroupsigner-RequestCompound(pkiEzsignformfieldgroupsignerID: 123, fkiEzsignfoldersignerassociationID: 123)], aObjDropdownElement: [Custom-DropdownElement-RequestCompound(sLabel: "sLabel_example", sValue: "sValue_example")], aObjEzsignformfield: [ezsignformfield-RequestCompound(pkiEzsignformfieldID: 123, iEzsignpagePagenumber: 123, sEzsignformfieldLabel: "sEzsignformfieldLabel_example", sEzsignformfieldValue: "sEzsignformfieldValue_example", iEzsignformfieldX: 123, iEzsignformfieldY: 123, iEzsignformfieldWidth: 123, iEzsignformfieldHeight: 123, bEzsignformfieldAutocomplete: false, bEzsignformfieldSelected: false, sEzsignformfieldEnteredvalue: "sEzsignformfieldEnteredvalue_example", eEzsignformfieldDependencyrequirement: Field-eEzsignformfieldDependencyrequirement(), eEzsignformfieldHorizontalalignment: Enum-Horizontalalignment(), objTextstylestatic: textstylestatic-RequestCompound(fkiFontID: 123, bTextstylestaticBold: true, bTextstylestaticUnderline: true, bTextstylestaticItalic: true, bTextstylestaticStrikethrough: true, iTextstylestaticFontcolor: 123, iTextstylestaticSize: 123), aObjEzsignelementdependency: [ezsignelementdependency-RequestCompound(pkiEzsignelementdependencyID: 123, fkiEzsignformfieldIDValidation: 123, fkiEzsignformfieldgroupIDValidation: 123, sEzsignelementdependencyEzsignformfieldgrouplabel: "sEzsignelementdependencyEzsignformfieldgrouplabel_example", sEzsignelementdependencyEzsignformfieldlabel: "sEzsignelementdependencyEzsignformfieldlabel_example", eEzsignelementdependencyValidation: Field-eEzsignelementdependencyValidation(), bEzsignelementdependencySelected: false, eEzsignelementdependencyOperator: Field-eEzsignelementdependencyOperator(), sEzsignelementdependencyValue: "sEzsignelementdependencyValue_example")])], objCreateezsignelementspositionedbyword: Custom-CreateEzsignelementsPositionedByWord-Request(sCreateezsignelementspositionedbywordPattern: "sCreateezsignelementspositionedbywordPattern_example", iCreateezsignelementspositionedbywordOffsetx: 123, iCreateezsignelementspositionedbywordOffsety: 123, eCreateezsignelementspositionedbywordOccurance: "eCreateezsignelementspositionedbywordOccurance_example"))], aObjEzsignsignature: [Custom-EzsignsignatureCreateEzsignelementsPositionedByWord-Request(pkiEzsignsignatureID: 123, fkiEzsignfoldersignerassociationID: 123, fkiPaymentgatewayID: 123, iEzsignpagePagenumber: 123, iEzsignsignatureX: 123, iEzsignsignatureY: 123, iEzsignsignatureWidth: 123, iEzsignsignatureHeight: 123, iEzsignsignatureStep: 123, eEzsignsignatureType: Field-eEzsignsignatureType(), eEzsignsignatureSignaturepad: Field-eEzsignsignatureSignaturepad(), eEzsignsignatureSignaturepadrequired: Field-eEzsignsignatureSignaturepadrequired(), fkiEzsigndocumentID: 123, tEzsignsignatureTooltip: "tEzsignsignatureTooltip_example", eEzsignsignatureTooltipposition: Field-eEzsignsignatureTooltipposition(), eEzsignsignatureFont: Field-eEzsignsignatureFont(), fkiEzsignfoldersignerassociationIDValidation: 123, bEzsignsignatureHandwritten: false, bEzsignsignatureReason: false, bEzsignsignatureRequired: false, eEzsignsignatureAttachmentnamesource: Field-eEzsignsignatureAttachmentnamesource(), sEzsignsignatureAttachmentdescription: "sEzsignsignatureAttachmentdescription_example", eEzsignsignatureConsultationtrigger: Field-eEzsignsignatureConsultationtrigger(), iEzsignsignatureValidationstep: 123, iEzsignsignatureMaxlength: 123, sEzsignsignatureDefaultvalue: "sEzsignsignatureDefaultvalue_example", eEzsignsignatureTextvalidation: nil, sEzsignsignatureTextvalidationcustommessage: "sEzsignsignatureTextvalidationcustommessage_example", sEzsignsignatureRegexp: "sEzsignsignatureRegexp_example", eEzsignsignatureDependencyrequirement: Field-eEzsignsignatureDependencyrequirement(), sEzsignsignatureCreditcardamountdescription: "sEzsignsignatureCreditcardamountdescription_example", dEzsignsignatureCreditcardamount: "dEzsignsignatureCreditcardamount_example", bEzsignsignatureCreditcardcustomamount: false, bEzsignsignatureCustomdate: false, aObjEzsignsignaturecustomdate: [ezsignsignaturecustomdate-RequestCompound(pkiEzsignsignaturecustomdateID: 123, iEzsignsignaturecustomdateX: 123, iEzsignsignaturecustomdateY: 123, iEzsignsignaturecustomdateOffsetx: 123, iEzsignsignaturecustomdateOffsety: 123, sEzsignsignaturecustomdateFormat: "sEzsignsignaturecustomdateFormat_example")], aObjEzsignelementdependency: [nil], aObjEzsignsignaturepaymentdetail: [ezsignsignaturepaymentdetail-RequestCompound(pkiEzsignsignaturepaymentdetailID: 123, fkiGlaccountcontainerID: 123, tEzsignsignaturepaymentdetailDescription: "tEzsignsignaturepaymentdetailDescription_example", dEzsignsignaturepaymentdetailAmount: "dEzsignsignaturepaymentdetailAmount_example", eEzsignsignaturepaymentdetailTaxable: Field-eEzsignsignaturepaymentdetailTaxable())], objCreateezsignelementspositionedbyword: nil)]) // EzsigndocumentCreateEzsignelementsPositionedByWordV2Request | 
 
 // Create multiple Ezsignsignatures/Ezsignformfieldgroups
-ObjectEzsigndocumentAPI.ezsigndocumentCreateEzsignelementsPositionedByWordV2(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentCreateEzsignelementsPositionedByWordV2Request: ezsigndocumentCreateEzsignelementsPositionedByWordV2Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentCreateEzsignelementsPositionedByWordV2(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentCreateEzsignelementsPositionedByWordV2Request: ezsigndocumentCreateEzsignelementsPositionedByWordV2Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -418,7 +390,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentCreateObjectV1**
 ```swift
-    open class func ezsigndocumentCreateObjectV1(ezsigndocumentCreateObjectV1Request: [EzsigndocumentCreateObjectV1Request], completion: @escaping (_ data: EzsigndocumentCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentCreateObjectV1(ezsigndocumentCreateObjectV1Request: [EzsigndocumentCreateObjectV1Request], apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentCreateObjectV1Response
 ```
 
 Create a new Ezsigndocument
@@ -433,15 +405,11 @@ import EzmaxApi
 let ezsigndocumentCreateObjectV1Request = [ezsigndocument-createObject-v1-Request(objEzsigndocument: ezsigndocument-Request(pkiEzsigndocumentID: 123, fkiEzsignfolderID: 123, fkiEzsigntemplateID: 123, fkiEzsignfoldersignerassociationID: 123, fkiEzsignimportdocumentID: 123, fkiLanguageID: 123, eEzsigndocumentSource: "eEzsigndocumentSource_example", eEzsigndocumentFormat: "eEzsigndocumentFormat_example", sEzsigndocumentBase64: 123, sEzsigndocumentUrl: "sEzsigndocumentUrl_example", bEzsigndocumentForcerepair: false, sEzsigndocumentPassword: "sEzsigndocumentPassword_example", eEzsigndocumentForm: "eEzsigndocumentForm_example", dtEzsigndocumentDuedate: "dtEzsigndocumentDuedate_example", sEzsigndocumentName: "sEzsigndocumentName_example", sEzsigndocumentExternalid: "sEzsigndocumentExternalid_example"), objEzsigndocumentCompound: ezsigndocument-RequestCompound(pkiEzsigndocumentID: 123, fkiEzsignfolderID: 123, fkiEzsigntemplateID: 123, fkiEzsignfoldersignerassociationID: 123, fkiEzsignimportdocumentID: 123, fkiLanguageID: 123, eEzsigndocumentSource: "eEzsigndocumentSource_example", eEzsigndocumentFormat: "eEzsigndocumentFormat_example", sEzsigndocumentBase64: 123, sEzsigndocumentUrl: "sEzsigndocumentUrl_example", bEzsigndocumentForcerepair: false, sEzsigndocumentPassword: "sEzsigndocumentPassword_example", eEzsigndocumentForm: "eEzsigndocumentForm_example", dtEzsigndocumentDuedate: "dtEzsigndocumentDuedate_example", sEzsigndocumentName: "sEzsigndocumentName_example", sEzsigndocumentExternalid: "sEzsigndocumentExternalid_example"))] // [EzsigndocumentCreateObjectV1Request] | 
 
 // Create a new Ezsigndocument
-ObjectEzsigndocumentAPI.ezsigndocumentCreateObjectV1(ezsigndocumentCreateObjectV1Request: ezsigndocumentCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentCreateObjectV1(ezsigndocumentCreateObjectV1Request: ezsigndocumentCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -468,7 +436,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentCreateObjectV2**
 ```swift
-    open class func ezsigndocumentCreateObjectV2(ezsigndocumentCreateObjectV2Request: EzsigndocumentCreateObjectV2Request, completion: @escaping (_ data: EzsigndocumentCreateObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentCreateObjectV2(ezsigndocumentCreateObjectV2Request: EzsigndocumentCreateObjectV2Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentCreateObjectV2Response
 ```
 
 Create a new Ezsigndocument
@@ -483,15 +451,11 @@ import EzmaxApi
 let ezsigndocumentCreateObjectV2Request = ezsigndocument-createObject-v2-Request(aObjEzsigndocument: [ezsigndocument-RequestCompound(pkiEzsigndocumentID: 123, fkiEzsignfolderID: 123, fkiEzsigntemplateID: 123, fkiEzsignfoldersignerassociationID: 123, fkiEzsignimportdocumentID: 123, fkiLanguageID: 123, eEzsigndocumentSource: "eEzsigndocumentSource_example", eEzsigndocumentFormat: "eEzsigndocumentFormat_example", sEzsigndocumentBase64: 123, sEzsigndocumentUrl: "sEzsigndocumentUrl_example", bEzsigndocumentForcerepair: false, sEzsigndocumentPassword: "sEzsigndocumentPassword_example", eEzsigndocumentForm: "eEzsigndocumentForm_example", dtEzsigndocumentDuedate: "dtEzsigndocumentDuedate_example", sEzsigndocumentName: "sEzsigndocumentName_example", sEzsigndocumentExternalid: "sEzsigndocumentExternalid_example")]) // EzsigndocumentCreateObjectV2Request | 
 
 // Create a new Ezsigndocument
-ObjectEzsigndocumentAPI.ezsigndocumentCreateObjectV2(ezsigndocumentCreateObjectV2Request: ezsigndocumentCreateObjectV2Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentCreateObjectV2(ezsigndocumentCreateObjectV2Request: ezsigndocumentCreateObjectV2Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -518,7 +482,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentCreateObjectV3**
 ```swift
-    open class func ezsigndocumentCreateObjectV3(ezsigndocumentCreateObjectV3Request: EzsigndocumentCreateObjectV3Request, completion: @escaping (_ data: EzsigndocumentCreateObjectV3Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentCreateObjectV3(ezsigndocumentCreateObjectV3Request: EzsigndocumentCreateObjectV3Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentCreateObjectV3Response
 ```
 
 Create a new Ezsigndocument
@@ -533,15 +497,11 @@ import EzmaxApi
 let ezsigndocumentCreateObjectV3Request = ezsigndocument-createObject-v3-Request(aObjEzsigndocument: [ezsigndocument-RequestCompound(pkiEzsigndocumentID: 123, fkiEzsignfolderID: 123, fkiEzsigntemplateID: 123, fkiEzsignfoldersignerassociationID: 123, fkiEzsignimportdocumentID: 123, fkiLanguageID: 123, eEzsigndocumentSource: "eEzsigndocumentSource_example", eEzsigndocumentFormat: "eEzsigndocumentFormat_example", sEzsigndocumentBase64: 123, sEzsigndocumentUrl: "sEzsigndocumentUrl_example", bEzsigndocumentForcerepair: false, sEzsigndocumentPassword: "sEzsigndocumentPassword_example", eEzsigndocumentForm: "eEzsigndocumentForm_example", dtEzsigndocumentDuedate: "dtEzsigndocumentDuedate_example", sEzsigndocumentName: "sEzsigndocumentName_example", sEzsigndocumentExternalid: "sEzsigndocumentExternalid_example")]) // EzsigndocumentCreateObjectV3Request | 
 
 // Create a new Ezsigndocument
-ObjectEzsigndocumentAPI.ezsigndocumentCreateObjectV3(ezsigndocumentCreateObjectV3Request: ezsigndocumentCreateObjectV3Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentCreateObjectV3(ezsigndocumentCreateObjectV3Request: ezsigndocumentCreateObjectV3Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -568,7 +528,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentDeclineToSignV1**
 ```swift
-    open class func ezsigndocumentDeclineToSignV1(pkiEzsigndocumentID: Int, ezsigndocumentDeclineToSignV1Request: EzsigndocumentDeclineToSignV1Request, completion: @escaping (_ data: EzsigndocumentDeclineToSignV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentDeclineToSignV1(pkiEzsigndocumentID: Int, ezsigndocumentDeclineToSignV1Request: EzsigndocumentDeclineToSignV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentDeclineToSignV1Response
 ```
 
 Decline to sign
@@ -584,15 +544,11 @@ let pkiEzsigndocumentID = 987 // Int |
 let ezsigndocumentDeclineToSignV1Request = ezsigndocument-declineToSign-v1-Request(sReason: "sReason_example") // EzsigndocumentDeclineToSignV1Request | 
 
 // Decline to sign
-ObjectEzsigndocumentAPI.ezsigndocumentDeclineToSignV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentDeclineToSignV1Request: ezsigndocumentDeclineToSignV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentDeclineToSignV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentDeclineToSignV1Request: ezsigndocumentDeclineToSignV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -620,7 +576,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentDeleteObjectV1**
 ```swift
-    open class func ezsigndocumentDeleteObjectV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentDeleteObjectV1(pkiEzsigndocumentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentDeleteObjectV1Response
 ```
 
 Delete an existing Ezsigndocument
@@ -635,15 +591,11 @@ import EzmaxApi
 let pkiEzsigndocumentID = 987 // Int | 
 
 // Delete an existing Ezsigndocument
-ObjectEzsigndocumentAPI.ezsigndocumentDeleteObjectV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentDeleteObjectV1(pkiEzsigndocumentID: pkiEzsigndocumentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -670,7 +622,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentEditEzsignannotationsV1**
 ```swift
-    open class func ezsigndocumentEditEzsignannotationsV1(pkiEzsigndocumentID: Int, ezsigndocumentEditEzsignannotationsV1Request: EzsigndocumentEditEzsignannotationsV1Request, completion: @escaping (_ data: EzsigndocumentEditEzsignannotationsV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentEditEzsignannotationsV1(pkiEzsigndocumentID: Int, ezsigndocumentEditEzsignannotationsV1Request: EzsigndocumentEditEzsignannotationsV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentEditEzsignannotationsV1Response
 ```
 
 Edit multiple Ezsignannotations
@@ -686,15 +638,11 @@ let pkiEzsigndocumentID = 987 // Int |
 let ezsigndocumentEditEzsignannotationsV1Request = ezsigndocument-editEzsignannotations-v1-Request(aObjEzsignannotation: [ezsignannotation-RequestCompound(pkiEzsignannotationID: 123, fkiEzsigndocumentID: 123, eEzsignannotationHorizontalalignment: Enum-Horizontalalignment(), eEzsignannotationVerticalalignment: Enum-Verticalalignment(), eEzsignannotationType: Field-eEzsignannotationType(), iEzsignannotationX: 123, iEzsignannotationY: 123, iEzsignannotationWidth: 123, iEzsignannotationHeight: 123, sEzsignannotationText: "sEzsignannotationText_example", iEzsignpagePagenumber: 123, objTextstylestatic: textstylestatic-RequestCompound(fkiFontID: 123, bTextstylestaticBold: true, bTextstylestaticUnderline: true, bTextstylestaticItalic: true, bTextstylestaticStrikethrough: true, iTextstylestaticFontcolor: 123, iTextstylestaticSize: 123))]) // EzsigndocumentEditEzsignannotationsV1Request | 
 
 // Edit multiple Ezsignannotations
-ObjectEzsigndocumentAPI.ezsigndocumentEditEzsignannotationsV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentEditEzsignannotationsV1Request: ezsigndocumentEditEzsignannotationsV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentEditEzsignannotationsV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentEditEzsignannotationsV1Request: ezsigndocumentEditEzsignannotationsV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -722,7 +670,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentEditEzsignformfieldgroupsV1**
 ```swift
-    open class func ezsigndocumentEditEzsignformfieldgroupsV1(pkiEzsigndocumentID: Int, ezsigndocumentEditEzsignformfieldgroupsV1Request: EzsigndocumentEditEzsignformfieldgroupsV1Request, completion: @escaping (_ data: EzsigndocumentEditEzsignformfieldgroupsV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentEditEzsignformfieldgroupsV1(pkiEzsigndocumentID: Int, ezsigndocumentEditEzsignformfieldgroupsV1Request: EzsigndocumentEditEzsignformfieldgroupsV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentEditEzsignformfieldgroupsV1Response
 ```
 
 Edit multiple Ezsignformfieldgroups
@@ -738,15 +686,11 @@ let pkiEzsigndocumentID = 987 // Int |
 let ezsigndocumentEditEzsignformfieldgroupsV1Request = ezsigndocument-editEzsignformfieldgroups-v1-Request(aObjEzsignformfieldgroup: [ezsignformfieldgroup-RequestCompound(pkiEzsignformfieldgroupID: 123, fkiEzsigndocumentID: 123, eEzsignformfieldgroupType: Field-eEzsignformfieldgroupType(), eEzsignformfieldgroupSignerrequirement: Field-eEzsignformfieldgroupSignerrequirement(), sEzsignformfieldgroupLabel: "sEzsignformfieldgroupLabel_example", iEzsignformfieldgroupStep: 123, sEzsignformfieldgroupDefaultvalue: "sEzsignformfieldgroupDefaultvalue_example", iEzsignformfieldgroupFilledmin: 123, iEzsignformfieldgroupFilledmax: 123, bEzsignformfieldgroupReadonly: false, iEzsignformfieldgroupMaxlength: 123, bEzsignformfieldgroupEncrypted: false, sEzsignformfieldgroupRegexp: "sEzsignformfieldgroupRegexp_example", sEzsignformfieldgroupTextvalidationcustommessage: "sEzsignformfieldgroupTextvalidationcustommessage_example", tEzsignformfieldgroupTooltip: "tEzsignformfieldgroupTooltip_example", eEzsignformfieldgroupTooltipposition: Field-eEzsignformfieldgroupTooltipposition(), eEzsignformfieldgroupTextvalidation: Enum-Textvalidation(), aObjEzsignformfieldgroupsigner: [ezsignformfieldgroupsigner-RequestCompound(pkiEzsignformfieldgroupsignerID: 123, fkiEzsignfoldersignerassociationID: 123)], aObjDropdownElement: [Custom-DropdownElement-RequestCompound(sLabel: "sLabel_example", sValue: "sValue_example")], aObjEzsignformfield: [ezsignformfield-RequestCompound(pkiEzsignformfieldID: 123, iEzsignpagePagenumber: 123, sEzsignformfieldLabel: "sEzsignformfieldLabel_example", sEzsignformfieldValue: "sEzsignformfieldValue_example", iEzsignformfieldX: 123, iEzsignformfieldY: 123, iEzsignformfieldWidth: 123, iEzsignformfieldHeight: 123, bEzsignformfieldAutocomplete: false, bEzsignformfieldSelected: false, sEzsignformfieldEnteredvalue: "sEzsignformfieldEnteredvalue_example", eEzsignformfieldDependencyrequirement: Field-eEzsignformfieldDependencyrequirement(), eEzsignformfieldHorizontalalignment: Enum-Horizontalalignment(), objTextstylestatic: textstylestatic-RequestCompound(fkiFontID: 123, bTextstylestaticBold: true, bTextstylestaticUnderline: true, bTextstylestaticItalic: true, bTextstylestaticStrikethrough: true, iTextstylestaticFontcolor: 123, iTextstylestaticSize: 123), aObjEzsignelementdependency: [ezsignelementdependency-RequestCompound(pkiEzsignelementdependencyID: 123, fkiEzsignformfieldIDValidation: 123, fkiEzsignformfieldgroupIDValidation: 123, sEzsignelementdependencyEzsignformfieldgrouplabel: "sEzsignelementdependencyEzsignformfieldgrouplabel_example", sEzsignelementdependencyEzsignformfieldlabel: "sEzsignelementdependencyEzsignformfieldlabel_example", eEzsignelementdependencyValidation: Field-eEzsignelementdependencyValidation(), bEzsignelementdependencySelected: false, eEzsignelementdependencyOperator: Field-eEzsignelementdependencyOperator(), sEzsignelementdependencyValue: "sEzsignelementdependencyValue_example")])])]) // EzsigndocumentEditEzsignformfieldgroupsV1Request | 
 
 // Edit multiple Ezsignformfieldgroups
-ObjectEzsigndocumentAPI.ezsigndocumentEditEzsignformfieldgroupsV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentEditEzsignformfieldgroupsV1Request: ezsigndocumentEditEzsignformfieldgroupsV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentEditEzsignformfieldgroupsV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentEditEzsignformfieldgroupsV1Request: ezsigndocumentEditEzsignformfieldgroupsV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -774,7 +718,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentEditEzsignformfieldgroupsV2**
 ```swift
-    open class func ezsigndocumentEditEzsignformfieldgroupsV2(pkiEzsigndocumentID: Int, ezsigndocumentEditEzsignformfieldgroupsV2Request: EzsigndocumentEditEzsignformfieldgroupsV2Request, completion: @escaping (_ data: EzsigndocumentEditEzsignformfieldgroupsV2Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentEditEzsignformfieldgroupsV2(pkiEzsigndocumentID: Int, ezsigndocumentEditEzsignformfieldgroupsV2Request: EzsigndocumentEditEzsignformfieldgroupsV2Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentEditEzsignformfieldgroupsV2Response
 ```
 
 Edit multiple Ezsignformfieldgroups
@@ -790,15 +734,11 @@ let pkiEzsigndocumentID = 987 // Int |
 let ezsigndocumentEditEzsignformfieldgroupsV2Request = ezsigndocument-editEzsignformfieldgroups-v2-Request(aObjEzsignformfieldgroup: [ezsignformfieldgroup-RequestCompound(pkiEzsignformfieldgroupID: 123, fkiEzsigndocumentID: 123, eEzsignformfieldgroupType: Field-eEzsignformfieldgroupType(), eEzsignformfieldgroupSignerrequirement: Field-eEzsignformfieldgroupSignerrequirement(), sEzsignformfieldgroupLabel: "sEzsignformfieldgroupLabel_example", iEzsignformfieldgroupStep: 123, sEzsignformfieldgroupDefaultvalue: "sEzsignformfieldgroupDefaultvalue_example", iEzsignformfieldgroupFilledmin: 123, iEzsignformfieldgroupFilledmax: 123, bEzsignformfieldgroupReadonly: false, iEzsignformfieldgroupMaxlength: 123, bEzsignformfieldgroupEncrypted: false, sEzsignformfieldgroupRegexp: "sEzsignformfieldgroupRegexp_example", sEzsignformfieldgroupTextvalidationcustommessage: "sEzsignformfieldgroupTextvalidationcustommessage_example", tEzsignformfieldgroupTooltip: "tEzsignformfieldgroupTooltip_example", eEzsignformfieldgroupTooltipposition: Field-eEzsignformfieldgroupTooltipposition(), eEzsignformfieldgroupTextvalidation: Enum-Textvalidation(), aObjEzsignformfieldgroupsigner: [ezsignformfieldgroupsigner-RequestCompound(pkiEzsignformfieldgroupsignerID: 123, fkiEzsignfoldersignerassociationID: 123)], aObjDropdownElement: [Custom-DropdownElement-RequestCompound(sLabel: "sLabel_example", sValue: "sValue_example")], aObjEzsignformfield: [ezsignformfield-RequestCompound(pkiEzsignformfieldID: 123, iEzsignpagePagenumber: 123, sEzsignformfieldLabel: "sEzsignformfieldLabel_example", sEzsignformfieldValue: "sEzsignformfieldValue_example", iEzsignformfieldX: 123, iEzsignformfieldY: 123, iEzsignformfieldWidth: 123, iEzsignformfieldHeight: 123, bEzsignformfieldAutocomplete: false, bEzsignformfieldSelected: false, sEzsignformfieldEnteredvalue: "sEzsignformfieldEnteredvalue_example", eEzsignformfieldDependencyrequirement: Field-eEzsignformfieldDependencyrequirement(), eEzsignformfieldHorizontalalignment: Enum-Horizontalalignment(), objTextstylestatic: textstylestatic-RequestCompound(fkiFontID: 123, bTextstylestaticBold: true, bTextstylestaticUnderline: true, bTextstylestaticItalic: true, bTextstylestaticStrikethrough: true, iTextstylestaticFontcolor: 123, iTextstylestaticSize: 123), aObjEzsignelementdependency: [ezsignelementdependency-RequestCompound(pkiEzsignelementdependencyID: 123, fkiEzsignformfieldIDValidation: 123, fkiEzsignformfieldgroupIDValidation: 123, sEzsignelementdependencyEzsignformfieldgrouplabel: "sEzsignelementdependencyEzsignformfieldgrouplabel_example", sEzsignelementdependencyEzsignformfieldlabel: "sEzsignelementdependencyEzsignformfieldlabel_example", eEzsignelementdependencyValidation: Field-eEzsignelementdependencyValidation(), bEzsignelementdependencySelected: false, eEzsignelementdependencyOperator: Field-eEzsignelementdependencyOperator(), sEzsignelementdependencyValue: "sEzsignelementdependencyValue_example")])])]) // EzsigndocumentEditEzsignformfieldgroupsV2Request | 
 
 // Edit multiple Ezsignformfieldgroups
-ObjectEzsigndocumentAPI.ezsigndocumentEditEzsignformfieldgroupsV2(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentEditEzsignformfieldgroupsV2Request: ezsigndocumentEditEzsignformfieldgroupsV2Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentEditEzsignformfieldgroupsV2(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentEditEzsignformfieldgroupsV2Request: ezsigndocumentEditEzsignformfieldgroupsV2Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -826,7 +766,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentEditEzsignsignaturesV1**
 ```swift
-    open class func ezsigndocumentEditEzsignsignaturesV1(pkiEzsigndocumentID: Int, ezsigndocumentEditEzsignsignaturesV1Request: EzsigndocumentEditEzsignsignaturesV1Request, completion: @escaping (_ data: EzsigndocumentEditEzsignsignaturesV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentEditEzsignsignaturesV1(pkiEzsigndocumentID: Int, ezsigndocumentEditEzsignsignaturesV1Request: EzsigndocumentEditEzsignsignaturesV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentEditEzsignsignaturesV1Response
 ```
 
 Edit multiple Ezsignsignatures
@@ -842,15 +782,11 @@ let pkiEzsigndocumentID = 987 // Int |
 let ezsigndocumentEditEzsignsignaturesV1Request = ezsigndocument-editEzsignsignatures-v1-Request(aObjEzsignsignature: [ezsignsignature-RequestCompound(pkiEzsignsignatureID: 123, fkiEzsignfoldersignerassociationID: 123, fkiPaymentgatewayID: 123, iEzsignpagePagenumber: 123, iEzsignsignatureX: 123, iEzsignsignatureY: 123, iEzsignsignatureWidth: 123, iEzsignsignatureHeight: 123, iEzsignsignatureStep: 123, eEzsignsignatureType: Field-eEzsignsignatureType(), eEzsignsignatureSignaturepad: Field-eEzsignsignatureSignaturepad(), eEzsignsignatureSignaturepadrequired: Field-eEzsignsignatureSignaturepadrequired(), fkiEzsigndocumentID: 123, tEzsignsignatureTooltip: "tEzsignsignatureTooltip_example", eEzsignsignatureTooltipposition: Field-eEzsignsignatureTooltipposition(), eEzsignsignatureFont: Field-eEzsignsignatureFont(), fkiEzsignfoldersignerassociationIDValidation: 123, bEzsignsignatureHandwritten: false, bEzsignsignatureReason: false, bEzsignsignatureRequired: false, eEzsignsignatureAttachmentnamesource: Field-eEzsignsignatureAttachmentnamesource(), sEzsignsignatureAttachmentdescription: "sEzsignsignatureAttachmentdescription_example", eEzsignsignatureConsultationtrigger: Field-eEzsignsignatureConsultationtrigger(), iEzsignsignatureValidationstep: 123, iEzsignsignatureMaxlength: 123, sEzsignsignatureDefaultvalue: "sEzsignsignatureDefaultvalue_example", eEzsignsignatureTextvalidation: Enum-Textvalidation(), sEzsignsignatureTextvalidationcustommessage: "sEzsignsignatureTextvalidationcustommessage_example", sEzsignsignatureRegexp: "sEzsignsignatureRegexp_example", eEzsignsignatureDependencyrequirement: Field-eEzsignsignatureDependencyrequirement(), sEzsignsignatureCreditcardamountdescription: "sEzsignsignatureCreditcardamountdescription_example", dEzsignsignatureCreditcardamount: "dEzsignsignatureCreditcardamount_example", bEzsignsignatureCreditcardcustomamount: false, bEzsignsignatureCustomdate: false, aObjEzsignsignaturecustomdate: [ezsignsignaturecustomdate-RequestCompound(pkiEzsignsignaturecustomdateID: 123, iEzsignsignaturecustomdateX: 123, iEzsignsignaturecustomdateY: 123, iEzsignsignaturecustomdateOffsetx: 123, iEzsignsignaturecustomdateOffsety: 123, sEzsignsignaturecustomdateFormat: "sEzsignsignaturecustomdateFormat_example")], aObjEzsignelementdependency: [ezsignelementdependency-RequestCompound(pkiEzsignelementdependencyID: 123, fkiEzsignformfieldIDValidation: 123, fkiEzsignformfieldgroupIDValidation: 123, sEzsignelementdependencyEzsignformfieldgrouplabel: "sEzsignelementdependencyEzsignformfieldgrouplabel_example", sEzsignelementdependencyEzsignformfieldlabel: "sEzsignelementdependencyEzsignformfieldlabel_example", eEzsignelementdependencyValidation: Field-eEzsignelementdependencyValidation(), bEzsignelementdependencySelected: false, eEzsignelementdependencyOperator: Field-eEzsignelementdependencyOperator(), sEzsignelementdependencyValue: "sEzsignelementdependencyValue_example")], aObjEzsignsignaturepaymentdetail: [ezsignsignaturepaymentdetail-RequestCompound(pkiEzsignsignaturepaymentdetailID: 123, fkiGlaccountcontainerID: 123, tEzsignsignaturepaymentdetailDescription: "tEzsignsignaturepaymentdetailDescription_example", dEzsignsignaturepaymentdetailAmount: "dEzsignsignaturepaymentdetailAmount_example", eEzsignsignaturepaymentdetailTaxable: Field-eEzsignsignaturepaymentdetailTaxable())])]) // EzsigndocumentEditEzsignsignaturesV1Request | 
 
 // Edit multiple Ezsignsignatures
-ObjectEzsigndocumentAPI.ezsigndocumentEditEzsignsignaturesV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentEditEzsignsignaturesV1Request: ezsigndocumentEditEzsignsignaturesV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentEditEzsignsignaturesV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentEditEzsignsignaturesV1Request: ezsigndocumentEditEzsignsignaturesV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -878,7 +814,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentEditEzsignsignaturesV2**
 ```swift
-    open class func ezsigndocumentEditEzsignsignaturesV2(pkiEzsigndocumentID: Int, ezsigndocumentEditEzsignsignaturesV2Request: EzsigndocumentEditEzsignsignaturesV2Request, completion: @escaping (_ data: EzsigndocumentEditEzsignsignaturesV2Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentEditEzsignsignaturesV2(pkiEzsigndocumentID: Int, ezsigndocumentEditEzsignsignaturesV2Request: EzsigndocumentEditEzsignsignaturesV2Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentEditEzsignsignaturesV2Response
 ```
 
 Edit multiple Ezsignsignatures
@@ -894,15 +830,11 @@ let pkiEzsigndocumentID = 987 // Int |
 let ezsigndocumentEditEzsignsignaturesV2Request = ezsigndocument-editEzsignsignatures-v2-Request(aObjEzsignsignature: [ezsignsignature-RequestCompound(pkiEzsignsignatureID: 123, fkiEzsignfoldersignerassociationID: 123, fkiPaymentgatewayID: 123, iEzsignpagePagenumber: 123, iEzsignsignatureX: 123, iEzsignsignatureY: 123, iEzsignsignatureWidth: 123, iEzsignsignatureHeight: 123, iEzsignsignatureStep: 123, eEzsignsignatureType: Field-eEzsignsignatureType(), eEzsignsignatureSignaturepad: Field-eEzsignsignatureSignaturepad(), eEzsignsignatureSignaturepadrequired: Field-eEzsignsignatureSignaturepadrequired(), fkiEzsigndocumentID: 123, tEzsignsignatureTooltip: "tEzsignsignatureTooltip_example", eEzsignsignatureTooltipposition: Field-eEzsignsignatureTooltipposition(), eEzsignsignatureFont: Field-eEzsignsignatureFont(), fkiEzsignfoldersignerassociationIDValidation: 123, bEzsignsignatureHandwritten: false, bEzsignsignatureReason: false, bEzsignsignatureRequired: false, eEzsignsignatureAttachmentnamesource: Field-eEzsignsignatureAttachmentnamesource(), sEzsignsignatureAttachmentdescription: "sEzsignsignatureAttachmentdescription_example", eEzsignsignatureConsultationtrigger: Field-eEzsignsignatureConsultationtrigger(), iEzsignsignatureValidationstep: 123, iEzsignsignatureMaxlength: 123, sEzsignsignatureDefaultvalue: "sEzsignsignatureDefaultvalue_example", eEzsignsignatureTextvalidation: Enum-Textvalidation(), sEzsignsignatureTextvalidationcustommessage: "sEzsignsignatureTextvalidationcustommessage_example", sEzsignsignatureRegexp: "sEzsignsignatureRegexp_example", eEzsignsignatureDependencyrequirement: Field-eEzsignsignatureDependencyrequirement(), sEzsignsignatureCreditcardamountdescription: "sEzsignsignatureCreditcardamountdescription_example", dEzsignsignatureCreditcardamount: "dEzsignsignatureCreditcardamount_example", bEzsignsignatureCreditcardcustomamount: false, bEzsignsignatureCustomdate: false, aObjEzsignsignaturecustomdate: [ezsignsignaturecustomdate-RequestCompound(pkiEzsignsignaturecustomdateID: 123, iEzsignsignaturecustomdateX: 123, iEzsignsignaturecustomdateY: 123, iEzsignsignaturecustomdateOffsetx: 123, iEzsignsignaturecustomdateOffsety: 123, sEzsignsignaturecustomdateFormat: "sEzsignsignaturecustomdateFormat_example")], aObjEzsignelementdependency: [ezsignelementdependency-RequestCompound(pkiEzsignelementdependencyID: 123, fkiEzsignformfieldIDValidation: 123, fkiEzsignformfieldgroupIDValidation: 123, sEzsignelementdependencyEzsignformfieldgrouplabel: "sEzsignelementdependencyEzsignformfieldgrouplabel_example", sEzsignelementdependencyEzsignformfieldlabel: "sEzsignelementdependencyEzsignformfieldlabel_example", eEzsignelementdependencyValidation: Field-eEzsignelementdependencyValidation(), bEzsignelementdependencySelected: false, eEzsignelementdependencyOperator: Field-eEzsignelementdependencyOperator(), sEzsignelementdependencyValue: "sEzsignelementdependencyValue_example")], aObjEzsignsignaturepaymentdetail: [ezsignsignaturepaymentdetail-RequestCompound(pkiEzsignsignaturepaymentdetailID: 123, fkiGlaccountcontainerID: 123, tEzsignsignaturepaymentdetailDescription: "tEzsignsignaturepaymentdetailDescription_example", dEzsignsignaturepaymentdetailAmount: "dEzsignsignaturepaymentdetailAmount_example", eEzsignsignaturepaymentdetailTaxable: Field-eEzsignsignaturepaymentdetailTaxable())])]) // EzsigndocumentEditEzsignsignaturesV2Request | 
 
 // Edit multiple Ezsignsignatures
-ObjectEzsigndocumentAPI.ezsigndocumentEditEzsignsignaturesV2(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentEditEzsignsignaturesV2Request: ezsigndocumentEditEzsignsignaturesV2Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentEditEzsignsignaturesV2(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentEditEzsignsignaturesV2Request: ezsigndocumentEditEzsignsignaturesV2Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -930,7 +862,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentEditObjectV1**
 ```swift
-    open class func ezsigndocumentEditObjectV1(pkiEzsigndocumentID: Int, ezsigndocumentEditObjectV1Request: EzsigndocumentEditObjectV1Request, completion: @escaping (_ data: EzsigndocumentEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentEditObjectV1(pkiEzsigndocumentID: Int, ezsigndocumentEditObjectV1Request: EzsigndocumentEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentEditObjectV1Response
 ```
 
 Edit an existing Ezsigndocument
@@ -946,15 +878,11 @@ let pkiEzsigndocumentID = 987 // Int |
 let ezsigndocumentEditObjectV1Request = ezsigndocument-editObject-v1-Request(objEzsigndocument: ezsigndocument-RequestCompound(pkiEzsigndocumentID: 123, fkiEzsignfolderID: 123, fkiEzsigntemplateID: 123, fkiEzsignfoldersignerassociationID: 123, fkiEzsignimportdocumentID: 123, fkiLanguageID: 123, eEzsigndocumentSource: "eEzsigndocumentSource_example", eEzsigndocumentFormat: "eEzsigndocumentFormat_example", sEzsigndocumentBase64: 123, sEzsigndocumentUrl: "sEzsigndocumentUrl_example", bEzsigndocumentForcerepair: false, sEzsigndocumentPassword: "sEzsigndocumentPassword_example", eEzsigndocumentForm: "eEzsigndocumentForm_example", dtEzsigndocumentDuedate: "dtEzsigndocumentDuedate_example", sEzsigndocumentName: "sEzsigndocumentName_example", sEzsigndocumentExternalid: "sEzsigndocumentExternalid_example")) // EzsigndocumentEditObjectV1Request | 
 
 // Edit an existing Ezsigndocument
-ObjectEzsigndocumentAPI.ezsigndocumentEditObjectV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentEditObjectV1Request: ezsigndocumentEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentEditObjectV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentEditObjectV1Request: ezsigndocumentEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -982,7 +910,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentEndPrematurelyV1**
 ```swift
-    open class func ezsigndocumentEndPrematurelyV1(pkiEzsigndocumentID: Int, body: JSONValue, completion: @escaping (_ data: EzsigndocumentEndPrematurelyV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentEndPrematurelyV1(pkiEzsigndocumentID: Int, body: JSONValue, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentEndPrematurelyV1Response
 ```
 
 End prematurely
@@ -998,15 +926,11 @@ let pkiEzsigndocumentID = 987 // Int |
 let body = "TODO" // JSONValue | 
 
 // End prematurely
-ObjectEzsigndocumentAPI.ezsigndocumentEndPrematurelyV1(pkiEzsigndocumentID: pkiEzsigndocumentID, body: body) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentEndPrematurelyV1(pkiEzsigndocumentID: pkiEzsigndocumentID, body: body)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1034,7 +958,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentExtractTextV1**
 ```swift
-    open class func ezsigndocumentExtractTextV1(pkiEzsigndocumentID: Int, ezsigndocumentExtractTextV1Request: EzsigndocumentExtractTextV1Request, completion: @escaping (_ data: EzsigndocumentExtractTextV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentExtractTextV1(pkiEzsigndocumentID: Int, ezsigndocumentExtractTextV1Request: EzsigndocumentExtractTextV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentExtractTextV1Response
 ```
 
 Extract text from Ezsigndocument area
@@ -1050,15 +974,11 @@ let pkiEzsigndocumentID = 987 // Int |
 let ezsigndocumentExtractTextV1Request = ezsigndocument-extractText-v1-Request(iPage: 123, eSection: "eSection_example", iX: 123, iY: 123, iWidth: 123, iHeight: 123) // EzsigndocumentExtractTextV1Request | 
 
 // Extract text from Ezsigndocument area
-ObjectEzsigndocumentAPI.ezsigndocumentExtractTextV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentExtractTextV1Request: ezsigndocumentExtractTextV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentExtractTextV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentExtractTextV1Request: ezsigndocumentExtractTextV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1086,7 +1006,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentFlattenV1**
 ```swift
-    open class func ezsigndocumentFlattenV1(pkiEzsigndocumentID: Int, body: JSONValue, completion: @escaping (_ data: EzsigndocumentFlattenV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentFlattenV1(pkiEzsigndocumentID: Int, body: JSONValue, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentFlattenV1Response
 ```
 
 Flatten
@@ -1102,15 +1022,11 @@ let pkiEzsigndocumentID = 987 // Int |
 let body = "TODO" // JSONValue | 
 
 // Flatten
-ObjectEzsigndocumentAPI.ezsigndocumentFlattenV1(pkiEzsigndocumentID: pkiEzsigndocumentID, body: body) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentFlattenV1(pkiEzsigndocumentID: pkiEzsigndocumentID, body: body)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1138,7 +1054,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentGetActionableElementsForSignerV1**
 ```swift
-    open class func ezsigndocumentGetActionableElementsForSignerV1(pkiEzsigndocumentID: Int, eSignerType: ESignerType_ezsigndocumentGetActionableElementsForSignerV1, fkiEzsignsignerID: Int? = nil, fkiUserID: Int? = nil, completion: @escaping (_ data: EzsigndocumentGetActionableElementsForSignerV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentGetActionableElementsForSignerV1(pkiEzsigndocumentID: Int, eSignerType: ESignerType_ezsigndocumentGetActionableElementsForSignerV1, fkiEzsignsignerID: Int? = nil, fkiUserID: Int? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentGetActionableElementsForSignerV1Response
 ```
 
 Retrieve actionable elements of a user for the Ezsigndocument
@@ -1156,15 +1072,11 @@ let fkiEzsignsignerID = 987 // Int |  (optional)
 let fkiUserID = 987 // Int |  (optional)
 
 // Retrieve actionable elements of a user for the Ezsigndocument
-ObjectEzsigndocumentAPI.ezsigndocumentGetActionableElementsForSignerV1(pkiEzsigndocumentID: pkiEzsigndocumentID, eSignerType: eSignerType, fkiEzsignsignerID: fkiEzsignsignerID, fkiUserID: fkiUserID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentGetActionableElementsForSignerV1(pkiEzsigndocumentID: pkiEzsigndocumentID, eSignerType: eSignerType, fkiEzsignsignerID: fkiEzsignsignerID, fkiUserID: fkiUserID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1194,7 +1106,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentGetActionableElementsV1**
 ```swift
-    open class func ezsigndocumentGetActionableElementsV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetActionableElementsV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentGetActionableElementsV1(pkiEzsigndocumentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentGetActionableElementsV1Response
 ```
 
 Retrieve actionable elements for the Ezsigndocument
@@ -1209,15 +1121,11 @@ import EzmaxApi
 let pkiEzsigndocumentID = 987 // Int | 
 
 // Retrieve actionable elements for the Ezsigndocument
-ObjectEzsigndocumentAPI.ezsigndocumentGetActionableElementsV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentGetActionableElementsV1(pkiEzsigndocumentID: pkiEzsigndocumentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1244,7 +1152,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentGetActionableElementsV2**
 ```swift
-    open class func ezsigndocumentGetActionableElementsV2(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetActionableElementsV2Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentGetActionableElementsV2(pkiEzsigndocumentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentGetActionableElementsV2Response
 ```
 
 Retrieve actionable elements for the Ezsigndocument
@@ -1259,15 +1167,11 @@ import EzmaxApi
 let pkiEzsigndocumentID = 987 // Int | 
 
 // Retrieve actionable elements for the Ezsigndocument
-ObjectEzsigndocumentAPI.ezsigndocumentGetActionableElementsV2(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentGetActionableElementsV2(pkiEzsigndocumentID: pkiEzsigndocumentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1294,7 +1198,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentGetActionableElementsV3**
 ```swift
-    open class func ezsigndocumentGetActionableElementsV3(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetActionableElementsV3Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentGetActionableElementsV3(pkiEzsigndocumentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentGetActionableElementsV3Response
 ```
 
 Retrieve actionable elements for the Ezsigndocument
@@ -1309,15 +1213,11 @@ import EzmaxApi
 let pkiEzsigndocumentID = 987 // Int | 
 
 // Retrieve actionable elements for the Ezsigndocument
-ObjectEzsigndocumentAPI.ezsigndocumentGetActionableElementsV3(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentGetActionableElementsV3(pkiEzsigndocumentID: pkiEzsigndocumentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1344,7 +1244,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentGetAttachmentsV1**
 ```swift
-    open class func ezsigndocumentGetAttachmentsV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetAttachmentsV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentGetAttachmentsV1(pkiEzsigndocumentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentGetAttachmentsV1Response
 ```
 
 Retrieve Ezsigndocument's Attachments
@@ -1359,15 +1259,11 @@ import EzmaxApi
 let pkiEzsigndocumentID = 987 // Int | 
 
 // Retrieve Ezsigndocument's Attachments
-ObjectEzsigndocumentAPI.ezsigndocumentGetAttachmentsV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentGetAttachmentsV1(pkiEzsigndocumentID: pkiEzsigndocumentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1394,7 +1290,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentGetCompletedElementsV1**
 ```swift
-    open class func ezsigndocumentGetCompletedElementsV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetCompletedElementsV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentGetCompletedElementsV1(pkiEzsigndocumentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentGetCompletedElementsV1Response
 ```
 
 Retrieve completed elements for the Ezsigndocument
@@ -1409,15 +1305,11 @@ import EzmaxApi
 let pkiEzsigndocumentID = 987 // Int | 
 
 // Retrieve completed elements for the Ezsigndocument
-ObjectEzsigndocumentAPI.ezsigndocumentGetCompletedElementsV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentGetCompletedElementsV1(pkiEzsigndocumentID: pkiEzsigndocumentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1444,7 +1336,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentGetCompletedElementsV2**
 ```swift
-    open class func ezsigndocumentGetCompletedElementsV2(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetCompletedElementsV2Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentGetCompletedElementsV2(pkiEzsigndocumentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentGetCompletedElementsV2Response
 ```
 
 Retrieve completed elements for the Ezsigndocument
@@ -1459,15 +1351,11 @@ import EzmaxApi
 let pkiEzsigndocumentID = 987 // Int | 
 
 // Retrieve completed elements for the Ezsigndocument
-ObjectEzsigndocumentAPI.ezsigndocumentGetCompletedElementsV2(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentGetCompletedElementsV2(pkiEzsigndocumentID: pkiEzsigndocumentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1494,7 +1382,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentGetDownloadUrlV1**
 ```swift
-    open class func ezsigndocumentGetDownloadUrlV1(pkiEzsigndocumentID: Int, eDocumentType: EDocumentType_ezsigndocumentGetDownloadUrlV1, completion: @escaping (_ data: EzsigndocumentGetDownloadUrlV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentGetDownloadUrlV1(pkiEzsigndocumentID: Int, eDocumentType: EDocumentType_ezsigndocumentGetDownloadUrlV1, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentGetDownloadUrlV1Response
 ```
 
 Retrieve a URL to download documents
@@ -1510,15 +1398,11 @@ let pkiEzsigndocumentID = 987 // Int |
 let eDocumentType = "eDocumentType_example" // String | The type of document to retrieve.  1. **original** Is the original document before any repair or conversion were applied. **Initial** Is the initial document after initial signature were applied. 2. **SignatureReady** Is the version containing the annotations/form to show the signer. 3. **Signed** Is the final document once all signatures were applied in current document if eEzsignfolderCompletion is PerEzsigndocument.<br>     Is the final document once all signatures were applied in all documents if eEzsignfolderCompletion is PerEzsignfolder. 4. **Proofdocument** Is the evidence report. 5. **Proof** Is the complete evidence archive including all of the above and more. 
 
 // Retrieve a URL to download documents
-ObjectEzsigndocumentAPI.ezsigndocumentGetDownloadUrlV1(pkiEzsigndocumentID: pkiEzsigndocumentID, eDocumentType: eDocumentType) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentGetDownloadUrlV1(pkiEzsigndocumentID: pkiEzsigndocumentID, eDocumentType: eDocumentType)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1546,7 +1430,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentGetEzsignannotationsV1**
 ```swift
-    open class func ezsigndocumentGetEzsignannotationsV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetEzsignannotationsV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentGetEzsignannotationsV1(pkiEzsigndocumentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentGetEzsignannotationsV1Response
 ```
 
 Retrieve an existing Ezsigndocument's Ezsignannotations
@@ -1561,15 +1445,11 @@ import EzmaxApi
 let pkiEzsigndocumentID = 987 // Int | 
 
 // Retrieve an existing Ezsigndocument's Ezsignannotations
-ObjectEzsigndocumentAPI.ezsigndocumentGetEzsignannotationsV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentGetEzsignannotationsV1(pkiEzsigndocumentID: pkiEzsigndocumentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1596,7 +1476,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentGetEzsigndiscussionsV1**
 ```swift
-    open class func ezsigndocumentGetEzsigndiscussionsV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetEzsigndiscussionsV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentGetEzsigndiscussionsV1(pkiEzsigndocumentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentGetEzsigndiscussionsV1Response
 ```
 
 Retrieve an existing Ezsigndocument's Ezsigndiscussions
@@ -1611,15 +1491,11 @@ import EzmaxApi
 let pkiEzsigndocumentID = 987 // Int | 
 
 // Retrieve an existing Ezsigndocument's Ezsigndiscussions
-ObjectEzsigndocumentAPI.ezsigndocumentGetEzsigndiscussionsV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentGetEzsigndiscussionsV1(pkiEzsigndocumentID: pkiEzsigndocumentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1646,7 +1522,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentGetEzsignformfieldgroupsV1**
 ```swift
-    open class func ezsigndocumentGetEzsignformfieldgroupsV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetEzsignformfieldgroupsV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentGetEzsignformfieldgroupsV1(pkiEzsigndocumentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentGetEzsignformfieldgroupsV1Response
 ```
 
 Retrieve an existing Ezsigndocument's Ezsignformfieldgroups
@@ -1661,15 +1537,11 @@ import EzmaxApi
 let pkiEzsigndocumentID = 987 // Int | 
 
 // Retrieve an existing Ezsigndocument's Ezsignformfieldgroups
-ObjectEzsigndocumentAPI.ezsigndocumentGetEzsignformfieldgroupsV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentGetEzsignformfieldgroupsV1(pkiEzsigndocumentID: pkiEzsigndocumentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1696,7 +1568,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentGetEzsignpagesV1**
 ```swift
-    open class func ezsigndocumentGetEzsignpagesV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetEzsignpagesV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentGetEzsignpagesV1(pkiEzsigndocumentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentGetEzsignpagesV1Response
 ```
 
 Retrieve an existing Ezsigndocument's Ezsignpages
@@ -1711,15 +1583,11 @@ import EzmaxApi
 let pkiEzsigndocumentID = 987 // Int | 
 
 // Retrieve an existing Ezsigndocument's Ezsignpages
-ObjectEzsigndocumentAPI.ezsigndocumentGetEzsignpagesV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentGetEzsignpagesV1(pkiEzsigndocumentID: pkiEzsigndocumentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1746,7 +1614,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentGetEzsignsignaturesAutomaticV1**
 ```swift
-    open class func ezsigndocumentGetEzsignsignaturesAutomaticV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetEzsignsignaturesAutomaticV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentGetEzsignsignaturesAutomaticV1(pkiEzsigndocumentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentGetEzsignsignaturesAutomaticV1Response
 ```
 
 Retrieve an existing Ezsigndocument's automatic Ezsignsignatures
@@ -1761,15 +1629,11 @@ import EzmaxApi
 let pkiEzsigndocumentID = 987 // Int | 
 
 // Retrieve an existing Ezsigndocument's automatic Ezsignsignatures
-ObjectEzsigndocumentAPI.ezsigndocumentGetEzsignsignaturesAutomaticV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentGetEzsignsignaturesAutomaticV1(pkiEzsigndocumentID: pkiEzsigndocumentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1796,7 +1660,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentGetEzsignsignaturesV1**
 ```swift
-    open class func ezsigndocumentGetEzsignsignaturesV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetEzsignsignaturesV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentGetEzsignsignaturesV1(pkiEzsigndocumentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentGetEzsignsignaturesV1Response
 ```
 
 Retrieve an existing Ezsigndocument's Ezsignsignatures
@@ -1811,15 +1675,11 @@ import EzmaxApi
 let pkiEzsigndocumentID = 987 // Int | 
 
 // Retrieve an existing Ezsigndocument's Ezsignsignatures
-ObjectEzsigndocumentAPI.ezsigndocumentGetEzsignsignaturesV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentGetEzsignsignaturesV1(pkiEzsigndocumentID: pkiEzsigndocumentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1846,7 +1706,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentGetEzsignsignaturesV2**
 ```swift
-    open class func ezsigndocumentGetEzsignsignaturesV2(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetEzsignsignaturesV2Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentGetEzsignsignaturesV2(pkiEzsigndocumentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentGetEzsignsignaturesV2Response
 ```
 
 Retrieve an existing Ezsigndocument's Ezsignsignatures
@@ -1861,15 +1721,11 @@ import EzmaxApi
 let pkiEzsigndocumentID = 987 // Int | 
 
 // Retrieve an existing Ezsigndocument's Ezsignsignatures
-ObjectEzsigndocumentAPI.ezsigndocumentGetEzsignsignaturesV2(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentGetEzsignsignaturesV2(pkiEzsigndocumentID: pkiEzsigndocumentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1896,7 +1752,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentGetFormDataV1**
 ```swift
-    open class func ezsigndocumentGetFormDataV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetFormDataV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentGetFormDataV1(pkiEzsigndocumentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentGetFormDataV1Response
 ```
 
 Retrieve an existing Ezsigndocument's Form Data
@@ -1911,15 +1767,11 @@ import EzmaxApi
 let pkiEzsigndocumentID = 987 // Int | 
 
 // Retrieve an existing Ezsigndocument's Form Data
-ObjectEzsigndocumentAPI.ezsigndocumentGetFormDataV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentGetFormDataV1(pkiEzsigndocumentID: pkiEzsigndocumentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1946,7 +1798,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentGetObjectV1**
 ```swift
-    open class func ezsigndocumentGetObjectV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentGetObjectV1(pkiEzsigndocumentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentGetObjectV1Response
 ```
 
 Retrieve an existing Ezsigndocument
@@ -1961,15 +1813,11 @@ import EzmaxApi
 let pkiEzsigndocumentID = 987 // Int | 
 
 // Retrieve an existing Ezsigndocument
-ObjectEzsigndocumentAPI.ezsigndocumentGetObjectV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentGetObjectV1(pkiEzsigndocumentID: pkiEzsigndocumentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -1996,7 +1844,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentGetObjectV2**
 ```swift
-    open class func ezsigndocumentGetObjectV2(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentGetObjectV2(pkiEzsigndocumentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentGetObjectV2Response
 ```
 
 Retrieve an existing Ezsigndocument
@@ -2011,15 +1859,11 @@ import EzmaxApi
 let pkiEzsigndocumentID = 987 // Int | 
 
 // Retrieve an existing Ezsigndocument
-ObjectEzsigndocumentAPI.ezsigndocumentGetObjectV2(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentGetObjectV2(pkiEzsigndocumentID: pkiEzsigndocumentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -2046,7 +1890,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentGetObjectV3**
 ```swift
-    open class func ezsigndocumentGetObjectV3(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetObjectV3Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentGetObjectV3(pkiEzsigndocumentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentGetObjectV3Response
 ```
 
 Retrieve an existing Ezsigndocument
@@ -2061,15 +1905,11 @@ import EzmaxApi
 let pkiEzsigndocumentID = 987 // Int | 
 
 // Retrieve an existing Ezsigndocument
-ObjectEzsigndocumentAPI.ezsigndocumentGetObjectV3(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentGetObjectV3(pkiEzsigndocumentID: pkiEzsigndocumentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -2096,7 +1936,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentGetTemporaryProofV1**
 ```swift
-    open class func ezsigndocumentGetTemporaryProofV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetTemporaryProofV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentGetTemporaryProofV1(pkiEzsigndocumentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentGetTemporaryProofV1Response
 ```
 
 Retrieve the temporary proof
@@ -2111,15 +1951,11 @@ import EzmaxApi
 let pkiEzsigndocumentID = 987 // Int | 
 
 // Retrieve the temporary proof
-ObjectEzsigndocumentAPI.ezsigndocumentGetTemporaryProofV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentGetTemporaryProofV1(pkiEzsigndocumentID: pkiEzsigndocumentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -2146,7 +1982,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentGetWordsPositionsV1**
 ```swift
-    open class func ezsigndocumentGetWordsPositionsV1(pkiEzsigndocumentID: Int, ezsigndocumentGetWordsPositionsV1Request: EzsigndocumentGetWordsPositionsV1Request, completion: @escaping (_ data: EzsigndocumentGetWordsPositionsV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentGetWordsPositionsV1(pkiEzsigndocumentID: Int, ezsigndocumentGetWordsPositionsV1Request: EzsigndocumentGetWordsPositionsV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentGetWordsPositionsV1Response
 ```
 
 Retrieve positions X,Y of given words from a Ezsigndocument
@@ -2162,15 +1998,11 @@ let pkiEzsigndocumentID = 987 // Int |
 let ezsigndocumentGetWordsPositionsV1Request = ezsigndocument-getWordsPositions-v1-Request(eGet: "eGet_example", bWordCaseSensitive: false, aSWord: ["aSWord_example"]) // EzsigndocumentGetWordsPositionsV1Request | 
 
 // Retrieve positions X,Y of given words from a Ezsigndocument
-ObjectEzsigndocumentAPI.ezsigndocumentGetWordsPositionsV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentGetWordsPositionsV1Request: ezsigndocumentGetWordsPositionsV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentGetWordsPositionsV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentGetWordsPositionsV1Request: ezsigndocumentGetWordsPositionsV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -2198,7 +2030,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentPatchObjectV1**
 ```swift
-    open class func ezsigndocumentPatchObjectV1(pkiEzsigndocumentID: Int, ezsigndocumentPatchObjectV1Request: EzsigndocumentPatchObjectV1Request, completion: @escaping (_ data: EzsigndocumentPatchObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentPatchObjectV1(pkiEzsigndocumentID: Int, ezsigndocumentPatchObjectV1Request: EzsigndocumentPatchObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentPatchObjectV1Response
 ```
 
 Patch an existing Ezsigndocument
@@ -2214,15 +2046,11 @@ let pkiEzsigndocumentID = 987 // Int |
 let ezsigndocumentPatchObjectV1Request = ezsigndocument-patchObject-v1-Request(objEzsigndocument: ezsigndocument-RequestPatch(dtEzsigndocumentDuedate: "dtEzsigndocumentDuedate_example", sEzsigndocumentName: "sEzsigndocumentName_example")) // EzsigndocumentPatchObjectV1Request | 
 
 // Patch an existing Ezsigndocument
-ObjectEzsigndocumentAPI.ezsigndocumentPatchObjectV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentPatchObjectV1Request: ezsigndocumentPatchObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentPatchObjectV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentPatchObjectV1Request: ezsigndocumentPatchObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -2250,7 +2078,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentPrefillEzsignformV1**
 ```swift
-    open class func ezsigndocumentPrefillEzsignformV1(pkiEzsigndocumentID: Int, ezsigndocumentPrefillEzsignformV1Request: EzsigndocumentPrefillEzsignformV1Request, completion: @escaping (_ data: EzsigndocumentPrefillEzsignformV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentPrefillEzsignformV1(pkiEzsigndocumentID: Int, ezsigndocumentPrefillEzsignformV1Request: EzsigndocumentPrefillEzsignformV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentPrefillEzsignformV1Response
 ```
 
 Prefill an Ezsignform
@@ -2266,15 +2094,11 @@ let pkiEzsigndocumentID = 987 // Int |
 let ezsigndocumentPrefillEzsignformV1Request = ezsigndocument-prefillEzsignform-v1-Request(aObjPrefillezsignformvalue: [Custom-PrefillEzsignformValue-Request(sEzsignformfieldgroupLabel: "sEzsignformfieldgroupLabel_example", sEzsignformfieldLabel: "sEzsignformfieldLabel_example", sEzsignformfieldEnteredvalue: "sEzsignformfieldEnteredvalue_example", bEzsignformfieldSelected: false)]) // EzsigndocumentPrefillEzsignformV1Request | 
 
 // Prefill an Ezsignform
-ObjectEzsigndocumentAPI.ezsigndocumentPrefillEzsignformV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentPrefillEzsignformV1Request: ezsigndocumentPrefillEzsignformV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentPrefillEzsignformV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentPrefillEzsignformV1Request: ezsigndocumentPrefillEzsignformV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -2302,7 +2126,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentSubmitEzsignformV1**
 ```swift
-    open class func ezsigndocumentSubmitEzsignformV1(pkiEzsigndocumentID: Int, ezsigndocumentSubmitEzsignformV1Request: EzsigndocumentSubmitEzsignformV1Request, completion: @escaping (_ data: EzsigndocumentSubmitEzsignformV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentSubmitEzsignformV1(pkiEzsigndocumentID: Int, ezsigndocumentSubmitEzsignformV1Request: EzsigndocumentSubmitEzsignformV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentSubmitEzsignformV1Response
 ```
 
 Submit the Ezsignform
@@ -2318,15 +2142,11 @@ let pkiEzsigndocumentID = 987 // Int |
 let ezsigndocumentSubmitEzsignformV1Request = ezsigndocument-submitEzsignform-v1-Request(bEzsignformIsdraft: false, aObjEzsignformfieldgroup: [Custom-Ezsignformfieldgroup-Request(pkiEzsignformfieldgroupID: 123, sEzsignformfieldgroupLabel: "sEzsignformfieldgroupLabel_example", aObjEzsignformfield: [Custom-Ezsignformfield-Request(pkiEzsignformfieldID: 123, sEzsignformfieldLabel: "sEzsignformfieldLabel_example", bEzsignformfieldSelected: false, sEzsignformfieldEnteredvalue: "sEzsignformfieldEnteredvalue_example")])]) // EzsigndocumentSubmitEzsignformV1Request | 
 
 // Submit the Ezsignform
-ObjectEzsigndocumentAPI.ezsigndocumentSubmitEzsignformV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentSubmitEzsignformV1Request: ezsigndocumentSubmitEzsignformV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentSubmitEzsignformV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentSubmitEzsignformV1Request: ezsigndocumentSubmitEzsignformV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -2354,7 +2174,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentUnsendV1**
 ```swift
-    open class func ezsigndocumentUnsendV1(pkiEzsigndocumentID: Int, body: JSONValue, completion: @escaping (_ data: EzsigndocumentUnsendV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentUnsendV1(pkiEzsigndocumentID: Int, body: JSONValue, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigndocumentUnsendV1Response
 ```
 
 Unsend the Ezsigndocument
@@ -2370,15 +2190,11 @@ let pkiEzsigndocumentID = 987 // Int |
 let body = "TODO" // JSONValue | 
 
 // Unsend the Ezsigndocument
-ObjectEzsigndocumentAPI.ezsigndocumentUnsendV1(pkiEzsigndocumentID: pkiEzsigndocumentID, body: body) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigndocumentAPI.ezsigndocumentUnsendV1(pkiEzsigndocumentID: pkiEzsigndocumentID, body: body)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

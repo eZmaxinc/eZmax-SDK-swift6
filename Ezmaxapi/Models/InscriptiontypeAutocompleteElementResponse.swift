@@ -11,7 +11,7 @@ import Foundation
 public struct InscriptiontypeAutocompleteElementResponse: Sendable, Codable, Hashable {
 
     public static let pkiInscriptiontypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sInscriptiontypeNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,30}$/")
+    public static let sInscriptiontypeNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,30}$")
     /** The unique ID of the Inscriptiontype */
     public var pkiInscriptiontypeID: Int
     /** The name of the Inscriptiontype in the language of the requester */

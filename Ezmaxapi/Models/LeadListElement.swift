@@ -12,9 +12,9 @@ public struct LeadListElement: Sendable, Codable, Hashable {
 
     public static let pkiLeadIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiLeadsourceIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sLeadsourceNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,25}$/")
-    public static let dtLeadExpirationRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
-    public static let sLeadCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,25}$/")
+    public static let sLeadsourceNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,25}$")
+    public static let dtLeadExpirationRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$")
+    public static let sLeadCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,25}$")
     /** The unique ID of the Lead */
     public var pkiLeadID: Int
     /** The unique ID of the Leadsource */

@@ -11,7 +11,7 @@ import Foundation
 public struct EzdoctemplatedocumentAutocompleteElementResponse: Sendable, Codable, Hashable {
 
     public static let pkiEzdoctemplatedocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    public static let sEzdoctemplatedocumentNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sEzdoctemplatedocumentNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
     /** The unique ID of the Ezdoctemplatedocument */
     public var pkiEzdoctemplatedocumentID: Int
     /** The name of the Ezdoctemplatedocument in the language of the requester */

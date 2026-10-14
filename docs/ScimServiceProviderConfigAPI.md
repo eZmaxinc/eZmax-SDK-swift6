@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **serviceProviderConfigGetObjectScimV2**
 ```swift
-    open class func serviceProviderConfigGetObjectScimV2(completion: @escaping (_ data: ScimServiceProviderConfig?, _ error: Error?) -> Void)
+    open class func serviceProviderConfigGetObjectScimV2(apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ScimServiceProviderConfig
 ```
 
 Get Service Provider Configuration
@@ -21,15 +21,11 @@ import EzmaxApi
 
 
 // Get Service Provider Configuration
-ScimServiceProviderConfigAPI.serviceProviderConfigGetObjectScimV2() { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ScimServiceProviderConfigAPI.serviceProviderConfigGetObjectScimV2()
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

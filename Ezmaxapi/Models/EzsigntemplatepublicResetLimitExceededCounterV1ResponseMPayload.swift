@@ -10,7 +10,7 @@ import Foundation
 /** Payload for POST /1/object/ezsigntemplatepublic/{pkiEzsigntemplatepublicID}/resetLimitExceededCounter */
 public struct EzsigntemplatepublicResetLimitExceededCounterV1ResponseMPayload: Sendable, Codable, Hashable {
 
-    public static let dtEzsigntemplatepublicLimitexceededsinceRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
+    public static let dtEzsigntemplatepublicLimitexceededsinceRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$")
     /** The limitexceededsince of the Ezsigntemplatepublic */
     public var dtEzsigntemplatepublicLimitexceededsince: String
 

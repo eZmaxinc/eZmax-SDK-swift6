@@ -13,7 +13,7 @@ public struct CreditcardclientListElement: Sendable, Codable, Hashable {
     public static let pkiCreditcardclientIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiCreditcarddetailIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiCreditcardtypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sCreditcardclientDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sCreditcardclientDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
     public static let iCreditcarddetailExpirationmonthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 12, exclusiveMaximum: false, multipleOf: nil)
     public static let iCreditcarddetailExpirationyearRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 2200, exclusiveMaximum: false, multipleOf: nil)
     public static let iCreditcarddetailLastdigitsRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 9999, exclusiveMaximum: false, multipleOf: nil)

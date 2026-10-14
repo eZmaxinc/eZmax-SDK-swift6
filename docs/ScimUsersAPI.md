@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 # **usersCreateObjectScimV2**
 ```swift
-    open class func usersCreateObjectScimV2(scimUser: ScimUser, completion: @escaping (_ data: ScimUser?, _ error: Error?) -> Void)
+    open class func usersCreateObjectScimV2(scimUser: ScimUser, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ScimUser
 ```
 
 Create a new User
@@ -26,15 +26,11 @@ import EzmaxApi
 let scimUser = Scim-User(id: "id_example", userName: "userName_example", displayName: "displayName_example", emails: [Scim-Email(value: "value_example", primary: false)]) // ScimUser | 
 
 // Create a new User
-ScimUsersAPI.usersCreateObjectScimV2(scimUser: scimUser) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ScimUsersAPI.usersCreateObjectScimV2(scimUser: scimUser)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -61,7 +57,7 @@ Name | Type | Description  | Notes
 
 # **usersDeleteObjectScimV2**
 ```swift
-    open class func usersDeleteObjectScimV2(userId: String, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+    open class func usersDeleteObjectScimV2(userId: String, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse)
 ```
 
 Delete an existing User
@@ -74,15 +70,10 @@ import EzmaxApi
 let userId = "userId_example" // String | 
 
 // Delete an existing User
-ScimUsersAPI.usersDeleteObjectScimV2(userId: userId) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    try await ScimUsersAPI.usersDeleteObjectScimV2(userId: userId)
+} catch {
+    print(error)
 }
 ```
 
@@ -109,7 +100,7 @@ Void (empty response body)
 
 # **usersEditObjectScimV2**
 ```swift
-    open class func usersEditObjectScimV2(userId: String, scimUser: ScimUser, completion: @escaping (_ data: ScimUser?, _ error: Error?) -> Void)
+    open class func usersEditObjectScimV2(userId: String, scimUser: ScimUser, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ScimUser
 ```
 
 Edit an existing User
@@ -123,15 +114,11 @@ let userId = "userId_example" // String |
 let scimUser = Scim-User(id: "id_example", userName: "userName_example", displayName: "displayName_example", emails: [Scim-Email(value: "value_example", primary: false)]) // ScimUser | 
 
 // Edit an existing User
-ScimUsersAPI.usersEditObjectScimV2(userId: userId, scimUser: scimUser) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ScimUsersAPI.usersEditObjectScimV2(userId: userId, scimUser: scimUser)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -159,7 +146,7 @@ Name | Type | Description  | Notes
 
 # **usersGetListScimV2**
 ```swift
-    open class func usersGetListScimV2(filter: String? = nil, completion: @escaping (_ data: ScimUserList?, _ error: Error?) -> Void)
+    open class func usersGetListScimV2(filter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ScimUserList
 ```
 
 Retrieve User list
@@ -172,15 +159,11 @@ import EzmaxApi
 let filter = "filter_example" // String | Filter expression for searching users (optional)
 
 // Retrieve User list
-ScimUsersAPI.usersGetListScimV2(filter: filter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ScimUsersAPI.usersGetListScimV2(filter: filter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -207,7 +190,7 @@ Name | Type | Description  | Notes
 
 # **usersGetObjectScimV2**
 ```swift
-    open class func usersGetObjectScimV2(userId: String, completion: @escaping (_ data: ScimUser?, _ error: Error?) -> Void)
+    open class func usersGetObjectScimV2(userId: String, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ScimUser
 ```
 
 Retrieve an existing User
@@ -220,15 +203,11 @@ import EzmaxApi
 let userId = "userId_example" // String | 
 
 // Retrieve an existing User
-ScimUsersAPI.usersGetObjectScimV2(userId: userId) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ScimUsersAPI.usersGetObjectScimV2(userId: userId)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

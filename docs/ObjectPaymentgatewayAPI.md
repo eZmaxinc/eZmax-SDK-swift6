@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 # **paymentgatewayCreateObjectV1**
 ```swift
-    open class func paymentgatewayCreateObjectV1(paymentgatewayCreateObjectV1Request: PaymentgatewayCreateObjectV1Request, completion: @escaping (_ data: PaymentgatewayCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func paymentgatewayCreateObjectV1(paymentgatewayCreateObjectV1Request: PaymentgatewayCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentgatewayCreateObjectV1Response
 ```
 
 Create a new Paymentgateway
@@ -28,15 +28,11 @@ import EzmaxApi
 let paymentgatewayCreateObjectV1Request = paymentgateway-createObject-v1-Request(aObjPaymentgateway: [paymentgateway-RequestCompound(pkiPaymentgatewayID: 123, ePaymentgatewayProcessor: Field-ePaymentgatewayProcessor(), objPaymentgatewayDescription: Multilingual-PaymentgatewayDescription(sPaymentgatewayDescription1: "sPaymentgatewayDescription1_example", sPaymentgatewayDescription2: "sPaymentgatewayDescription2_example"), objCreditcardmerchant: creditcardmerchant-RequestCompound(pkiCreditcardmerchantID: 123, fkiBankaccountID: 123, fkiLanguageID: 123, fkiCurrencyID: 123, bCreditcardmerchantDenyvisa: true, bCreditcardmerchantDenymastercard: true, bCreditcardmerchantDenyamex: true, bCreditcardmerchantIsactive: true, sCreditcardmerchantApitoken: "sCreditcardmerchantApitoken_example", sCreditcardmerchantDescription: "sCreditcardmerchantDescription_example", sCreditcardmerchantStoreid: "sCreditcardmerchantStoreid_example"))]) // PaymentgatewayCreateObjectV1Request | 
 
 // Create a new Paymentgateway
-ObjectPaymentgatewayAPI.paymentgatewayCreateObjectV1(paymentgatewayCreateObjectV1Request: paymentgatewayCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectPaymentgatewayAPI.paymentgatewayCreateObjectV1(paymentgatewayCreateObjectV1Request: paymentgatewayCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -63,7 +59,7 @@ Name | Type | Description  | Notes
 
 # **paymentgatewayEditObjectV1**
 ```swift
-    open class func paymentgatewayEditObjectV1(pkiPaymentgatewayID: Int, paymentgatewayEditObjectV1Request: PaymentgatewayEditObjectV1Request, completion: @escaping (_ data: PaymentgatewayEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func paymentgatewayEditObjectV1(pkiPaymentgatewayID: Int, paymentgatewayEditObjectV1Request: PaymentgatewayEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentgatewayEditObjectV1Response
 ```
 
 Edit an existing Paymentgateway
@@ -79,15 +75,11 @@ let pkiPaymentgatewayID = 987 // Int | The unique ID of the Paymentgateway
 let paymentgatewayEditObjectV1Request = paymentgateway-editObject-v1-Request(objPaymentgateway: paymentgateway-RequestCompound(pkiPaymentgatewayID: 123, ePaymentgatewayProcessor: Field-ePaymentgatewayProcessor(), objPaymentgatewayDescription: Multilingual-PaymentgatewayDescription(sPaymentgatewayDescription1: "sPaymentgatewayDescription1_example", sPaymentgatewayDescription2: "sPaymentgatewayDescription2_example"), objCreditcardmerchant: creditcardmerchant-RequestCompound(pkiCreditcardmerchantID: 123, fkiBankaccountID: 123, fkiLanguageID: 123, fkiCurrencyID: 123, bCreditcardmerchantDenyvisa: true, bCreditcardmerchantDenymastercard: true, bCreditcardmerchantDenyamex: true, bCreditcardmerchantIsactive: true, sCreditcardmerchantApitoken: "sCreditcardmerchantApitoken_example", sCreditcardmerchantDescription: "sCreditcardmerchantDescription_example", sCreditcardmerchantStoreid: "sCreditcardmerchantStoreid_example"))) // PaymentgatewayEditObjectV1Request | 
 
 // Edit an existing Paymentgateway
-ObjectPaymentgatewayAPI.paymentgatewayEditObjectV1(pkiPaymentgatewayID: pkiPaymentgatewayID, paymentgatewayEditObjectV1Request: paymentgatewayEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectPaymentgatewayAPI.paymentgatewayEditObjectV1(pkiPaymentgatewayID: pkiPaymentgatewayID, paymentgatewayEditObjectV1Request: paymentgatewayEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -115,7 +107,7 @@ Name | Type | Description  | Notes
 
 # **paymentgatewayGetAutocompleteV2**
 ```swift
-    open class func paymentgatewayGetAutocompleteV2(sSelector: SSelector_paymentgatewayGetAutocompleteV2, eFilterActive: EFilterActive_paymentgatewayGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: PaymentgatewayGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func paymentgatewayGetAutocompleteV2(sSelector: SSelector_paymentgatewayGetAutocompleteV2, eFilterActive: EFilterActive_paymentgatewayGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentgatewayGetAutocompleteV2Response
 ```
 
 Retrieve Paymentgateways and IDs
@@ -133,15 +125,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Paymentgateways and IDs
-ObjectPaymentgatewayAPI.paymentgatewayGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectPaymentgatewayAPI.paymentgatewayGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -171,7 +159,7 @@ Name | Type | Description  | Notes
 
 # **paymentgatewayGetListV1**
 ```swift
-    open class func paymentgatewayGetListV1(eOrderBy: EOrderBy_paymentgatewayGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: PaymentgatewayGetListV1Response?, _ error: Error?) -> Void)
+    open class func paymentgatewayGetListV1(eOrderBy: EOrderBy_paymentgatewayGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentgatewayGetListV1Response
 ```
 
 Retrieve Paymentgateway list
@@ -190,15 +178,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Paymentgateway list
-ObjectPaymentgatewayAPI.paymentgatewayGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectPaymentgatewayAPI.paymentgatewayGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -229,7 +213,7 @@ Name | Type | Description  | Notes
 
 # **paymentgatewayGetObjectV2**
 ```swift
-    open class func paymentgatewayGetObjectV2(pkiPaymentgatewayID: Int, completion: @escaping (_ data: PaymentgatewayGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func paymentgatewayGetObjectV2(pkiPaymentgatewayID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentgatewayGetObjectV2Response
 ```
 
 Retrieve an existing Paymentgateway
@@ -244,15 +228,11 @@ import EzmaxApi
 let pkiPaymentgatewayID = 987 // Int | The unique ID of the Paymentgateway
 
 // Retrieve an existing Paymentgateway
-ObjectPaymentgatewayAPI.paymentgatewayGetObjectV2(pkiPaymentgatewayID: pkiPaymentgatewayID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectPaymentgatewayAPI.paymentgatewayGetObjectV2(pkiPaymentgatewayID: pkiPaymentgatewayID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

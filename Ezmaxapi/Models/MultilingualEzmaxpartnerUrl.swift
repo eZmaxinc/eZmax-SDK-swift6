@@ -10,8 +10,8 @@ import Foundation
 /** Short description of the Ezmaxpartner */
 public struct MultilingualEzmaxpartnerUrl: Sendable, Codable, Hashable {
 
-    public static let sEzmaxpartnerUrl1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
-    public static let sEzmaxpartnerUrl2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
+    public static let sEzmaxpartnerUrl1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^(https|http)://[^\\s/$.?#].[^\\s]*$")
+    public static let sEzmaxpartnerUrl2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^(https|http)://[^\\s/$.?#].[^\\s]*$")
     /** The url of the Ezmaxpartner website in french */
     public var sEzmaxpartnerUrl1: String?
     /** The url of the Ezmaxpartner website in english */

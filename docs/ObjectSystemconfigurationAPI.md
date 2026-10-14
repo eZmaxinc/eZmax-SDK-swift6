@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **systemconfigurationEditObjectV2**
 ```swift
-    open class func systemconfigurationEditObjectV2(pkiSystemconfigurationID: Int, systemconfigurationEditObjectV2Request: SystemconfigurationEditObjectV2Request, completion: @escaping (_ data: SystemconfigurationEditObjectV2Response?, _ error: Error?) -> Void)
+    open class func systemconfigurationEditObjectV2(pkiSystemconfigurationID: Int, systemconfigurationEditObjectV2Request: SystemconfigurationEditObjectV2Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SystemconfigurationEditObjectV2Response
 ```
 
 Edit an existing Systemconfiguration
@@ -26,15 +26,11 @@ let pkiSystemconfigurationID = 987 // Int | The unique ID of the Systemconfigura
 let systemconfigurationEditObjectV2Request = systemconfiguration-editObject-v2-Request(objSystemconfiguration: systemconfiguration-RequestCompoundV2(pkiSystemconfigurationID: 123, fkiBrandingID: 123, eSystemconfigurationNewexternaluseraction: Field-eSystemconfigurationNewexternaluseraction(), eSystemconfigurationLanguage1: Field-eSystemconfigurationLanguage1(), eSystemconfigurationLanguage2: Field-eSystemconfigurationLanguage2(), eSystemconfigurationEzsignofficeplan: Field-eSystemconfigurationEzsignofficeplan(), bSystemconfigurationEzsignpaidbyoffice: true, bSystemconfigurationEzsignpersonnal: true, bSystemconfigurationSspr: true, dtSystemconfigurationReadonlyexpirationstart: "dtSystemconfigurationReadonlyexpirationstart_example", dtSystemconfigurationReadonlyexpirationend: "dtSystemconfigurationReadonlyexpirationend_example", iSystemconfigurationEzsignreminderhoursend: 123)) // SystemconfigurationEditObjectV2Request | 
 
 // Edit an existing Systemconfiguration
-ObjectSystemconfigurationAPI.systemconfigurationEditObjectV2(pkiSystemconfigurationID: pkiSystemconfigurationID, systemconfigurationEditObjectV2Request: systemconfigurationEditObjectV2Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectSystemconfigurationAPI.systemconfigurationEditObjectV2(pkiSystemconfigurationID: pkiSystemconfigurationID, systemconfigurationEditObjectV2Request: systemconfigurationEditObjectV2Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -62,7 +58,7 @@ Name | Type | Description  | Notes
 
 # **systemconfigurationGetObjectV2**
 ```swift
-    open class func systemconfigurationGetObjectV2(pkiSystemconfigurationID: Int, completion: @escaping (_ data: SystemconfigurationGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func systemconfigurationGetObjectV2(pkiSystemconfigurationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SystemconfigurationGetObjectV2Response
 ```
 
 Retrieve an existing Systemconfiguration
@@ -77,15 +73,11 @@ import EzmaxApi
 let pkiSystemconfigurationID = 987 // Int | The unique ID of the Systemconfiguration
 
 // Retrieve an existing Systemconfiguration
-ObjectSystemconfigurationAPI.systemconfigurationGetObjectV2(pkiSystemconfigurationID: pkiSystemconfigurationID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectSystemconfigurationAPI.systemconfigurationGetObjectV2(pkiSystemconfigurationID: pkiSystemconfigurationID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

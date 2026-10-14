@@ -11,7 +11,7 @@ import Foundation
 public struct CurrencyAutocompleteElementResponse: Sendable, Codable, Hashable {
 
     public static let pkiCurrencyIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sCurrencyDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,20}$/")
+    public static let sCurrencyDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,20}$")
     /** The unique ID of the Currency. */
     public var pkiCurrencyID: Int
     /** The description of the Currency in the language of the requester */

@@ -11,7 +11,7 @@ import Foundation
 public struct ModulegroupResponse: Sendable, Codable, Hashable {
 
     public static let pkiModulegroupIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sModulegroupNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,25}$/")
+    public static let sModulegroupNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,25}$")
     /** The unique ID of the Modulegroup */
     public var pkiModulegroupID: Int
     /** The name of the Modulegroup in the language of the requester */

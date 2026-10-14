@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **ezmaxmaillinglistSubscribeV1**
 ```swift
-    open class func ezmaxmaillinglistSubscribeV1(ezmaxmaillinglistSubscribeV1Request: EzmaxmaillinglistSubscribeV1Request, completion: @escaping (_ data: EzmaxmaillinglistSubscribeV1Response?, _ error: Error?) -> Void)
+    open class func ezmaxmaillinglistSubscribeV1(ezmaxmaillinglistSubscribeV1Request: EzmaxmaillinglistSubscribeV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzmaxmaillinglistSubscribeV1Response
 ```
 
 Subscribe to specific Ezmaxmaillinglist
@@ -24,15 +24,11 @@ import EzmaxApi
 let ezmaxmaillinglistSubscribeV1Request = ezmaxmaillinglist-subscribe-v1-Request(aPkiEzmaxmaillinglistID: [123]) // EzmaxmaillinglistSubscribeV1Request | 
 
 // Subscribe to specific Ezmaxmaillinglist
-ModuleEzmaxmaillinglistAPI.ezmaxmaillinglistSubscribeV1(ezmaxmaillinglistSubscribeV1Request: ezmaxmaillinglistSubscribeV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ModuleEzmaxmaillinglistAPI.ezmaxmaillinglistSubscribeV1(ezmaxmaillinglistSubscribeV1Request: ezmaxmaillinglistSubscribeV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

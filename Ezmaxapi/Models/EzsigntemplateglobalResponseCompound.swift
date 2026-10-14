@@ -14,7 +14,7 @@ public struct EzsigntemplateglobalResponseCompound: Sendable, Codable, Hashable 
     public static let fkiEzsigntemplateglobaldocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiModuleIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
-    public static let sEzsigntemplateglobalCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,10}$/")
+    public static let sEzsigntemplateglobalCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,10}$")
     /** The unique ID of the Ezsigntemplateglobal */
     public var pkiEzsigntemplateglobalID: Int
     /** The unique ID of the Ezsigntemplateglobaldocument */

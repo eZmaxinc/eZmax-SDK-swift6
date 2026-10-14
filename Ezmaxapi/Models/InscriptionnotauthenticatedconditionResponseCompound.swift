@@ -10,11 +10,11 @@ import Foundation
 /** An Inscriptionnotauthenticatedcondition Object and children to create a complete structure */
 public struct InscriptionnotauthenticatedconditionResponseCompound: Sendable, Codable, Hashable {
 
-    public static let sInscriptionnotauthenticatedconditiontypeNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,100}$/")
+    public static let sInscriptionnotauthenticatedconditiontypeNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,100}$")
     public static let fkiInscriptionnotauthenticatedIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let dtInscriptionnotauthenticatedconditionCompletedRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
-    public static let dtInscriptionnotauthenticatedconditionDueRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
-    public static let tInscriptionnotauthenticatedconditionCommentRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\s\\S]{0,65535}$/")
+    public static let dtInscriptionnotauthenticatedconditionCompletedRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$")
+    public static let dtInscriptionnotauthenticatedconditionDueRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$")
+    public static let tInscriptionnotauthenticatedconditionCommentRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[\\s\\S]{0,65535}$")
     /** The unique ID of the Inscriptionnotauthenticatedcondition */
     public var pkiInscriptionnotauthenticatedconditionID: Int
     /** The unique ID of the Inscriptionnotauthenticatedconditiontype */

@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 # **inscriptionnotauthenticatedBatchDownloadV1**
 ```swift
-    open class func inscriptionnotauthenticatedBatchDownloadV1(pkiInscriptionnotauthenticatedID: Int, inscriptionnotauthenticatedBatchDownloadV1Request: InscriptionnotauthenticatedBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func inscriptionnotauthenticatedBatchDownloadV1(pkiInscriptionnotauthenticatedID: Int, inscriptionnotauthenticatedBatchDownloadV1Request: InscriptionnotauthenticatedBatchDownloadV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> URL
 ```
 
 Download multiples attachments from a Inscriptionnotauthenticated
@@ -33,15 +33,11 @@ let pkiInscriptionnotauthenticatedID = 987 // Int |
 let inscriptionnotauthenticatedBatchDownloadV1Request = inscriptionnotauthenticated-batchDownload-v1-Request(aPkiAttachmentID: [123]) // InscriptionnotauthenticatedBatchDownloadV1Request | 
 
 // Download multiples attachments from a Inscriptionnotauthenticated
-ObjectInscriptionnotauthenticatedAPI.inscriptionnotauthenticatedBatchDownloadV1(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID, inscriptionnotauthenticatedBatchDownloadV1Request: inscriptionnotauthenticatedBatchDownloadV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInscriptionnotauthenticatedAPI.inscriptionnotauthenticatedBatchDownloadV1(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID, inscriptionnotauthenticatedBatchDownloadV1Request: inscriptionnotauthenticatedBatchDownloadV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -69,7 +65,7 @@ Name | Type | Description  | Notes
 
 # **inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1**
 ```swift
-    open class func inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1(pkiInscriptionnotauthenticatedID: Int, inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Request: InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Request, completion: @escaping (_ data: InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Response?, _ error: Error?) -> Void)
+    open class func inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1(pkiInscriptionnotauthenticatedID: Int, inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Request: InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Response
 ```
 
 Fills the Inscriptionnotauthenticatedcondition in the Inscriptionnotauthenticated
@@ -85,15 +81,11 @@ let pkiInscriptionnotauthenticatedID = 987 // Int |
 let inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Request = inscriptionnotauthenticated-fillInscriptionnotauthenticatedcondition-v1-Request(aObjInscriptionnotauthenticatedcondition: [Custom-Inscriptionnotauthenticatedcondition-Request(pkiInscriptionnotauthenticatedconditionID: 123, dtInscriptionnotauthenticatedconditionCompleted: "dtInscriptionnotauthenticatedconditionCompleted_example")], dtInscriptionnotauthenticatedTransactiondateReal: "dtInscriptionnotauthenticatedTransactiondateReal_example") // InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Request | 
 
 // Fills the Inscriptionnotauthenticatedcondition in the Inscriptionnotauthenticated
-ObjectInscriptionnotauthenticatedAPI.inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID, inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Request: inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInscriptionnotauthenticatedAPI.inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID, inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Request: inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -121,7 +113,7 @@ Name | Type | Description  | Notes
 
 # **inscriptionnotauthenticatedGetAttachmentsV1**
 ```swift
-    open class func inscriptionnotauthenticatedGetAttachmentsV1(pkiInscriptionnotauthenticatedID: Int, completion: @escaping (_ data: InscriptionnotauthenticatedGetAttachmentsV1Response?, _ error: Error?) -> Void)
+    open class func inscriptionnotauthenticatedGetAttachmentsV1(pkiInscriptionnotauthenticatedID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptionnotauthenticatedGetAttachmentsV1Response
 ```
 
 Retrieve Inscriptionnotauthenticated's attachments
@@ -134,15 +126,11 @@ import EzmaxApi
 let pkiInscriptionnotauthenticatedID = 987 // Int | 
 
 // Retrieve Inscriptionnotauthenticated's attachments
-ObjectInscriptionnotauthenticatedAPI.inscriptionnotauthenticatedGetAttachmentsV1(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInscriptionnotauthenticatedAPI.inscriptionnotauthenticatedGetAttachmentsV1(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -169,7 +157,7 @@ Name | Type | Description  | Notes
 
 # **inscriptionnotauthenticatedGetCommunicationCountV1**
 ```swift
-    open class func inscriptionnotauthenticatedGetCommunicationCountV1(pkiInscriptionnotauthenticatedID: Int, completion: @escaping (_ data: InscriptionnotauthenticatedGetCommunicationCountV1Response?, _ error: Error?) -> Void)
+    open class func inscriptionnotauthenticatedGetCommunicationCountV1(pkiInscriptionnotauthenticatedID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptionnotauthenticatedGetCommunicationCountV1Response
 ```
 
 Retrieve Communication count
@@ -184,15 +172,11 @@ import EzmaxApi
 let pkiInscriptionnotauthenticatedID = 987 // Int | 
 
 // Retrieve Communication count
-ObjectInscriptionnotauthenticatedAPI.inscriptionnotauthenticatedGetCommunicationCountV1(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInscriptionnotauthenticatedAPI.inscriptionnotauthenticatedGetCommunicationCountV1(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -219,7 +203,7 @@ Name | Type | Description  | Notes
 
 # **inscriptionnotauthenticatedGetCommunicationListV1**
 ```swift
-    open class func inscriptionnotauthenticatedGetCommunicationListV1(pkiInscriptionnotauthenticatedID: Int, completion: @escaping (_ data: InscriptionnotauthenticatedGetCommunicationListV1Response?, _ error: Error?) -> Void)
+    open class func inscriptionnotauthenticatedGetCommunicationListV1(pkiInscriptionnotauthenticatedID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptionnotauthenticatedGetCommunicationListV1Response
 ```
 
 Retrieve Communication list
@@ -234,15 +218,11 @@ import EzmaxApi
 let pkiInscriptionnotauthenticatedID = 987 // Int | 
 
 // Retrieve Communication list
-ObjectInscriptionnotauthenticatedAPI.inscriptionnotauthenticatedGetCommunicationListV1(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInscriptionnotauthenticatedAPI.inscriptionnotauthenticatedGetCommunicationListV1(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -269,7 +249,7 @@ Name | Type | Description  | Notes
 
 # **inscriptionnotauthenticatedGetCommunicationrecipientsV1**
 ```swift
-    open class func inscriptionnotauthenticatedGetCommunicationrecipientsV1(pkiInscriptionnotauthenticatedID: Int, completion: @escaping (_ data: InscriptionnotauthenticatedGetCommunicationrecipientsV1Response?, _ error: Error?) -> Void)
+    open class func inscriptionnotauthenticatedGetCommunicationrecipientsV1(pkiInscriptionnotauthenticatedID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptionnotauthenticatedGetCommunicationrecipientsV1Response
 ```
 
 Retrieve Inscriptionnotauthenticated's Communicationrecipient
@@ -284,15 +264,11 @@ import EzmaxApi
 let pkiInscriptionnotauthenticatedID = 987 // Int | 
 
 // Retrieve Inscriptionnotauthenticated's Communicationrecipient
-ObjectInscriptionnotauthenticatedAPI.inscriptionnotauthenticatedGetCommunicationrecipientsV1(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInscriptionnotauthenticatedAPI.inscriptionnotauthenticatedGetCommunicationrecipientsV1(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -319,7 +295,7 @@ Name | Type | Description  | Notes
 
 # **inscriptionnotauthenticatedGetCommunicationsendersV1**
 ```swift
-    open class func inscriptionnotauthenticatedGetCommunicationsendersV1(pkiInscriptionnotauthenticatedID: Int, completion: @escaping (_ data: InscriptionnotauthenticatedGetCommunicationsendersV1Response?, _ error: Error?) -> Void)
+    open class func inscriptionnotauthenticatedGetCommunicationsendersV1(pkiInscriptionnotauthenticatedID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptionnotauthenticatedGetCommunicationsendersV1Response
 ```
 
 Retrieve Inscriptionnotauthenticated's Communicationsender
@@ -334,15 +310,11 @@ import EzmaxApi
 let pkiInscriptionnotauthenticatedID = 987 // Int | 
 
 // Retrieve Inscriptionnotauthenticated's Communicationsender
-ObjectInscriptionnotauthenticatedAPI.inscriptionnotauthenticatedGetCommunicationsendersV1(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInscriptionnotauthenticatedAPI.inscriptionnotauthenticatedGetCommunicationsendersV1(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -369,7 +341,7 @@ Name | Type | Description  | Notes
 
 # **inscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1**
 ```swift
-    open class func inscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1(pkiInscriptionnotauthenticatedID: Int, completion: @escaping (_ data: InscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1Response?, _ error: Error?) -> Void)
+    open class func inscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1(pkiInscriptionnotauthenticatedID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1Response
 ```
 
 Retrieve Inscriptionnotauthenticated conditions
@@ -384,15 +356,11 @@ import EzmaxApi
 let pkiInscriptionnotauthenticatedID = 987 // Int | 
 
 // Retrieve Inscriptionnotauthenticated conditions
-ObjectInscriptionnotauthenticatedAPI.inscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInscriptionnotauthenticatedAPI.inscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -419,7 +387,7 @@ Name | Type | Description  | Notes
 
 # **inscriptionnotauthenticatedGetListV1**
 ```swift
-    open class func inscriptionnotauthenticatedGetListV1(eOrderBy: EOrderBy_inscriptionnotauthenticatedGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: InscriptionnotauthenticatedGetListV1Response?, _ error: Error?) -> Void)
+    open class func inscriptionnotauthenticatedGetListV1(eOrderBy: EOrderBy_inscriptionnotauthenticatedGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptionnotauthenticatedGetListV1Response
 ```
 
 Retrieve Inscriptionnotauthenticated list
@@ -438,15 +406,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Inscriptionnotauthenticated list
-ObjectInscriptionnotauthenticatedAPI.inscriptionnotauthenticatedGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInscriptionnotauthenticatedAPI.inscriptionnotauthenticatedGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -477,7 +441,7 @@ Name | Type | Description  | Notes
 
 # **inscriptionnotauthenticatedGetObjectV2**
 ```swift
-    open class func inscriptionnotauthenticatedGetObjectV2(pkiInscriptionnotauthenticatedID: Int, completion: @escaping (_ data: InscriptionnotauthenticatedGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func inscriptionnotauthenticatedGetObjectV2(pkiInscriptionnotauthenticatedID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptionnotauthenticatedGetObjectV2Response
 ```
 
 Retrieve an existing Inscriptionnotauthenticated
@@ -492,15 +456,11 @@ import EzmaxApi
 let pkiInscriptionnotauthenticatedID = 987 // Int | The unique ID of the Inscriptionnotauthenticated
 
 // Retrieve an existing Inscriptionnotauthenticated
-ObjectInscriptionnotauthenticatedAPI.inscriptionnotauthenticatedGetObjectV2(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInscriptionnotauthenticatedAPI.inscriptionnotauthenticatedGetObjectV2(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -527,7 +487,7 @@ Name | Type | Description  | Notes
 
 # **inscriptionnotauthenticatedImportIntoEDMV1**
 ```swift
-    open class func inscriptionnotauthenticatedImportIntoEDMV1(pkiInscriptionnotauthenticatedID: Int, inscriptionnotauthenticatedImportIntoEDMV1Request: InscriptionnotauthenticatedImportIntoEDMV1Request, completion: @escaping (_ data: InscriptionnotauthenticatedImportIntoEDMV1Response?, _ error: Error?) -> Void)
+    open class func inscriptionnotauthenticatedImportIntoEDMV1(pkiInscriptionnotauthenticatedID: Int, inscriptionnotauthenticatedImportIntoEDMV1Request: InscriptionnotauthenticatedImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptionnotauthenticatedImportIntoEDMV1Response
 ```
 
 Import attachments into the Inscriptionnotauthenticated
@@ -543,15 +503,11 @@ let pkiInscriptionnotauthenticatedID = 987 // Int |
 let inscriptionnotauthenticatedImportIntoEDMV1Request = inscriptionnotauthenticated-importIntoEDM-v1-Request(aObjAttachment: [Custom-AttachmentImportIntoEDM-Request(eAttachmentSource: "eAttachmentSource_example", fkiAttachmentID: 123, fkiInscriptionchecklistID: 123, sAttachmentUrl: "sAttachmentUrl_example", sAttachmentBase64: 123, sAttachmentName: "sAttachmentName_example", sAttachmentCategory: "sAttachmentCategory_example", eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123, sAttachmentMD5: "sAttachmentMD5_example", bAttachmentForceoverwrite: false, bAttachmentForcerestore: false)]) // InscriptionnotauthenticatedImportIntoEDMV1Request | 
 
 // Import attachments into the Inscriptionnotauthenticated
-ObjectInscriptionnotauthenticatedAPI.inscriptionnotauthenticatedImportIntoEDMV1(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID, inscriptionnotauthenticatedImportIntoEDMV1Request: inscriptionnotauthenticatedImportIntoEDMV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInscriptionnotauthenticatedAPI.inscriptionnotauthenticatedImportIntoEDMV1(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID, inscriptionnotauthenticatedImportIntoEDMV1Request: inscriptionnotauthenticatedImportIntoEDMV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 # **ezsignfoldersignerassociationCreateEmbeddedUrlV1**
 ```swift
-    open class func ezsignfoldersignerassociationCreateEmbeddedUrlV1(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationCreateEmbeddedUrlV1Request: EzsignfoldersignerassociationCreateEmbeddedUrlV1Request, completion: @escaping (_ data: EzsignfoldersignerassociationCreateEmbeddedUrlV1Response?, _ error: Error?) -> Void)
+    open class func ezsignfoldersignerassociationCreateEmbeddedUrlV1(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationCreateEmbeddedUrlV1Request: EzsignfoldersignerassociationCreateEmbeddedUrlV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignfoldersignerassociationCreateEmbeddedUrlV1Response
 ```
 
 Creates an Url to allow embedded signing
@@ -39,15 +39,11 @@ let pkiEzsignfoldersignerassociationID = 987 // Int |
 let ezsignfoldersignerassociationCreateEmbeddedUrlV1Request = ezsignfoldersignerassociation-createEmbeddedUrl-v1-Request(sReturnUrl: "sReturnUrl_example", sIframedomain: "sIframedomain_example", bIsIframe: false) // EzsignfoldersignerassociationCreateEmbeddedUrlV1Request | 
 
 // Creates an Url to allow embedded signing
-ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationCreateEmbeddedUrlV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationCreateEmbeddedUrlV1Request: ezsignfoldersignerassociationCreateEmbeddedUrlV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationCreateEmbeddedUrlV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationCreateEmbeddedUrlV1Request: ezsignfoldersignerassociationCreateEmbeddedUrlV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -75,7 +71,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfoldersignerassociationCreateEmbeddedUrlV2**
 ```swift
-    open class func ezsignfoldersignerassociationCreateEmbeddedUrlV2(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationCreateEmbeddedUrlV2Request: EzsignfoldersignerassociationCreateEmbeddedUrlV2Request, completion: @escaping (_ data: EzsignfoldersignerassociationCreateEmbeddedUrlV2Response?, _ error: Error?) -> Void)
+    open class func ezsignfoldersignerassociationCreateEmbeddedUrlV2(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationCreateEmbeddedUrlV2Request: EzsignfoldersignerassociationCreateEmbeddedUrlV2Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignfoldersignerassociationCreateEmbeddedUrlV2Response
 ```
 
 Creates an Url to allow embedded signing
@@ -91,15 +87,11 @@ let pkiEzsignfoldersignerassociationID = 987 // Int |
 let ezsignfoldersignerassociationCreateEmbeddedUrlV2Request = ezsignfoldersignerassociation-createEmbeddedUrl-v2-Request(sReturnUrl: "sReturnUrl_example", sIframeOrigin: "sIframeOrigin_example") // EzsignfoldersignerassociationCreateEmbeddedUrlV2Request | 
 
 // Creates an Url to allow embedded signing
-ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationCreateEmbeddedUrlV2(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationCreateEmbeddedUrlV2Request: ezsignfoldersignerassociationCreateEmbeddedUrlV2Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationCreateEmbeddedUrlV2(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationCreateEmbeddedUrlV2Request: ezsignfoldersignerassociationCreateEmbeddedUrlV2Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -127,7 +119,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfoldersignerassociationCreateObjectV1**
 ```swift
-    open class func ezsignfoldersignerassociationCreateObjectV1(ezsignfoldersignerassociationCreateObjectV1Request: [EzsignfoldersignerassociationCreateObjectV1Request], completion: @escaping (_ data: EzsignfoldersignerassociationCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignfoldersignerassociationCreateObjectV1(ezsignfoldersignerassociationCreateObjectV1Request: [EzsignfoldersignerassociationCreateObjectV1Request], apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignfoldersignerassociationCreateObjectV1Response
 ```
 
 Create a new Ezsignfoldersignerassociation
@@ -142,15 +134,11 @@ import EzmaxApi
 let ezsignfoldersignerassociationCreateObjectV1Request = [ezsignfoldersignerassociation-createObject-v1-Request(objEzsignfoldersignerassociation: ezsignfoldersignerassociation-Request(pkiEzsignfoldersignerassociationID: 123, fkiUserID: 123, fkiEzsignsignergroupID: 123, fkiEzsignfolderID: 123, bEzsignfoldersignerassociationReceivecopy: false, tEzsignfoldersignerassociationMessage: "tEzsignfoldersignerassociationMessage_example"), objEzsignfoldersignerassociationCompound: ezsignfoldersignerassociation-RequestCompound(pkiEzsignfoldersignerassociationID: 123, fkiUserID: 123, fkiEzsignsignergroupID: 123, fkiEzsignfolderID: 123, bEzsignfoldersignerassociationReceivecopy: false, tEzsignfoldersignerassociationMessage: "tEzsignfoldersignerassociationMessage_example", objEzsignsigner: ezsignsigner-RequestCompound(fkiUserlogintypeID: 123, fkiTaxassignmentID: 123, fkiSecretquestionID: 123, eEzsignsignerLogintype: "eEzsignsignerLogintype_example", sEzsignsignerSecretanswer: "sEzsignsignerSecretanswer_example", objContact: ezsignsigner-RequestCompound-Contact(sContactFirstname: "sContactFirstname_example", sContactLastname: "sContactLastname_example", fkiLanguageID: 123, sEmailAddress: "sEmailAddress_example", sPhoneE164: "sPhoneE164_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164Cell: "sPhoneE164Cell_example", sPhoneNumber: "sPhoneNumber_example", sPhoneNumberCell: "sPhoneNumberCell_example"))))] // [EzsignfoldersignerassociationCreateObjectV1Request] | 
 
 // Create a new Ezsignfoldersignerassociation
-ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationCreateObjectV1(ezsignfoldersignerassociationCreateObjectV1Request: ezsignfoldersignerassociationCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationCreateObjectV1(ezsignfoldersignerassociationCreateObjectV1Request: ezsignfoldersignerassociationCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -177,7 +165,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfoldersignerassociationCreateObjectV2**
 ```swift
-    open class func ezsignfoldersignerassociationCreateObjectV2(ezsignfoldersignerassociationCreateObjectV2Request: EzsignfoldersignerassociationCreateObjectV2Request, completion: @escaping (_ data: EzsignfoldersignerassociationCreateObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsignfoldersignerassociationCreateObjectV2(ezsignfoldersignerassociationCreateObjectV2Request: EzsignfoldersignerassociationCreateObjectV2Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignfoldersignerassociationCreateObjectV2Response
 ```
 
 Create a new Ezsignfoldersignerassociation
@@ -192,15 +180,11 @@ import EzmaxApi
 let ezsignfoldersignerassociationCreateObjectV2Request = ezsignfoldersignerassociation-createObject-v2-Request(aObjEzsignfoldersignerassociation: [ezsignfoldersignerassociation-RequestCompound(pkiEzsignfoldersignerassociationID: 123, fkiUserID: 123, fkiEzsignsignergroupID: 123, fkiEzsignfolderID: 123, bEzsignfoldersignerassociationReceivecopy: false, tEzsignfoldersignerassociationMessage: "tEzsignfoldersignerassociationMessage_example", objEzsignsigner: ezsignsigner-RequestCompound(fkiUserlogintypeID: 123, fkiTaxassignmentID: 123, fkiSecretquestionID: 123, eEzsignsignerLogintype: "eEzsignsignerLogintype_example", sEzsignsignerSecretanswer: "sEzsignsignerSecretanswer_example", objContact: ezsignsigner-RequestCompound-Contact(sContactFirstname: "sContactFirstname_example", sContactLastname: "sContactLastname_example", fkiLanguageID: 123, sEmailAddress: "sEmailAddress_example", sPhoneE164: "sPhoneE164_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164Cell: "sPhoneE164Cell_example", sPhoneNumber: "sPhoneNumber_example", sPhoneNumberCell: "sPhoneNumberCell_example")))]) // EzsignfoldersignerassociationCreateObjectV2Request | 
 
 // Create a new Ezsignfoldersignerassociation
-ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationCreateObjectV2(ezsignfoldersignerassociationCreateObjectV2Request: ezsignfoldersignerassociationCreateObjectV2Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationCreateObjectV2(ezsignfoldersignerassociationCreateObjectV2Request: ezsignfoldersignerassociationCreateObjectV2Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -227,7 +211,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfoldersignerassociationCreateObjectV3**
 ```swift
-    open class func ezsignfoldersignerassociationCreateObjectV3(ezsignfoldersignerassociationCreateObjectV3Request: EzsignfoldersignerassociationCreateObjectV3Request, completion: @escaping (_ data: EzsignfoldersignerassociationCreateObjectV3Response?, _ error: Error?) -> Void)
+    open class func ezsignfoldersignerassociationCreateObjectV3(ezsignfoldersignerassociationCreateObjectV3Request: EzsignfoldersignerassociationCreateObjectV3Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignfoldersignerassociationCreateObjectV3Response
 ```
 
 Create a new Ezsignfoldersignerassociation
@@ -242,15 +226,11 @@ import EzmaxApi
 let ezsignfoldersignerassociationCreateObjectV3Request = ezsignfoldersignerassociation-createObject-v3-Request(aObjEzsignfoldersignerassociation: [ezsignfoldersignerassociation-RequestCompoundV2(pkiEzsignfoldersignerassociationID: 123, fkiUserID: 123, fkiEzsignsignergroupID: 123, fkiEzsignfolderID: 123, eEzsignfoldersignerassociationRole: Field-eEzsignfoldersignerassociationRole(), tEzsignfoldersignerassociationMessage: "tEzsignfoldersignerassociationMessage_example", objEzsignsigner: ezsignsigner-RequestCompound(fkiUserlogintypeID: 123, fkiTaxassignmentID: 123, fkiSecretquestionID: 123, eEzsignsignerLogintype: "eEzsignsignerLogintype_example", sEzsignsignerSecretanswer: "sEzsignsignerSecretanswer_example", objContact: ezsignsigner-RequestCompound-Contact(sContactFirstname: "sContactFirstname_example", sContactLastname: "sContactLastname_example", fkiLanguageID: 123, sEmailAddress: "sEmailAddress_example", sPhoneE164: "sPhoneE164_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164Cell: "sPhoneE164Cell_example", sPhoneNumber: "sPhoneNumber_example", sPhoneNumberCell: "sPhoneNumberCell_example")))]) // EzsignfoldersignerassociationCreateObjectV3Request | 
 
 // Create a new Ezsignfoldersignerassociation
-ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationCreateObjectV3(ezsignfoldersignerassociationCreateObjectV3Request: ezsignfoldersignerassociationCreateObjectV3Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationCreateObjectV3(ezsignfoldersignerassociationCreateObjectV3Request: ezsignfoldersignerassociationCreateObjectV3Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -277,7 +257,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfoldersignerassociationDeleteObjectV1**
 ```swift
-    open class func ezsignfoldersignerassociationDeleteObjectV1(pkiEzsignfoldersignerassociationID: Int, completion: @escaping (_ data: EzsignfoldersignerassociationDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignfoldersignerassociationDeleteObjectV1(pkiEzsignfoldersignerassociationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignfoldersignerassociationDeleteObjectV1Response
 ```
 
 Delete an existing Ezsignfoldersignerassociation
@@ -292,15 +272,11 @@ import EzmaxApi
 let pkiEzsignfoldersignerassociationID = 987 // Int | 
 
 // Delete an existing Ezsignfoldersignerassociation
-ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationDeleteObjectV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationDeleteObjectV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -327,7 +303,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfoldersignerassociationEditObjectV1**
 ```swift
-    open class func ezsignfoldersignerassociationEditObjectV1(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationEditObjectV1Request: EzsignfoldersignerassociationEditObjectV1Request, completion: @escaping (_ data: EzsignfoldersignerassociationEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignfoldersignerassociationEditObjectV1(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationEditObjectV1Request: EzsignfoldersignerassociationEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignfoldersignerassociationEditObjectV1Response
 ```
 
 Edit an existing Ezsignfoldersignerassociation
@@ -343,15 +319,11 @@ let pkiEzsignfoldersignerassociationID = 987 // Int |
 let ezsignfoldersignerassociationEditObjectV1Request = ezsignfoldersignerassociation-editObject-v1-Request(objEzsignfoldersignerassociation: ezsignfoldersignerassociation-RequestCompound(pkiEzsignfoldersignerassociationID: 123, fkiUserID: 123, fkiEzsignsignergroupID: 123, fkiEzsignfolderID: 123, bEzsignfoldersignerassociationReceivecopy: false, tEzsignfoldersignerassociationMessage: "tEzsignfoldersignerassociationMessage_example", objEzsignsigner: ezsignsigner-RequestCompound(fkiUserlogintypeID: 123, fkiTaxassignmentID: 123, fkiSecretquestionID: 123, eEzsignsignerLogintype: "eEzsignsignerLogintype_example", sEzsignsignerSecretanswer: "sEzsignsignerSecretanswer_example", objContact: ezsignsigner-RequestCompound-Contact(sContactFirstname: "sContactFirstname_example", sContactLastname: "sContactLastname_example", fkiLanguageID: 123, sEmailAddress: "sEmailAddress_example", sPhoneE164: "sPhoneE164_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164Cell: "sPhoneE164Cell_example", sPhoneNumber: "sPhoneNumber_example", sPhoneNumberCell: "sPhoneNumberCell_example")))) // EzsignfoldersignerassociationEditObjectV1Request | 
 
 // Edit an existing Ezsignfoldersignerassociation
-ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationEditObjectV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationEditObjectV1Request: ezsignfoldersignerassociationEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationEditObjectV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationEditObjectV1Request: ezsignfoldersignerassociationEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -379,7 +351,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfoldersignerassociationEditObjectV2**
 ```swift
-    open class func ezsignfoldersignerassociationEditObjectV2(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationEditObjectV2Request: EzsignfoldersignerassociationEditObjectV2Request, completion: @escaping (_ data: EzsignfoldersignerassociationEditObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsignfoldersignerassociationEditObjectV2(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationEditObjectV2Request: EzsignfoldersignerassociationEditObjectV2Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignfoldersignerassociationEditObjectV2Response
 ```
 
 Edit an existing Ezsignfoldersignerassociation
@@ -395,15 +367,11 @@ let pkiEzsignfoldersignerassociationID = 987 // Int |
 let ezsignfoldersignerassociationEditObjectV2Request = ezsignfoldersignerassociation-editObject-v2-Request(objEzsignfoldersignerassociation: ezsignfoldersignerassociation-RequestCompoundV2(pkiEzsignfoldersignerassociationID: 123, fkiUserID: 123, fkiEzsignsignergroupID: 123, fkiEzsignfolderID: 123, eEzsignfoldersignerassociationRole: Field-eEzsignfoldersignerassociationRole(), tEzsignfoldersignerassociationMessage: "tEzsignfoldersignerassociationMessage_example", objEzsignsigner: ezsignsigner-RequestCompound(fkiUserlogintypeID: 123, fkiTaxassignmentID: 123, fkiSecretquestionID: 123, eEzsignsignerLogintype: "eEzsignsignerLogintype_example", sEzsignsignerSecretanswer: "sEzsignsignerSecretanswer_example", objContact: ezsignsigner-RequestCompound-Contact(sContactFirstname: "sContactFirstname_example", sContactLastname: "sContactLastname_example", fkiLanguageID: 123, sEmailAddress: "sEmailAddress_example", sPhoneE164: "sPhoneE164_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164Cell: "sPhoneE164Cell_example", sPhoneNumber: "sPhoneNumber_example", sPhoneNumberCell: "sPhoneNumberCell_example")))) // EzsignfoldersignerassociationEditObjectV2Request | 
 
 // Edit an existing Ezsignfoldersignerassociation
-ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationEditObjectV2(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationEditObjectV2Request: ezsignfoldersignerassociationEditObjectV2Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationEditObjectV2(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationEditObjectV2Request: ezsignfoldersignerassociationEditObjectV2Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -431,7 +399,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfoldersignerassociationForceDisconnectV1**
 ```swift
-    open class func ezsignfoldersignerassociationForceDisconnectV1(pkiEzsignfoldersignerassociationID: Int, body: JSONValue, completion: @escaping (_ data: EzsignfoldersignerassociationForceDisconnectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignfoldersignerassociationForceDisconnectV1(pkiEzsignfoldersignerassociationID: Int, body: JSONValue, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignfoldersignerassociationForceDisconnectV1Response
 ```
 
 Disconnects the Ezsignfoldersignerassociation
@@ -447,15 +415,11 @@ let pkiEzsignfoldersignerassociationID = 987 // Int |
 let body = "TODO" // JSONValue | 
 
 // Disconnects the Ezsignfoldersignerassociation
-ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationForceDisconnectV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, body: body) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationForceDisconnectV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, body: body)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -483,7 +447,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfoldersignerassociationGetInPersonLoginUrlV1**
 ```swift
-    open class func ezsignfoldersignerassociationGetInPersonLoginUrlV1(pkiEzsignfoldersignerassociationID: Int, completion: @escaping (_ data: EzsignfoldersignerassociationGetInPersonLoginUrlV1Response?, _ error: Error?) -> Void)
+    open class func ezsignfoldersignerassociationGetInPersonLoginUrlV1(pkiEzsignfoldersignerassociationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignfoldersignerassociationGetInPersonLoginUrlV1Response
 ```
 
 Retrieve a Login Url to allow In-Person signing
@@ -498,15 +462,11 @@ import EzmaxApi
 let pkiEzsignfoldersignerassociationID = 987 // Int | 
 
 // Retrieve a Login Url to allow In-Person signing
-ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationGetInPersonLoginUrlV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationGetInPersonLoginUrlV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -533,7 +493,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfoldersignerassociationGetObjectV1**
 ```swift
-    open class func ezsignfoldersignerassociationGetObjectV1(pkiEzsignfoldersignerassociationID: Int, completion: @escaping (_ data: EzsignfoldersignerassociationGetObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignfoldersignerassociationGetObjectV1(pkiEzsignfoldersignerassociationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignfoldersignerassociationGetObjectV1Response
 ```
 
 Retrieve an existing Ezsignfoldersignerassociation
@@ -548,15 +508,11 @@ import EzmaxApi
 let pkiEzsignfoldersignerassociationID = 987 // Int | 
 
 // Retrieve an existing Ezsignfoldersignerassociation
-ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationGetObjectV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationGetObjectV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -583,7 +539,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfoldersignerassociationGetObjectV2**
 ```swift
-    open class func ezsignfoldersignerassociationGetObjectV2(pkiEzsignfoldersignerassociationID: Int, completion: @escaping (_ data: EzsignfoldersignerassociationGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsignfoldersignerassociationGetObjectV2(pkiEzsignfoldersignerassociationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignfoldersignerassociationGetObjectV2Response
 ```
 
 Retrieve an existing Ezsignfoldersignerassociation
@@ -598,15 +554,11 @@ import EzmaxApi
 let pkiEzsignfoldersignerassociationID = 987 // Int | 
 
 // Retrieve an existing Ezsignfoldersignerassociation
-ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationGetObjectV2(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationGetObjectV2(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -633,7 +585,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfoldersignerassociationGetObjectV3**
 ```swift
-    open class func ezsignfoldersignerassociationGetObjectV3(pkiEzsignfoldersignerassociationID: Int, completion: @escaping (_ data: EzsignfoldersignerassociationGetObjectV3Response?, _ error: Error?) -> Void)
+    open class func ezsignfoldersignerassociationGetObjectV3(pkiEzsignfoldersignerassociationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignfoldersignerassociationGetObjectV3Response
 ```
 
 Retrieve an existing Ezsignfoldersignerassociation
@@ -648,15 +600,11 @@ import EzmaxApi
 let pkiEzsignfoldersignerassociationID = 987 // Int | 
 
 // Retrieve an existing Ezsignfoldersignerassociation
-ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationGetObjectV3(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationGetObjectV3(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -683,7 +631,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfoldersignerassociationPatchObjectV1**
 ```swift
-    open class func ezsignfoldersignerassociationPatchObjectV1(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationPatchObjectV1Request: EzsignfoldersignerassociationPatchObjectV1Request, completion: @escaping (_ data: EzsignfoldersignerassociationPatchObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignfoldersignerassociationPatchObjectV1(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationPatchObjectV1Request: EzsignfoldersignerassociationPatchObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignfoldersignerassociationPatchObjectV1Response
 ```
 
 Patch an existing Ezsignfoldersignerassociation
@@ -697,15 +645,11 @@ let pkiEzsignfoldersignerassociationID = 987 // Int |
 let ezsignfoldersignerassociationPatchObjectV1Request = ezsignfoldersignerassociation-patchObject-v1-Request(objEzsignfoldersignerassociation: ezsignfoldersignerassociation-RequestPatch(eEzsignfoldersignerassociationRole: Field-eEzsignfoldersignerassociationRole(), tEzsignfoldersignerassociationMessage: "tEzsignfoldersignerassociationMessage_example")) // EzsignfoldersignerassociationPatchObjectV1Request | 
 
 // Patch an existing Ezsignfoldersignerassociation
-ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationPatchObjectV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationPatchObjectV1Request: ezsignfoldersignerassociationPatchObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationPatchObjectV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationPatchObjectV1Request: ezsignfoldersignerassociationPatchObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -733,7 +677,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfoldersignerassociationReassignV1**
 ```swift
-    open class func ezsignfoldersignerassociationReassignV1(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationReassignV1Request: EzsignfoldersignerassociationReassignV1Request, completion: @escaping (_ data: EzsignfoldersignerassociationReassignV1Response?, _ error: Error?) -> Void)
+    open class func ezsignfoldersignerassociationReassignV1(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationReassignV1Request: EzsignfoldersignerassociationReassignV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignfoldersignerassociationReassignV1Response
 ```
 
 Reassign remaining unsigned signatures and forms
@@ -749,15 +693,11 @@ let pkiEzsignfoldersignerassociationID = 987 // Int |
 let ezsignfoldersignerassociationReassignV1Request = ezsignfoldersignerassociation-reassign-v1-Request(fkiEzsignfoldersignerassociationID: 123) // EzsignfoldersignerassociationReassignV1Request | 
 
 // Reassign remaining unsigned signatures and forms
-ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationReassignV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationReassignV1Request: ezsignfoldersignerassociationReassignV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationReassignV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationReassignV1Request: ezsignfoldersignerassociationReassignV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

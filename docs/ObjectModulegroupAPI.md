@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **modulegroupGetAllV1**
 ```swift
-    open class func modulegroupGetAllV1(eContext: EContext_modulegroupGetAllV1, completion: @escaping (_ data: ModulegroupGetAllV1Response?, _ error: Error?) -> Void)
+    open class func modulegroupGetAllV1(eContext: EContext_modulegroupGetAllV1, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ModulegroupGetAllV1Response
 ```
 
 Retrieve all Modulegroups
@@ -22,15 +22,11 @@ import EzmaxApi
 let eContext = "eContext_example" // String | The context of the Modulegroup
 
 // Retrieve all Modulegroups
-ObjectModulegroupAPI.modulegroupGetAllV1(eContext: eContext) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectModulegroupAPI.modulegroupGetAllV1(eContext: eContext)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

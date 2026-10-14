@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 # **customerBatchDownloadV1**
 ```swift
-    open class func customerBatchDownloadV1(pkiCustomerID: Int, customerBatchDownloadV1Request: CustomerBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func customerBatchDownloadV1(pkiCustomerID: Int, customerBatchDownloadV1Request: CustomerBatchDownloadV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> URL
 ```
 
 Download multiples attachments from a Customer
@@ -31,15 +31,11 @@ let pkiCustomerID = 987 // Int |
 let customerBatchDownloadV1Request = customer-batchDownload-v1-Request(aPkiAttachmentID: [123]) // CustomerBatchDownloadV1Request | 
 
 // Download multiples attachments from a Customer
-ObjectCustomerAPI.customerBatchDownloadV1(pkiCustomerID: pkiCustomerID, customerBatchDownloadV1Request: customerBatchDownloadV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCustomerAPI.customerBatchDownloadV1(pkiCustomerID: pkiCustomerID, customerBatchDownloadV1Request: customerBatchDownloadV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -67,7 +63,7 @@ Name | Type | Description  | Notes
 
 # **customerGetAttachmentsV1**
 ```swift
-    open class func customerGetAttachmentsV1(pkiCustomerID: Int, completion: @escaping (_ data: CustomerGetAttachmentsV1Response?, _ error: Error?) -> Void)
+    open class func customerGetAttachmentsV1(pkiCustomerID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CustomerGetAttachmentsV1Response
 ```
 
 Retrieve Customer's attachments
@@ -80,15 +76,11 @@ import EzmaxApi
 let pkiCustomerID = 987 // Int | 
 
 // Retrieve Customer's attachments
-ObjectCustomerAPI.customerGetAttachmentsV1(pkiCustomerID: pkiCustomerID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCustomerAPI.customerGetAttachmentsV1(pkiCustomerID: pkiCustomerID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -115,7 +107,7 @@ Name | Type | Description  | Notes
 
 # **customerGetAutocompleteV2**
 ```swift
-    open class func customerGetAutocompleteV2(sSelector: SSelector_customerGetAutocompleteV2, eFilterActive: EFilterActive_customerGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: CustomerGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func customerGetAutocompleteV2(sSelector: SSelector_customerGetAutocompleteV2, eFilterActive: EFilterActive_customerGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CustomerGetAutocompleteV2Response
 ```
 
 Retrieve Customers and IDs
@@ -133,15 +125,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Customers and IDs
-ObjectCustomerAPI.customerGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCustomerAPI.customerGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -171,7 +159,7 @@ Name | Type | Description  | Notes
 
 # **customerGetCommunicationCountV1**
 ```swift
-    open class func customerGetCommunicationCountV1(pkiCustomerID: Int, completion: @escaping (_ data: CustomerGetCommunicationCountV1Response?, _ error: Error?) -> Void)
+    open class func customerGetCommunicationCountV1(pkiCustomerID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CustomerGetCommunicationCountV1Response
 ```
 
 Retrieve Communication count
@@ -184,15 +172,11 @@ import EzmaxApi
 let pkiCustomerID = 987 // Int | 
 
 // Retrieve Communication count
-ObjectCustomerAPI.customerGetCommunicationCountV1(pkiCustomerID: pkiCustomerID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCustomerAPI.customerGetCommunicationCountV1(pkiCustomerID: pkiCustomerID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -219,7 +203,7 @@ Name | Type | Description  | Notes
 
 # **customerGetCommunicationListV1**
 ```swift
-    open class func customerGetCommunicationListV1(pkiCustomerID: Int, completion: @escaping (_ data: CustomerGetCommunicationListV1Response?, _ error: Error?) -> Void)
+    open class func customerGetCommunicationListV1(pkiCustomerID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CustomerGetCommunicationListV1Response
 ```
 
 Retrieve Communication list
@@ -232,15 +216,11 @@ import EzmaxApi
 let pkiCustomerID = 987 // Int | 
 
 // Retrieve Communication list
-ObjectCustomerAPI.customerGetCommunicationListV1(pkiCustomerID: pkiCustomerID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCustomerAPI.customerGetCommunicationListV1(pkiCustomerID: pkiCustomerID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -267,7 +247,7 @@ Name | Type | Description  | Notes
 
 # **customerGetCommunicationrecipientsV1**
 ```swift
-    open class func customerGetCommunicationrecipientsV1(pkiCustomerID: Int, completion: @escaping (_ data: CustomerGetCommunicationrecipientsV1Response?, _ error: Error?) -> Void)
+    open class func customerGetCommunicationrecipientsV1(pkiCustomerID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CustomerGetCommunicationrecipientsV1Response
 ```
 
 Retrieve Communication recipients
@@ -280,15 +260,11 @@ import EzmaxApi
 let pkiCustomerID = 987 // Int | 
 
 // Retrieve Communication recipients
-ObjectCustomerAPI.customerGetCommunicationrecipientsV1(pkiCustomerID: pkiCustomerID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCustomerAPI.customerGetCommunicationrecipientsV1(pkiCustomerID: pkiCustomerID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -315,7 +291,7 @@ Name | Type | Description  | Notes
 
 # **customerGetCommunicationsendersV1**
 ```swift
-    open class func customerGetCommunicationsendersV1(pkiCustomerID: Int, completion: @escaping (_ data: CustomerGetCommunicationsendersV1Response?, _ error: Error?) -> Void)
+    open class func customerGetCommunicationsendersV1(pkiCustomerID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CustomerGetCommunicationsendersV1Response
 ```
 
 Retrieve Communication senders
@@ -328,15 +304,11 @@ import EzmaxApi
 let pkiCustomerID = 987 // Int | 
 
 // Retrieve Communication senders
-ObjectCustomerAPI.customerGetCommunicationsendersV1(pkiCustomerID: pkiCustomerID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCustomerAPI.customerGetCommunicationsendersV1(pkiCustomerID: pkiCustomerID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -363,7 +335,7 @@ Name | Type | Description  | Notes
 
 # **customerGetObjectV2**
 ```swift
-    open class func customerGetObjectV2(pkiCustomerID: Int, completion: @escaping (_ data: CustomerGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func customerGetObjectV2(pkiCustomerID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CustomerGetObjectV2Response
 ```
 
 Retrieve an existing Customer
@@ -378,15 +350,11 @@ import EzmaxApi
 let pkiCustomerID = 987 // Int | The unique ID of the Customer
 
 // Retrieve an existing Customer
-ObjectCustomerAPI.customerGetObjectV2(pkiCustomerID: pkiCustomerID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCustomerAPI.customerGetObjectV2(pkiCustomerID: pkiCustomerID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -413,7 +381,7 @@ Name | Type | Description  | Notes
 
 # **customerImportIntoEDMV1**
 ```swift
-    open class func customerImportIntoEDMV1(pkiCustomerID: Int, customerImportIntoEDMV1Request: CustomerImportIntoEDMV1Request, completion: @escaping (_ data: CustomerImportIntoEDMV1Response?, _ error: Error?) -> Void)
+    open class func customerImportIntoEDMV1(pkiCustomerID: Int, customerImportIntoEDMV1Request: CustomerImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CustomerImportIntoEDMV1Response
 ```
 
 Import attachments into the Customer
@@ -429,15 +397,11 @@ let pkiCustomerID = 987 // Int |
 let customerImportIntoEDMV1Request = customer-importIntoEDM-v1-Request(aObjAttachment: [Custom-AttachmentImportIntoEDM-Request(eAttachmentSource: "eAttachmentSource_example", fkiAttachmentID: 123, fkiInscriptionchecklistID: 123, sAttachmentUrl: "sAttachmentUrl_example", sAttachmentBase64: 123, sAttachmentName: "sAttachmentName_example", sAttachmentCategory: "sAttachmentCategory_example", eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123, sAttachmentMD5: "sAttachmentMD5_example", bAttachmentForceoverwrite: false, bAttachmentForcerestore: false)]) // CustomerImportIntoEDMV1Request | 
 
 // Import attachments into the Customer
-ObjectCustomerAPI.customerImportIntoEDMV1(pkiCustomerID: pkiCustomerID, customerImportIntoEDMV1Request: customerImportIntoEDMV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCustomerAPI.customerImportIntoEDMV1(pkiCustomerID: pkiCustomerID, customerImportIntoEDMV1Request: customerImportIntoEDMV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

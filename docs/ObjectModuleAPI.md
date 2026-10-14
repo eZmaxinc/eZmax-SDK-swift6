@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **moduleGetAutocompleteV2**
 ```swift
-    open class func moduleGetAutocompleteV2(sSelector: SSelector_moduleGetAutocompleteV2, eFilterActive: EFilterActive_moduleGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: ModuleGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func moduleGetAutocompleteV2(sSelector: SSelector_moduleGetAutocompleteV2, eFilterActive: EFilterActive_moduleGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ModuleGetAutocompleteV2Response
 ```
 
 Retrieve Modules and IDs
@@ -27,15 +27,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Modules and IDs
-ObjectModuleAPI.moduleGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectModuleAPI.moduleGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

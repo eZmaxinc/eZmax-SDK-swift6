@@ -10,9 +10,9 @@ import Foundation
 /** A User name Object */
 public struct CustomUserNameResponse: Sendable, Codable, Hashable {
 
-    public static let sContacttitleNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,10}$/")
-    public static let sUserLoginnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(?:([\\w.%+\\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$/")
-    public static let sUserJobtitleRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sContacttitleNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,10}$")
+    public static let sUserLoginnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^(?:([\\w.%+\\-!#$%&'*+/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$")
+    public static let sUserJobtitleRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
     /** The name of the Contacttitle in the language of the requester */
     public var sContacttitleNameX: String?
     /** The last name of the user */

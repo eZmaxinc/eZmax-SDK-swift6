@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 # **brokerBatchDownloadV1**
 ```swift
-    open class func brokerBatchDownloadV1(pkiBrokerID: Int, brokerBatchDownloadV1Request: BrokerBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func brokerBatchDownloadV1(pkiBrokerID: Int, brokerBatchDownloadV1Request: BrokerBatchDownloadV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> URL
 ```
 
 Download multiples attachments from a Broker
@@ -31,15 +31,11 @@ let pkiBrokerID = 987 // Int |
 let brokerBatchDownloadV1Request = broker-batchDownload-v1-Request(aPkiAttachmentID: [123]) // BrokerBatchDownloadV1Request | 
 
 // Download multiples attachments from a Broker
-ObjectBrokerAPI.brokerBatchDownloadV1(pkiBrokerID: pkiBrokerID, brokerBatchDownloadV1Request: brokerBatchDownloadV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBrokerAPI.brokerBatchDownloadV1(pkiBrokerID: pkiBrokerID, brokerBatchDownloadV1Request: brokerBatchDownloadV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -67,7 +63,7 @@ Name | Type | Description  | Notes
 
 # **brokerGetAttachmentsV1**
 ```swift
-    open class func brokerGetAttachmentsV1(pkiBrokerID: Int, completion: @escaping (_ data: BrokerGetAttachmentsV1Response?, _ error: Error?) -> Void)
+    open class func brokerGetAttachmentsV1(pkiBrokerID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BrokerGetAttachmentsV1Response
 ```
 
 Retrieve Broker's attachments
@@ -80,15 +76,11 @@ import EzmaxApi
 let pkiBrokerID = 987 // Int | 
 
 // Retrieve Broker's attachments
-ObjectBrokerAPI.brokerGetAttachmentsV1(pkiBrokerID: pkiBrokerID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBrokerAPI.brokerGetAttachmentsV1(pkiBrokerID: pkiBrokerID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -115,7 +107,7 @@ Name | Type | Description  | Notes
 
 # **brokerGetAutocompleteV2**
 ```swift
-    open class func brokerGetAutocompleteV2(sSelector: SSelector_brokerGetAutocompleteV2, eFilterActive: EFilterActive_brokerGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: BrokerGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func brokerGetAutocompleteV2(sSelector: SSelector_brokerGetAutocompleteV2, eFilterActive: EFilterActive_brokerGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BrokerGetAutocompleteV2Response
 ```
 
 Retrieve Brokers and IDs
@@ -133,15 +125,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Brokers and IDs
-ObjectBrokerAPI.brokerGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBrokerAPI.brokerGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -171,7 +159,7 @@ Name | Type | Description  | Notes
 
 # **brokerGetCommunicationCountV1**
 ```swift
-    open class func brokerGetCommunicationCountV1(pkiBrokerID: Int, completion: @escaping (_ data: BrokerGetCommunicationCountV1Response?, _ error: Error?) -> Void)
+    open class func brokerGetCommunicationCountV1(pkiBrokerID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BrokerGetCommunicationCountV1Response
 ```
 
 Retrieve Communication count
@@ -184,15 +172,11 @@ import EzmaxApi
 let pkiBrokerID = 987 // Int | 
 
 // Retrieve Communication count
-ObjectBrokerAPI.brokerGetCommunicationCountV1(pkiBrokerID: pkiBrokerID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBrokerAPI.brokerGetCommunicationCountV1(pkiBrokerID: pkiBrokerID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -219,7 +203,7 @@ Name | Type | Description  | Notes
 
 # **brokerGetCommunicationListV1**
 ```swift
-    open class func brokerGetCommunicationListV1(pkiBrokerID: Int, completion: @escaping (_ data: BrokerGetCommunicationListV1Response?, _ error: Error?) -> Void)
+    open class func brokerGetCommunicationListV1(pkiBrokerID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BrokerGetCommunicationListV1Response
 ```
 
 Retrieve Communication list
@@ -232,15 +216,11 @@ import EzmaxApi
 let pkiBrokerID = 987 // Int | 
 
 // Retrieve Communication list
-ObjectBrokerAPI.brokerGetCommunicationListV1(pkiBrokerID: pkiBrokerID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBrokerAPI.brokerGetCommunicationListV1(pkiBrokerID: pkiBrokerID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -267,7 +247,7 @@ Name | Type | Description  | Notes
 
 # **brokerGetCommunicationrecipientsV1**
 ```swift
-    open class func brokerGetCommunicationrecipientsV1(pkiBrokerID: Int, completion: @escaping (_ data: BrokerGetCommunicationrecipientsV1Response?, _ error: Error?) -> Void)
+    open class func brokerGetCommunicationrecipientsV1(pkiBrokerID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BrokerGetCommunicationrecipientsV1Response
 ```
 
 Retrieve Communication recipients
@@ -280,15 +260,11 @@ import EzmaxApi
 let pkiBrokerID = 987 // Int | 
 
 // Retrieve Communication recipients
-ObjectBrokerAPI.brokerGetCommunicationrecipientsV1(pkiBrokerID: pkiBrokerID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBrokerAPI.brokerGetCommunicationrecipientsV1(pkiBrokerID: pkiBrokerID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -315,7 +291,7 @@ Name | Type | Description  | Notes
 
 # **brokerGetCommunicationsendersV1**
 ```swift
-    open class func brokerGetCommunicationsendersV1(pkiBrokerID: Int, completion: @escaping (_ data: BrokerGetCommunicationsendersV1Response?, _ error: Error?) -> Void)
+    open class func brokerGetCommunicationsendersV1(pkiBrokerID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BrokerGetCommunicationsendersV1Response
 ```
 
 Retrieve Communication senders
@@ -328,15 +304,11 @@ import EzmaxApi
 let pkiBrokerID = 987 // Int | 
 
 // Retrieve Communication senders
-ObjectBrokerAPI.brokerGetCommunicationsendersV1(pkiBrokerID: pkiBrokerID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBrokerAPI.brokerGetCommunicationsendersV1(pkiBrokerID: pkiBrokerID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -363,7 +335,7 @@ Name | Type | Description  | Notes
 
 # **brokerGetListV1**
 ```swift
-    open class func brokerGetListV1(eOrderBy: EOrderBy_brokerGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: BrokerGetListV1Response?, _ error: Error?) -> Void)
+    open class func brokerGetListV1(eOrderBy: EOrderBy_brokerGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BrokerGetListV1Response
 ```
 
 Retrieve Broker list
@@ -382,15 +354,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Broker list
-ObjectBrokerAPI.brokerGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBrokerAPI.brokerGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -421,7 +389,7 @@ Name | Type | Description  | Notes
 
 # **brokerImportIntoEDMV1**
 ```swift
-    open class func brokerImportIntoEDMV1(pkiBrokerID: Int, brokerImportIntoEDMV1Request: BrokerImportIntoEDMV1Request, completion: @escaping (_ data: BrokerImportIntoEDMV1Response?, _ error: Error?) -> Void)
+    open class func brokerImportIntoEDMV1(pkiBrokerID: Int, brokerImportIntoEDMV1Request: BrokerImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BrokerImportIntoEDMV1Response
 ```
 
 Import attachments into the Broker
@@ -437,15 +405,11 @@ let pkiBrokerID = 987 // Int |
 let brokerImportIntoEDMV1Request = broker-importIntoEDM-v1-Request(aObjAttachment: [Custom-AttachmentImportIntoEDM-Request(eAttachmentSource: "eAttachmentSource_example", fkiAttachmentID: 123, fkiInscriptionchecklistID: 123, sAttachmentUrl: "sAttachmentUrl_example", sAttachmentBase64: 123, sAttachmentName: "sAttachmentName_example", sAttachmentCategory: "sAttachmentCategory_example", eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123, sAttachmentMD5: "sAttachmentMD5_example", bAttachmentForceoverwrite: false, bAttachmentForcerestore: false)]) // BrokerImportIntoEDMV1Request | 
 
 // Import attachments into the Broker
-ObjectBrokerAPI.brokerImportIntoEDMV1(pkiBrokerID: pkiBrokerID, brokerImportIntoEDMV1Request: brokerImportIntoEDMV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectBrokerAPI.brokerImportIntoEDMV1(pkiBrokerID: pkiBrokerID, brokerImportIntoEDMV1Request: brokerImportIntoEDMV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

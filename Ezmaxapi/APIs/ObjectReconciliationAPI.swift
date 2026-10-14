@@ -96,6 +96,174 @@ open class ObjectReconciliationAPI {
     }
 
     /**
+     Retrieve Communication count
+     
+     - parameter pkiReconciliationID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: ReconciliationGetCommunicationCountV1Response
+     */
+    open class func reconciliationGetCommunicationCountV1(pkiReconciliationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ReconciliationGetCommunicationCountV1Response {
+        return try await reconciliationGetCommunicationCountV1WithRequestBuilder(pkiReconciliationID: pkiReconciliationID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Communication count
+     - GET /1/object/reconciliation/{pkiReconciliationID}/getCommunicationCount
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiReconciliationID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<ReconciliationGetCommunicationCountV1Response> 
+     */
+    open class func reconciliationGetCommunicationCountV1WithRequestBuilder(pkiReconciliationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<ReconciliationGetCommunicationCountV1Response> {
+        var localVariablePath = "/1/object/reconciliation/{pkiReconciliationID}/getCommunicationCount"
+        let pkiReconciliationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiReconciliationID))"
+        let pkiReconciliationIDPostEscape = pkiReconciliationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiReconciliationID}", with: pkiReconciliationIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<ReconciliationGetCommunicationCountV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Retrieve Communication list
+     
+     - parameter pkiReconciliationID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: ReconciliationGetCommunicationListV1Response
+     */
+    open class func reconciliationGetCommunicationListV1(pkiReconciliationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ReconciliationGetCommunicationListV1Response {
+        return try await reconciliationGetCommunicationListV1WithRequestBuilder(pkiReconciliationID: pkiReconciliationID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Communication list
+     - GET /1/object/reconciliation/{pkiReconciliationID}/getCommunicationList
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiReconciliationID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<ReconciliationGetCommunicationListV1Response> 
+     */
+    open class func reconciliationGetCommunicationListV1WithRequestBuilder(pkiReconciliationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<ReconciliationGetCommunicationListV1Response> {
+        var localVariablePath = "/1/object/reconciliation/{pkiReconciliationID}/getCommunicationList"
+        let pkiReconciliationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiReconciliationID))"
+        let pkiReconciliationIDPostEscape = pkiReconciliationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiReconciliationID}", with: pkiReconciliationIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<ReconciliationGetCommunicationListV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Retrieve Communication recipients
+     
+     - parameter pkiReconciliationID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: ReconciliationGetCommunicationrecipientsV1Response
+     */
+    open class func reconciliationGetCommunicationrecipientsV1(pkiReconciliationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ReconciliationGetCommunicationrecipientsV1Response {
+        return try await reconciliationGetCommunicationrecipientsV1WithRequestBuilder(pkiReconciliationID: pkiReconciliationID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Communication recipients
+     - GET /1/object/reconciliation/{pkiReconciliationID}/getCommunicationrecipients
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiReconciliationID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<ReconciliationGetCommunicationrecipientsV1Response> 
+     */
+    open class func reconciliationGetCommunicationrecipientsV1WithRequestBuilder(pkiReconciliationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<ReconciliationGetCommunicationrecipientsV1Response> {
+        var localVariablePath = "/1/object/reconciliation/{pkiReconciliationID}/getCommunicationrecipients"
+        let pkiReconciliationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiReconciliationID))"
+        let pkiReconciliationIDPostEscape = pkiReconciliationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiReconciliationID}", with: pkiReconciliationIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<ReconciliationGetCommunicationrecipientsV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Retrieve Communication senders
+     
+     - parameter pkiReconciliationID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: ReconciliationGetCommunicationsendersV1Response
+     */
+    open class func reconciliationGetCommunicationsendersV1(pkiReconciliationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ReconciliationGetCommunicationsendersV1Response {
+        return try await reconciliationGetCommunicationsendersV1WithRequestBuilder(pkiReconciliationID: pkiReconciliationID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Communication senders
+     - GET /1/object/reconciliation/{pkiReconciliationID}/getCommunicationsenders
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiReconciliationID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<ReconciliationGetCommunicationsendersV1Response> 
+     */
+    open class func reconciliationGetCommunicationsendersV1WithRequestBuilder(pkiReconciliationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<ReconciliationGetCommunicationsendersV1Response> {
+        var localVariablePath = "/1/object/reconciliation/{pkiReconciliationID}/getCommunicationsenders"
+        let pkiReconciliationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiReconciliationID))"
+        let pkiReconciliationIDPostEscape = pkiReconciliationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiReconciliationID}", with: pkiReconciliationIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<ReconciliationGetCommunicationsendersV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
      Import attachments into the Reconciliation
      
      - parameter pkiReconciliationID: (path)  

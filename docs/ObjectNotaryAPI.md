@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 # **notaryBatchDownloadV1**
 ```swift
-    open class func notaryBatchDownloadV1(pkiNotaryID: Int, notaryBatchDownloadV1Request: NotaryBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func notaryBatchDownloadV1(pkiNotaryID: Int, notaryBatchDownloadV1Request: NotaryBatchDownloadV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> URL
 ```
 
 Download multiples attachments from a Notary
@@ -30,15 +30,11 @@ let pkiNotaryID = 987 // Int |
 let notaryBatchDownloadV1Request = notary-batchDownload-v1-Request(aPkiAttachmentID: [123]) // NotaryBatchDownloadV1Request | 
 
 // Download multiples attachments from a Notary
-ObjectNotaryAPI.notaryBatchDownloadV1(pkiNotaryID: pkiNotaryID, notaryBatchDownloadV1Request: notaryBatchDownloadV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectNotaryAPI.notaryBatchDownloadV1(pkiNotaryID: pkiNotaryID, notaryBatchDownloadV1Request: notaryBatchDownloadV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -66,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **notaryGetAttachmentsV1**
 ```swift
-    open class func notaryGetAttachmentsV1(pkiNotaryID: Int, completion: @escaping (_ data: NotaryGetAttachmentsV1Response?, _ error: Error?) -> Void)
+    open class func notaryGetAttachmentsV1(pkiNotaryID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> NotaryGetAttachmentsV1Response
 ```
 
 Retrieve Notary's attachments
@@ -79,15 +75,11 @@ import EzmaxApi
 let pkiNotaryID = 987 // Int | 
 
 // Retrieve Notary's attachments
-ObjectNotaryAPI.notaryGetAttachmentsV1(pkiNotaryID: pkiNotaryID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectNotaryAPI.notaryGetAttachmentsV1(pkiNotaryID: pkiNotaryID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -114,7 +106,7 @@ Name | Type | Description  | Notes
 
 # **notaryGetCommunicationCountV1**
 ```swift
-    open class func notaryGetCommunicationCountV1(pkiNotaryID: Int, completion: @escaping (_ data: NotaryGetCommunicationCountV1Response?, _ error: Error?) -> Void)
+    open class func notaryGetCommunicationCountV1(pkiNotaryID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> NotaryGetCommunicationCountV1Response
 ```
 
 Retrieve Communication count
@@ -127,15 +119,11 @@ import EzmaxApi
 let pkiNotaryID = 987 // Int | 
 
 // Retrieve Communication count
-ObjectNotaryAPI.notaryGetCommunicationCountV1(pkiNotaryID: pkiNotaryID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectNotaryAPI.notaryGetCommunicationCountV1(pkiNotaryID: pkiNotaryID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -162,7 +150,7 @@ Name | Type | Description  | Notes
 
 # **notaryGetCommunicationListV1**
 ```swift
-    open class func notaryGetCommunicationListV1(pkiNotaryID: Int, completion: @escaping (_ data: NotaryGetCommunicationListV1Response?, _ error: Error?) -> Void)
+    open class func notaryGetCommunicationListV1(pkiNotaryID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> NotaryGetCommunicationListV1Response
 ```
 
 Retrieve Communication list
@@ -175,15 +163,11 @@ import EzmaxApi
 let pkiNotaryID = 987 // Int | 
 
 // Retrieve Communication list
-ObjectNotaryAPI.notaryGetCommunicationListV1(pkiNotaryID: pkiNotaryID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectNotaryAPI.notaryGetCommunicationListV1(pkiNotaryID: pkiNotaryID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -210,7 +194,7 @@ Name | Type | Description  | Notes
 
 # **notaryGetCommunicationrecipientsV1**
 ```swift
-    open class func notaryGetCommunicationrecipientsV1(pkiNotaryID: Int, completion: @escaping (_ data: NotaryGetCommunicationrecipientsV1Response?, _ error: Error?) -> Void)
+    open class func notaryGetCommunicationrecipientsV1(pkiNotaryID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> NotaryGetCommunicationrecipientsV1Response
 ```
 
 Retrieve Communication recipients
@@ -223,15 +207,11 @@ import EzmaxApi
 let pkiNotaryID = 987 // Int | 
 
 // Retrieve Communication recipients
-ObjectNotaryAPI.notaryGetCommunicationrecipientsV1(pkiNotaryID: pkiNotaryID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectNotaryAPI.notaryGetCommunicationrecipientsV1(pkiNotaryID: pkiNotaryID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -258,7 +238,7 @@ Name | Type | Description  | Notes
 
 # **notaryGetCommunicationsendersV1**
 ```swift
-    open class func notaryGetCommunicationsendersV1(pkiNotaryID: Int, completion: @escaping (_ data: NotaryGetCommunicationsendersV1Response?, _ error: Error?) -> Void)
+    open class func notaryGetCommunicationsendersV1(pkiNotaryID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> NotaryGetCommunicationsendersV1Response
 ```
 
 Retrieve Communication senders
@@ -271,15 +251,11 @@ import EzmaxApi
 let pkiNotaryID = 987 // Int | 
 
 // Retrieve Communication senders
-ObjectNotaryAPI.notaryGetCommunicationsendersV1(pkiNotaryID: pkiNotaryID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectNotaryAPI.notaryGetCommunicationsendersV1(pkiNotaryID: pkiNotaryID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -306,7 +282,7 @@ Name | Type | Description  | Notes
 
 # **notaryGetListV1**
 ```swift
-    open class func notaryGetListV1(eOrderBy: EOrderBy_notaryGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: NotaryGetListV1Response?, _ error: Error?) -> Void)
+    open class func notaryGetListV1(eOrderBy: EOrderBy_notaryGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> NotaryGetListV1Response
 ```
 
 Retrieve Notary list
@@ -325,15 +301,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Notary list
-ObjectNotaryAPI.notaryGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectNotaryAPI.notaryGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -364,7 +336,7 @@ Name | Type | Description  | Notes
 
 # **notaryImportIntoEDMV1**
 ```swift
-    open class func notaryImportIntoEDMV1(pkiNotaryID: Int, notaryImportIntoEDMV1Request: NotaryImportIntoEDMV1Request, completion: @escaping (_ data: NotaryImportIntoEDMV1Response?, _ error: Error?) -> Void)
+    open class func notaryImportIntoEDMV1(pkiNotaryID: Int, notaryImportIntoEDMV1Request: NotaryImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> NotaryImportIntoEDMV1Response
 ```
 
 Import attachments into the Notary
@@ -378,15 +350,11 @@ let pkiNotaryID = 987 // Int |
 let notaryImportIntoEDMV1Request = notary-importIntoEDM-v1-Request(aObjAttachment: [Custom-AttachmentImportIntoEDM-Request(eAttachmentSource: "eAttachmentSource_example", fkiAttachmentID: 123, fkiInscriptionchecklistID: 123, sAttachmentUrl: "sAttachmentUrl_example", sAttachmentBase64: 123, sAttachmentName: "sAttachmentName_example", sAttachmentCategory: "sAttachmentCategory_example", eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123, sAttachmentMD5: "sAttachmentMD5_example", bAttachmentForceoverwrite: false, bAttachmentForcerestore: false)]) // NotaryImportIntoEDMV1Request | 
 
 // Import attachments into the Notary
-ObjectNotaryAPI.notaryImportIntoEDMV1(pkiNotaryID: pkiNotaryID, notaryImportIntoEDMV1Request: notaryImportIntoEDMV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectNotaryAPI.notaryImportIntoEDMV1(pkiNotaryID: pkiNotaryID, notaryImportIntoEDMV1Request: notaryImportIntoEDMV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **ezsignimportdocumentDownloadV1**
 ```swift
-    open class func ezsignimportdocumentDownloadV1(pkiEzsignimportdocumentID: Int, completion: @escaping (_ data: EzsignimportdocumentDownloadV1Response?, _ error: Error?) -> Void)
+    open class func ezsignimportdocumentDownloadV1(pkiEzsignimportdocumentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignimportdocumentDownloadV1Response
 ```
 
 Retrieve the content
@@ -22,15 +22,11 @@ import EzmaxApi
 let pkiEzsignimportdocumentID = 987 // Int | 
 
 // Retrieve the content
-ObjectEzsignimportdocumentAPI.ezsignimportdocumentDownloadV1(pkiEzsignimportdocumentID: pkiEzsignimportdocumentID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignimportdocumentAPI.ezsignimportdocumentDownloadV1(pkiEzsignimportdocumentID: pkiEzsignimportdocumentID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

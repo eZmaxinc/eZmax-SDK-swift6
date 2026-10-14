@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **ezdoctemplatetypeGetAutocompleteV2**
 ```swift
-    open class func ezdoctemplatetypeGetAutocompleteV2(sSelector: SSelector_ezdoctemplatetypeGetAutocompleteV2, eFilterActive: EFilterActive_ezdoctemplatetypeGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: EzdoctemplatetypeGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func ezdoctemplatetypeGetAutocompleteV2(sSelector: SSelector_ezdoctemplatetypeGetAutocompleteV2, eFilterActive: EFilterActive_ezdoctemplatetypeGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzdoctemplatetypeGetAutocompleteV2Response
 ```
 
 Retrieve Ezdoctemplatetypes and IDs
@@ -27,15 +27,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Ezdoctemplatetypes and IDs
-ObjectEzdoctemplatetypeAPI.ezdoctemplatetypeGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzdoctemplatetypeAPI.ezdoctemplatetypeGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

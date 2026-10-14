@@ -14,6 +14,7 @@ public struct CommunicationreferenceRequestCompound: Sendable, Codable, Hashable
     public static let fkiBuyercontractIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEzsignfolderIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiInscriptionIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiInscriptionnotauthenticatedIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiInscriptiontempIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiInvoiceIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiOtherincomeIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
@@ -27,6 +28,8 @@ public struct CommunicationreferenceRequestCompound: Sendable, Codable, Hashable
     public var fkiEzsignfolderID: Int?
     /** The unique ID of the Inscription. */
     public var fkiInscriptionID: Int?
+    /** The unique ID of the Inscriptionnotauthenticated. */
+    public var fkiInscriptionnotauthenticatedID: Int?
     /** The unique ID of the Inscriptiontemp */
     public var fkiInscriptiontempID: Int?
     /** The unique ID of the Invoice. */
@@ -38,11 +41,12 @@ public struct CommunicationreferenceRequestCompound: Sendable, Codable, Hashable
     /** The unique ID of the Rejectedoffertopurchase */
     public var fkiRejectedoffertopurchaseID: Int?
 
-    public init(pkiCommunicationreferenceID: Int? = nil, fkiBuyercontractID: Int? = nil, fkiEzsignfolderID: Int? = nil, fkiInscriptionID: Int? = nil, fkiInscriptiontempID: Int? = nil, fkiInvoiceID: Int? = nil, fkiOtherincomeID: Int? = nil, fkiElectronicfundstransferID: Int? = nil, fkiRejectedoffertopurchaseID: Int? = nil) {
+    public init(pkiCommunicationreferenceID: Int? = nil, fkiBuyercontractID: Int? = nil, fkiEzsignfolderID: Int? = nil, fkiInscriptionID: Int? = nil, fkiInscriptionnotauthenticatedID: Int? = nil, fkiInscriptiontempID: Int? = nil, fkiInvoiceID: Int? = nil, fkiOtherincomeID: Int? = nil, fkiElectronicfundstransferID: Int? = nil, fkiRejectedoffertopurchaseID: Int? = nil) {
         self.pkiCommunicationreferenceID = pkiCommunicationreferenceID
         self.fkiBuyercontractID = fkiBuyercontractID
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.fkiInscriptionID = fkiInscriptionID
+        self.fkiInscriptionnotauthenticatedID = fkiInscriptionnotauthenticatedID
         self.fkiInscriptiontempID = fkiInscriptiontempID
         self.fkiInvoiceID = fkiInvoiceID
         self.fkiOtherincomeID = fkiOtherincomeID
@@ -55,6 +59,7 @@ public struct CommunicationreferenceRequestCompound: Sendable, Codable, Hashable
         case fkiBuyercontractID
         case fkiEzsignfolderID
         case fkiInscriptionID
+        case fkiInscriptionnotauthenticatedID
         case fkiInscriptiontempID
         case fkiInvoiceID
         case fkiOtherincomeID
@@ -70,6 +75,7 @@ public struct CommunicationreferenceRequestCompound: Sendable, Codable, Hashable
         try container.encodeIfPresent(fkiBuyercontractID, forKey: .fkiBuyercontractID)
         try container.encodeIfPresent(fkiEzsignfolderID, forKey: .fkiEzsignfolderID)
         try container.encodeIfPresent(fkiInscriptionID, forKey: .fkiInscriptionID)
+        try container.encodeIfPresent(fkiInscriptionnotauthenticatedID, forKey: .fkiInscriptionnotauthenticatedID)
         try container.encodeIfPresent(fkiInscriptiontempID, forKey: .fkiInscriptiontempID)
         try container.encodeIfPresent(fkiInvoiceID, forKey: .fkiInvoiceID)
         try container.encodeIfPresent(fkiOtherincomeID, forKey: .fkiOtherincomeID)

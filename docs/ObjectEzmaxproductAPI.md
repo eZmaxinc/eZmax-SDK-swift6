@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **ezmaxproductGetAutocompleteV2**
 ```swift
-    open class func ezmaxproductGetAutocompleteV2(sSelector: SSelector_ezmaxproductGetAutocompleteV2, eFilterActive: EFilterActive_ezmaxproductGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: EzmaxproductGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func ezmaxproductGetAutocompleteV2(sSelector: SSelector_ezmaxproductGetAutocompleteV2, eFilterActive: EFilterActive_ezmaxproductGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzmaxproductGetAutocompleteV2Response
 ```
 
 Retrieve Ezmaxproducts and IDs
@@ -27,15 +27,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Ezmaxproducts and IDs
-ObjectEzmaxproductAPI.ezmaxproductGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzmaxproductAPI.ezmaxproductGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

@@ -11,7 +11,7 @@ import Foundation
 public struct DiscussionChatV1Request: Sendable, Codable, Hashable {
 
     public static let fkiDiscussionIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
-    public static let tDiscussionMessageRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\s\\S]{0,65535}$/")
+    public static let tDiscussionMessageRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[\\s\\S]{0,65535}$")
     /** The unique ID of the Discussion */
     public var fkiDiscussionID: Int?
     public var eDiscussionRobot: FieldEDiscussionRobot

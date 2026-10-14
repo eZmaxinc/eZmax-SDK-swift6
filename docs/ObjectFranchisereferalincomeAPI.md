@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **franchisereferalincomeCreateObjectV2**
 ```swift
-    open class func franchisereferalincomeCreateObjectV2(franchisereferalincomeCreateObjectV2Request: FranchisereferalincomeCreateObjectV2Request, completion: @escaping (_ data: FranchisereferalincomeCreateObjectV2Response?, _ error: Error?) -> Void)
+    open class func franchisereferalincomeCreateObjectV2(franchisereferalincomeCreateObjectV2Request: FranchisereferalincomeCreateObjectV2Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> FranchisereferalincomeCreateObjectV2Response
 ```
 
 Create a new Franchisereferalincome
@@ -24,15 +24,11 @@ import EzmaxApi
 let franchisereferalincomeCreateObjectV2Request = franchisereferalincome-createObject-v2-Request(aObjFranchisereferalincome: [franchisereferalincome-RequestCompound(pkiFranchisereferalincomeID: 123, fkiFranchisebrokerID: 123, fkiFranchisereferalincomeprogramID: 123, fkiPeriodID: 123, dFranchisereferalincomeLoan: "dFranchisereferalincomeLoan_example", dFranchisereferalincomeFranchiseamount: "dFranchisereferalincomeFranchiseamount_example", dFranchisereferalincomeFranchisoramount: "dFranchisereferalincomeFranchisoramount_example", dFranchisereferalincomeAgentamount: "dFranchisereferalincomeAgentamount_example", dtFranchisereferalincomeDisbursed: "dtFranchisereferalincomeDisbursed_example", tFranchisereferalincomeComment: "tFranchisereferalincomeComment_example", fkiFranchiseofficeID: 123, sFranchisereferalincomeRemoteid: "sFranchisereferalincomeRemoteid_example", objAddress: address-Request(pkiAddressID: 123, fkiAddresstypeID: 123, sAddressCivic: "sAddressCivic_example", sAddressStreet: "sAddressStreet_example", sAddressSuite: "sAddressSuite_example", sAddressCity: "sAddressCity_example", fkiProvinceID: 123, fkiCountryID: 123, sAddressZip: "sAddressZip_example", fAddressLongitude: "fAddressLongitude_example", fAddressLatitude: "fAddressLatitude_example"), aObjContact: [contact-RequestCompound(fkiContacttitleID: 123, fkiLanguageID: 123, sContactFirstname: "sContactFirstname_example", sContactLastname: "sContactLastname_example", sContactCompany: "sContactCompany_example", dtContactBirthdate: "dtContactBirthdate_example", objContactinformations: contactinformations-RequestCompound(iAddressDefault: 123, iPhoneDefault: 123, iEmailDefault: 123, iWebsiteDefault: 123, aObjAddress: [address-RequestCompound(pkiAddressID: 123, fkiAddresstypeID: 123, sAddressCivic: "sAddressCivic_example", sAddressStreet: "sAddressStreet_example", sAddressSuite: "sAddressSuite_example", sAddressCity: "sAddressCity_example", fkiProvinceID: 123, fkiCountryID: 123, sAddressZip: "sAddressZip_example", fAddressLongitude: "fAddressLongitude_example", fAddressLatitude: "fAddressLatitude_example")], aObjPhone: [phone-RequestCompound(pkiPhoneID: 123, fkiPhonetypeID: 123, ePhoneType: Field-ePhoneType(), sPhoneRegion: "sPhoneRegion_example", sPhoneExchange: "sPhoneExchange_example", sPhoneNumber: "sPhoneNumber_example", sPhoneInternational: "sPhoneInternational_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164: "sPhoneE164_example")], aObjEmail: [email-RequestCompound(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example")], aObjWebsite: [website-RequestCompound(pkiWebsiteID: 123, fkiWebsitetypeID: 123, sWebsiteAddress: "sWebsiteAddress_example")]))])]) // FranchisereferalincomeCreateObjectV2Request | 
 
 // Create a new Franchisereferalincome
-ObjectFranchisereferalincomeAPI.franchisereferalincomeCreateObjectV2(franchisereferalincomeCreateObjectV2Request: franchisereferalincomeCreateObjectV2Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectFranchisereferalincomeAPI.franchisereferalincomeCreateObjectV2(franchisereferalincomeCreateObjectV2Request: franchisereferalincomeCreateObjectV2Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

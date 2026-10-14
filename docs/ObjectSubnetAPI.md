@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 # **subnetCreateObjectV1**
 ```swift
-    open class func subnetCreateObjectV1(subnetCreateObjectV1Request: SubnetCreateObjectV1Request, completion: @escaping (_ data: SubnetCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func subnetCreateObjectV1(subnetCreateObjectV1Request: SubnetCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SubnetCreateObjectV1Response
 ```
 
 Create a new Subnet
@@ -27,15 +27,11 @@ import EzmaxApi
 let subnetCreateObjectV1Request = subnet-createObject-v1-Request(aObjSubnet: [subnet-RequestCompound(pkiSubnetID: 123, fkiUserID: 123, fkiApikeyID: 123, objSubnetDescription: Multilingual-SubnetDescription(sSubnetDescription1: "sSubnetDescription1_example", sSubnetDescription2: "sSubnetDescription2_example"), iSubnetNetwork: 123, iSubnetMask: 123)]) // SubnetCreateObjectV1Request | 
 
 // Create a new Subnet
-ObjectSubnetAPI.subnetCreateObjectV1(subnetCreateObjectV1Request: subnetCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectSubnetAPI.subnetCreateObjectV1(subnetCreateObjectV1Request: subnetCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -62,7 +58,7 @@ Name | Type | Description  | Notes
 
 # **subnetDeleteObjectV1**
 ```swift
-    open class func subnetDeleteObjectV1(pkiSubnetID: Int, completion: @escaping (_ data: SubnetDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func subnetDeleteObjectV1(pkiSubnetID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SubnetDeleteObjectV1Response
 ```
 
 Delete an existing Subnet
@@ -77,15 +73,11 @@ import EzmaxApi
 let pkiSubnetID = 987 // Int | The unique ID of the Subnet
 
 // Delete an existing Subnet
-ObjectSubnetAPI.subnetDeleteObjectV1(pkiSubnetID: pkiSubnetID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectSubnetAPI.subnetDeleteObjectV1(pkiSubnetID: pkiSubnetID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -112,7 +104,7 @@ Name | Type | Description  | Notes
 
 # **subnetEditObjectV1**
 ```swift
-    open class func subnetEditObjectV1(pkiSubnetID: Int, subnetEditObjectV1Request: SubnetEditObjectV1Request, completion: @escaping (_ data: SubnetEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func subnetEditObjectV1(pkiSubnetID: Int, subnetEditObjectV1Request: SubnetEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SubnetEditObjectV1Response
 ```
 
 Edit an existing Subnet
@@ -128,15 +120,11 @@ let pkiSubnetID = 987 // Int | The unique ID of the Subnet
 let subnetEditObjectV1Request = subnet-editObject-v1-Request(objSubnet: subnet-RequestCompound(pkiSubnetID: 123, fkiUserID: 123, fkiApikeyID: 123, objSubnetDescription: Multilingual-SubnetDescription(sSubnetDescription1: "sSubnetDescription1_example", sSubnetDescription2: "sSubnetDescription2_example"), iSubnetNetwork: 123, iSubnetMask: 123)) // SubnetEditObjectV1Request | 
 
 // Edit an existing Subnet
-ObjectSubnetAPI.subnetEditObjectV1(pkiSubnetID: pkiSubnetID, subnetEditObjectV1Request: subnetEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectSubnetAPI.subnetEditObjectV1(pkiSubnetID: pkiSubnetID, subnetEditObjectV1Request: subnetEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -164,7 +152,7 @@ Name | Type | Description  | Notes
 
 # **subnetGetObjectV2**
 ```swift
-    open class func subnetGetObjectV2(pkiSubnetID: Int, completion: @escaping (_ data: SubnetGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func subnetGetObjectV2(pkiSubnetID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SubnetGetObjectV2Response
 ```
 
 Retrieve an existing Subnet
@@ -179,15 +167,11 @@ import EzmaxApi
 let pkiSubnetID = 987 // Int | The unique ID of the Subnet
 
 // Retrieve an existing Subnet
-ObjectSubnetAPI.subnetGetObjectV2(pkiSubnetID: pkiSubnetID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectSubnetAPI.subnetGetObjectV2(pkiSubnetID: pkiSubnetID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

@@ -10,8 +10,8 @@ import Foundation
 /** A Custom ContactName Object */
 public struct CustomContactNameResponse: Sendable, Codable, Hashable {
 
-    public static let sContactFirstnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,20}$/")
-    public static let sContactLastnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,25}$/")
+    public static let sContactFirstnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,20}$")
+    public static let sContactLastnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,25}$")
     /** The First name of the contact */
     public var sContactFirstname: String?
     /** The Last name of the contact */

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **glaccountGetAutocompleteV2**
 ```swift
-    open class func glaccountGetAutocompleteV2(sSelector: SSelector_glaccountGetAutocompleteV2, eFilterActive: EFilterActive_glaccountGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: GlaccountGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func glaccountGetAutocompleteV2(sSelector: SSelector_glaccountGetAutocompleteV2, eFilterActive: EFilterActive_glaccountGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> GlaccountGetAutocompleteV2Response
 ```
 
 Retrieve Glaccounts and IDs
@@ -27,15 +27,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Glaccounts and IDs
-ObjectGlaccountAPI.glaccountGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectGlaccountAPI.glaccountGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

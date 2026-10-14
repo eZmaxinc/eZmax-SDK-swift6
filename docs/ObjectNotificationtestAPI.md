@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **notificationtestGetElementsV2**
 ```swift
-    open class func notificationtestGetElementsV2(pkiNotificationtestID: Int, completion: @escaping (_ data: NotificationtestGetElementsV2Response?, _ error: Error?) -> Void)
+    open class func notificationtestGetElementsV2(pkiNotificationtestID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> NotificationtestGetElementsV2Response
 ```
 
 Retrieve an existing Notificationtest's Elements
@@ -24,15 +24,11 @@ import EzmaxApi
 let pkiNotificationtestID = 987 // Int | 
 
 // Retrieve an existing Notificationtest's Elements
-ObjectNotificationtestAPI.notificationtestGetElementsV2(pkiNotificationtestID: pkiNotificationtestID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectNotificationtestAPI.notificationtestGetElementsV2(pkiNotificationtestID: pkiNotificationtestID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

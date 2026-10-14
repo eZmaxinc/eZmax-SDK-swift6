@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **globalEzmaxcustomerGetConfigurationV1**
 ```swift
-    open class func globalEzmaxcustomerGetConfigurationV1(pksEzmaxcustomerCode: String, completion: @escaping (_ data: GlobalEzmaxcustomerGetConfigurationV1Response?, _ error: Error?) -> Void)
+    open class func globalEzmaxcustomerGetConfigurationV1(pksEzmaxcustomerCode: String, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> GlobalEzmaxcustomerGetConfigurationV1Response
 ```
 
 Get ezmaxcustomer configuration
@@ -24,15 +24,11 @@ import EzmaxApi
 let pksEzmaxcustomerCode = "pksEzmaxcustomerCode_example" // String | 
 
 // Get ezmaxcustomer configuration
-GlobalEzmaxcustomerAPI.globalEzmaxcustomerGetConfigurationV1(pksEzmaxcustomerCode: pksEzmaxcustomerCode) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await GlobalEzmaxcustomerAPI.globalEzmaxcustomerGetConfigurationV1(pksEzmaxcustomerCode: pksEzmaxcustomerCode)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

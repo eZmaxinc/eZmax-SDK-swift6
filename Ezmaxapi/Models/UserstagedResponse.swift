@@ -12,10 +12,10 @@ public struct UserstagedResponse: Sendable, Codable, Hashable {
 
     public static let pkiUserstagedIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEmailIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
-    public static let sEmailAddressRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\w.%+\\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$/")
-    public static let sUserstagedFirstnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,20}$/")
-    public static let sUserstagedLastnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,25}$/")
-    public static let sUserstagedExternalidRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,60}$/")
+    public static let sEmailAddressRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[\\w.%+\\-!#$%&'*+/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$")
+    public static let sUserstagedFirstnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,20}$")
+    public static let sUserstagedLastnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,25}$")
+    public static let sUserstagedExternalidRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,60}$")
     /** The unique ID of the Userstaged */
     public var pkiUserstagedID: Int
     /** The unique ID of the Email */

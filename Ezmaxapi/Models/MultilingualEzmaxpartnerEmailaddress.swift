@@ -10,8 +10,8 @@ import Foundation
 /** Email of the Ezmaxpartner */
 public struct MultilingualEzmaxpartnerEmailaddress: Sendable, Codable, Hashable {
 
-    public static let sEzmaxpartnerEmailaddress1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\w.%+\\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$/")
-    public static let sEzmaxpartnerEmailaddress2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\w.%+\\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$/")
+    public static let sEzmaxpartnerEmailaddress1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^[\\w.%+\\-!#$%&'*+/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$")
+    public static let sEzmaxpartnerEmailaddress2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^[\\w.%+\\-!#$%&'*+/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$")
     /** The email address. */
     public var sEzmaxpartnerEmailaddress1: String?
     /** The email address. */

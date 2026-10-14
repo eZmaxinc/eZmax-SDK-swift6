@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **realestateboardGetAutocompleteV2**
 ```swift
-    open class func realestateboardGetAutocompleteV2(sSelector: SSelector_realestateboardGetAutocompleteV2, eFilterActive: EFilterActive_realestateboardGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, fkiProvinceID: String? = nil, completion: @escaping (_ data: RealestateboardGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func realestateboardGetAutocompleteV2(sSelector: SSelector_realestateboardGetAutocompleteV2, eFilterActive: EFilterActive_realestateboardGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, fkiProvinceID: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> RealestateboardGetAutocompleteV2Response
 ```
 
 Retrieve Realestateboards and IDs
@@ -28,15 +28,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let fkiProvinceID = "fkiProvinceID_example" // String | The province ID to filter the results expected (optional)
 
 // Retrieve Realestateboards and IDs
-ObjectRealestateboardAPI.realestateboardGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage, fkiProvinceID: fkiProvinceID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectRealestateboardAPI.realestateboardGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage, fkiProvinceID: fkiProvinceID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

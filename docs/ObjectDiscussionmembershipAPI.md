@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **discussionmembershipCreateObjectV1**
 ```swift
-    open class func discussionmembershipCreateObjectV1(discussionmembershipCreateObjectV1Request: DiscussionmembershipCreateObjectV1Request, completion: @escaping (_ data: DiscussionmembershipCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func discussionmembershipCreateObjectV1(discussionmembershipCreateObjectV1Request: DiscussionmembershipCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DiscussionmembershipCreateObjectV1Response
 ```
 
 Create a new Discussionmembership
@@ -25,15 +25,11 @@ import EzmaxApi
 let discussionmembershipCreateObjectV1Request = discussionmembership-createObject-v1-Request(aObjDiscussionmembership: [discussionmembership-RequestCompound(pkiDiscussionmembershipID: 123, fkiDiscussionID: 123, fkiUserID: 123, fkiUsergroupID: 123, fkiModulesectionID: 123, dtDiscussionmembershipJoined: "dtDiscussionmembershipJoined_example")]) // DiscussionmembershipCreateObjectV1Request | 
 
 // Create a new Discussionmembership
-ObjectDiscussionmembershipAPI.discussionmembershipCreateObjectV1(discussionmembershipCreateObjectV1Request: discussionmembershipCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDiscussionmembershipAPI.discussionmembershipCreateObjectV1(discussionmembershipCreateObjectV1Request: discussionmembershipCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -60,7 +56,7 @@ Name | Type | Description  | Notes
 
 # **discussionmembershipDeleteObjectV1**
 ```swift
-    open class func discussionmembershipDeleteObjectV1(pkiDiscussionmembershipID: Int, completion: @escaping (_ data: DiscussionmembershipDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func discussionmembershipDeleteObjectV1(pkiDiscussionmembershipID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DiscussionmembershipDeleteObjectV1Response
 ```
 
 Delete an existing Discussionmembership
@@ -75,15 +71,11 @@ import EzmaxApi
 let pkiDiscussionmembershipID = 987 // Int | The unique ID of the Discussionmembership
 
 // Delete an existing Discussionmembership
-ObjectDiscussionmembershipAPI.discussionmembershipDeleteObjectV1(pkiDiscussionmembershipID: pkiDiscussionmembershipID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDiscussionmembershipAPI.discussionmembershipDeleteObjectV1(pkiDiscussionmembershipID: pkiDiscussionmembershipID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

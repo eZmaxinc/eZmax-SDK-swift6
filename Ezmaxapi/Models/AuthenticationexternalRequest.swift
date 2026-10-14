@@ -11,7 +11,7 @@ import Foundation
 public struct AuthenticationexternalRequest: Sendable, Codable, Hashable {
 
     public static let pkiAuthenticationexternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sAuthenticationexternalDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sAuthenticationexternalDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
     /** The unique ID of the Authenticationexternal */
     public var pkiAuthenticationexternalID: Int?
     /** The description of the Authenticationexternal */

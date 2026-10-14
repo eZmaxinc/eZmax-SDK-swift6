@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **leadsourceGetAutocompleteV2**
 ```swift
-    open class func leadsourceGetAutocompleteV2(sSelector: SSelector_leadsourceGetAutocompleteV2, eFilterActive: EFilterActive_leadsourceGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: LeadsourceGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func leadsourceGetAutocompleteV2(sSelector: SSelector_leadsourceGetAutocompleteV2, eFilterActive: EFilterActive_leadsourceGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> LeadsourceGetAutocompleteV2Response
 ```
 
 Retrieve Leadsources and IDs
@@ -27,15 +27,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Leadsources and IDs
-ObjectLeadsourceAPI.leadsourceGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectLeadsourceAPI.leadsourceGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

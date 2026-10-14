@@ -11,19 +11,25 @@ import Foundation
 public struct ActivesessionResponseCompound: Sendable, Codable, Hashable {
 
     public static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiCompanyIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiDepartmentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let pksCustomerCodeRule = StringRule(minLength: 2, maxLength: 6, pattern: nil)
     public static let fkiSystemconfigurationtypeIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiSignatureIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEzsignuserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    public static let dtUserEzsignprepaidexpirationRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
-    public static let dtUserNpsrequestRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
+    public static let dtUserEzsignprepaidexpirationRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$")
+    public static let dtUserNpsrequestRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$")
     public var eActivesessionUsertype: FieldEActivesessionUsertype
     public var eActivesessionOrigin: FieldEActivesessionOrigin
     public var eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
     public var fkiLanguageID: Int
+    /** The unique ID of the Company */
+    public var fkiCompanyID: Int
     /** The Name of the Company in the language of the requester */
     public var sCompanyNameX: String
+    /** The unique ID of the Department */
+    public var fkiDepartmentID: Int
     /** The Name of the Department in the language of the requester */
     public var sDepartmentNameX: String
     /** Whether the active session is in debug or not */
@@ -73,12 +79,14 @@ public struct ActivesessionResponseCompound: Sendable, Codable, Hashable {
     /** If you need to ask which mailing lists this user wants to subscribe to */
     public var bActivesessionMaillinglistrequest: Bool?
 
-    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionOrigin: FieldEActivesessionOrigin, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, bActivesessionIssuperadmin: Bool, bActivesessionAttachment: Bool? = nil, bActivesessionCanafe: Bool? = nil, bActivesessionFinancial: Bool? = nil, bActivesessionRealestatecompleted: Bool? = nil, eActivesessionEzsign: FieldEActivesessionEzsign? = nil, eActivesessionEzsignaccess: FieldEActivesessionEzsignaccess, eActivesessionEzsignprepaid: FieldEActivesessionEzsignprepaid? = nil, eActivesessionRealestateinprogress: FieldEActivesessionRealestateinprogress? = nil, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int, fkiSignatureID: Int? = nil, fkiEzsignuserID: Int? = nil, bSystemconfigurationEzsignpaidbyoffice: Bool? = nil, eSystemconfigurationEzsignofficeplan: FieldESystemconfigurationEzsignofficeplan? = nil, eUserEzsignaccess: FieldEUserEzsignaccess, eUserEzsignprepaid: FieldEUserEzsignprepaid? = nil, bUserEzsigntrial: Bool? = nil, bUserEzsigntemplaterolegrouping: Bool? = nil, dtUserEzsignprepaidexpiration: String? = nil, dtUserNpsrequest: String? = nil, aPkiPermissionID: [Int], objUserReal: ActivesessionResponseCompoundUser, objUserCloned: ActivesessionResponseCompoundUser? = nil, objApikey: ActivesessionResponseCompoundApikey? = nil, aEModuleInternalname: [String], bActivesessionMaillinglistrequest: Bool? = nil) {
+    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionOrigin: FieldEActivesessionOrigin, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, fkiCompanyID: Int, sCompanyNameX: String, fkiDepartmentID: Int, sDepartmentNameX: String, bActivesessionDebug: Bool, bActivesessionIssuperadmin: Bool, bActivesessionAttachment: Bool? = nil, bActivesessionCanafe: Bool? = nil, bActivesessionFinancial: Bool? = nil, bActivesessionRealestatecompleted: Bool? = nil, eActivesessionEzsign: FieldEActivesessionEzsign? = nil, eActivesessionEzsignaccess: FieldEActivesessionEzsignaccess, eActivesessionEzsignprepaid: FieldEActivesessionEzsignprepaid? = nil, eActivesessionRealestateinprogress: FieldEActivesessionRealestateinprogress? = nil, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int, fkiSignatureID: Int? = nil, fkiEzsignuserID: Int? = nil, bSystemconfigurationEzsignpaidbyoffice: Bool? = nil, eSystemconfigurationEzsignofficeplan: FieldESystemconfigurationEzsignofficeplan? = nil, eUserEzsignaccess: FieldEUserEzsignaccess, eUserEzsignprepaid: FieldEUserEzsignprepaid? = nil, bUserEzsigntrial: Bool? = nil, bUserEzsigntemplaterolegrouping: Bool? = nil, dtUserEzsignprepaidexpiration: String? = nil, dtUserNpsrequest: String? = nil, aPkiPermissionID: [Int], objUserReal: ActivesessionResponseCompoundUser, objUserCloned: ActivesessionResponseCompoundUser? = nil, objApikey: ActivesessionResponseCompoundApikey? = nil, aEModuleInternalname: [String], bActivesessionMaillinglistrequest: Bool? = nil) {
         self.eActivesessionUsertype = eActivesessionUsertype
         self.eActivesessionOrigin = eActivesessionOrigin
         self.eActivesessionWeekdaystart = eActivesessionWeekdaystart
         self.fkiLanguageID = fkiLanguageID
+        self.fkiCompanyID = fkiCompanyID
         self.sCompanyNameX = sCompanyNameX
+        self.fkiDepartmentID = fkiDepartmentID
         self.sDepartmentNameX = sDepartmentNameX
         self.bActivesessionDebug = bActivesessionDebug
         self.bActivesessionIssuperadmin = bActivesessionIssuperadmin
@@ -115,7 +123,9 @@ public struct ActivesessionResponseCompound: Sendable, Codable, Hashable {
         case eActivesessionOrigin
         case eActivesessionWeekdaystart
         case fkiLanguageID
+        case fkiCompanyID
         case sCompanyNameX
+        case fkiDepartmentID
         case sDepartmentNameX
         case bActivesessionDebug
         case bActivesessionIssuperadmin
@@ -155,7 +165,9 @@ public struct ActivesessionResponseCompound: Sendable, Codable, Hashable {
         try container.encode(eActivesessionOrigin, forKey: .eActivesessionOrigin)
         try container.encode(eActivesessionWeekdaystart, forKey: .eActivesessionWeekdaystart)
         try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
+        try container.encode(fkiCompanyID, forKey: .fkiCompanyID)
         try container.encode(sCompanyNameX, forKey: .sCompanyNameX)
+        try container.encode(fkiDepartmentID, forKey: .fkiDepartmentID)
         try container.encode(sDepartmentNameX, forKey: .sDepartmentNameX)
         try container.encode(bActivesessionDebug, forKey: .bActivesessionDebug)
         try container.encode(bActivesessionIssuperadmin, forKey: .bActivesessionIssuperadmin)

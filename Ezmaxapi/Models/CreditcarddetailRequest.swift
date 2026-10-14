@@ -12,9 +12,9 @@ public struct CreditcarddetailRequest: Sendable, Codable, Hashable {
 
     public static let iCreditcarddetailExpirationmonthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 12, exclusiveMaximum: false, multipleOf: nil)
     public static let iCreditcarddetailExpirationyearRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 2200, exclusiveMaximum: false, multipleOf: nil)
-    public static let sCreditcarddetailCivicRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\d]{1,8}$/")
-    public static let sCreditcarddetailStreetRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,19}$/")
-    public static let sCreditcarddetailZipRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,9}$/")
+    public static let sCreditcarddetailCivicRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[\\d]{1,8}$")
+    public static let sCreditcarddetailStreetRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,19}$")
+    public static let sCreditcarddetailZipRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,9}$")
     /** The expirationmonth of the Creditcarddetail */
     public var iCreditcarddetailExpirationmonth: Int
     /** The expirationyear of the Creditcarddetail */

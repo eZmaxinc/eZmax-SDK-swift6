@@ -16,8 +16,8 @@ public struct EzsignsignatureSignV1Request: Sendable, Codable, Hashable {
     }
     public static let fkiEzsignsigningreasonIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiFontIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let dEzsignsignatureCreditcardamountRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\d]{1,9}?\\.[\\d]{2}$/")
-    public static let sSvgRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,65535}$/")
+    public static let dEzsignsignatureCreditcardamountRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[\\d]{1,9}?\\.[\\d]{2}$")
+    public static let sSvgRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,65535}$")
     /** The unique ID of the Ezsignsigningreason */
     public var fkiEzsignsigningreasonID: Int?
     /** The unique ID of the Font */

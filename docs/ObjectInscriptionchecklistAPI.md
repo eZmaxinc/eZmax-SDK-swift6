@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **inscriptionchecklistGetAutocompleteV3**
 ```swift
-    open class func inscriptionchecklistGetAutocompleteV3(sSelector: SSelector_inscriptionchecklistGetAutocompleteV3, fkiBuyercontractID: String? = nil, fkiInscriptionID: String? = nil, fkiInscriptionnotauthenticatedID: String? = nil, fkiInscriptiontempID: String? = nil, fkiAgentID: String? = nil, fkiBrokerID: String? = nil, fkiOtherincomeID: String? = nil, fkiRejectedoffertopurchaseID: String? = nil, eFilterActive: EFilterActive_inscriptionchecklistGetAutocompleteV3? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: InscriptionchecklistGetAutocompleteV3Response?, _ error: Error?) -> Void)
+    open class func inscriptionchecklistGetAutocompleteV3(sSelector: SSelector_inscriptionchecklistGetAutocompleteV3, fkiBuyercontractID: String? = nil, fkiInscriptionID: String? = nil, fkiInscriptionnotauthenticatedID: String? = nil, fkiInscriptiontempID: String? = nil, fkiAgentID: String? = nil, fkiBrokerID: String? = nil, fkiOtherincomeID: String? = nil, fkiRejectedoffertopurchaseID: String? = nil, eFilterActive: EFilterActive_inscriptionchecklistGetAutocompleteV3? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptionchecklistGetAutocompleteV3Response
 ```
 
 Retrieve Inscriptionchecklists and IDs
@@ -35,15 +35,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Inscriptionchecklists and IDs
-ObjectInscriptionchecklistAPI.inscriptionchecklistGetAutocompleteV3(sSelector: sSelector, fkiBuyercontractID: fkiBuyercontractID, fkiInscriptionID: fkiInscriptionID, fkiInscriptionnotauthenticatedID: fkiInscriptionnotauthenticatedID, fkiInscriptiontempID: fkiInscriptiontempID, fkiAgentID: fkiAgentID, fkiBrokerID: fkiBrokerID, fkiOtherincomeID: fkiOtherincomeID, fkiRejectedoffertopurchaseID: fkiRejectedoffertopurchaseID, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectInscriptionchecklistAPI.inscriptionchecklistGetAutocompleteV3(sSelector: sSelector, fkiBuyercontractID: fkiBuyercontractID, fkiInscriptionID: fkiInscriptionID, fkiInscriptionnotauthenticatedID: fkiInscriptionnotauthenticatedID, fkiInscriptiontempID: fkiInscriptiontempID, fkiAgentID: fkiAgentID, fkiBrokerID: fkiBrokerID, fkiOtherincomeID: fkiOtherincomeID, fkiRejectedoffertopurchaseID: fkiRejectedoffertopurchaseID, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

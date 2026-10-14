@@ -12,7 +12,7 @@ public struct BrokerAutocompleteElementResponse: Sendable, Codable, Hashable {
 
     public static let pkiBrokerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiDepartmentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sBrokerNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,60}$/")
+    public static let sBrokerNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,60}$")
     /** The unique ID of the Broker. */
     public var pkiBrokerID: Int
     /** The unique ID of the Department */

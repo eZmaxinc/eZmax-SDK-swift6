@@ -10,7 +10,7 @@ import Foundation
 /** Payload for POST /1/object/ezsigntemplatepublic/createEzsignfolder */
 public struct EzsigntemplatepublicCreateEzsignfolderV1ResponseMPayload: Sendable, Codable, Hashable {
 
-    public static let sEzsigntemplatepublicSigningurlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^https:\/\/[^\\s\/$.?#].[^\\s]*$/")
+    public static let sEzsigntemplatepublicSigningurlRule = StringRule(minLength: nil, maxLength: nil, pattern: "^https://[^\\s/$.?#].[^\\s]*$")
     /** The url to sign the Ezsignfolder created by the Ezsigntemplatepublic. Only used when fkiUserLogintypeID is **No validation** or **Sms only** */
     public var sEzsigntemplatepublicSigningurl: String?
 

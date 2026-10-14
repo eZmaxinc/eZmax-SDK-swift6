@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **communicationGetCommunicationBodyV1**
 ```swift
-    open class func communicationGetCommunicationBodyV1(pkiCommunicationID: Int, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+    open class func communicationGetCommunicationBodyV1(pkiCommunicationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse)
 ```
 
 Retrieve the communication body
@@ -25,15 +25,10 @@ import EzmaxApi
 let pkiCommunicationID = 987 // Int | 
 
 // Retrieve the communication body
-ObjectCommunicationAPI.communicationGetCommunicationBodyV1(pkiCommunicationID: pkiCommunicationID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    try await ObjectCommunicationAPI.communicationGetCommunicationBodyV1(pkiCommunicationID: pkiCommunicationID)
+} catch {
+    print(error)
 }
 ```
 
@@ -60,7 +55,7 @@ Void (empty response body)
 
 # **communicationSendV1**
 ```swift
-    open class func communicationSendV1(communicationSendV1Request: CommunicationSendV1Request, completion: @escaping (_ data: CommunicationSendV1Response?, _ error: Error?) -> Void)
+    open class func communicationSendV1(communicationSendV1Request: CommunicationSendV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CommunicationSendV1Response
 ```
 
 Send a new Communication
@@ -72,18 +67,14 @@ The endpoint allows to send one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import EzmaxApi
 
-let communicationSendV1Request = communication-send-v1-Request(aObjCommunication: [communication-RequestCompound(pkiCommunicationID: 123, eCommunicationImportance: Field-eCommunicationImportance(), eCommunicationType: Field-eCommunicationType(), objCommunicationsender: Custom-Communicationsender-Request(fkiAgentID: 123, fkiBrokerID: 123, fkiMailboxsharedID: 123, fkiPhonelinesharedID: 123, fkiUserID: 123), sCommunicationSubject: "sCommunicationSubject_example", tCommunicationBody: "tCommunicationBody_example", bCommunicationPrivate: false, eCommunicationAttachmenttype: "eCommunicationAttachmenttype_example", iCommunicationAttachmentlinkexpiration: 123, bCommunicationReadreceipt: false, aObjCommunicationattachment: [Custom-Communicationattachment-Request(objCommunicationattachment: communicationattachment-RequestCompound(pkiCommunicationattachmentID: 123, fkiAttachmentID: 123, fkiInvoiceID: 123, fkiSalarypreparationID: 123), objCommunicationexternalattachment: Common-File(sFileName: "sFileName_example", sFileUrl: "sFileUrl_example", sFileBase64: 123, eFileSource: "eFileSource_example"))], aObjCommunicationrecipient: [communicationrecipient-RequestCompound(pkiCommunicationrecipientID: 123, fkiAgentID: 123, fkiBrokerID: 123, fkiContactID: 123, fkiCustomerID: 123, fkiEmployeeID: 123, fkiAssistantID: 123, fkiExternalbrokerID: 123, fkiEzsignsignerID: 123, fkiNotaryID: 123, fkiSupplierID: 123, fkiUserID: 123, fkiMailboxsharedID: 123, fkiPhonelinesharedID: 123, eCommunicationrecipientType: Field-eCommunicationrecipientType())], aObjCommunicationreference: [communicationreference-RequestCompound(pkiCommunicationreferenceID: 123, fkiBuyercontractID: 123, fkiEzsignfolderID: 123, fkiInscriptionID: 123, fkiInscriptiontempID: 123, fkiInvoiceID: 123, fkiOtherincomeID: 123, fkiElectronicfundstransferID: 123, fkiRejectedoffertopurchaseID: 123)], aObjCommunicationexternalrecipient: [communicationexternalrecipient-RequestCompound(pkiCommunicationexternalrecipientID: 123, sEmailAddress: "sEmailAddress_example", sPhoneE164: "sPhoneE164_example", eCommunicationexternalrecipientType: Field-eCommunicationexternalrecipientType(), sCommunicationexternalrecipientName: "sCommunicationexternalrecipientName_example")])]) // CommunicationSendV1Request | 
+let communicationSendV1Request = communication-send-v1-Request(aObjCommunication: [communication-RequestCompound(pkiCommunicationID: 123, eCommunicationImportance: Field-eCommunicationImportance(), eCommunicationType: Field-eCommunicationType(), objCommunicationsender: Custom-Communicationsender-Request(fkiAgentID: 123, fkiBrokerID: 123, fkiMailboxsharedID: 123, fkiPhonelinesharedID: 123, fkiUserID: 123), sCommunicationSubject: "sCommunicationSubject_example", tCommunicationBody: "tCommunicationBody_example", bCommunicationPrivate: false, eCommunicationAttachmenttype: "eCommunicationAttachmenttype_example", iCommunicationAttachmentlinkexpiration: 123, bCommunicationReadreceipt: false, aObjCommunicationattachment: [Custom-Communicationattachment-Request(objCommunicationattachment: communicationattachment-RequestCompound(pkiCommunicationattachmentID: 123, fkiAttachmentID: 123, fkiInvoiceID: 123, fkiSalarypreparationID: 123), objCommunicationexternalattachment: Common-File(sFileName: "sFileName_example", sFileUrl: "sFileUrl_example", sFileBase64: 123, eFileSource: "eFileSource_example"))], aObjCommunicationrecipient: [communicationrecipient-RequestCompound(pkiCommunicationrecipientID: 123, fkiAgentID: 123, fkiBrokerID: 123, fkiContactID: 123, fkiCustomerID: 123, fkiEmployeeID: 123, fkiAssistantID: 123, fkiExternalbrokerID: 123, fkiEzsignsignerID: 123, fkiNotaryID: 123, fkiSupplierID: 123, fkiUserID: 123, fkiMailboxsharedID: 123, fkiPhonelinesharedID: 123, eCommunicationrecipientType: Field-eCommunicationrecipientType())], aObjCommunicationreference: [communicationreference-RequestCompound(pkiCommunicationreferenceID: 123, fkiBuyercontractID: 123, fkiEzsignfolderID: 123, fkiInscriptionID: 123, fkiInscriptionnotauthenticatedID: 123, fkiInscriptiontempID: 123, fkiInvoiceID: 123, fkiOtherincomeID: 123, fkiElectronicfundstransferID: 123, fkiRejectedoffertopurchaseID: 123)], aObjCommunicationexternalrecipient: [communicationexternalrecipient-RequestCompound(pkiCommunicationexternalrecipientID: 123, sEmailAddress: "sEmailAddress_example", sPhoneE164: "sPhoneE164_example", eCommunicationexternalrecipientType: Field-eCommunicationexternalrecipientType(), sCommunicationexternalrecipientName: "sCommunicationexternalrecipientName_example")])]) // CommunicationSendV1Request | 
 
 // Send a new Communication
-ObjectCommunicationAPI.communicationSendV1(communicationSendV1Request: communicationSendV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCommunicationAPI.communicationSendV1(communicationSendV1Request: communicationSendV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

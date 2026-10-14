@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **creditcardtypeGetAutocompleteV2**
 ```swift
-    open class func creditcardtypeGetAutocompleteV2(sSelector: SSelector_creditcardtypeGetAutocompleteV2, eFilterActive: EFilterActive_creditcardtypeGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: CreditcardtypeGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func creditcardtypeGetAutocompleteV2(sSelector: SSelector_creditcardtypeGetAutocompleteV2, eFilterActive: EFilterActive_creditcardtypeGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CreditcardtypeGetAutocompleteV2Response
 ```
 
 Retrieve Creditcardtypes and IDs
@@ -27,15 +27,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Creditcardtypes and IDs
-ObjectCreditcardtypeAPI.creditcardtypeGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectCreditcardtypeAPI.creditcardtypeGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

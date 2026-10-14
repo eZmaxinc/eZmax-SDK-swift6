@@ -10,8 +10,8 @@ import Foundation
 /** Phone number of the Ezmaxpartner */
 public struct MultilingualEzmaxpartnerPhoneE164: Sendable, Codable, Hashable {
 
-    public static let sEzmaxpartnerPhoneE1641Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\+[1-9]\\d{1,14}$/")
-    public static let sEzmaxpartnerPhoneE1642Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\+[1-9]\\d{1,14}$/")
+    public static let sEzmaxpartnerPhoneE1641Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^\\+[1-9]\\d{1,14}$")
+    public static let sEzmaxpartnerPhoneE1642Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^\\+[1-9]\\d{1,14}$")
     /** A phone number in E.164 Format */
     public var sEzmaxpartnerPhoneE1641: String?
     /** A phone number in E.164 Format */

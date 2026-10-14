@@ -14,10 +14,10 @@ public struct ContactResponse: Sendable, Codable, Hashable {
     public static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiContacttitleIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiContactinformationsIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
-    public static let sContactFirstnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,20}$/")
-    public static let sContactLastnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,25}$/")
-    public static let sContactOccupationRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    public static let tContactNoteRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,32000}$/")
+    public static let sContactFirstnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,20}$")
+    public static let sContactLastnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{1,25}$")
+    public static let sContactOccupationRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
+    public static let tContactNoteRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,32000}$")
     /** The unique ID of the Contact */
     public var pkiContactID: Int
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */

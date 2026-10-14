@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **systemconfigurationtypeGetAutocompleteV2**
 ```swift
-    open class func systemconfigurationtypeGetAutocompleteV2(sSelector: SSelector_systemconfigurationtypeGetAutocompleteV2, eFilterActive: EFilterActive_systemconfigurationtypeGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: SystemconfigurationtypeGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func systemconfigurationtypeGetAutocompleteV2(sSelector: SSelector_systemconfigurationtypeGetAutocompleteV2, eFilterActive: EFilterActive_systemconfigurationtypeGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SystemconfigurationtypeGetAutocompleteV2Response
 ```
 
 Retrieve Systemconfigurationtype and IDs
@@ -27,15 +27,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Systemconfigurationtype and IDs
-ObjectSystemconfigurationtypeAPI.systemconfigurationtypeGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectSystemconfigurationtypeAPI.systemconfigurationtypeGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

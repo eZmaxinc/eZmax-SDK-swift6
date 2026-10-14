@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **ezsignpageConsultV1**
 ```swift
-    open class func ezsignpageConsultV1(pkiEzsignpageID: Int, body: JSONValue, completion: @escaping (_ data: EzsignpageConsultV1Response?, _ error: Error?) -> Void)
+    open class func ezsignpageConsultV1(pkiEzsignpageID: Int, body: JSONValue, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsignpageConsultV1Response
 ```
 
 Consult an Ezsignpage
@@ -23,15 +23,11 @@ let pkiEzsignpageID = 987 // Int |
 let body = "TODO" // JSONValue | 
 
 // Consult an Ezsignpage
-ObjectEzsignpageAPI.ezsignpageConsultV1(pkiEzsignpageID: pkiEzsignpageID, body: body) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsignpageAPI.ezsignpageConsultV1(pkiEzsignpageID: pkiEzsignpageID, body: body)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 # **ezsigntemplatepublicCreateEzsignfolderV1**
 ```swift
-    open class func ezsigntemplatepublicCreateEzsignfolderV1(ezsigntemplatepublicCreateEzsignfolderV1Request: EzsigntemplatepublicCreateEzsignfolderV1Request, completion: @escaping (_ data: EzsigntemplatepublicCreateEzsignfolderV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatepublicCreateEzsignfolderV1(ezsigntemplatepublicCreateEzsignfolderV1Request: EzsigntemplatepublicCreateEzsignfolderV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplatepublicCreateEzsignfolderV1Response
 ```
 
 Create an Ezsignfolder
@@ -33,15 +33,11 @@ import EzmaxApi
 let ezsigntemplatepublicCreateEzsignfolderV1Request = ezsigntemplatepublic-createEzsignfolder-v1-Request(pksEzmaxcustomerCode: "pksEzmaxcustomerCode_example", sEzsigntemplatepublicReferenceid: "sEzsigntemplatepublicReferenceid_example", aSEzsigntemplatesignerDescription: ["aSEzsigntemplatesignerDescription_example"], aObjEzsignsigner: [ezsignsigner-RequestCompound(fkiUserlogintypeID: 123, fkiTaxassignmentID: 123, fkiSecretquestionID: 123, eEzsignsignerLogintype: "eEzsignsignerLogintype_example", sEzsignsignerSecretanswer: "sEzsignsignerSecretanswer_example", objContact: ezsignsigner-RequestCompound-Contact(sContactFirstname: "sContactFirstname_example", sContactLastname: "sContactLastname_example", fkiLanguageID: 123, sEmailAddress: "sEmailAddress_example", sPhoneE164: "sPhoneE164_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164Cell: "sPhoneE164Cell_example", sPhoneNumber: "sPhoneNumber_example", sPhoneNumberCell: "sPhoneNumberCell_example"))]) // EzsigntemplatepublicCreateEzsignfolderV1Request | 
 
 // Create an Ezsignfolder
-ObjectEzsigntemplatepublicAPI.ezsigntemplatepublicCreateEzsignfolderV1(ezsigntemplatepublicCreateEzsignfolderV1Request: ezsigntemplatepublicCreateEzsignfolderV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplatepublicAPI.ezsigntemplatepublicCreateEzsignfolderV1(ezsigntemplatepublicCreateEzsignfolderV1Request: ezsigntemplatepublicCreateEzsignfolderV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -68,7 +64,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatepublicCreateObjectV1**
 ```swift
-    open class func ezsigntemplatepublicCreateObjectV1(ezsigntemplatepublicCreateObjectV1Request: EzsigntemplatepublicCreateObjectV1Request, completion: @escaping (_ data: EzsigntemplatepublicCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatepublicCreateObjectV1(ezsigntemplatepublicCreateObjectV1Request: EzsigntemplatepublicCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplatepublicCreateObjectV1Response
 ```
 
 Create a new Ezsigntemplatepublic
@@ -83,15 +79,11 @@ import EzmaxApi
 let ezsigntemplatepublicCreateObjectV1Request = ezsigntemplatepublic-createObject-v1-Request(aObjEzsigntemplatepublic: [ezsigntemplatepublic-RequestCompound(pkiEzsigntemplatepublicID: 123, fkiEzsignfoldertypeID: 123, fkiUserlogintypeID: 123, fkiEzsigntemplateID: 123, fkiEzsigntemplatepackageID: 123, sEzsigntemplatepublicDescription: "sEzsigntemplatepublicDescription_example", bEzsigntemplatepublicIsactive: true, tEzsigntemplatepublicNote: "tEzsigntemplatepublicNote_example", eEzsigntemplatepublicLimittype: Field-eEzsigntemplatepublicLimittype(), iEzsigntemplatepublicLimit: 123)]) // EzsigntemplatepublicCreateObjectV1Request | 
 
 // Create a new Ezsigntemplatepublic
-ObjectEzsigntemplatepublicAPI.ezsigntemplatepublicCreateObjectV1(ezsigntemplatepublicCreateObjectV1Request: ezsigntemplatepublicCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplatepublicAPI.ezsigntemplatepublicCreateObjectV1(ezsigntemplatepublicCreateObjectV1Request: ezsigntemplatepublicCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -118,7 +110,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatepublicDeleteObjectV1**
 ```swift
-    open class func ezsigntemplatepublicDeleteObjectV1(pkiEzsigntemplatepublicID: Int, completion: @escaping (_ data: EzsigntemplatepublicDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatepublicDeleteObjectV1(pkiEzsigntemplatepublicID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplatepublicDeleteObjectV1Response
 ```
 
 Delete an existing Ezsigntemplatepublic
@@ -133,15 +125,11 @@ import EzmaxApi
 let pkiEzsigntemplatepublicID = 987 // Int | The unique ID of the Ezsigntemplatepublic
 
 // Delete an existing Ezsigntemplatepublic
-ObjectEzsigntemplatepublicAPI.ezsigntemplatepublicDeleteObjectV1(pkiEzsigntemplatepublicID: pkiEzsigntemplatepublicID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplatepublicAPI.ezsigntemplatepublicDeleteObjectV1(pkiEzsigntemplatepublicID: pkiEzsigntemplatepublicID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -168,7 +156,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatepublicEditObjectV1**
 ```swift
-    open class func ezsigntemplatepublicEditObjectV1(pkiEzsigntemplatepublicID: Int, ezsigntemplatepublicEditObjectV1Request: EzsigntemplatepublicEditObjectV1Request, completion: @escaping (_ data: EzsigntemplatepublicEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatepublicEditObjectV1(pkiEzsigntemplatepublicID: Int, ezsigntemplatepublicEditObjectV1Request: EzsigntemplatepublicEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplatepublicEditObjectV1Response
 ```
 
 Edit an existing Ezsigntemplatepublic
@@ -184,15 +172,11 @@ let pkiEzsigntemplatepublicID = 987 // Int | The unique ID of the Ezsigntemplate
 let ezsigntemplatepublicEditObjectV1Request = ezsigntemplatepublic-editObject-v1-Request(objEzsigntemplatepublic: ezsigntemplatepublic-RequestCompound(pkiEzsigntemplatepublicID: 123, fkiEzsignfoldertypeID: 123, fkiUserlogintypeID: 123, fkiEzsigntemplateID: 123, fkiEzsigntemplatepackageID: 123, sEzsigntemplatepublicDescription: "sEzsigntemplatepublicDescription_example", bEzsigntemplatepublicIsactive: true, tEzsigntemplatepublicNote: "tEzsigntemplatepublicNote_example", eEzsigntemplatepublicLimittype: Field-eEzsigntemplatepublicLimittype(), iEzsigntemplatepublicLimit: 123)) // EzsigntemplatepublicEditObjectV1Request | 
 
 // Edit an existing Ezsigntemplatepublic
-ObjectEzsigntemplatepublicAPI.ezsigntemplatepublicEditObjectV1(pkiEzsigntemplatepublicID: pkiEzsigntemplatepublicID, ezsigntemplatepublicEditObjectV1Request: ezsigntemplatepublicEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplatepublicAPI.ezsigntemplatepublicEditObjectV1(pkiEzsigntemplatepublicID: pkiEzsigntemplatepublicID, ezsigntemplatepublicEditObjectV1Request: ezsigntemplatepublicEditObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -220,7 +204,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1**
 ```swift
-    open class func ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1(ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1Request: EzsigntemplatepublicGetEzsigntemplatepublicDetailsV1Request, completion: @escaping (_ data: EzsigntemplatepublicGetEzsigntemplatepublicDetailsV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1(ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1Request: EzsigntemplatepublicGetEzsigntemplatepublicDetailsV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplatepublicGetEzsigntemplatepublicDetailsV1Response
 ```
 
 Retrieve the Ezsigntemplatepublic details
@@ -235,15 +219,11 @@ import EzmaxApi
 let ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1Request = ezsigntemplatepublic-getEzsigntemplatepublicDetails-v1-Request(pksEzmaxcustomerCode: "pksEzmaxcustomerCode_example", sEzsigntemplatepublicReferenceid: "sEzsigntemplatepublicReferenceid_example") // EzsigntemplatepublicGetEzsigntemplatepublicDetailsV1Request | 
 
 // Retrieve the Ezsigntemplatepublic details
-ObjectEzsigntemplatepublicAPI.ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1(ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1Request: ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplatepublicAPI.ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1(ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1Request: ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -270,7 +250,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatepublicGetFormsDataV1**
 ```swift
-    open class func ezsigntemplatepublicGetFormsDataV1(pkiEzsigntemplatepublicID: Int, completion: @escaping (_ data: EzsigntemplatepublicGetFormsDataV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatepublicGetFormsDataV1(pkiEzsigntemplatepublicID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplatepublicGetFormsDataV1Response
 ```
 
 Retrieve an existing Ezsigntemplatepublic's forms data
@@ -285,15 +265,11 @@ import EzmaxApi
 let pkiEzsigntemplatepublicID = 987 // Int | 
 
 // Retrieve an existing Ezsigntemplatepublic's forms data
-ObjectEzsigntemplatepublicAPI.ezsigntemplatepublicGetFormsDataV1(pkiEzsigntemplatepublicID: pkiEzsigntemplatepublicID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplatepublicAPI.ezsigntemplatepublicGetFormsDataV1(pkiEzsigntemplatepublicID: pkiEzsigntemplatepublicID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -320,7 +296,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatepublicGetListV1**
 ```swift
-    open class func ezsigntemplatepublicGetListV1(eOrderBy: EOrderBy_ezsigntemplatepublicGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, completion: @escaping (_ data: EzsigntemplatepublicGetListV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatepublicGetListV1(eOrderBy: EOrderBy_ezsigntemplatepublicGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplatepublicGetListV1Response
 ```
 
 Retrieve Ezsigntemplatepublic list
@@ -339,15 +315,11 @@ let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (option
 let sFilter = "sFilter_example" // String |  (optional)
 
 // Retrieve Ezsigntemplatepublic list
-ObjectEzsigntemplatepublicAPI.ezsigntemplatepublicGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplatepublicAPI.ezsigntemplatepublicGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -378,7 +350,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatepublicGetObjectV2**
 ```swift
-    open class func ezsigntemplatepublicGetObjectV2(pkiEzsigntemplatepublicID: Int, completion: @escaping (_ data: EzsigntemplatepublicGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatepublicGetObjectV2(pkiEzsigntemplatepublicID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplatepublicGetObjectV2Response
 ```
 
 Retrieve an existing Ezsigntemplatepublic
@@ -393,15 +365,11 @@ import EzmaxApi
 let pkiEzsigntemplatepublicID = 987 // Int | The unique ID of the Ezsigntemplatepublic
 
 // Retrieve an existing Ezsigntemplatepublic
-ObjectEzsigntemplatepublicAPI.ezsigntemplatepublicGetObjectV2(pkiEzsigntemplatepublicID: pkiEzsigntemplatepublicID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplatepublicAPI.ezsigntemplatepublicGetObjectV2(pkiEzsigntemplatepublicID: pkiEzsigntemplatepublicID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -428,7 +396,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatepublicResetLimitExceededCounterV1**
 ```swift
-    open class func ezsigntemplatepublicResetLimitExceededCounterV1(pkiEzsigntemplatepublicID: Int, body: JSONValue, completion: @escaping (_ data: EzsigntemplatepublicResetLimitExceededCounterV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatepublicResetLimitExceededCounterV1(pkiEzsigntemplatepublicID: Int, body: JSONValue, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplatepublicResetLimitExceededCounterV1Response
 ```
 
 Reset the limit exceeded counter
@@ -444,15 +412,11 @@ let pkiEzsigntemplatepublicID = 987 // Int |
 let body = "TODO" // JSONValue | 
 
 // Reset the limit exceeded counter
-ObjectEzsigntemplatepublicAPI.ezsigntemplatepublicResetLimitExceededCounterV1(pkiEzsigntemplatepublicID: pkiEzsigntemplatepublicID, body: body) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplatepublicAPI.ezsigntemplatepublicResetLimitExceededCounterV1(pkiEzsigntemplatepublicID: pkiEzsigntemplatepublicID, body: body)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -480,7 +444,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatepublicResetUrlV1**
 ```swift
-    open class func ezsigntemplatepublicResetUrlV1(pkiEzsigntemplatepublicID: Int, body: JSONValue, completion: @escaping (_ data: EzsigntemplatepublicResetUrlV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatepublicResetUrlV1(pkiEzsigntemplatepublicID: Int, body: JSONValue, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzsigntemplatepublicResetUrlV1Response
 ```
 
 Reset the Ezsigntemplatepublic url
@@ -496,15 +460,11 @@ let pkiEzsigntemplatepublicID = 987 // Int |
 let body = "TODO" // JSONValue | 
 
 // Reset the Ezsigntemplatepublic url
-ObjectEzsigntemplatepublicAPI.ezsigntemplatepublicResetUrlV1(pkiEzsigntemplatepublicID: pkiEzsigntemplatepublicID, body: body) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzsigntemplatepublicAPI.ezsigntemplatepublicResetUrlV1(pkiEzsigntemplatepublicID: pkiEzsigntemplatepublicID, body: body)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

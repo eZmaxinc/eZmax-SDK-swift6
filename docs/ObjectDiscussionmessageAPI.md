@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 # **discussionmessageCreateObjectV1**
 ```swift
-    open class func discussionmessageCreateObjectV1(discussionmessageCreateObjectV1Request: DiscussionmessageCreateObjectV1Request, completion: @escaping (_ data: DiscussionmessageCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func discussionmessageCreateObjectV1(discussionmessageCreateObjectV1Request: DiscussionmessageCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DiscussionmessageCreateObjectV1Response
 ```
 
 Create a new Discussionmessage
@@ -26,15 +26,11 @@ import EzmaxApi
 let discussionmessageCreateObjectV1Request = discussionmessage-createObject-v1-Request(aObjDiscussionmessage: [discussionmessage-RequestCompound(pkiDiscussionmessageID: 123, fkiDiscussionID: 123, fkiDiscussionmembershipIDActionrequired: 123, tDiscussionmessageContent: "tDiscussionmessageContent_example")]) // DiscussionmessageCreateObjectV1Request | 
 
 // Create a new Discussionmessage
-ObjectDiscussionmessageAPI.discussionmessageCreateObjectV1(discussionmessageCreateObjectV1Request: discussionmessageCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDiscussionmessageAPI.discussionmessageCreateObjectV1(discussionmessageCreateObjectV1Request: discussionmessageCreateObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -61,7 +57,7 @@ Name | Type | Description  | Notes
 
 # **discussionmessageDeleteObjectV1**
 ```swift
-    open class func discussionmessageDeleteObjectV1(pkiDiscussionmessageID: Int, completion: @escaping (_ data: DiscussionmessageDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func discussionmessageDeleteObjectV1(pkiDiscussionmessageID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DiscussionmessageDeleteObjectV1Response
 ```
 
 Delete an existing Discussionmessage
@@ -76,15 +72,11 @@ import EzmaxApi
 let pkiDiscussionmessageID = 987 // Int | The unique ID of the Discussionmessage
 
 // Delete an existing Discussionmessage
-ObjectDiscussionmessageAPI.discussionmessageDeleteObjectV1(pkiDiscussionmessageID: pkiDiscussionmessageID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDiscussionmessageAPI.discussionmessageDeleteObjectV1(pkiDiscussionmessageID: pkiDiscussionmessageID)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 
@@ -111,7 +103,7 @@ Name | Type | Description  | Notes
 
 # **discussionmessagePatchObjectV1**
 ```swift
-    open class func discussionmessagePatchObjectV1(pkiDiscussionmessageID: Int, discussionmessagePatchObjectV1Request: DiscussionmessagePatchObjectV1Request, completion: @escaping (_ data: DiscussionmessagePatchObjectV1Response?, _ error: Error?) -> Void)
+    open class func discussionmessagePatchObjectV1(pkiDiscussionmessageID: Int, discussionmessagePatchObjectV1Request: DiscussionmessagePatchObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DiscussionmessagePatchObjectV1Response
 ```
 
 Patch an existing Discussionmessage
@@ -127,15 +119,11 @@ let pkiDiscussionmessageID = 987 // Int | The unique ID of the Discussionmessage
 let discussionmessagePatchObjectV1Request = discussionmessage-patchObject-v1-Request(objDiscussionmessage: discussionmessage-RequestPatch(fkiDiscussionmembershipIDActionrequired: 123, tDiscussionmessageContent: "tDiscussionmessageContent_example")) // DiscussionmessagePatchObjectV1Request | 
 
 // Patch an existing Discussionmessage
-ObjectDiscussionmessageAPI.discussionmessagePatchObjectV1(pkiDiscussionmessageID: pkiDiscussionmessageID, discussionmessagePatchObjectV1Request: discussionmessagePatchObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectDiscussionmessageAPI.discussionmessagePatchObjectV1(pkiDiscussionmessageID: pkiDiscussionmessageID, discussionmessagePatchObjectV1Request: discussionmessagePatchObjectV1Request)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

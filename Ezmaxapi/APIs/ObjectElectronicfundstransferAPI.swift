@@ -268,6 +268,85 @@ open class ObjectElectronicfundstransferAPI {
     }
 
     /**
+     * enum for parameter eOrderBy
+     */
+    public enum EOrderBy_electronicfundstransferGetListV1: String, Sendable, CaseIterable {
+        case pkielectronicfundstransferidAsc = "pkiElectronicfundstransferID_ASC"
+        case pkielectronicfundstransferidDesc = "pkiElectronicfundstransferID_DESC"
+        case fkipaymentmethodidAsc = "fkiPaymentmethodID_ASC"
+        case fkipaymentmethodidDesc = "fkiPaymentmethodID_DESC"
+        case fkiuseridcreatedAsc = "fkiUserIDCreated_ASC"
+        case fkiuseridcreatedDesc = "fkiUserIDCreated_DESC"
+        case spaymentmethoddescriptionxAsc = "sPaymentmethodDescriptionX_ASC"
+        case spaymentmethoddescriptionxDesc = "sPaymentmethodDescriptionX_DESC"
+        case suserloginnamecreatedAsc = "sUserLoginnameCreated_ASC"
+        case suserloginnamecreatedDesc = "sUserLoginnameCreated_DESC"
+        case ielectronicfundstransfernumberAsc = "iElectronicfundstransferNumber_ASC"
+        case ielectronicfundstransfernumberDesc = "iElectronicfundstransferNumber_DESC"
+        case dtelectronicfundstransferdateAsc = "dtElectronicfundstransferDate_ASC"
+        case dtelectronicfundstransferdateDesc = "dtElectronicfundstransferDate_DESC"
+        case ielectronicfundstransfertransactioncountAsc = "iElectronicfundstransferTransactioncount_ASC"
+        case ielectronicfundstransfertransactioncountDesc = "iElectronicfundstransferTransactioncount_DESC"
+        case delectronicfundstransferamountvisibleAsc = "dElectronicfundstransferAmountvisible_ASC"
+        case delectronicfundstransferamountvisibleDesc = "dElectronicfundstransferAmountvisible_DESC"
+    }
+
+    /**
+     Retrieve Electronicfundstransfer list
+     
+     - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
+     - parameter iRowMax: (query)  (optional)
+     - parameter iRowOffset: (query)  (optional, default to 0)
+     - parameter acceptLanguage: (header)  (optional)
+     - parameter sFilter: (query)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: ElectronicfundstransferGetListV1Response
+     */
+    open class func electronicfundstransferGetListV1(eOrderBy: EOrderBy_electronicfundstransferGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ElectronicfundstransferGetListV1Response {
+        return try await electronicfundstransferGetListV1WithRequestBuilder(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Electronicfundstransfer list
+     - GET /1/object/electronicfundstransfer/getList
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
+     - parameter iRowMax: (query)  (optional)
+     - parameter iRowOffset: (query)  (optional, default to 0)
+     - parameter acceptLanguage: (header)  (optional)
+     - parameter sFilter: (query)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<ElectronicfundstransferGetListV1Response> 
+     */
+    open class func electronicfundstransferGetListV1WithRequestBuilder(eOrderBy: EOrderBy_electronicfundstransferGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<ElectronicfundstransferGetListV1Response> {
+        let localVariablePath = "/1/object/electronicfundstransfer/getList"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        let localVariableQueryParameters: [String: (wrappedValue: (any Sendable)?, isExplode: Bool)] = [
+            "eOrderBy": (wrappedValue: eOrderBy?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "iRowMax": (wrappedValue: iRowMax?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "iRowOffset": (wrappedValue: iRowOffset?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "sFilter": (wrappedValue: sFilter?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+        ]
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems(localVariableQueryParameters)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Accept-Language": acceptLanguage?.asParameter(codableHelper: apiConfiguration.codableHelper),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<ElectronicfundstransferGetListV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
      Import attachments into the Electronicfundstransfer
      
      - parameter pkiElectronicfundstransferID: (path)  

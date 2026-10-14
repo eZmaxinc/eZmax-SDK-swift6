@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **ezdoctemplatefieldtypecategoryGetAutocompleteV2**
 ```swift
-    open class func ezdoctemplatefieldtypecategoryGetAutocompleteV2(sSelector: SSelector_ezdoctemplatefieldtypecategoryGetAutocompleteV2, eFilterActive: EFilterActive_ezdoctemplatefieldtypecategoryGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: EzdoctemplatefieldtypecategoryGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func ezdoctemplatefieldtypecategoryGetAutocompleteV2(sSelector: SSelector_ezdoctemplatefieldtypecategoryGetAutocompleteV2, eFilterActive: EFilterActive_ezdoctemplatefieldtypecategoryGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzdoctemplatefieldtypecategoryGetAutocompleteV2Response
 ```
 
 Retrieve Ezdoctemplatefieldtypecategorys and IDs
@@ -27,15 +27,11 @@ let sQuery = "sQuery_example" // String | Allow to filter the returned results (
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Ezdoctemplatefieldtypecategorys and IDs
-ObjectEzdoctemplatefieldtypecategoryAPI.ezdoctemplatefieldtypecategoryGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
+do {
+    let response = try await ObjectEzdoctemplatefieldtypecategoryAPI.ezdoctemplatefieldtypecategoryGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage)
+    dump(response)
+} catch {
+    print(error)
 }
 ```
 

@@ -10,8 +10,8 @@ import Foundation
 /** The name of the Usergroup */
 public struct MultilingualUsergroupName: Sendable, Codable, Hashable {
 
-    public static let sUsergroupName1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    public static let sUsergroupName2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sUsergroupName1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
+    public static let sUsergroupName2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
     /** The name of the Usergroup in French */
     public var sUsergroupName1: String?
     /** The name of the Usergroup in English */
