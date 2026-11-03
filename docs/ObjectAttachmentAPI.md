@@ -5,12 +5,12 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**attachmentDeleteV1**](ObjectAttachmentAPI.md#attachmentdeletev1) | **POST** /1/object/attachment/{pkiAttachmentID}/delete | Delete an existing attachment
-[**attachmentDocumentTypeV1**](ObjectAttachmentAPI.md#attachmentdocumenttypev1) | **POST** /1/object/attachment/{pkiAttachmentID}/documentType | Change attachment document type
 [**attachmentDownloadV1**](ObjectAttachmentAPI.md#attachmentdownloadv1) | **GET** /1/object/attachment/{pkiAttachmentID}/download | Retrieve the content
 [**attachmentGetAttachmentlogsV1**](ObjectAttachmentAPI.md#attachmentgetattachmentlogsv1) | **GET** /1/object/attachment/{pkiAttachmentID}/getAttachmentlogs | Retrieve the Attachmentlogs
-[**attachmentPrivacyV1**](ObjectAttachmentAPI.md#attachmentprivacyv1) | **POST** /1/object/attachment/{pkiAttachmentID}/privacy | Change the attachment privacy
 [**attachmentRenameV1**](ObjectAttachmentAPI.md#attachmentrenamev1) | **POST** /1/object/attachment/{pkiAttachmentID}/rename | Rename an attachment
 [**attachmentRestoreV1**](ObjectAttachmentAPI.md#attachmentrestorev1) | **POST** /1/object/attachment/{pkiAttachmentID}/restore | Restore a deleted attachment
+[**attachmentSetDocumentTypeV1**](ObjectAttachmentAPI.md#attachmentsetdocumenttypev1) | **POST** /1/object/attachment/{pkiAttachmentID}/setDocumentType | Change attachment document type
+[**attachmentSetPrivacyV1**](ObjectAttachmentAPI.md#attachmentsetprivacyv1) | **POST** /1/object/attachment/{pkiAttachmentID}/setPrivacy | Change the attachment privacy
 [**attachmentValidateV1**](ObjectAttachmentAPI.md#attachmentvalidatev1) | **POST** /1/object/attachment/{pkiAttachmentID}/validate | Validate an existing attachment
 
 
@@ -50,54 +50,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AttachmentDeleteV1Response**](AttachmentDeleteV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **attachmentDocumentTypeV1**
-```swift
-    open class func attachmentDocumentTypeV1(pkiAttachmentID: Int, attachmentDocumentTypeV1Request: AttachmentDocumentTypeV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AttachmentDocumentTypeV1Response
-```
-
-Change attachment document type
-
-The endpoint allows to change the checklist document type for an attachment.
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import EzmaxApi
-
-let pkiAttachmentID = 987 // Int | 
-let attachmentDocumentTypeV1Request = attachment-documentType-v1-Request(fkiDocumenttypechecklistID: 123) // AttachmentDocumentTypeV1Request | 
-
-// Change attachment document type
-do {
-    let response = try await ObjectAttachmentAPI.attachmentDocumentTypeV1(pkiAttachmentID: pkiAttachmentID, attachmentDocumentTypeV1Request: attachmentDocumentTypeV1Request)
-    dump(response)
-} catch {
-    print(error)
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiAttachmentID** | **Int** |  | 
- **attachmentDocumentTypeV1Request** | [**AttachmentDocumentTypeV1Request**](AttachmentDocumentTypeV1Request.md) |  | 
-
-### Return type
-
-[**AttachmentDocumentTypeV1Response**](AttachmentDocumentTypeV1Response.md)
 
 ### Authorization
 
@@ -201,54 +153,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **attachmentPrivacyV1**
-```swift
-    open class func attachmentPrivacyV1(pkiAttachmentID: Int, attachmentPrivacyV1Request: AttachmentPrivacyV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AttachmentPrivacyV1Response
-```
-
-Change the attachment privacy
-
-The endpoint allows to change an attachment's access privacy.
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import EzmaxApi
-
-let pkiAttachmentID = 987 // Int | 
-let attachmentPrivacyV1Request = attachment-privacy-v1-Request(eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123) // AttachmentPrivacyV1Request | 
-
-// Change the attachment privacy
-do {
-    let response = try await ObjectAttachmentAPI.attachmentPrivacyV1(pkiAttachmentID: pkiAttachmentID, attachmentPrivacyV1Request: attachmentPrivacyV1Request)
-    dump(response)
-} catch {
-    print(error)
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiAttachmentID** | **Int** |  | 
- **attachmentPrivacyV1Request** | [**AttachmentPrivacyV1Request**](AttachmentPrivacyV1Request.md) |  | 
-
-### Return type
-
-[**AttachmentPrivacyV1Response**](AttachmentPrivacyV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **attachmentRenameV1**
 ```swift
     open class func attachmentRenameV1(pkiAttachmentID: Int, attachmentRenameV1Request: AttachmentRenameV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AttachmentRenameV1Response
@@ -333,6 +237,102 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AttachmentRestoreV1Response**](AttachmentRestoreV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **attachmentSetDocumentTypeV1**
+```swift
+    open class func attachmentSetDocumentTypeV1(pkiAttachmentID: Int, attachmentSetDocumentTypeV1Request: AttachmentSetDocumentTypeV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AttachmentSetDocumentTypeV1Response
+```
+
+Change attachment document type
+
+The endpoint allows to change the checklist document type for an attachment.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiAttachmentID = 987 // Int | 
+let attachmentSetDocumentTypeV1Request = attachment-setDocumentType-v1-Request(fkiDocumenttypechecklistID: 123) // AttachmentSetDocumentTypeV1Request | 
+
+// Change attachment document type
+do {
+    let response = try await ObjectAttachmentAPI.attachmentSetDocumentTypeV1(pkiAttachmentID: pkiAttachmentID, attachmentSetDocumentTypeV1Request: attachmentSetDocumentTypeV1Request)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiAttachmentID** | **Int** |  | 
+ **attachmentSetDocumentTypeV1Request** | [**AttachmentSetDocumentTypeV1Request**](AttachmentSetDocumentTypeV1Request.md) |  | 
+
+### Return type
+
+[**AttachmentSetDocumentTypeV1Response**](AttachmentSetDocumentTypeV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **attachmentSetPrivacyV1**
+```swift
+    open class func attachmentSetPrivacyV1(pkiAttachmentID: Int, attachmentSetPrivacyV1Request: AttachmentSetPrivacyV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AttachmentSetPrivacyV1Response
+```
+
+Change the attachment privacy
+
+The endpoint allows to change an attachment's access privacy.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiAttachmentID = 987 // Int | 
+let attachmentSetPrivacyV1Request = attachment-setPrivacy-v1-Request(eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123) // AttachmentSetPrivacyV1Request | 
+
+// Change the attachment privacy
+do {
+    let response = try await ObjectAttachmentAPI.attachmentSetPrivacyV1(pkiAttachmentID: pkiAttachmentID, attachmentSetPrivacyV1Request: attachmentSetPrivacyV1Request)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiAttachmentID** | **Int** |  | 
+ **attachmentSetPrivacyV1Request** | [**AttachmentSetPrivacyV1Request**](AttachmentSetPrivacyV1Request.md) |  | 
+
+### Return type
+
+[**AttachmentSetPrivacyV1Response**](AttachmentSetPrivacyV1Response.md)
 
 ### Authorization
 

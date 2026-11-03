@@ -45,7 +45,7 @@ public struct DocumenttypeListElement: Sendable, Codable, Hashable {
     public var bDocumenttypeCommercialfunding: Bool
     /** Whether if it's an canafe */
     public var bDocumenttypeCanafe: Bool
-    public var eDocumenttypeEzcom: FieldEDocumenttypeEzcom
+    public var eDocumenttypeEzcom: FieldEDocumenttypeEzcom?
     public var eDocumenttypePrivacydefault: FieldEDocumenttypePrivacydefault
     public var eDocumenttypeStatusdefault: FieldEDocumenttypeStatusdefault
     public var eDocumenttypeSalebyowner: FieldEDocumenttypeSalebyowner
@@ -53,7 +53,7 @@ public struct DocumenttypeListElement: Sendable, Codable, Hashable {
     public var eDocumenttypeTransactiontype: FieldEDocumenttypeTransactiontype
     public var eDocumenttypeRepossession: FieldEDocumenttypeRepossession
 
-    public init(pkiDocumenttypeID: Int, sDocumenttypeNameX: String, sDocumenttypeDefaultfilename: String, bDocumenttypeShowagent: Bool, bDocumenttypeIsactive: Bool, bDocumenttypeIsrequired: Bool, bDocumenttypeSale: Bool, bDocumenttypeRental: Bool, bDocumenttypeReference: Bool, bDocumenttypeMortgagereference: Bool, bDocumenttypeEvaluation: Bool, bDocumenttypeConsultation: Bool, bDocumenttypeOtherservices: Bool, bDocumenttypeForeclosedsale: Bool, bDocumenttypeCommercialfunding: Bool, bDocumenttypeCanafe: Bool, eDocumenttypeEzcom: FieldEDocumenttypeEzcom, eDocumenttypePrivacydefault: FieldEDocumenttypePrivacydefault, eDocumenttypeStatusdefault: FieldEDocumenttypeStatusdefault, eDocumenttypeSalebyowner: FieldEDocumenttypeSalebyowner, eDocumenttypeSaledisplaybyrole: FieldEDocumenttypeSaledisplaybyrole, eDocumenttypeTransactiontype: FieldEDocumenttypeTransactiontype, eDocumenttypeRepossession: FieldEDocumenttypeRepossession) {
+    public init(pkiDocumenttypeID: Int, sDocumenttypeNameX: String, sDocumenttypeDefaultfilename: String, bDocumenttypeShowagent: Bool, bDocumenttypeIsactive: Bool, bDocumenttypeIsrequired: Bool, bDocumenttypeSale: Bool, bDocumenttypeRental: Bool, bDocumenttypeReference: Bool, bDocumenttypeMortgagereference: Bool, bDocumenttypeEvaluation: Bool, bDocumenttypeConsultation: Bool, bDocumenttypeOtherservices: Bool, bDocumenttypeForeclosedsale: Bool, bDocumenttypeCommercialfunding: Bool, bDocumenttypeCanafe: Bool, eDocumenttypeEzcom: FieldEDocumenttypeEzcom? = nil, eDocumenttypePrivacydefault: FieldEDocumenttypePrivacydefault, eDocumenttypeStatusdefault: FieldEDocumenttypeStatusdefault, eDocumenttypeSalebyowner: FieldEDocumenttypeSalebyowner, eDocumenttypeSaledisplaybyrole: FieldEDocumenttypeSaledisplaybyrole, eDocumenttypeTransactiontype: FieldEDocumenttypeTransactiontype, eDocumenttypeRepossession: FieldEDocumenttypeRepossession) {
         self.pkiDocumenttypeID = pkiDocumenttypeID
         self.sDocumenttypeNameX = sDocumenttypeNameX
         self.sDocumenttypeDefaultfilename = sDocumenttypeDefaultfilename
@@ -125,7 +125,7 @@ public struct DocumenttypeListElement: Sendable, Codable, Hashable {
         try container.encode(bDocumenttypeForeclosedsale, forKey: .bDocumenttypeForeclosedsale)
         try container.encode(bDocumenttypeCommercialfunding, forKey: .bDocumenttypeCommercialfunding)
         try container.encode(bDocumenttypeCanafe, forKey: .bDocumenttypeCanafe)
-        try container.encode(eDocumenttypeEzcom, forKey: .eDocumenttypeEzcom)
+        try container.encodeIfPresent(eDocumenttypeEzcom, forKey: .eDocumenttypeEzcom)
         try container.encode(eDocumenttypePrivacydefault, forKey: .eDocumenttypePrivacydefault)
         try container.encode(eDocumenttypeStatusdefault, forKey: .eDocumenttypeStatusdefault)
         try container.encode(eDocumenttypeSalebyowner, forKey: .eDocumenttypeSalebyowner)

@@ -55,51 +55,6 @@ open class ObjectAttachmentAPI {
     }
 
     /**
-     Change attachment document type
-     
-     - parameter pkiAttachmentID: (path)  
-     - parameter attachmentDocumentTypeV1Request: (body)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: AttachmentDocumentTypeV1Response
-     */
-    open class func attachmentDocumentTypeV1(pkiAttachmentID: Int, attachmentDocumentTypeV1Request: AttachmentDocumentTypeV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AttachmentDocumentTypeV1Response {
-        return try await attachmentDocumentTypeV1WithRequestBuilder(pkiAttachmentID: pkiAttachmentID, attachmentDocumentTypeV1Request: attachmentDocumentTypeV1Request, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Change attachment document type
-     - POST /1/object/attachment/{pkiAttachmentID}/documentType
-     - The endpoint allows to change the checklist document type for an attachment.
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiAttachmentID: (path)  
-     - parameter attachmentDocumentTypeV1Request: (body)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<AttachmentDocumentTypeV1Response> 
-     */
-    open class func attachmentDocumentTypeV1WithRequestBuilder(pkiAttachmentID: Int, attachmentDocumentTypeV1Request: AttachmentDocumentTypeV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<AttachmentDocumentTypeV1Response> {
-        var localVariablePath = "/1/object/attachment/{pkiAttachmentID}/documentType"
-        let pkiAttachmentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiAttachmentID))"
-        let pkiAttachmentIDPostEscape = pkiAttachmentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiAttachmentID}", with: pkiAttachmentIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: attachmentDocumentTypeV1Request, codableHelper: apiConfiguration.codableHelper)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<AttachmentDocumentTypeV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
      Retrieve the content
      
      - parameter pkiAttachmentID: (path)  
@@ -189,51 +144,6 @@ open class ObjectAttachmentAPI {
     }
 
     /**
-     Change the attachment privacy
-     
-     - parameter pkiAttachmentID: (path)  
-     - parameter attachmentPrivacyV1Request: (body)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: AttachmentPrivacyV1Response
-     */
-    open class func attachmentPrivacyV1(pkiAttachmentID: Int, attachmentPrivacyV1Request: AttachmentPrivacyV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AttachmentPrivacyV1Response {
-        return try await attachmentPrivacyV1WithRequestBuilder(pkiAttachmentID: pkiAttachmentID, attachmentPrivacyV1Request: attachmentPrivacyV1Request, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Change the attachment privacy
-     - POST /1/object/attachment/{pkiAttachmentID}/privacy
-     - The endpoint allows to change an attachment's access privacy.
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiAttachmentID: (path)  
-     - parameter attachmentPrivacyV1Request: (body)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<AttachmentPrivacyV1Response> 
-     */
-    open class func attachmentPrivacyV1WithRequestBuilder(pkiAttachmentID: Int, attachmentPrivacyV1Request: AttachmentPrivacyV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<AttachmentPrivacyV1Response> {
-        var localVariablePath = "/1/object/attachment/{pkiAttachmentID}/privacy"
-        let pkiAttachmentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiAttachmentID))"
-        let pkiAttachmentIDPostEscape = pkiAttachmentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiAttachmentID}", with: pkiAttachmentIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: attachmentPrivacyV1Request, codableHelper: apiConfiguration.codableHelper)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<AttachmentPrivacyV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
      Rename an attachment
      
      - parameter pkiAttachmentID: (path)  
@@ -319,6 +229,96 @@ open class ObjectAttachmentAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<AttachmentRestoreV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Change attachment document type
+     
+     - parameter pkiAttachmentID: (path)  
+     - parameter attachmentSetDocumentTypeV1Request: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: AttachmentSetDocumentTypeV1Response
+     */
+    open class func attachmentSetDocumentTypeV1(pkiAttachmentID: Int, attachmentSetDocumentTypeV1Request: AttachmentSetDocumentTypeV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AttachmentSetDocumentTypeV1Response {
+        return try await attachmentSetDocumentTypeV1WithRequestBuilder(pkiAttachmentID: pkiAttachmentID, attachmentSetDocumentTypeV1Request: attachmentSetDocumentTypeV1Request, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Change attachment document type
+     - POST /1/object/attachment/{pkiAttachmentID}/setDocumentType
+     - The endpoint allows to change the checklist document type for an attachment.
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiAttachmentID: (path)  
+     - parameter attachmentSetDocumentTypeV1Request: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<AttachmentSetDocumentTypeV1Response> 
+     */
+    open class func attachmentSetDocumentTypeV1WithRequestBuilder(pkiAttachmentID: Int, attachmentSetDocumentTypeV1Request: AttachmentSetDocumentTypeV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<AttachmentSetDocumentTypeV1Response> {
+        var localVariablePath = "/1/object/attachment/{pkiAttachmentID}/setDocumentType"
+        let pkiAttachmentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiAttachmentID))"
+        let pkiAttachmentIDPostEscape = pkiAttachmentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiAttachmentID}", with: pkiAttachmentIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: attachmentSetDocumentTypeV1Request, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<AttachmentSetDocumentTypeV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Change the attachment privacy
+     
+     - parameter pkiAttachmentID: (path)  
+     - parameter attachmentSetPrivacyV1Request: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: AttachmentSetPrivacyV1Response
+     */
+    open class func attachmentSetPrivacyV1(pkiAttachmentID: Int, attachmentSetPrivacyV1Request: AttachmentSetPrivacyV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AttachmentSetPrivacyV1Response {
+        return try await attachmentSetPrivacyV1WithRequestBuilder(pkiAttachmentID: pkiAttachmentID, attachmentSetPrivacyV1Request: attachmentSetPrivacyV1Request, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Change the attachment privacy
+     - POST /1/object/attachment/{pkiAttachmentID}/setPrivacy
+     - The endpoint allows to change an attachment's access privacy.
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiAttachmentID: (path)  
+     - parameter attachmentSetPrivacyV1Request: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<AttachmentSetPrivacyV1Response> 
+     */
+    open class func attachmentSetPrivacyV1WithRequestBuilder(pkiAttachmentID: Int, attachmentSetPrivacyV1Request: AttachmentSetPrivacyV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<AttachmentSetPrivacyV1Response> {
+        var localVariablePath = "/1/object/attachment/{pkiAttachmentID}/setPrivacy"
+        let pkiAttachmentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiAttachmentID))"
+        let pkiAttachmentIDPostEscape = pkiAttachmentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiAttachmentID}", with: pkiAttachmentIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: attachmentSetPrivacyV1Request, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<AttachmentSetPrivacyV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

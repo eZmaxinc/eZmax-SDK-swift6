@@ -41,6 +41,7 @@ public struct InscriptionnotauthenticatedResponse: Sendable, Codable, Hashable {
     public var pkiInscriptionnotauthenticatedID: Int
     /** The unique ID of the Inscription. */
     public var fkiInscriptionID: Int
+    public var objInscription: CustomInscription
     /** The unique ID of the Department */
     public var fkiDepartmentID: Int?
     /** The Name of the Department in the language of the requester */
@@ -112,9 +113,10 @@ public struct InscriptionnotauthenticatedResponse: Sendable, Codable, Hashable {
     /** Whether the Inscriptionnotauthenticated is a draft or not */
     public var bInscriptionnotauthenticatedDraft: Bool
 
-    public init(pkiInscriptionnotauthenticatedID: Int, fkiInscriptionID: Int, fkiDepartmentID: Int? = nil, sDepartmentNameX: String? = nil, fkiFinancialinstitutionID: Int? = nil, sFinancialinstitutionNameX: String? = nil, fkiBuyercontractID: Int? = nil, sBuyercontractContract: String? = nil, fkiMortgagesupplierID: Int? = nil, sMortgagesupplierNameX: String? = nil, fkiTaxassignmentID: Int, sTaxassignmentDescriptionX: String? = nil, dtInscriptionnotauthenticatedTransactiondate: String? = nil, dtInscriptionnotauthenticatedTransactiondateReal: String? = nil, dtInscriptionnotauthenticatedDepositdate: String? = nil, eInscriptionnotauthenticatedType: FieldEInscriptionnotauthenticatedType, dInscriptionnotauthenticatedMortgageloan: String, etInscriptionnotauthenticatedMortgagetype: FieldEtInscriptionnotauthenticatedMortgagetype, dInscriptionnotauthenticatedTransactionprice: String, eInscriptionnotauthenticatedRemunerationtype: FieldEInscriptionnotauthenticatedRemunerationtype, dInscriptionnotauthenticatedRemuneration: String, dInscriptionnotauthenticatedRemunerationsubtotal: String, dInscriptionnotauthenticatedRemunerationtotal: String, dtInscriptionnotauthenticatedCancellationdate: String? = nil, dtInscriptionnotauthenticatedPossessiondate: String? = nil, sInscriptionnotauthenticatedOffertopurchasenumber: String, dtInscriptionnotauthenticatedNotaryscheduledate: String? = nil, dtInscriptionnotauthenticatedFinancingscheduledate: String? = nil, bInscriptionnotauthenticatedConditional: Bool, bInscriptionnotauthenticatedMortgageisreferenced: Bool, bInscriptionnotauthenticatedHomeowner: Bool, tInscriptionnotauthenticatedConditions: String, dtInscriptionnotauthenticatedConditiondeadlinedate: String? = nil, iInscriptionnotauthenticatedOrder: Int, bInscriptionnotauthenticatedIsactive: Bool, eInscriptionnotauthenticatedResidenceType: FieldEInscriptionnotauthenticatedResidenceType, tInscriptionnotauthenticatedChecklistnote: String, dInscriptionnotauthenticatedSelleronlyretribution: String, bInscriptionnotauthenticatedDraft: Bool) {
+    public init(pkiInscriptionnotauthenticatedID: Int, fkiInscriptionID: Int, objInscription: CustomInscription, fkiDepartmentID: Int? = nil, sDepartmentNameX: String? = nil, fkiFinancialinstitutionID: Int? = nil, sFinancialinstitutionNameX: String? = nil, fkiBuyercontractID: Int? = nil, sBuyercontractContract: String? = nil, fkiMortgagesupplierID: Int? = nil, sMortgagesupplierNameX: String? = nil, fkiTaxassignmentID: Int, sTaxassignmentDescriptionX: String? = nil, dtInscriptionnotauthenticatedTransactiondate: String? = nil, dtInscriptionnotauthenticatedTransactiondateReal: String? = nil, dtInscriptionnotauthenticatedDepositdate: String? = nil, eInscriptionnotauthenticatedType: FieldEInscriptionnotauthenticatedType, dInscriptionnotauthenticatedMortgageloan: String, etInscriptionnotauthenticatedMortgagetype: FieldEtInscriptionnotauthenticatedMortgagetype, dInscriptionnotauthenticatedTransactionprice: String, eInscriptionnotauthenticatedRemunerationtype: FieldEInscriptionnotauthenticatedRemunerationtype, dInscriptionnotauthenticatedRemuneration: String, dInscriptionnotauthenticatedRemunerationsubtotal: String, dInscriptionnotauthenticatedRemunerationtotal: String, dtInscriptionnotauthenticatedCancellationdate: String? = nil, dtInscriptionnotauthenticatedPossessiondate: String? = nil, sInscriptionnotauthenticatedOffertopurchasenumber: String, dtInscriptionnotauthenticatedNotaryscheduledate: String? = nil, dtInscriptionnotauthenticatedFinancingscheduledate: String? = nil, bInscriptionnotauthenticatedConditional: Bool, bInscriptionnotauthenticatedMortgageisreferenced: Bool, bInscriptionnotauthenticatedHomeowner: Bool, tInscriptionnotauthenticatedConditions: String, dtInscriptionnotauthenticatedConditiondeadlinedate: String? = nil, iInscriptionnotauthenticatedOrder: Int, bInscriptionnotauthenticatedIsactive: Bool, eInscriptionnotauthenticatedResidenceType: FieldEInscriptionnotauthenticatedResidenceType, tInscriptionnotauthenticatedChecklistnote: String, dInscriptionnotauthenticatedSelleronlyretribution: String, bInscriptionnotauthenticatedDraft: Bool) {
         self.pkiInscriptionnotauthenticatedID = pkiInscriptionnotauthenticatedID
         self.fkiInscriptionID = fkiInscriptionID
+        self.objInscription = objInscription
         self.fkiDepartmentID = fkiDepartmentID
         self.sDepartmentNameX = sDepartmentNameX
         self.fkiFinancialinstitutionID = fkiFinancialinstitutionID
@@ -157,6 +159,7 @@ public struct InscriptionnotauthenticatedResponse: Sendable, Codable, Hashable {
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiInscriptionnotauthenticatedID
         case fkiInscriptionID
+        case objInscription
         case fkiDepartmentID
         case sDepartmentNameX
         case fkiFinancialinstitutionID
@@ -202,6 +205,7 @@ public struct InscriptionnotauthenticatedResponse: Sendable, Codable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiInscriptionnotauthenticatedID, forKey: .pkiInscriptionnotauthenticatedID)
         try container.encode(fkiInscriptionID, forKey: .fkiInscriptionID)
+        try container.encode(objInscription, forKey: .objInscription)
         try container.encodeIfPresent(fkiDepartmentID, forKey: .fkiDepartmentID)
         try container.encodeIfPresent(sDepartmentNameX, forKey: .sDepartmentNameX)
         try container.encodeIfPresent(fkiFinancialinstitutionID, forKey: .fkiFinancialinstitutionID)

@@ -5,7 +5,6 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**documenttypeCreateObjectV1**](ObjectDocumenttypeAPI.md#documenttypecreateobjectv1) | **POST** /1/object/documenttype | Create a new Documenttype
-[**documenttypeDeleteObjectV1**](ObjectDocumenttypeAPI.md#documenttypedeleteobjectv1) | **DELETE** /1/object/documenttype/{pkiDocumenttypeID} | Delete an existing Documenttype
 [**documenttypeEditObjectV1**](ObjectDocumenttypeAPI.md#documenttypeeditobjectv1) | **PUT** /1/object/documenttype/{pkiDocumenttypeID} | Edit an existing Documenttype
 [**documenttypeGetAutocompleteV2**](ObjectDocumenttypeAPI.md#documenttypegetautocompletev2) | **GET** /2/object/documenttype/getAutocomplete/{sSelector} | Retrieve Documenttypes and IDs
 [**documenttypeGetListV1**](ObjectDocumenttypeAPI.md#documenttypegetlistv1) | **GET** /1/object/documenttype/getList | Retrieve Documenttype list
@@ -26,7 +25,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import EzmaxApi
 
-let documenttypeCreateObjectV1Request = documenttype-createObject-v1-Request(aObjDocumenttype: [documenttype-RequestCompound(pkiDocumenttypeID: 123, objDocumenttypeName: Multilingual-DocumenttypeName(sDocumenttypeName1: "sDocumenttypeName1_example", sDocumenttypeName2: "sDocumenttypeName2_example"), sDocumenttypeDefaultfilename: "sDocumenttypeDefaultfilename_example", bDocumenttypeShowagent: true, bDocumenttypeIsactive: true, bDocumenttypeIsrequired: true, bDocumenttypeSale: true, bDocumenttypeRental: true, bDocumenttypeReference: true, bDocumenttypeMortgagereference: true, bDocumenttypeEvaluation: true, bDocumenttypeConsultation: true, bDocumenttypeOtherservices: true, bDocumenttypeForeclosedsale: true, bDocumenttypeCommercialfunding: true, bDocumenttypeCanafe: true, eDocumenttypeEzcom: Field-eDocumenttypeEzcom(), eDocumenttypePrivacydefault: Field-eDocumenttypePrivacydefault(), eDocumenttypeStatusdefault: Field-eDocumenttypeStatusdefault(), eDocumenttypeSalebyowner: Field-eDocumenttypeSalebyowner(), eDocumenttypeSaledisplaybyrole: Field-eDocumenttypeSaledisplaybyrole(), eDocumenttypeTransactiontype: Field-eDocumenttypeTransactiontype(), eDocumenttypeRepossession: Field-eDocumenttypeRepossession())]) // DocumenttypeCreateObjectV1Request | 
+let documenttypeCreateObjectV1Request = documenttype-createObject-v1-Request(aObjDocumenttype: [documenttype-RequestCompound(pkiDocumenttypeID: 123, objDocumenttypeName: Multilingual-DocumenttypeName(sDocumenttypeName1: "sDocumenttypeName1_example", sDocumenttypeName2: "sDocumenttypeName2_example"), eDocumenttypeStep: Computed-eDocumenttypeStep(), sDocumenttypeDefaultfilename: "sDocumenttypeDefaultfilename_example", bDocumenttypeShowagent: true, bDocumenttypeIsactive: true, bDocumenttypeIsrequired: true, bDocumenttypeSale: true, bDocumenttypeRental: true, bDocumenttypeReference: true, bDocumenttypeMortgagereference: true, bDocumenttypeEvaluation: true, bDocumenttypeConsultation: true, bDocumenttypeOtherservices: true, bDocumenttypeForeclosedsale: true, bDocumenttypeCommercialfunding: true, bDocumenttypeCanafe: true, eDocumenttypeEzcom: Field-eDocumenttypeEzcom(), eDocumenttypePrivacydefault: Field-eDocumenttypePrivacydefault(), eDocumenttypeStatusdefault: Field-eDocumenttypeStatusdefault(), eDocumenttypeSalebyowner: Field-eDocumenttypeSalebyowner(), eDocumenttypeSaledisplaybyrole: Field-eDocumenttypeSaledisplaybyrole(), eDocumenttypeTransactiontype: Field-eDocumenttypeTransactiontype(), eDocumenttypeRepossession: Field-eDocumenttypeRepossession(), aFkiInscriptiontypeID: [123])]) // DocumenttypeCreateObjectV1Request | 
 
 // Create a new Documenttype
 do {
@@ -58,52 +57,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **documenttypeDeleteObjectV1**
-```swift
-    open class func documenttypeDeleteObjectV1(pkiDocumenttypeID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DocumenttypeDeleteObjectV1Response
-```
-
-Delete an existing Documenttype
-
-
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import EzmaxApi
-
-let pkiDocumenttypeID = 987 // Int | The unique ID of the Documenttype
-
-// Delete an existing Documenttype
-do {
-    let response = try await ObjectDocumenttypeAPI.documenttypeDeleteObjectV1(pkiDocumenttypeID: pkiDocumenttypeID)
-    dump(response)
-} catch {
-    print(error)
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiDocumenttypeID** | **Int** | The unique ID of the Documenttype | 
-
-### Return type
-
-[**DocumenttypeDeleteObjectV1Response**](DocumenttypeDeleteObjectV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **documenttypeEditObjectV1**
 ```swift
     open class func documenttypeEditObjectV1(pkiDocumenttypeID: Int, documenttypeEditObjectV1Request: DocumenttypeEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DocumenttypeEditObjectV1Response
@@ -119,7 +72,7 @@ Edit an existing Documenttype
 import EzmaxApi
 
 let pkiDocumenttypeID = 987 // Int | The unique ID of the Documenttype
-let documenttypeEditObjectV1Request = documenttype-editObject-v1-Request(objDocumenttype: documenttype-RequestCompound(pkiDocumenttypeID: 123, objDocumenttypeName: Multilingual-DocumenttypeName(sDocumenttypeName1: "sDocumenttypeName1_example", sDocumenttypeName2: "sDocumenttypeName2_example"), sDocumenttypeDefaultfilename: "sDocumenttypeDefaultfilename_example", bDocumenttypeShowagent: true, bDocumenttypeIsactive: true, bDocumenttypeIsrequired: true, bDocumenttypeSale: true, bDocumenttypeRental: true, bDocumenttypeReference: true, bDocumenttypeMortgagereference: true, bDocumenttypeEvaluation: true, bDocumenttypeConsultation: true, bDocumenttypeOtherservices: true, bDocumenttypeForeclosedsale: true, bDocumenttypeCommercialfunding: true, bDocumenttypeCanafe: true, eDocumenttypeEzcom: Field-eDocumenttypeEzcom(), eDocumenttypePrivacydefault: Field-eDocumenttypePrivacydefault(), eDocumenttypeStatusdefault: Field-eDocumenttypeStatusdefault(), eDocumenttypeSalebyowner: Field-eDocumenttypeSalebyowner(), eDocumenttypeSaledisplaybyrole: Field-eDocumenttypeSaledisplaybyrole(), eDocumenttypeTransactiontype: Field-eDocumenttypeTransactiontype(), eDocumenttypeRepossession: Field-eDocumenttypeRepossession())) // DocumenttypeEditObjectV1Request | 
+let documenttypeEditObjectV1Request = documenttype-editObject-v1-Request(objDocumenttype: documenttype-RequestCompound(pkiDocumenttypeID: 123, objDocumenttypeName: Multilingual-DocumenttypeName(sDocumenttypeName1: "sDocumenttypeName1_example", sDocumenttypeName2: "sDocumenttypeName2_example"), eDocumenttypeStep: Computed-eDocumenttypeStep(), sDocumenttypeDefaultfilename: "sDocumenttypeDefaultfilename_example", bDocumenttypeShowagent: true, bDocumenttypeIsactive: true, bDocumenttypeIsrequired: true, bDocumenttypeSale: true, bDocumenttypeRental: true, bDocumenttypeReference: true, bDocumenttypeMortgagereference: true, bDocumenttypeEvaluation: true, bDocumenttypeConsultation: true, bDocumenttypeOtherservices: true, bDocumenttypeForeclosedsale: true, bDocumenttypeCommercialfunding: true, bDocumenttypeCanafe: true, eDocumenttypeEzcom: Field-eDocumenttypeEzcom(), eDocumenttypePrivacydefault: Field-eDocumenttypePrivacydefault(), eDocumenttypeStatusdefault: Field-eDocumenttypeStatusdefault(), eDocumenttypeSalebyowner: Field-eDocumenttypeSalebyowner(), eDocumenttypeSaledisplaybyrole: Field-eDocumenttypeSaledisplaybyrole(), eDocumenttypeTransactiontype: Field-eDocumenttypeTransactiontype(), eDocumenttypeRepossession: Field-eDocumenttypeRepossession(), aFkiInscriptiontypeID: [123])) // DocumenttypeEditObjectV1Request | 
 
 // Edit an existing Documenttype
 do {

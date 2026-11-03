@@ -28,6 +28,7 @@ public enum FieldEAttachmentlogType: String, Sendable, Codable, CaseIterable {
     case importedFromProspects = "ImportedFromProspects"
     case move = "Move"
     case openFromEmail = "OpenFromEmail"
+    case pending = "Pending"
     case purged = "Purged"
     case reject = "Reject"
     case rename = "Rename"

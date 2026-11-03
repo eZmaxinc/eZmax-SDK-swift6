@@ -50,49 +50,6 @@ open class ObjectDocumenttypeAPI {
     }
 
     /**
-     Delete an existing Documenttype
-     
-     - parameter pkiDocumenttypeID: (path) The unique ID of the Documenttype 
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: DocumenttypeDeleteObjectV1Response
-     */
-    open class func documenttypeDeleteObjectV1(pkiDocumenttypeID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DocumenttypeDeleteObjectV1Response {
-        return try await documenttypeDeleteObjectV1WithRequestBuilder(pkiDocumenttypeID: pkiDocumenttypeID, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Delete an existing Documenttype
-     - DELETE /1/object/documenttype/{pkiDocumenttypeID}
-     - 
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiDocumenttypeID: (path) The unique ID of the Documenttype 
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<DocumenttypeDeleteObjectV1Response> 
-     */
-    open class func documenttypeDeleteObjectV1WithRequestBuilder(pkiDocumenttypeID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<DocumenttypeDeleteObjectV1Response> {
-        var localVariablePath = "/1/object/documenttype/{pkiDocumenttypeID}"
-        let pkiDocumenttypeIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiDocumenttypeID))"
-        let pkiDocumenttypeIDPostEscape = pkiDocumenttypeIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiDocumenttypeID}", with: pkiDocumenttypeIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters: [String: any Sendable]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<DocumenttypeDeleteObjectV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
      Edit an existing Documenttype
      
      - parameter pkiDocumenttypeID: (path) The unique ID of the Documenttype 

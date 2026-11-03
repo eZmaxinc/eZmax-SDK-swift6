@@ -559,4 +559,49 @@ open class ObjectInscriptionAPI {
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
+
+    /**
+     Synchronization of the Documenttype in the Inscription
+     
+     - parameter pkiInscriptionID: (path)  
+     - parameter body: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: InscriptionSynchronizationDocumenttypeV1Response
+     */
+    open class func inscriptionSynchronizationDocumenttypeV1(pkiInscriptionID: Int, body: JSONValue, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptionSynchronizationDocumenttypeV1Response {
+        return try await inscriptionSynchronizationDocumenttypeV1WithRequestBuilder(pkiInscriptionID: pkiInscriptionID, body: body, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Synchronization of the Documenttype in the Inscription
+     - POST /1/object/inscription/{pkiInscriptionID}/synchronizationDocumenttype
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiInscriptionID: (path)  
+     - parameter body: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<InscriptionSynchronizationDocumenttypeV1Response> 
+     */
+    open class func inscriptionSynchronizationDocumenttypeV1WithRequestBuilder(pkiInscriptionID: Int, body: JSONValue, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<InscriptionSynchronizationDocumenttypeV1Response> {
+        var localVariablePath = "/1/object/inscription/{pkiInscriptionID}/synchronizationDocumenttype"
+        let pkiInscriptionIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInscriptionID))"
+        let pkiInscriptionIDPostEscape = pkiInscriptionIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInscriptionID}", with: pkiInscriptionIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<InscriptionSynchronizationDocumenttypeV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
 }

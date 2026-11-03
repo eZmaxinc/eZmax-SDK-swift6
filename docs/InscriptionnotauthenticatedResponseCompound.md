@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pkiInscriptionnotauthenticatedID** | **Int** | The unique ID of the Inscriptionnotauthenticated. | 
 **fkiInscriptionID** | **Int** | The unique ID of the Inscription. | 
+**objInscription** | [**CustomInscription**](CustomInscription.md) |  | 
 **fkiDepartmentID** | **Int** | The unique ID of the Department | [optional] 
 **sDepartmentNameX** | **String** | The Name of the Department in the language of the requester | [optional] 
 **fkiFinancialinstitutionID** | **Int** | The unique ID of the Financialinstitution | [optional] 

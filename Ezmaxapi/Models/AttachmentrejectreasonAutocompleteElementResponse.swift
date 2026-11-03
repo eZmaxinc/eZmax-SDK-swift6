@@ -11,23 +11,23 @@ import Foundation
 public struct AttachmentrejectreasonAutocompleteElementResponse: Sendable, Codable, Hashable {
 
     public static let pkiAttachmentrejectreasonIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sAttachmentrejectreasonnameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,75}$")
+    public static let sAttachmentrejectreasonNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,75}$")
     /** The unique ID of the Attachmentrejectreason */
     public var pkiAttachmentrejectreasonID: Int
     /** The name of the Attachmentrejectreason in the language of the requester */
-    public var sAttachmentrejectreasonnameX: String
+    public var sAttachmentrejectreasonNameX: String
     /** Whether the Attachmentrejectreason is active or not */
     public var bAttachmentrejectreasonIsactive: Bool
 
-    public init(pkiAttachmentrejectreasonID: Int, sAttachmentrejectreasonnameX: String, bAttachmentrejectreasonIsactive: Bool) {
+    public init(pkiAttachmentrejectreasonID: Int, sAttachmentrejectreasonNameX: String, bAttachmentrejectreasonIsactive: Bool) {
         self.pkiAttachmentrejectreasonID = pkiAttachmentrejectreasonID
-        self.sAttachmentrejectreasonnameX = sAttachmentrejectreasonnameX
+        self.sAttachmentrejectreasonNameX = sAttachmentrejectreasonNameX
         self.bAttachmentrejectreasonIsactive = bAttachmentrejectreasonIsactive
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiAttachmentrejectreasonID
-        case sAttachmentrejectreasonnameX
+        case sAttachmentrejectreasonNameX
         case bAttachmentrejectreasonIsactive
     }
 
@@ -36,7 +36,7 @@ public struct AttachmentrejectreasonAutocompleteElementResponse: Sendable, Codab
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiAttachmentrejectreasonID, forKey: .pkiAttachmentrejectreasonID)
-        try container.encode(sAttachmentrejectreasonnameX, forKey: .sAttachmentrejectreasonnameX)
+        try container.encode(sAttachmentrejectreasonNameX, forKey: .sAttachmentrejectreasonNameX)
         try container.encode(bAttachmentrejectreasonIsactive, forKey: .bAttachmentrejectreasonIsactive)
     }
 }

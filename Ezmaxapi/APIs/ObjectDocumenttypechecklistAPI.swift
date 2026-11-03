@@ -10,46 +10,6 @@ import Foundation
 open class ObjectDocumenttypechecklistAPI {
 
     /**
-     Create a new Documenttypechecklist
-     
-     - parameter documenttypechecklistCreateObjectV1Request: (body)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: DocumenttypechecklistCreateObjectV1Response
-     */
-    open class func documenttypechecklistCreateObjectV1(documenttypechecklistCreateObjectV1Request: DocumenttypechecklistCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DocumenttypechecklistCreateObjectV1Response {
-        return try await documenttypechecklistCreateObjectV1WithRequestBuilder(documenttypechecklistCreateObjectV1Request: documenttypechecklistCreateObjectV1Request, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Create a new Documenttypechecklist
-     - POST /1/object/documenttypechecklist
-     - The endpoint allows to create one or many elements at once.
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter documenttypechecklistCreateObjectV1Request: (body)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<DocumenttypechecklistCreateObjectV1Response> 
-     */
-    open class func documenttypechecklistCreateObjectV1WithRequestBuilder(documenttypechecklistCreateObjectV1Request: DocumenttypechecklistCreateObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<DocumenttypechecklistCreateObjectV1Response> {
-        let localVariablePath = "/1/object/documenttypechecklist"
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: documenttypechecklistCreateObjectV1Request, codableHelper: apiConfiguration.codableHelper)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<DocumenttypechecklistCreateObjectV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
      Delete an existing Documenttypechecklist
      
      - parameter pkiDocumenttypechecklistID: (path) The unique ID of the Documenttypechecklist 
@@ -93,36 +53,36 @@ open class ObjectDocumenttypechecklistAPI {
     }
 
     /**
-     Edit an existing Documenttypechecklist
+     Patch an existing Documenttypechecklist
      
      - parameter pkiDocumenttypechecklistID: (path) The unique ID of the Documenttypechecklist 
-     - parameter documenttypechecklistEditObjectV1Request: (body)  
+     - parameter documenttypechecklistPatchObjectV1Request: (body)  
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: DocumenttypechecklistEditObjectV1Response
+     - returns: DocumenttypechecklistPatchObjectV1Response
      */
-    open class func documenttypechecklistEditObjectV1(pkiDocumenttypechecklistID: Int, documenttypechecklistEditObjectV1Request: DocumenttypechecklistEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DocumenttypechecklistEditObjectV1Response {
-        return try await documenttypechecklistEditObjectV1WithRequestBuilder(pkiDocumenttypechecklistID: pkiDocumenttypechecklistID, documenttypechecklistEditObjectV1Request: documenttypechecklistEditObjectV1Request, apiConfiguration: apiConfiguration).execute().body
+    open class func documenttypechecklistPatchObjectV1(pkiDocumenttypechecklistID: Int, documenttypechecklistPatchObjectV1Request: DocumenttypechecklistPatchObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DocumenttypechecklistPatchObjectV1Response {
+        return try await documenttypechecklistPatchObjectV1WithRequestBuilder(pkiDocumenttypechecklistID: pkiDocumenttypechecklistID, documenttypechecklistPatchObjectV1Request: documenttypechecklistPatchObjectV1Request, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
-     Edit an existing Documenttypechecklist
-     - PUT /1/object/documenttypechecklist/{pkiDocumenttypechecklistID}
+     Patch an existing Documenttypechecklist
+     - PATCH /1/object/documenttypechecklist/{pkiDocumenttypechecklistID}
      - 
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiDocumenttypechecklistID: (path) The unique ID of the Documenttypechecklist 
-     - parameter documenttypechecklistEditObjectV1Request: (body)  
+     - parameter documenttypechecklistPatchObjectV1Request: (body)  
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<DocumenttypechecklistEditObjectV1Response> 
+     - returns: RequestBuilder<DocumenttypechecklistPatchObjectV1Response> 
      */
-    open class func documenttypechecklistEditObjectV1WithRequestBuilder(pkiDocumenttypechecklistID: Int, documenttypechecklistEditObjectV1Request: DocumenttypechecklistEditObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<DocumenttypechecklistEditObjectV1Response> {
+    open class func documenttypechecklistPatchObjectV1WithRequestBuilder(pkiDocumenttypechecklistID: Int, documenttypechecklistPatchObjectV1Request: DocumenttypechecklistPatchObjectV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<DocumenttypechecklistPatchObjectV1Response> {
         var localVariablePath = "/1/object/documenttypechecklist/{pkiDocumenttypechecklistID}"
         let pkiDocumenttypechecklistIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiDocumenttypechecklistID))"
         let pkiDocumenttypechecklistIDPostEscape = pkiDocumenttypechecklistIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiDocumenttypechecklistID}", with: pkiDocumenttypechecklistIDPostEscape, options: .literal, range: nil)
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: documenttypechecklistEditObjectV1Request, codableHelper: apiConfiguration.codableHelper)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: documenttypechecklistPatchObjectV1Request, codableHelper: apiConfiguration.codableHelper)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -132,120 +92,8 @@ open class ObjectDocumenttypechecklistAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<DocumenttypechecklistEditObjectV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<DocumenttypechecklistPatchObjectV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-     * enum for parameter eOrderBy
-     */
-    public enum EOrderBy_documenttypechecklistGetListV1: String, Sendable, CaseIterable {
-        case pkidocumenttypechecklistidAsc = "pkiDocumenttypechecklistID_ASC"
-        case pkidocumenttypechecklistidDesc = "pkiDocumenttypechecklistID_DESC"
-        case fkidocumenttypeidAsc = "fkiDocumenttypeID_ASC"
-        case fkidocumenttypeidDesc = "fkiDocumenttypeID_DESC"
-        case edocumenttypecheckliststatusAsc = "eDocumenttypechecklistStatus_ASC"
-        case edocumenttypecheckliststatusDesc = "eDocumenttypechecklistStatus_DESC"
-        case tdocumenttypechecklistcommentAsc = "tDocumenttypechecklistComment_ASC"
-        case tdocumenttypechecklistcommentDesc = "tDocumenttypechecklistComment_DESC"
-    }
-
-    /**
-     Retrieve Documenttypechecklist list
-     
-     - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
-     - parameter iRowMax: (query)  (optional)
-     - parameter iRowOffset: (query)  (optional, default to 0)
-     - parameter acceptLanguage: (header)  (optional)
-     - parameter sFilter: (query)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: DocumenttypechecklistGetListV1Response
-     */
-    open class func documenttypechecklistGetListV1(eOrderBy: EOrderBy_documenttypechecklistGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DocumenttypechecklistGetListV1Response {
-        return try await documenttypechecklistGetListV1WithRequestBuilder(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Retrieve Documenttypechecklist list
-     - GET /1/object/documenttypechecklist/getList
-     - Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eDocumenttypechecklistStatus | Not required<br>Required<br>Filed<br>Justified |
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
-     - parameter iRowMax: (query)  (optional)
-     - parameter iRowOffset: (query)  (optional, default to 0)
-     - parameter acceptLanguage: (header)  (optional)
-     - parameter sFilter: (query)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<DocumenttypechecklistGetListV1Response> 
-     */
-    open class func documenttypechecklistGetListV1WithRequestBuilder(eOrderBy: EOrderBy_documenttypechecklistGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<DocumenttypechecklistGetListV1Response> {
-        let localVariablePath = "/1/object/documenttypechecklist/getList"
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters: [String: any Sendable]? = nil
-
-        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
-        let localVariableQueryParameters: [String: (wrappedValue: (any Sendable)?, isExplode: Bool)] = [
-            "eOrderBy": (wrappedValue: eOrderBy?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "iRowMax": (wrappedValue: iRowMax?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "iRowOffset": (wrappedValue: iRowOffset?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "sFilter": (wrappedValue: sFilter?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-        ]
-        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems(localVariableQueryParameters)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            "Accept-Language": acceptLanguage?.asParameter(codableHelper: apiConfiguration.codableHelper),
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<DocumenttypechecklistGetListV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-     Retrieve an existing Documenttypechecklist
-     
-     - parameter pkiDocumenttypechecklistID: (path) The unique ID of the Documenttypechecklist 
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: DocumenttypechecklistGetObjectV2Response
-     */
-    open class func documenttypechecklistGetObjectV2(pkiDocumenttypechecklistID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DocumenttypechecklistGetObjectV2Response {
-        return try await documenttypechecklistGetObjectV2WithRequestBuilder(pkiDocumenttypechecklistID: pkiDocumenttypechecklistID, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Retrieve an existing Documenttypechecklist
-     - GET /2/object/documenttypechecklist/{pkiDocumenttypechecklistID}
-     - 
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiDocumenttypechecklistID: (path) The unique ID of the Documenttypechecklist 
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<DocumenttypechecklistGetObjectV2Response> 
-     */
-    open class func documenttypechecklistGetObjectV2WithRequestBuilder(pkiDocumenttypechecklistID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<DocumenttypechecklistGetObjectV2Response> {
-        var localVariablePath = "/2/object/documenttypechecklist/{pkiDocumenttypechecklistID}"
-        let pkiDocumenttypechecklistIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiDocumenttypechecklistID))"
-        let pkiDocumenttypechecklistIDPostEscape = pkiDocumenttypechecklistIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiDocumenttypechecklistID}", with: pkiDocumenttypechecklistIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters: [String: any Sendable]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<DocumenttypechecklistGetObjectV2Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
 }

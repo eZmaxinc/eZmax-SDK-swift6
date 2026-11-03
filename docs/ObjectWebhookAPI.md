@@ -363,7 +363,7 @@ Emit a Webhook event
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import EzmaxApi
 
-let webhookSendWebhookV1Request = webhook-sendWebhook-v1-Request(eWebhookModule: Field-eWebhookModule(), eWebhookEzsignevent: Custom-eWebhookEzsignevent(), eWebhookManagementevent: Field-eWebhookManagementevent(), eWebhookRealestateevent: Field-eWebhookRealestateevent(), fkiEzsignfolderID: 123, fkiEzsigndocumentID: 123, fkiEzsignsignerID: 123, fkiUserID: 123, fkiUserstagedID: 123) // WebhookSendWebhookV1Request | 
+let webhookSendWebhookV1Request = webhook-sendWebhook-v1-Request(eWebhookModule: Field-eWebhookModule(), eWebhookEzsignevent: Custom-eWebhookEzsignevent(), eWebhookEzmaxpartnerevent: Field-eWebhookEzmaxpartnerevent(), eWebhookManagementevent: Field-eWebhookManagementevent(), eWebhookRealestateevent: Field-eWebhookRealestateevent(), fkiEzsignfolderID: 123, fkiEzsigndocumentID: 123, fkiEzsignsignerID: 123, fkiUserID: 123, fkiUserstagedID: 123) // WebhookSendWebhookV1Request | 
 
 // Emit a Webhook event
 do {

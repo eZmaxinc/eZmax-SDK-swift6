@@ -15,6 +15,7 @@ public struct DocumenttypeRequest: Sendable, Codable, Hashable {
     /** The unique ID of the Documenttype */
     public var pkiDocumenttypeID: Int?
     public var objDocumenttypeName: MultilingualDocumenttypeName
+    public var eDocumenttypeStep: ComputedEDocumenttypeStep
     /** The defaultfilename of the Documenttype */
     public var sDocumenttypeDefaultfilename: String
     /** Whether if it's an showagent */
@@ -43,17 +44,19 @@ public struct DocumenttypeRequest: Sendable, Codable, Hashable {
     public var bDocumenttypeCommercialfunding: Bool
     /** Whether if it's an canafe */
     public var bDocumenttypeCanafe: Bool
-    public var eDocumenttypeEzcom: FieldEDocumenttypeEzcom
+    public var eDocumenttypeEzcom: FieldEDocumenttypeEzcom?
     public var eDocumenttypePrivacydefault: FieldEDocumenttypePrivacydefault
     public var eDocumenttypeStatusdefault: FieldEDocumenttypeStatusdefault
     public var eDocumenttypeSalebyowner: FieldEDocumenttypeSalebyowner
     public var eDocumenttypeSaledisplaybyrole: FieldEDocumenttypeSaledisplaybyrole
     public var eDocumenttypeTransactiontype: FieldEDocumenttypeTransactiontype
     public var eDocumenttypeRepossession: FieldEDocumenttypeRepossession
+    public var aFkiInscriptiontypeID: [Int]
 
-    public init(pkiDocumenttypeID: Int? = nil, objDocumenttypeName: MultilingualDocumenttypeName, sDocumenttypeDefaultfilename: String, bDocumenttypeShowagent: Bool, bDocumenttypeIsactive: Bool, bDocumenttypeIsrequired: Bool, bDocumenttypeSale: Bool, bDocumenttypeRental: Bool, bDocumenttypeReference: Bool, bDocumenttypeMortgagereference: Bool, bDocumenttypeEvaluation: Bool, bDocumenttypeConsultation: Bool, bDocumenttypeOtherservices: Bool, bDocumenttypeForeclosedsale: Bool, bDocumenttypeCommercialfunding: Bool, bDocumenttypeCanafe: Bool, eDocumenttypeEzcom: FieldEDocumenttypeEzcom, eDocumenttypePrivacydefault: FieldEDocumenttypePrivacydefault, eDocumenttypeStatusdefault: FieldEDocumenttypeStatusdefault, eDocumenttypeSalebyowner: FieldEDocumenttypeSalebyowner, eDocumenttypeSaledisplaybyrole: FieldEDocumenttypeSaledisplaybyrole, eDocumenttypeTransactiontype: FieldEDocumenttypeTransactiontype, eDocumenttypeRepossession: FieldEDocumenttypeRepossession) {
+    public init(pkiDocumenttypeID: Int? = nil, objDocumenttypeName: MultilingualDocumenttypeName, eDocumenttypeStep: ComputedEDocumenttypeStep, sDocumenttypeDefaultfilename: String, bDocumenttypeShowagent: Bool, bDocumenttypeIsactive: Bool, bDocumenttypeIsrequired: Bool, bDocumenttypeSale: Bool, bDocumenttypeRental: Bool, bDocumenttypeReference: Bool, bDocumenttypeMortgagereference: Bool, bDocumenttypeEvaluation: Bool, bDocumenttypeConsultation: Bool, bDocumenttypeOtherservices: Bool, bDocumenttypeForeclosedsale: Bool, bDocumenttypeCommercialfunding: Bool, bDocumenttypeCanafe: Bool, eDocumenttypeEzcom: FieldEDocumenttypeEzcom? = nil, eDocumenttypePrivacydefault: FieldEDocumenttypePrivacydefault, eDocumenttypeStatusdefault: FieldEDocumenttypeStatusdefault, eDocumenttypeSalebyowner: FieldEDocumenttypeSalebyowner, eDocumenttypeSaledisplaybyrole: FieldEDocumenttypeSaledisplaybyrole, eDocumenttypeTransactiontype: FieldEDocumenttypeTransactiontype, eDocumenttypeRepossession: FieldEDocumenttypeRepossession, aFkiInscriptiontypeID: [Int]) {
         self.pkiDocumenttypeID = pkiDocumenttypeID
         self.objDocumenttypeName = objDocumenttypeName
+        self.eDocumenttypeStep = eDocumenttypeStep
         self.sDocumenttypeDefaultfilename = sDocumenttypeDefaultfilename
         self.bDocumenttypeShowagent = bDocumenttypeShowagent
         self.bDocumenttypeIsactive = bDocumenttypeIsactive
@@ -75,11 +78,13 @@ public struct DocumenttypeRequest: Sendable, Codable, Hashable {
         self.eDocumenttypeSaledisplaybyrole = eDocumenttypeSaledisplaybyrole
         self.eDocumenttypeTransactiontype = eDocumenttypeTransactiontype
         self.eDocumenttypeRepossession = eDocumenttypeRepossession
+        self.aFkiInscriptiontypeID = aFkiInscriptiontypeID
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiDocumenttypeID
         case objDocumenttypeName
+        case eDocumenttypeStep
         case sDocumenttypeDefaultfilename
         case bDocumenttypeShowagent
         case bDocumenttypeIsactive
@@ -101,6 +106,7 @@ public struct DocumenttypeRequest: Sendable, Codable, Hashable {
         case eDocumenttypeSaledisplaybyrole
         case eDocumenttypeTransactiontype
         case eDocumenttypeRepossession
+        case aFkiInscriptiontypeID = "a_fkiInscriptiontypeID"
     }
 
     // Encodable protocol methods
@@ -109,6 +115,7 @@ public struct DocumenttypeRequest: Sendable, Codable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(pkiDocumenttypeID, forKey: .pkiDocumenttypeID)
         try container.encode(objDocumenttypeName, forKey: .objDocumenttypeName)
+        try container.encode(eDocumenttypeStep, forKey: .eDocumenttypeStep)
         try container.encode(sDocumenttypeDefaultfilename, forKey: .sDocumenttypeDefaultfilename)
         try container.encode(bDocumenttypeShowagent, forKey: .bDocumenttypeShowagent)
         try container.encode(bDocumenttypeIsactive, forKey: .bDocumenttypeIsactive)
@@ -123,13 +130,14 @@ public struct DocumenttypeRequest: Sendable, Codable, Hashable {
         try container.encode(bDocumenttypeForeclosedsale, forKey: .bDocumenttypeForeclosedsale)
         try container.encode(bDocumenttypeCommercialfunding, forKey: .bDocumenttypeCommercialfunding)
         try container.encode(bDocumenttypeCanafe, forKey: .bDocumenttypeCanafe)
-        try container.encode(eDocumenttypeEzcom, forKey: .eDocumenttypeEzcom)
+        try container.encodeIfPresent(eDocumenttypeEzcom, forKey: .eDocumenttypeEzcom)
         try container.encode(eDocumenttypePrivacydefault, forKey: .eDocumenttypePrivacydefault)
         try container.encode(eDocumenttypeStatusdefault, forKey: .eDocumenttypeStatusdefault)
         try container.encode(eDocumenttypeSalebyowner, forKey: .eDocumenttypeSalebyowner)
         try container.encode(eDocumenttypeSaledisplaybyrole, forKey: .eDocumenttypeSaledisplaybyrole)
         try container.encode(eDocumenttypeTransactiontype, forKey: .eDocumenttypeTransactiontype)
         try container.encode(eDocumenttypeRepossession, forKey: .eDocumenttypeRepossession)
+        try container.encode(aFkiInscriptiontypeID, forKey: .aFkiInscriptiontypeID)
     }
 }
 

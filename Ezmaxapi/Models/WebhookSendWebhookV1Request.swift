@@ -17,6 +17,7 @@ public struct WebhookSendWebhookV1Request: Sendable, Codable, Hashable {
     public static let fkiUserstagedIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public var eWebhookModule: FieldEWebhookModule
     public var eWebhookEzsignevent: CustomEWebhookEzsignevent?
+    public var eWebhookEzmaxpartnerevent: FieldEWebhookEzmaxpartnerevent?
     public var eWebhookManagementevent: FieldEWebhookManagementevent?
     public var eWebhookRealestateevent: FieldEWebhookRealestateevent?
     /** The unique ID of the Ezsignfolder */
@@ -30,9 +31,10 @@ public struct WebhookSendWebhookV1Request: Sendable, Codable, Hashable {
     /** The unique ID of the Userstaged */
     public var fkiUserstagedID: Int?
 
-    public init(eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: CustomEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, eWebhookRealestateevent: FieldEWebhookRealestateevent? = nil, fkiEzsignfolderID: Int? = nil, fkiEzsigndocumentID: Int? = nil, fkiEzsignsignerID: Int? = nil, fkiUserID: Int? = nil, fkiUserstagedID: Int? = nil) {
+    public init(eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: CustomEWebhookEzsignevent? = nil, eWebhookEzmaxpartnerevent: FieldEWebhookEzmaxpartnerevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, eWebhookRealestateevent: FieldEWebhookRealestateevent? = nil, fkiEzsignfolderID: Int? = nil, fkiEzsigndocumentID: Int? = nil, fkiEzsignsignerID: Int? = nil, fkiUserID: Int? = nil, fkiUserstagedID: Int? = nil) {
         self.eWebhookModule = eWebhookModule
         self.eWebhookEzsignevent = eWebhookEzsignevent
+        self.eWebhookEzmaxpartnerevent = eWebhookEzmaxpartnerevent
         self.eWebhookManagementevent = eWebhookManagementevent
         self.eWebhookRealestateevent = eWebhookRealestateevent
         self.fkiEzsignfolderID = fkiEzsignfolderID
@@ -45,6 +47,7 @@ public struct WebhookSendWebhookV1Request: Sendable, Codable, Hashable {
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case eWebhookModule
         case eWebhookEzsignevent
+        case eWebhookEzmaxpartnerevent
         case eWebhookManagementevent
         case eWebhookRealestateevent
         case fkiEzsignfolderID
@@ -60,6 +63,7 @@ public struct WebhookSendWebhookV1Request: Sendable, Codable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(eWebhookModule, forKey: .eWebhookModule)
         try container.encodeIfPresent(eWebhookEzsignevent, forKey: .eWebhookEzsignevent)
+        try container.encodeIfPresent(eWebhookEzmaxpartnerevent, forKey: .eWebhookEzmaxpartnerevent)
         try container.encodeIfPresent(eWebhookManagementevent, forKey: .eWebhookManagementevent)
         try container.encodeIfPresent(eWebhookRealestateevent, forKey: .eWebhookRealestateevent)
         try container.encodeIfPresent(fkiEzsignfolderID, forKey: .fkiEzsignfolderID)

@@ -15,6 +15,7 @@ public struct DocumenttypeResponse: Sendable, Codable, Hashable {
     /** The unique ID of the Documenttype */
     public var pkiDocumenttypeID: Int
     public var objDocumenttypeName: MultilingualDocumenttypeName
+    public var eDocumenttypeStep: ComputedEDocumenttypeStep
     /** The defaultfilename of the Documenttype */
     public var sDocumenttypeDefaultfilename: String
     /** Whether if it's an showagent */
@@ -50,10 +51,12 @@ public struct DocumenttypeResponse: Sendable, Codable, Hashable {
     public var eDocumenttypeSaledisplaybyrole: FieldEDocumenttypeSaledisplaybyrole?
     public var eDocumenttypeTransactiontype: FieldEDocumenttypeTransactiontype?
     public var eDocumenttypeRepossession: FieldEDocumenttypeRepossession?
+    public var aFkiInscriptiontypeID: [Int]
 
-    public init(pkiDocumenttypeID: Int, objDocumenttypeName: MultilingualDocumenttypeName, sDocumenttypeDefaultfilename: String, bDocumenttypeShowagent: Bool, bDocumenttypeIsactive: Bool, bDocumenttypeIsrequired: Bool, bDocumenttypeSale: Bool? = nil, bDocumenttypeRental: Bool? = nil, bDocumenttypeReference: Bool? = nil, bDocumenttypeMortgagereference: Bool? = nil, bDocumenttypeEvaluation: Bool? = nil, bDocumenttypeConsultation: Bool? = nil, bDocumenttypeOtherservices: Bool? = nil, bDocumenttypeForeclosedsale: Bool? = nil, bDocumenttypeCommercialfunding: Bool? = nil, bDocumenttypeCanafe: Bool? = nil, eDocumenttypeEzcom: FieldEDocumenttypeEzcom? = nil, eDocumenttypePrivacydefault: FieldEDocumenttypePrivacydefault? = nil, eDocumenttypeStatusdefault: FieldEDocumenttypeStatusdefault? = nil, eDocumenttypeSalebyowner: FieldEDocumenttypeSalebyowner? = nil, eDocumenttypeSaledisplaybyrole: FieldEDocumenttypeSaledisplaybyrole? = nil, eDocumenttypeTransactiontype: FieldEDocumenttypeTransactiontype? = nil, eDocumenttypeRepossession: FieldEDocumenttypeRepossession? = nil) {
+    public init(pkiDocumenttypeID: Int, objDocumenttypeName: MultilingualDocumenttypeName, eDocumenttypeStep: ComputedEDocumenttypeStep, sDocumenttypeDefaultfilename: String, bDocumenttypeShowagent: Bool, bDocumenttypeIsactive: Bool, bDocumenttypeIsrequired: Bool, bDocumenttypeSale: Bool? = nil, bDocumenttypeRental: Bool? = nil, bDocumenttypeReference: Bool? = nil, bDocumenttypeMortgagereference: Bool? = nil, bDocumenttypeEvaluation: Bool? = nil, bDocumenttypeConsultation: Bool? = nil, bDocumenttypeOtherservices: Bool? = nil, bDocumenttypeForeclosedsale: Bool? = nil, bDocumenttypeCommercialfunding: Bool? = nil, bDocumenttypeCanafe: Bool? = nil, eDocumenttypeEzcom: FieldEDocumenttypeEzcom? = nil, eDocumenttypePrivacydefault: FieldEDocumenttypePrivacydefault? = nil, eDocumenttypeStatusdefault: FieldEDocumenttypeStatusdefault? = nil, eDocumenttypeSalebyowner: FieldEDocumenttypeSalebyowner? = nil, eDocumenttypeSaledisplaybyrole: FieldEDocumenttypeSaledisplaybyrole? = nil, eDocumenttypeTransactiontype: FieldEDocumenttypeTransactiontype? = nil, eDocumenttypeRepossession: FieldEDocumenttypeRepossession? = nil, aFkiInscriptiontypeID: [Int]) {
         self.pkiDocumenttypeID = pkiDocumenttypeID
         self.objDocumenttypeName = objDocumenttypeName
+        self.eDocumenttypeStep = eDocumenttypeStep
         self.sDocumenttypeDefaultfilename = sDocumenttypeDefaultfilename
         self.bDocumenttypeShowagent = bDocumenttypeShowagent
         self.bDocumenttypeIsactive = bDocumenttypeIsactive
@@ -75,11 +78,13 @@ public struct DocumenttypeResponse: Sendable, Codable, Hashable {
         self.eDocumenttypeSaledisplaybyrole = eDocumenttypeSaledisplaybyrole
         self.eDocumenttypeTransactiontype = eDocumenttypeTransactiontype
         self.eDocumenttypeRepossession = eDocumenttypeRepossession
+        self.aFkiInscriptiontypeID = aFkiInscriptiontypeID
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiDocumenttypeID
         case objDocumenttypeName
+        case eDocumenttypeStep
         case sDocumenttypeDefaultfilename
         case bDocumenttypeShowagent
         case bDocumenttypeIsactive
@@ -101,6 +106,7 @@ public struct DocumenttypeResponse: Sendable, Codable, Hashable {
         case eDocumenttypeSaledisplaybyrole
         case eDocumenttypeTransactiontype
         case eDocumenttypeRepossession
+        case aFkiInscriptiontypeID = "a_fkiInscriptiontypeID"
     }
 
     // Encodable protocol methods
@@ -109,6 +115,7 @@ public struct DocumenttypeResponse: Sendable, Codable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiDocumenttypeID, forKey: .pkiDocumenttypeID)
         try container.encode(objDocumenttypeName, forKey: .objDocumenttypeName)
+        try container.encode(eDocumenttypeStep, forKey: .eDocumenttypeStep)
         try container.encode(sDocumenttypeDefaultfilename, forKey: .sDocumenttypeDefaultfilename)
         try container.encode(bDocumenttypeShowagent, forKey: .bDocumenttypeShowagent)
         try container.encode(bDocumenttypeIsactive, forKey: .bDocumenttypeIsactive)
@@ -130,6 +137,7 @@ public struct DocumenttypeResponse: Sendable, Codable, Hashable {
         try container.encodeIfPresent(eDocumenttypeSaledisplaybyrole, forKey: .eDocumenttypeSaledisplaybyrole)
         try container.encodeIfPresent(eDocumenttypeTransactiontype, forKey: .eDocumenttypeTransactiontype)
         try container.encodeIfPresent(eDocumenttypeRepossession, forKey: .eDocumenttypeRepossession)
+        try container.encode(aFkiInscriptiontypeID, forKey: .aFkiInscriptiontypeID)
     }
 }
 
