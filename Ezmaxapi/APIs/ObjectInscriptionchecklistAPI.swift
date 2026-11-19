@@ -14,6 +14,7 @@ open class ObjectInscriptionchecklistAPI {
      */
     public enum SSelector_inscriptionchecklistGetAutocompleteV3: String, Sendable, CaseIterable {
         case all = "All"
+        case _required = "Required"
     }
 
     /**

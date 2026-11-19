@@ -580,6 +580,7 @@ Ezmaxapi/Models/CustomCommunicationsenderResponse.swift
 Ezmaxapi/Models/CustomContactNameResponse.swift
 Ezmaxapi/Models/CustomCreateEzsignelementsPositionedByWordRequest.swift
 Ezmaxapi/Models/CustomCreditcardRequest.swift
+Ezmaxapi/Models/CustomCreditcardmerchantResponse.swift
 Ezmaxapi/Models/CustomCreditcardtransactionResponse.swift
 Ezmaxapi/Models/CustomCreditcardtransactionresponseResponse.swift
 Ezmaxapi/Models/CustomDiscussionconfigurationResponse.swift
@@ -3063,6 +3064,7 @@ docs/CustomCommunicationsenderResponse.md
 docs/CustomContactNameResponse.md
 docs/CustomCreateEzsignelementsPositionedByWordRequest.md
 docs/CustomCreditcardRequest.md
+docs/CustomCreditcardmerchantResponse.md
 docs/CustomCreditcardtransactionResponse.md
 docs/CustomCreditcardtransactionresponseResponse.md
 docs/CustomDiscussionconfigurationResponse.md

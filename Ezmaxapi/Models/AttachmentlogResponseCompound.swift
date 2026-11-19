@@ -13,7 +13,7 @@ public struct AttachmentlogResponseCompound: Sendable, Codable, Hashable {
     public static let fkiAttachmentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let dtAttachmentlogDatetimeRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$")
-    public static let sAttachmentlogDetailRule = StringRule(minLength: nil, maxLength: nil, pattern: "[\\s\\S]{0,65535}$")
+    public static let sAttachmentlogDetailRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[\\s\\S]{0,65535}$")
     /** The unique ID of the Attachment. */
     public var fkiAttachmentID: Int
     /** The unique ID of the User */
