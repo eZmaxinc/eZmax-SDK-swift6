@@ -189,6 +189,7 @@ Class | Method | HTTP request | Description
 *ObjectDiscussionAPI* | [**discussionCreateObjectV1**](docs/ObjectDiscussionAPI.md#discussioncreateobjectv1) | **POST** /1/object/discussion | Create a new Discussion
 *ObjectDiscussionAPI* | [**discussionDeleteObjectV1**](docs/ObjectDiscussionAPI.md#discussiondeleteobjectv1) | **DELETE** /1/object/discussion/{pkiDiscussionID} | Delete an existing Discussion
 *ObjectDiscussionAPI* | [**discussionGetObjectV2**](docs/ObjectDiscussionAPI.md#discussiongetobjectv2) | **GET** /2/object/discussion/{pkiDiscussionID} | Retrieve an existing Discussion
+*ObjectDiscussionAPI* | [**discussionImproveMessageV1**](docs/ObjectDiscussionAPI.md#discussionimprovemessagev1) | **POST** /1/object/discussion/improveMessage | Improve a message using the AI
 *ObjectDiscussionAPI* | [**discussionPatchObjectV1**](docs/ObjectDiscussionAPI.md#discussionpatchobjectv1) | **PATCH** /1/object/discussion/{pkiDiscussionID} | Patch an existing Discussion
 *ObjectDiscussionAPI* | [**discussionUpdateDiscussionreadstatusV1**](docs/ObjectDiscussionAPI.md#discussionupdatediscussionreadstatusv1) | **POST** /1/object/discussion/{pkiDiscussionID}/updateDiscussionreadstatus | Update the read status of the discussion
 *ObjectDiscussionmembershipAPI* | [**discussionmembershipCreateObjectV1**](docs/ObjectDiscussionmembershipAPI.md#discussionmembershipcreateobjectv1) | **POST** /1/object/discussionmembership | Create a new Discussionmembership
@@ -250,6 +251,12 @@ Class | Method | HTTP request | Description
 *ObjectEzmaxmaillinglistAPI* | [**ezmaxmaillinglistGetListV1**](docs/ObjectEzmaxmaillinglistAPI.md#ezmaxmaillinglistgetlistv1) | **GET** /1/object/ezmaxmaillinglist/getList | Retrieve Ezmaxmaillinglist list
 *ObjectEzmaxpartnerAPI* | [**ezmaxpartnerGetCustomDeveloppersV1**](docs/ObjectEzmaxpartnerAPI.md#ezmaxpartnergetcustomdeveloppersv1) | **GET** /1/object/ezmaxpartner/getCustomDeveloppers | Retrieve Ezmaxpartner custom developpers list
 *ObjectEzmaxpartnerAPI* | [**ezmaxpartnerGetObjectV2**](docs/ObjectEzmaxpartnerAPI.md#ezmaxpartnergetobjectv2) | **GET** /2/object/ezmaxpartner/{pkiEzmaxpartnerID} | Retrieve an existing Ezmaxpartner
+*ObjectEzmaxpartnerproductstageAPI* | [**ezmaxpartnerproductstageGetEzmaxpartnerproductstagepermissionsV1**](docs/ObjectEzmaxpartnerproductstageAPI.md#ezmaxpartnerproductstagegetezmaxpartnerproductstagepermissionsv1) | **GET** /1/object/ezmaxpartnerproductstage/{pkiEzmaxpartnerproductstageID}/getEzmaxpartnerproductstagepermissions | Retrieve an existing Ezmaxpartnerproductstage&#39;s Ezmaxpartnerproductstagepermissions
+*ObjectEzmaxpartnerproductstageAPI* | [**ezmaxpartnerproductstageGetEzmaxpartnerproductstagewebhooksV1**](docs/ObjectEzmaxpartnerproductstageAPI.md#ezmaxpartnerproductstagegetezmaxpartnerproductstagewebhooksv1) | **GET** /1/object/ezmaxpartnerproductstage/{pkiEzmaxpartnerproductstageID}/getEzmaxpartnerproductstagewebhooks | Retrieve an existing Ezmaxpartnerproductstage&#39;s Ezmaxpartnerproductstagewebhooks
+*ObjectEzmaxpartnerproductstageAPI* | [**ezmaxpartnerproductstageGetListV1**](docs/ObjectEzmaxpartnerproductstageAPI.md#ezmaxpartnerproductstagegetlistv1) | **GET** /1/object/ezmaxpartnerproductstage/getList | Retrieve Ezmaxpartnerproductstage list
+*ObjectEzmaxpartnerproductstageAPI* | [**ezmaxpartnerproductstageGetObjectV2**](docs/ObjectEzmaxpartnerproductstageAPI.md#ezmaxpartnerproductstagegetobjectv2) | **GET** /2/object/ezmaxpartnerproductstage/{pkiEzmaxpartnerproductstageID} | Retrieve an existing Ezmaxpartnerproductstage
+*ObjectEzmaxpartnerproductstageAPI* | [**ezmaxpartnerproductstageSubscribeV1**](docs/ObjectEzmaxpartnerproductstageAPI.md#ezmaxpartnerproductstagesubscribev1) | **POST** /1/object/ezmaxpartnerproductstage/{pkiEzmaxpartnerproductstageID}/subscribe | Subscribe to the Ezmaxpartnerproductstage
+*ObjectEzmaxpartnerproductstageAPI* | [**ezmaxpartnerproductstageUnsubscribeV1**](docs/ObjectEzmaxpartnerproductstageAPI.md#ezmaxpartnerproductstageunsubscribev1) | **POST** /1/object/ezmaxpartnerproductstage/{pkiEzmaxpartnerproductstageID}/unsubscribe | Unsubscribe to the Ezmaxpartnerproductstage
 *ObjectEzmaxproductAPI* | [**ezmaxproductGetAutocompleteV2**](docs/ObjectEzmaxproductAPI.md#ezmaxproductgetautocompletev2) | **GET** /2/object/ezmaxproduct/getAutocomplete/{sSelector} | Retrieve Ezmaxproducts and IDs
 *ObjectEzsignannotationAPI* | [**ezsignannotationCreateObjectV1**](docs/ObjectEzsignannotationAPI.md#ezsignannotationcreateobjectv1) | **POST** /1/object/ezsignannotation | Create a new Ezsignannotation
 *ObjectEzsignannotationAPI* | [**ezsignannotationDeleteObjectV1**](docs/ObjectEzsignannotationAPI.md#ezsignannotationdeleteobjectv1) | **DELETE** /1/object/ezsignannotation/{pkiEzsignannotationID} | Delete an existing Ezsignannotation
@@ -1248,6 +1255,9 @@ Class | Method | HTTP request | Description
  - [CustomImportEzsigntemplatepackageRelationRequest](docs/CustomImportEzsigntemplatepackageRelationRequest.md)
  - [CustomInscription](docs/CustomInscription.md)
  - [CustomInscriptionnotauthenticatedconditionRequest](docs/CustomInscriptionnotauthenticatedconditionRequest.md)
+ - [CustomModulePartnerResponseCompound](docs/CustomModulePartnerResponseCompound.md)
+ - [CustomModulegroupPartnerResponseCompound](docs/CustomModulegroupPartnerResponseCompound.md)
+ - [CustomModulesectionPartnerResponseCompound](docs/CustomModulesectionPartnerResponseCompound.md)
  - [CustomNotificationsubsectiongetnotificationtestsResponse](docs/CustomNotificationsubsectiongetnotificationtestsResponse.md)
  - [CustomNotificationtestgetelementsResponse](docs/CustomNotificationtestgetelementsResponse.md)
  - [CustomNotificationtestgetnotificationtestsResponse](docs/CustomNotificationtestgetnotificationtestsResponse.md)
@@ -1341,6 +1351,9 @@ Class | Method | HTTP request | Description
  - [DiscussionDeleteObjectV1Response](docs/DiscussionDeleteObjectV1Response.md)
  - [DiscussionGetObjectV2Response](docs/DiscussionGetObjectV2Response.md)
  - [DiscussionGetObjectV2ResponseMPayload](docs/DiscussionGetObjectV2ResponseMPayload.md)
+ - [DiscussionImproveMessageV1Request](docs/DiscussionImproveMessageV1Request.md)
+ - [DiscussionImproveMessageV1Response](docs/DiscussionImproveMessageV1Response.md)
+ - [DiscussionImproveMessageV1ResponseMPayload](docs/DiscussionImproveMessageV1ResponseMPayload.md)
  - [DiscussionPatchObjectV1Request](docs/DiscussionPatchObjectV1Request.md)
  - [DiscussionPatchObjectV1Response](docs/DiscussionPatchObjectV1Response.md)
  - [DiscussionRequest](docs/DiscussionRequest.md)
@@ -1542,6 +1555,22 @@ Class | Method | HTTP request | Description
  - [EzmaxpartnerResponseCompound](docs/EzmaxpartnerResponseCompound.md)
  - [EzmaxpartnerSubscribeV1Request](docs/EzmaxpartnerSubscribeV1Request.md)
  - [EzmaxpartnerSubscribeV1Response](docs/EzmaxpartnerSubscribeV1Response.md)
+ - [EzmaxpartnerproductstageGetEzmaxpartnerproductstagepermissionsV1Response](docs/EzmaxpartnerproductstageGetEzmaxpartnerproductstagepermissionsV1Response.md)
+ - [EzmaxpartnerproductstageGetEzmaxpartnerproductstagepermissionsV1ResponseMPayload](docs/EzmaxpartnerproductstageGetEzmaxpartnerproductstagepermissionsV1ResponseMPayload.md)
+ - [EzmaxpartnerproductstageGetEzmaxpartnerproductstagewebhooksV1Response](docs/EzmaxpartnerproductstageGetEzmaxpartnerproductstagewebhooksV1Response.md)
+ - [EzmaxpartnerproductstageGetEzmaxpartnerproductstagewebhooksV1ResponseMPayload](docs/EzmaxpartnerproductstageGetEzmaxpartnerproductstagewebhooksV1ResponseMPayload.md)
+ - [EzmaxpartnerproductstageGetListV1Response](docs/EzmaxpartnerproductstageGetListV1Response.md)
+ - [EzmaxpartnerproductstageGetListV1ResponseMPayload](docs/EzmaxpartnerproductstageGetListV1ResponseMPayload.md)
+ - [EzmaxpartnerproductstageGetObjectV2Response](docs/EzmaxpartnerproductstageGetObjectV2Response.md)
+ - [EzmaxpartnerproductstageGetObjectV2ResponseMPayload](docs/EzmaxpartnerproductstageGetObjectV2ResponseMPayload.md)
+ - [EzmaxpartnerproductstageListElement](docs/EzmaxpartnerproductstageListElement.md)
+ - [EzmaxpartnerproductstageResponse](docs/EzmaxpartnerproductstageResponse.md)
+ - [EzmaxpartnerproductstageResponseCompound](docs/EzmaxpartnerproductstageResponseCompound.md)
+ - [EzmaxpartnerproductstageSubscribeV1Response](docs/EzmaxpartnerproductstageSubscribeV1Response.md)
+ - [EzmaxpartnerproductstageUnsubscribeV1Response](docs/EzmaxpartnerproductstageUnsubscribeV1Response.md)
+ - [EzmaxpartnerproductstagesubscriptionResponse](docs/EzmaxpartnerproductstagesubscriptionResponse.md)
+ - [EzmaxpartnerproductstagewebhookResponse](docs/EzmaxpartnerproductstagewebhookResponse.md)
+ - [EzmaxpartnerproductstagewebhookResponseCompound](docs/EzmaxpartnerproductstagewebhookResponseCompound.md)
  - [EzmaxproductAutocompleteElementResponse](docs/EzmaxproductAutocompleteElementResponse.md)
  - [EzmaxproductGetAutocompleteV2Response](docs/EzmaxproductGetAutocompleteV2Response.md)
  - [EzmaxproductGetAutocompleteV2ResponseMPayload](docs/EzmaxproductGetAutocompleteV2ResponseMPayload.md)
@@ -2408,6 +2437,13 @@ Class | Method | HTTP request | Description
  - [FieldEEzmaxinvoicingcontractPaymenttype](docs/FieldEEzmaxinvoicingcontractPaymenttype.md)
  - [FieldEEzmaxinvoicinguserVariationezsign](docs/FieldEEzmaxinvoicinguserVariationezsign.md)
  - [FieldEEzmaxpartnerCustomdevelopment](docs/FieldEEzmaxpartnerCustomdevelopment.md)
+ - [FieldEEzmaxpartnerproductstageCode](docs/FieldEEzmaxpartnerproductstageCode.md)
+ - [FieldEEzmaxpartnerproductstageInstallationtype](docs/FieldEEzmaxpartnerproductstageInstallationtype.md)
+ - [FieldEEzmaxpartnerproductstagewebhookEzmaxpartnerevent](docs/FieldEEzmaxpartnerproductstagewebhookEzmaxpartnerevent.md)
+ - [FieldEEzmaxpartnerproductstagewebhookEzsignevent](docs/FieldEEzmaxpartnerproductstagewebhookEzsignevent.md)
+ - [FieldEEzmaxpartnerproductstagewebhookManagementevent](docs/FieldEEzmaxpartnerproductstagewebhookManagementevent.md)
+ - [FieldEEzmaxpartnerproductstagewebhookModule](docs/FieldEEzmaxpartnerproductstagewebhookModule.md)
+ - [FieldEEzmaxpartnerproductstagewebhookRealestateevent](docs/FieldEEzmaxpartnerproductstagewebhookRealestateevent.md)
  - [FieldEEzsignannotationType](docs/FieldEEzsignannotationType.md)
  - [FieldEEzsignbulksendEzsignformfieldorder](docs/FieldEEzsignbulksendEzsignformfieldorder.md)
  - [FieldEEzsignbulksendsignermappingRole](docs/FieldEEzsignbulksendsignermappingRole.md)

@@ -13,6 +13,7 @@ public struct ApikeyResponse: Sendable, Codable, Hashable {
     public static let pkiApikeyIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEzmaxpartnerproductstageIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let sApikeySecretRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[0-9a-fA-F]{1,32}$")
     /** The unique ID of the Apikey */
     public var pkiApikeyID: Int
     /** The unique ID of the User */
@@ -23,7 +24,7 @@ public struct ApikeyResponse: Sendable, Codable, Hashable {
     public var objContactName: CustomContactNameResponse
     /** The Apikey for the API key.  This will be hidden if we are not creating or regenerating the Apikey. */
     public var sApikeyApikey: String?
-    /** The Secret for the API key.  This will be hidden if we are not creating or regenerating the Apikey. */
+    /** The secret of the Apikey */
     public var sApikeySecret: String?
     /** Whether the apikey is active or not */
     public var bApikeyIsactive: Bool

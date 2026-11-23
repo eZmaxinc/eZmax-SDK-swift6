@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **aObjAttempt** | [AttemptResponseCompound] | An array containing details of previous attempts that were made to deliver the message. The array is empty if it&#39;s the first attempt. | 
 **objEzmaxpartnerproduct** | [**CustomEzmaxpartnerproductSubscribe**](CustomEzmaxpartnerproductSubscribe.md) |  | 
 **sExternalID** | **String** |  | [optional] 
-**sApikeyApikey** | **String** |  | 
-**sApikeySecret** | **String** |  | 
+**sApikeyApikey** | **String** | The Apikey for the API key.  This will be hidden if we are not creating or regenerating the Apikey. | 
+**sApikeySecret** | **String** | The secret of the Apikey | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

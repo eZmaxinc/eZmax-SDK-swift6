@@ -11,12 +11,15 @@ import Foundation
 public struct WebhookEzmaxpartnerproductSubscribe: Sendable, Codable, Hashable {
 
     public static let sExternalIDRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,128}$")
+    public static let sApikeySecretRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[0-9a-fA-F]{1,32}$")
     public var objWebhook: CustomWebhookResponse
     /** An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt. */
     public var aObjAttempt: [AttemptResponseCompound]
     public var objEzmaxpartnerproduct: CustomEzmaxpartnerproductSubscribe
     public var sExternalID: String?
+    /** The Apikey for the API key.  This will be hidden if we are not creating or regenerating the Apikey. */
     public var sApikeyApikey: String
+    /** The secret of the Apikey */
     public var sApikeySecret: String
 
     public init(objWebhook: CustomWebhookResponse, aObjAttempt: [AttemptResponseCompound], objEzmaxpartnerproduct: CustomEzmaxpartnerproductSubscribe, sExternalID: String? = nil, sApikeyApikey: String, sApikeySecret: String) {

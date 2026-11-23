@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**discussionCreateObjectV1**](ObjectDiscussionAPI.md#discussioncreateobjectv1) | **POST** /1/object/discussion | Create a new Discussion
 [**discussionDeleteObjectV1**](ObjectDiscussionAPI.md#discussiondeleteobjectv1) | **DELETE** /1/object/discussion/{pkiDiscussionID} | Delete an existing Discussion
 [**discussionGetObjectV2**](ObjectDiscussionAPI.md#discussiongetobjectv2) | **GET** /2/object/discussion/{pkiDiscussionID} | Retrieve an existing Discussion
+[**discussionImproveMessageV1**](ObjectDiscussionAPI.md#discussionimprovemessagev1) | **POST** /1/object/discussion/improveMessage | Improve a message using the AI
 [**discussionPatchObjectV1**](ObjectDiscussionAPI.md#discussionpatchobjectv1) | **PATCH** /1/object/discussion/{pkiDiscussionID} | Patch an existing Discussion
 [**discussionUpdateDiscussionreadstatusV1**](ObjectDiscussionAPI.md#discussionupdatediscussionreadstatusv1) | **POST** /1/object/discussion/{pkiDiscussionID}/updateDiscussionreadstatus | Update the read status of the discussion
 
@@ -192,6 +193,52 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **discussionImproveMessageV1**
+```swift
+    open class func discussionImproveMessageV1(discussionImproveMessageV1Request: DiscussionImproveMessageV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DiscussionImproveMessageV1Response
+```
+
+Improve a message using the AI
+
+Improve a message using the AI.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let discussionImproveMessageV1Request = discussion-improveMessage-v1-Request(fkiDiscussionID: 123, eDiscussionRobot: Field-eDiscussionRobot(), tDiscussionMessage: "tDiscussionMessage_example") // DiscussionImproveMessageV1Request | 
+
+// Improve a message using the AI
+do {
+    let response = try await ObjectDiscussionAPI.discussionImproveMessageV1(discussionImproveMessageV1Request: discussionImproveMessageV1Request)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **discussionImproveMessageV1Request** | [**DiscussionImproveMessageV1Request**](DiscussionImproveMessageV1Request.md) |  | 
+
+### Return type
+
+[**DiscussionImproveMessageV1Response**](DiscussionImproveMessageV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
