@@ -15,7 +15,6 @@ Method | HTTP request | Description
 [**inscriptionGetObjectV2**](ObjectInscriptionAPI.md#inscriptiongetobjectv2) | **GET** /2/object/inscription/{pkiInscriptionID} | Retrieve an existing Inscription
 [**inscriptionImportIntoEDMV1**](ObjectInscriptionAPI.md#inscriptionimportintoedmv1) | **POST** /1/object/inscription/{pkiInscriptionID}/importIntoEDM | Import attachments into the Inscription
 [**inscriptionPrepareFilesTransferV1**](ObjectInscriptionAPI.md#inscriptionpreparefilestransferv1) | **POST** /1/object/inscription/{pkiInscriptionID}/prepareFilesTransfer | Prepares file transfer into EDM
-[**inscriptionSynchronizationDocumenttypeV1**](ObjectInscriptionAPI.md#inscriptionsynchronizationdocumenttypev1) | **POST** /1/object/inscription/{pkiInscriptionID}/synchronizationDocumenttype | Synchronization of the Documenttype in the Inscription
 
 
 # **inscriptionBatchDownloadV1**
@@ -522,54 +521,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InscriptionPrepareFilesTransferV1Response**](InscriptionPrepareFilesTransferV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **inscriptionSynchronizationDocumenttypeV1**
-```swift
-    open class func inscriptionSynchronizationDocumenttypeV1(pkiInscriptionID: Int, body: JSONValue, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptionSynchronizationDocumenttypeV1Response
-```
-
-Synchronization of the Documenttype in the Inscription
-
-
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import EzmaxApi
-
-let pkiInscriptionID = 987 // Int | 
-let body = "TODO" // JSONValue | 
-
-// Synchronization of the Documenttype in the Inscription
-do {
-    let response = try await ObjectInscriptionAPI.inscriptionSynchronizationDocumenttypeV1(pkiInscriptionID: pkiInscriptionID, body: body)
-    dump(response)
-} catch {
-    print(error)
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiInscriptionID** | **Int** |  | 
- **body** | **JSONValue** |  | 
-
-### Return type
-
-[**InscriptionSynchronizationDocumenttypeV1Response**](InscriptionSynchronizationDocumenttypeV1Response.md)
 
 ### Authorization
 

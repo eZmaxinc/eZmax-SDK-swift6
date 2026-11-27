@@ -10,49 +10,6 @@ import Foundation
 open class ObjectDocumenttypechecklistAPI {
 
     /**
-     Delete an existing Documenttypechecklist
-     
-     - parameter pkiDocumenttypechecklistID: (path) The unique ID of the Documenttypechecklist 
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: DocumenttypechecklistDeleteObjectV1Response
-     */
-    open class func documenttypechecklistDeleteObjectV1(pkiDocumenttypechecklistID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DocumenttypechecklistDeleteObjectV1Response {
-        return try await documenttypechecklistDeleteObjectV1WithRequestBuilder(pkiDocumenttypechecklistID: pkiDocumenttypechecklistID, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Delete an existing Documenttypechecklist
-     - DELETE /1/object/documenttypechecklist/{pkiDocumenttypechecklistID}
-     - 
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiDocumenttypechecklistID: (path) The unique ID of the Documenttypechecklist 
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<DocumenttypechecklistDeleteObjectV1Response> 
-     */
-    open class func documenttypechecklistDeleteObjectV1WithRequestBuilder(pkiDocumenttypechecklistID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<DocumenttypechecklistDeleteObjectV1Response> {
-        var localVariablePath = "/1/object/documenttypechecklist/{pkiDocumenttypechecklistID}"
-        let pkiDocumenttypechecklistIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiDocumenttypechecklistID))"
-        let pkiDocumenttypechecklistIDPostEscape = pkiDocumenttypechecklistIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiDocumenttypechecklistID}", with: pkiDocumenttypechecklistIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters: [String: any Sendable]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<DocumenttypechecklistDeleteObjectV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
      Patch an existing Documenttypechecklist
      
      - parameter pkiDocumenttypechecklistID: (path) The unique ID of the Documenttypechecklist 

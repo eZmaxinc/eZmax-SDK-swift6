@@ -44,6 +44,7 @@ open class ObjectInscriptionchecklistAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: InscriptionchecklistGetAutocompleteV3Response
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func inscriptionchecklistGetAutocompleteV3(sSelector: SSelector_inscriptionchecklistGetAutocompleteV3, fkiBuyercontractID: String? = nil, fkiInscriptionID: String? = nil, fkiInscriptionnotauthenticatedID: String? = nil, fkiInscriptiontempID: String? = nil, fkiAgentID: String? = nil, fkiBrokerID: String? = nil, fkiOtherincomeID: String? = nil, fkiRejectedoffertopurchaseID: String? = nil, eFilterActive: EFilterActive_inscriptionchecklistGetAutocompleteV3? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptionchecklistGetAutocompleteV3Response {
         return try await inscriptionchecklistGetAutocompleteV3WithRequestBuilder(sSelector: sSelector, fkiBuyercontractID: fkiBuyercontractID, fkiInscriptionID: fkiInscriptionID, fkiInscriptionnotauthenticatedID: fkiInscriptionnotauthenticatedID, fkiInscriptiontempID: fkiInscriptiontempID, fkiAgentID: fkiAgentID, fkiBrokerID: fkiBrokerID, fkiOtherincomeID: fkiOtherincomeID, fkiRejectedoffertopurchaseID: fkiRejectedoffertopurchaseID, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage, apiConfiguration: apiConfiguration).execute().body
     }
@@ -70,6 +71,7 @@ open class ObjectInscriptionchecklistAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<InscriptionchecklistGetAutocompleteV3Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func inscriptionchecklistGetAutocompleteV3WithRequestBuilder(sSelector: SSelector_inscriptionchecklistGetAutocompleteV3, fkiBuyercontractID: String? = nil, fkiInscriptionID: String? = nil, fkiInscriptionnotauthenticatedID: String? = nil, fkiInscriptiontempID: String? = nil, fkiAgentID: String? = nil, fkiBrokerID: String? = nil, fkiOtherincomeID: String? = nil, fkiRejectedoffertopurchaseID: String? = nil, eFilterActive: EFilterActive_inscriptionchecklistGetAutocompleteV3? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<InscriptionchecklistGetAutocompleteV3Response> {
         var localVariablePath = "/3/object/inscriptionchecklist/getAutocomplete/{sSelector}"
         let sSelectorPreEscape = "\(sSelector.rawValue)"

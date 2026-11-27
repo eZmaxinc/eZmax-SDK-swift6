@@ -9,7 +9,6 @@ Method | HTTP request | Description
 [**attachmentGetAttachmentlogsV1**](ObjectAttachmentAPI.md#attachmentgetattachmentlogsv1) | **GET** /1/object/attachment/{pkiAttachmentID}/getAttachmentlogs | Retrieve the Attachmentlogs
 [**attachmentRenameV1**](ObjectAttachmentAPI.md#attachmentrenamev1) | **POST** /1/object/attachment/{pkiAttachmentID}/rename | Rename an attachment
 [**attachmentRestoreV1**](ObjectAttachmentAPI.md#attachmentrestorev1) | **POST** /1/object/attachment/{pkiAttachmentID}/restore | Restore a deleted attachment
-[**attachmentSetDocumentTypeV1**](ObjectAttachmentAPI.md#attachmentsetdocumenttypev1) | **POST** /1/object/attachment/{pkiAttachmentID}/setDocumentType | Change attachment document type
 [**attachmentSetPrivacyV1**](ObjectAttachmentAPI.md#attachmentsetprivacyv1) | **POST** /1/object/attachment/{pkiAttachmentID}/setPrivacy | Change the attachment privacy
 [**attachmentValidateV1**](ObjectAttachmentAPI.md#attachmentvalidatev1) | **POST** /1/object/attachment/{pkiAttachmentID}/validate | Validate an existing attachment
 
@@ -237,54 +236,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AttachmentRestoreV1Response**](AttachmentRestoreV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **attachmentSetDocumentTypeV1**
-```swift
-    open class func attachmentSetDocumentTypeV1(pkiAttachmentID: Int, attachmentSetDocumentTypeV1Request: AttachmentSetDocumentTypeV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AttachmentSetDocumentTypeV1Response
-```
-
-Change attachment document type
-
-The endpoint allows to change the document type for an attachment.
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import EzmaxApi
-
-let pkiAttachmentID = 987 // Int | 
-let attachmentSetDocumentTypeV1Request = attachment-setDocumentType-v1-Request(fkiDocumenttypechecklistID: 123) // AttachmentSetDocumentTypeV1Request | 
-
-// Change attachment document type
-do {
-    let response = try await ObjectAttachmentAPI.attachmentSetDocumentTypeV1(pkiAttachmentID: pkiAttachmentID, attachmentSetDocumentTypeV1Request: attachmentSetDocumentTypeV1Request)
-    dump(response)
-} catch {
-    print(error)
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiAttachmentID** | **Int** |  | 
- **attachmentSetDocumentTypeV1Request** | [**AttachmentSetDocumentTypeV1Request**](AttachmentSetDocumentTypeV1Request.md) |  | 
-
-### Return type
-
-[**AttachmentSetDocumentTypeV1Response**](AttachmentSetDocumentTypeV1Response.md)
 
 ### Authorization
 
