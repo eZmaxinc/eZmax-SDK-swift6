@@ -10,10 +10,8 @@ Method | HTTP request | Description
 [**inscriptiontempGetCommunicationListV1**](ObjectInscriptiontempAPI.md#inscriptiontempgetcommunicationlistv1) | **GET** /1/object/inscriptiontemp/{pkiInscriptiontempID}/getCommunicationList | Retrieve Communication list
 [**inscriptiontempGetCommunicationrecipientsV1**](ObjectInscriptiontempAPI.md#inscriptiontempgetcommunicationrecipientsv1) | **GET** /1/object/inscriptiontemp/{pkiInscriptiontempID}/getCommunicationrecipients | Retrieve Inscriptiontemp&#39;s Communicationrecipient
 [**inscriptiontempGetCommunicationsendersV1**](ObjectInscriptiontempAPI.md#inscriptiontempgetcommunicationsendersv1) | **GET** /1/object/inscriptiontemp/{pkiInscriptiontempID}/getCommunicationsenders | Retrieve Inscriptiontemp&#39;s Communicationsender
-[**inscriptiontempGetDocumenttypechecklistV1**](ObjectInscriptiontempAPI.md#inscriptiontempgetdocumenttypechecklistv1) | **GET** /1/object/inscriptiontemp/{pkiInscriptiontempID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**inscriptiontempGetListV1**](ObjectInscriptiontempAPI.md#inscriptiontempgetlistv1) | **GET** /1/object/inscriptiontemp/getList | Retrieve Inscriptiontemp list
 [**inscriptiontempImportIntoEDMV1**](ObjectInscriptiontempAPI.md#inscriptiontempimportintoedmv1) | **POST** /1/object/inscriptiontemp/{pkiInscriptiontempID}/importIntoEDM | Import attachments into the Inscriptiontemp
-[**inscriptiontempSyncDocumenttypechecklistV1**](ObjectInscriptiontempAPI.md#inscriptiontempsyncdocumenttypechecklistv1) | **POST** /1/object/inscriptiontemp/{pkiInscriptiontempID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **inscriptiontempBatchDownloadV1**
@@ -290,50 +288,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **inscriptiontempGetDocumenttypechecklistV1**
-```swift
-    open class func inscriptiontempGetDocumenttypechecklistV1(pkiInscriptiontempID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptiontempGetDocumenttypechecklistV1Response
-```
-
-Retrieve Document type checklist
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import EzmaxApi
-
-let pkiInscriptiontempID = 987 // Int | 
-
-// Retrieve Document type checklist
-do {
-    let response = try await ObjectInscriptiontempAPI.inscriptiontempGetDocumenttypechecklistV1(pkiInscriptiontempID: pkiInscriptiontempID)
-    dump(response)
-} catch {
-    print(error)
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiInscriptiontempID** | **Int** |  | 
-
-### Return type
-
-[**InscriptiontempGetDocumenttypechecklistV1Response**](InscriptiontempGetDocumenttypechecklistV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **inscriptiontempGetListV1**
 ```swift
     open class func inscriptiontempGetListV1(eOrderBy: EOrderBy_inscriptiontempGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptiontempGetListV1Response
@@ -424,52 +378,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InscriptiontempImportIntoEDMV1Response**](InscriptiontempImportIntoEDMV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **inscriptiontempSyncDocumenttypechecklistV1**
-```swift
-    open class func inscriptiontempSyncDocumenttypechecklistV1(pkiInscriptiontempID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptiontempSyncDocumenttypechecklistV1Response
-```
-
-Synchronize Document type checklist
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import EzmaxApi
-
-let pkiInscriptiontempID = 987 // Int | 
-let body = "TODO" // JSONValue |  (optional)
-
-// Synchronize Document type checklist
-do {
-    let response = try await ObjectInscriptiontempAPI.inscriptiontempSyncDocumenttypechecklistV1(pkiInscriptiontempID: pkiInscriptiontempID, body: body)
-    dump(response)
-} catch {
-    print(error)
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiInscriptiontempID** | **Int** |  | 
- **body** | **JSONValue** |  | [optional] 
-
-### Return type
-
-[**InscriptiontempSyncDocumenttypechecklistV1Response**](InscriptiontempSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

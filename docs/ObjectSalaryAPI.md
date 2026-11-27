@@ -10,10 +10,8 @@ Method | HTTP request | Description
 [**salaryGetCommunicationListV1**](ObjectSalaryAPI.md#salarygetcommunicationlistv1) | **GET** /1/object/salary/{pkiSalaryID}/getCommunicationList | Retrieve Communication list
 [**salaryGetCommunicationrecipientsV1**](ObjectSalaryAPI.md#salarygetcommunicationrecipientsv1) | **GET** /1/object/salary/{pkiSalaryID}/getCommunicationrecipients | Retrieve Communication recipients
 [**salaryGetCommunicationsendersV1**](ObjectSalaryAPI.md#salarygetcommunicationsendersv1) | **GET** /1/object/salary/{pkiSalaryID}/getCommunicationsenders | Retrieve Communication senders
-[**salaryGetDocumenttypechecklistV1**](ObjectSalaryAPI.md#salarygetdocumenttypechecklistv1) | **GET** /1/object/salary/{pkiSalaryID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**salaryGetListV1**](ObjectSalaryAPI.md#salarygetlistv1) | **GET** /1/object/salary/getList | Retrieve Salary list
 [**salaryImportIntoEDMV1**](ObjectSalaryAPI.md#salaryimportintoedmv1) | **POST** /1/object/salary/{pkiSalaryID}/importIntoEDM | Import attachments into the Salary
-[**salarySyncDocumenttypechecklistV1**](ObjectSalaryAPI.md#salarysyncdocumenttypechecklistv1) | **POST** /1/object/salary/{pkiSalaryID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **salaryBatchDownloadV1**
@@ -282,50 +280,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **salaryGetDocumenttypechecklistV1**
-```swift
-    open class func salaryGetDocumenttypechecklistV1(pkiSalaryID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SalaryGetDocumenttypechecklistV1Response
-```
-
-Retrieve Document type checklist
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import EzmaxApi
-
-let pkiSalaryID = 987 // Int | 
-
-// Retrieve Document type checklist
-do {
-    let response = try await ObjectSalaryAPI.salaryGetDocumenttypechecklistV1(pkiSalaryID: pkiSalaryID)
-    dump(response)
-} catch {
-    print(error)
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiSalaryID** | **Int** |  | 
-
-### Return type
-
-[**SalaryGetDocumenttypechecklistV1Response**](SalaryGetDocumenttypechecklistV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **salaryGetListV1**
 ```swift
     open class func salaryGetListV1(eOrderBy: EOrderBy_salaryGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SalaryGetListV1Response
@@ -414,52 +368,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SalaryImportIntoEDMV1Response**](SalaryImportIntoEDMV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **salarySyncDocumenttypechecklistV1**
-```swift
-    open class func salarySyncDocumenttypechecklistV1(pkiSalaryID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SalarySyncDocumenttypechecklistV1Response
-```
-
-Synchronize Document type checklist
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import EzmaxApi
-
-let pkiSalaryID = 987 // Int | 
-let body = "TODO" // JSONValue |  (optional)
-
-// Synchronize Document type checklist
-do {
-    let response = try await ObjectSalaryAPI.salarySyncDocumenttypechecklistV1(pkiSalaryID: pkiSalaryID, body: body)
-    dump(response)
-} catch {
-    print(error)
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiSalaryID** | **Int** |  | 
- **body** | **JSONValue** |  | [optional] 
-
-### Return type
-
-[**SalarySyncDocumenttypechecklistV1Response**](SalarySyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

@@ -264,48 +264,6 @@ open class ObjectDeposittransitchequeAPI {
     }
 
     /**
-     Retrieve Document type checklist
-     
-     - parameter pkiDeposittransitchequeID: (path)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: DeposittransitchequeGetDocumenttypechecklistV1Response
-     */
-    open class func deposittransitchequeGetDocumenttypechecklistV1(pkiDeposittransitchequeID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DeposittransitchequeGetDocumenttypechecklistV1Response {
-        return try await deposittransitchequeGetDocumenttypechecklistV1WithRequestBuilder(pkiDeposittransitchequeID: pkiDeposittransitchequeID, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Retrieve Document type checklist
-     - GET /1/object/deposittransitcheque/{pkiDeposittransitchequeID}/getDocumenttypechecklist
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiDeposittransitchequeID: (path)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<DeposittransitchequeGetDocumenttypechecklistV1Response> 
-     */
-    open class func deposittransitchequeGetDocumenttypechecklistV1WithRequestBuilder(pkiDeposittransitchequeID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<DeposittransitchequeGetDocumenttypechecklistV1Response> {
-        var localVariablePath = "/1/object/deposittransitcheque/{pkiDeposittransitchequeID}/getDocumenttypechecklist"
-        let pkiDeposittransitchequeIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiDeposittransitchequeID))"
-        let pkiDeposittransitchequeIDPostEscape = pkiDeposittransitchequeIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiDeposittransitchequeID}", with: pkiDeposittransitchequeIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters: [String: any Sendable]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<DeposittransitchequeGetDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
      * enum for parameter eOrderBy
      */
     public enum EOrderBy_deposittransitchequeGetListV1: String, Sendable, CaseIterable {
@@ -424,50 +382,6 @@ open class ObjectDeposittransitchequeAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<DeposittransitchequeImportIntoEDMV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-     Synchronize Document type checklist
-     
-     - parameter pkiDeposittransitchequeID: (path)  
-     - parameter body: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: DeposittransitchequeSyncDocumenttypechecklistV1Response
-     */
-    open class func deposittransitchequeSyncDocumenttypechecklistV1(pkiDeposittransitchequeID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DeposittransitchequeSyncDocumenttypechecklistV1Response {
-        return try await deposittransitchequeSyncDocumenttypechecklistV1WithRequestBuilder(pkiDeposittransitchequeID: pkiDeposittransitchequeID, body: body, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Synchronize Document type checklist
-     - POST /1/object/deposittransitcheque/{pkiDeposittransitchequeID}/syncDocumenttypechecklist
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiDeposittransitchequeID: (path)  
-     - parameter body: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<DeposittransitchequeSyncDocumenttypechecklistV1Response> 
-     */
-    open class func deposittransitchequeSyncDocumenttypechecklistV1WithRequestBuilder(pkiDeposittransitchequeID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<DeposittransitchequeSyncDocumenttypechecklistV1Response> {
-        var localVariablePath = "/1/object/deposittransitcheque/{pkiDeposittransitchequeID}/syncDocumenttypechecklist"
-        let pkiDeposittransitchequeIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiDeposittransitchequeID))"
-        let pkiDeposittransitchequeIDPostEscape = pkiDeposittransitchequeIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiDeposittransitchequeID}", with: pkiDeposittransitchequeIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<DeposittransitchequeSyncDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

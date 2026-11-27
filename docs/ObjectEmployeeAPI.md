@@ -10,10 +10,8 @@ Method | HTTP request | Description
 [**employeeGetCommunicationListV1**](ObjectEmployeeAPI.md#employeegetcommunicationlistv1) | **GET** /1/object/employee/{pkiEmployeeID}/getCommunicationList | Retrieve Communication list
 [**employeeGetCommunicationrecipientsV1**](ObjectEmployeeAPI.md#employeegetcommunicationrecipientsv1) | **GET** /1/object/employee/{pkiEmployeeID}/getCommunicationrecipients | Retrieve Communication recipients
 [**employeeGetCommunicationsendersV1**](ObjectEmployeeAPI.md#employeegetcommunicationsendersv1) | **GET** /1/object/employee/{pkiEmployeeID}/getCommunicationsenders | Retrieve Communication senders
-[**employeeGetDocumenttypechecklistV1**](ObjectEmployeeAPI.md#employeegetdocumenttypechecklistv1) | **GET** /1/object/employee/{pkiEmployeeID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**employeeGetListV1**](ObjectEmployeeAPI.md#employeegetlistv1) | **GET** /1/object/employee/getList | Retrieve Employee list
 [**employeeImportIntoEDMV1**](ObjectEmployeeAPI.md#employeeimportintoedmv1) | **POST** /1/object/employee/{pkiEmployeeID}/importIntoEDM | Import attachments into the Employee
-[**employeeSyncDocumenttypechecklistV1**](ObjectEmployeeAPI.md#employeesyncdocumenttypechecklistv1) | **POST** /1/object/employee/{pkiEmployeeID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **employeeBatchDownloadV1**
@@ -282,50 +280,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **employeeGetDocumenttypechecklistV1**
-```swift
-    open class func employeeGetDocumenttypechecklistV1(pkiEmployeeID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EmployeeGetDocumenttypechecklistV1Response
-```
-
-Retrieve Document type checklist
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import EzmaxApi
-
-let pkiEmployeeID = 987 // Int | 
-
-// Retrieve Document type checklist
-do {
-    let response = try await ObjectEmployeeAPI.employeeGetDocumenttypechecklistV1(pkiEmployeeID: pkiEmployeeID)
-    dump(response)
-} catch {
-    print(error)
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiEmployeeID** | **Int** |  | 
-
-### Return type
-
-[**EmployeeGetDocumenttypechecklistV1Response**](EmployeeGetDocumenttypechecklistV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **employeeGetListV1**
 ```swift
     open class func employeeGetListV1(eOrderBy: EOrderBy_employeeGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EmployeeGetListV1Response
@@ -416,52 +370,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmployeeImportIntoEDMV1Response**](EmployeeImportIntoEDMV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **employeeSyncDocumenttypechecklistV1**
-```swift
-    open class func employeeSyncDocumenttypechecklistV1(pkiEmployeeID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EmployeeSyncDocumenttypechecklistV1Response
-```
-
-Synchronize Document type checklist
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import EzmaxApi
-
-let pkiEmployeeID = 987 // Int | 
-let body = "TODO" // JSONValue |  (optional)
-
-// Synchronize Document type checklist
-do {
-    let response = try await ObjectEmployeeAPI.employeeSyncDocumenttypechecklistV1(pkiEmployeeID: pkiEmployeeID, body: body)
-    dump(response)
-} catch {
-    print(error)
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiEmployeeID** | **Int** |  | 
- **body** | **JSONValue** |  | [optional] 
-
-### Return type
-
-[**EmployeeSyncDocumenttypechecklistV1Response**](EmployeeSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

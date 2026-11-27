@@ -334,48 +334,6 @@ open class ObjectAgentAPI {
     }
 
     /**
-     Retrieve Document type checklist
-     
-     - parameter pkiAgentID: (path)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: AgentGetDocumenttypechecklistV1Response
-     */
-    open class func agentGetDocumenttypechecklistV1(pkiAgentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AgentGetDocumenttypechecklistV1Response {
-        return try await agentGetDocumenttypechecklistV1WithRequestBuilder(pkiAgentID: pkiAgentID, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Retrieve Document type checklist
-     - GET /1/object/agent/{pkiAgentID}/getDocumenttypechecklist
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiAgentID: (path)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<AgentGetDocumenttypechecklistV1Response> 
-     */
-    open class func agentGetDocumenttypechecklistV1WithRequestBuilder(pkiAgentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<AgentGetDocumenttypechecklistV1Response> {
-        var localVariablePath = "/1/object/agent/{pkiAgentID}/getDocumenttypechecklist"
-        let pkiAgentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiAgentID))"
-        let pkiAgentIDPostEscape = pkiAgentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiAgentID}", with: pkiAgentIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters: [String: any Sendable]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<AgentGetDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
      * enum for parameter eOrderBy
      */
     public enum EOrderBy_agentGetListV1: String, Sendable, CaseIterable {
@@ -551,50 +509,6 @@ open class ObjectAgentAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<AgentImportIntoEDMV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-     Synchronize Document type checklist
-     
-     - parameter pkiAgentID: (path)  
-     - parameter body: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: AgentSyncDocumenttypechecklistV1Response
-     */
-    open class func agentSyncDocumenttypechecklistV1(pkiAgentID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AgentSyncDocumenttypechecklistV1Response {
-        return try await agentSyncDocumenttypechecklistV1WithRequestBuilder(pkiAgentID: pkiAgentID, body: body, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Synchronize Document type checklist
-     - POST /1/object/agent/{pkiAgentID}/syncDocumenttypechecklist
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiAgentID: (path)  
-     - parameter body: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<AgentSyncDocumenttypechecklistV1Response> 
-     */
-    open class func agentSyncDocumenttypechecklistV1WithRequestBuilder(pkiAgentID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<AgentSyncDocumenttypechecklistV1Response> {
-        var localVariablePath = "/1/object/agent/{pkiAgentID}/syncDocumenttypechecklist"
-        let pkiAgentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiAgentID))"
-        let pkiAgentIDPostEscape = pkiAgentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiAgentID}", with: pkiAgentIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<AgentSyncDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

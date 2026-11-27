@@ -10,10 +10,8 @@ Method | HTTP request | Description
 [**leadGetCommunicationListV1**](ObjectLeadAPI.md#leadgetcommunicationlistv1) | **GET** /1/object/lead/{pkiLeadID}/getCommunicationList | Retrieve Communication list
 [**leadGetCommunicationrecipientsV1**](ObjectLeadAPI.md#leadgetcommunicationrecipientsv1) | **GET** /1/object/lead/{pkiLeadID}/getCommunicationrecipients | Retrieve Communication recipients
 [**leadGetCommunicationsendersV1**](ObjectLeadAPI.md#leadgetcommunicationsendersv1) | **GET** /1/object/lead/{pkiLeadID}/getCommunicationsenders | Retrieve Communication senders
-[**leadGetDocumenttypechecklistV1**](ObjectLeadAPI.md#leadgetdocumenttypechecklistv1) | **GET** /1/object/lead/{pkiLeadID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**leadGetListV1**](ObjectLeadAPI.md#leadgetlistv1) | **GET** /1/object/lead/getList | Retrieve Lead list
 [**leadImportIntoEDMV1**](ObjectLeadAPI.md#leadimportintoedmv1) | **POST** /1/object/lead/{pkiLeadID}/importIntoEDM | Import attachments into the Lead
-[**leadSyncDocumenttypechecklistV1**](ObjectLeadAPI.md#leadsyncdocumenttypechecklistv1) | **POST** /1/object/lead/{pkiLeadID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **leadBatchDownloadV1**
@@ -282,50 +280,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **leadGetDocumenttypechecklistV1**
-```swift
-    open class func leadGetDocumenttypechecklistV1(pkiLeadID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> LeadGetDocumenttypechecklistV1Response
-```
-
-Retrieve Document type checklist
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import EzmaxApi
-
-let pkiLeadID = 987 // Int | 
-
-// Retrieve Document type checklist
-do {
-    let response = try await ObjectLeadAPI.leadGetDocumenttypechecklistV1(pkiLeadID: pkiLeadID)
-    dump(response)
-} catch {
-    print(error)
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiLeadID** | **Int** |  | 
-
-### Return type
-
-[**LeadGetDocumenttypechecklistV1Response**](LeadGetDocumenttypechecklistV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **leadGetListV1**
 ```swift
     open class func leadGetListV1(eOrderBy: EOrderBy_leadGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> LeadGetListV1Response
@@ -416,52 +370,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**LeadImportIntoEDMV1Response**](LeadImportIntoEDMV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **leadSyncDocumenttypechecklistV1**
-```swift
-    open class func leadSyncDocumenttypechecklistV1(pkiLeadID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> LeadSyncDocumenttypechecklistV1Response
-```
-
-Synchronize Document type checklist
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import EzmaxApi
-
-let pkiLeadID = 987 // Int | 
-let body = "TODO" // JSONValue |  (optional)
-
-// Synchronize Document type checklist
-do {
-    let response = try await ObjectLeadAPI.leadSyncDocumenttypechecklistV1(pkiLeadID: pkiLeadID, body: body)
-    dump(response)
-} catch {
-    print(error)
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiLeadID** | **Int** |  | 
- **body** | **JSONValue** |  | [optional] 
-
-### Return type
-
-[**LeadSyncDocumenttypechecklistV1Response**](LeadSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

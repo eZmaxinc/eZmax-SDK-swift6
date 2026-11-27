@@ -264,48 +264,6 @@ open class ObjectReconciliationAPI {
     }
 
     /**
-     Retrieve Document type checklist
-     
-     - parameter pkiReconciliationID: (path)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: ReconciliationGetDocumenttypechecklistV1Response
-     */
-    open class func reconciliationGetDocumenttypechecklistV1(pkiReconciliationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ReconciliationGetDocumenttypechecklistV1Response {
-        return try await reconciliationGetDocumenttypechecklistV1WithRequestBuilder(pkiReconciliationID: pkiReconciliationID, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Retrieve Document type checklist
-     - GET /1/object/reconciliation/{pkiReconciliationID}/getDocumenttypechecklist
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiReconciliationID: (path)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<ReconciliationGetDocumenttypechecklistV1Response> 
-     */
-    open class func reconciliationGetDocumenttypechecklistV1WithRequestBuilder(pkiReconciliationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<ReconciliationGetDocumenttypechecklistV1Response> {
-        var localVariablePath = "/1/object/reconciliation/{pkiReconciliationID}/getDocumenttypechecklist"
-        let pkiReconciliationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiReconciliationID))"
-        let pkiReconciliationIDPostEscape = pkiReconciliationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiReconciliationID}", with: pkiReconciliationIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters: [String: any Sendable]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<ReconciliationGetDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
      Import attachments into the Reconciliation
      
      - parameter pkiReconciliationID: (path)  
@@ -345,50 +303,6 @@ open class ObjectReconciliationAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<ReconciliationImportIntoEDMV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-     Synchronize Document type checklist
-     
-     - parameter pkiReconciliationID: (path)  
-     - parameter body: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: ReconciliationSyncDocumenttypechecklistV1Response
-     */
-    open class func reconciliationSyncDocumenttypechecklistV1(pkiReconciliationID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ReconciliationSyncDocumenttypechecklistV1Response {
-        return try await reconciliationSyncDocumenttypechecklistV1WithRequestBuilder(pkiReconciliationID: pkiReconciliationID, body: body, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Synchronize Document type checklist
-     - POST /1/object/reconciliation/{pkiReconciliationID}/syncDocumenttypechecklist
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiReconciliationID: (path)  
-     - parameter body: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<ReconciliationSyncDocumenttypechecklistV1Response> 
-     */
-    open class func reconciliationSyncDocumenttypechecklistV1WithRequestBuilder(pkiReconciliationID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<ReconciliationSyncDocumenttypechecklistV1Response> {
-        var localVariablePath = "/1/object/reconciliation/{pkiReconciliationID}/syncDocumenttypechecklist"
-        let pkiReconciliationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiReconciliationID))"
-        let pkiReconciliationIDPostEscape = pkiReconciliationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiReconciliationID}", with: pkiReconciliationIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<ReconciliationSyncDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

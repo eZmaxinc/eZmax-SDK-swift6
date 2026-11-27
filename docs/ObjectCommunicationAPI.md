@@ -5,9 +5,7 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**communicationGetCommunicationBodyV1**](ObjectCommunicationAPI.md#communicationgetcommunicationbodyv1) | **GET** /1/object/communication/{pkiCommunicationID}/getCommunicationBody | Retrieve the communication body
-[**communicationGetDocumenttypechecklistV1**](ObjectCommunicationAPI.md#communicationgetdocumenttypechecklistv1) | **GET** /1/object/communication/{pkiCommunicationID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**communicationSendV1**](ObjectCommunicationAPI.md#communicationsendv1) | **POST** /1/object/communication/send | Send a new Communication
-[**communicationSyncDocumenttypechecklistV1**](ObjectCommunicationAPI.md#communicationsyncdocumenttypechecklistv1) | **POST** /1/object/communication/{pkiCommunicationID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **communicationGetCommunicationBodyV1**
@@ -55,50 +53,6 @@ Void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **communicationGetDocumenttypechecklistV1**
-```swift
-    open class func communicationGetDocumenttypechecklistV1(pkiCommunicationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CommunicationGetDocumenttypechecklistV1Response
-```
-
-Retrieve Document type checklist
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import EzmaxApi
-
-let pkiCommunicationID = 987 // Int | 
-
-// Retrieve Document type checklist
-do {
-    let response = try await ObjectCommunicationAPI.communicationGetDocumenttypechecklistV1(pkiCommunicationID: pkiCommunicationID)
-    dump(response)
-} catch {
-    print(error)
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiCommunicationID** | **Int** |  | 
-
-### Return type
-
-[**CommunicationGetDocumenttypechecklistV1Response**](CommunicationGetDocumenttypechecklistV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **communicationSendV1**
 ```swift
     open class func communicationSendV1(communicationSendV1Request: CommunicationSendV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CommunicationSendV1Response
@@ -133,52 +87,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CommunicationSendV1Response**](CommunicationSendV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **communicationSyncDocumenttypechecklistV1**
-```swift
-    open class func communicationSyncDocumenttypechecklistV1(pkiCommunicationID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CommunicationSyncDocumenttypechecklistV1Response
-```
-
-Synchronize Document type checklist
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import EzmaxApi
-
-let pkiCommunicationID = 987 // Int | 
-let body = "TODO" // JSONValue |  (optional)
-
-// Synchronize Document type checklist
-do {
-    let response = try await ObjectCommunicationAPI.communicationSyncDocumenttypechecklistV1(pkiCommunicationID: pkiCommunicationID, body: body)
-    dump(response)
-} catch {
-    print(error)
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiCommunicationID** | **Int** |  | 
- **body** | **JSONValue** |  | [optional] 
-
-### Return type
-
-[**CommunicationSyncDocumenttypechecklistV1Response**](CommunicationSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

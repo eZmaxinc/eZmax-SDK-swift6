@@ -268,48 +268,6 @@ open class ObjectRejectedoffertopurchaseAPI {
     }
 
     /**
-     Retrieve Document type checklist
-     
-     - parameter pkiRejectedoffertopurchaseID: (path)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RejectedoffertopurchaseGetDocumenttypechecklistV1Response
-     */
-    open class func rejectedoffertopurchaseGetDocumenttypechecklistV1(pkiRejectedoffertopurchaseID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> RejectedoffertopurchaseGetDocumenttypechecklistV1Response {
-        return try await rejectedoffertopurchaseGetDocumenttypechecklistV1WithRequestBuilder(pkiRejectedoffertopurchaseID: pkiRejectedoffertopurchaseID, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Retrieve Document type checklist
-     - GET /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getDocumenttypechecklist
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiRejectedoffertopurchaseID: (path)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<RejectedoffertopurchaseGetDocumenttypechecklistV1Response> 
-     */
-    open class func rejectedoffertopurchaseGetDocumenttypechecklistV1WithRequestBuilder(pkiRejectedoffertopurchaseID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<RejectedoffertopurchaseGetDocumenttypechecklistV1Response> {
-        var localVariablePath = "/1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getDocumenttypechecklist"
-        let pkiRejectedoffertopurchaseIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiRejectedoffertopurchaseID))"
-        let pkiRejectedoffertopurchaseIDPostEscape = pkiRejectedoffertopurchaseIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiRejectedoffertopurchaseID}", with: pkiRejectedoffertopurchaseIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters: [String: any Sendable]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<RejectedoffertopurchaseGetDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
      * enum for parameter eOrderBy
      */
     public enum EOrderBy_rejectedoffertopurchaseGetListV1: String, Sendable, CaseIterable {
@@ -437,50 +395,6 @@ open class ObjectRejectedoffertopurchaseAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<RejectedoffertopurchaseImportIntoEDMV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-     Synchronize Document type checklist
-     
-     - parameter pkiRejectedoffertopurchaseID: (path)  
-     - parameter body: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RejectedoffertopurchaseSyncDocumenttypechecklistV1Response
-     */
-    open class func rejectedoffertopurchaseSyncDocumenttypechecklistV1(pkiRejectedoffertopurchaseID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> RejectedoffertopurchaseSyncDocumenttypechecklistV1Response {
-        return try await rejectedoffertopurchaseSyncDocumenttypechecklistV1WithRequestBuilder(pkiRejectedoffertopurchaseID: pkiRejectedoffertopurchaseID, body: body, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Synchronize Document type checklist
-     - POST /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/syncDocumenttypechecklist
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiRejectedoffertopurchaseID: (path)  
-     - parameter body: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<RejectedoffertopurchaseSyncDocumenttypechecklistV1Response> 
-     */
-    open class func rejectedoffertopurchaseSyncDocumenttypechecklistV1WithRequestBuilder(pkiRejectedoffertopurchaseID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<RejectedoffertopurchaseSyncDocumenttypechecklistV1Response> {
-        var localVariablePath = "/1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/syncDocumenttypechecklist"
-        let pkiRejectedoffertopurchaseIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiRejectedoffertopurchaseID))"
-        let pkiRejectedoffertopurchaseIDPostEscape = pkiRejectedoffertopurchaseIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiRejectedoffertopurchaseID}", with: pkiRejectedoffertopurchaseIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<RejectedoffertopurchaseSyncDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

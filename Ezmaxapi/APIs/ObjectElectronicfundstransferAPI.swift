@@ -268,48 +268,6 @@ open class ObjectElectronicfundstransferAPI {
     }
 
     /**
-     Retrieve Document type checklist
-     
-     - parameter pkiElectronicfundstransferID: (path)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: ElectronicfundstransferGetDocumenttypechecklistV1Response
-     */
-    open class func electronicfundstransferGetDocumenttypechecklistV1(pkiElectronicfundstransferID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ElectronicfundstransferGetDocumenttypechecklistV1Response {
-        return try await electronicfundstransferGetDocumenttypechecklistV1WithRequestBuilder(pkiElectronicfundstransferID: pkiElectronicfundstransferID, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Retrieve Document type checklist
-     - GET /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getDocumenttypechecklist
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiElectronicfundstransferID: (path)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<ElectronicfundstransferGetDocumenttypechecklistV1Response> 
-     */
-    open class func electronicfundstransferGetDocumenttypechecklistV1WithRequestBuilder(pkiElectronicfundstransferID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<ElectronicfundstransferGetDocumenttypechecklistV1Response> {
-        var localVariablePath = "/1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getDocumenttypechecklist"
-        let pkiElectronicfundstransferIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiElectronicfundstransferID))"
-        let pkiElectronicfundstransferIDPostEscape = pkiElectronicfundstransferIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiElectronicfundstransferID}", with: pkiElectronicfundstransferIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters: [String: any Sendable]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<ElectronicfundstransferGetDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
      * enum for parameter eOrderBy
      */
     public enum EOrderBy_electronicfundstransferGetListV1: String, Sendable, CaseIterable {
@@ -429,50 +387,6 @@ open class ObjectElectronicfundstransferAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<ElectronicfundstransferImportIntoEDMV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-     Synchronize Document type checklist
-     
-     - parameter pkiElectronicfundstransferID: (path)  
-     - parameter body: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: ElectronicfundstransferSyncDocumenttypechecklistV1Response
-     */
-    open class func electronicfundstransferSyncDocumenttypechecklistV1(pkiElectronicfundstransferID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ElectronicfundstransferSyncDocumenttypechecklistV1Response {
-        return try await electronicfundstransferSyncDocumenttypechecklistV1WithRequestBuilder(pkiElectronicfundstransferID: pkiElectronicfundstransferID, body: body, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Synchronize Document type checklist
-     - POST /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/syncDocumenttypechecklist
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiElectronicfundstransferID: (path)  
-     - parameter body: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<ElectronicfundstransferSyncDocumenttypechecklistV1Response> 
-     */
-    open class func electronicfundstransferSyncDocumenttypechecklistV1WithRequestBuilder(pkiElectronicfundstransferID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<ElectronicfundstransferSyncDocumenttypechecklistV1Response> {
-        var localVariablePath = "/1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/syncDocumenttypechecklist"
-        let pkiElectronicfundstransferIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiElectronicfundstransferID))"
-        let pkiElectronicfundstransferIDPostEscape = pkiElectronicfundstransferIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiElectronicfundstransferID}", with: pkiElectronicfundstransferIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<ElectronicfundstransferSyncDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

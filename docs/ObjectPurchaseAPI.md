@@ -10,10 +10,8 @@ Method | HTTP request | Description
 [**purchaseGetCommunicationListV1**](ObjectPurchaseAPI.md#purchasegetcommunicationlistv1) | **GET** /1/object/purchase/{pkiPurchaseID}/getCommunicationList | Retrieve Communication list
 [**purchaseGetCommunicationrecipientsV1**](ObjectPurchaseAPI.md#purchasegetcommunicationrecipientsv1) | **GET** /1/object/purchase/{pkiPurchaseID}/getCommunicationrecipients | Retrieve Communication recipients
 [**purchaseGetCommunicationsendersV1**](ObjectPurchaseAPI.md#purchasegetcommunicationsendersv1) | **GET** /1/object/purchase/{pkiPurchaseID}/getCommunicationsenders | Retrieve Communication senders
-[**purchaseGetDocumenttypechecklistV1**](ObjectPurchaseAPI.md#purchasegetdocumenttypechecklistv1) | **GET** /1/object/purchase/{pkiPurchaseID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**purchaseGetListV1**](ObjectPurchaseAPI.md#purchasegetlistv1) | **GET** /1/object/purchase/getList | Retrieve Purchase list
 [**purchaseImportIntoEDMV1**](ObjectPurchaseAPI.md#purchaseimportintoedmv1) | **POST** /1/object/purchase/{pkiPurchaseID}/importIntoEDM | Import attachments into the Purchase
-[**purchaseSyncDocumenttypechecklistV1**](ObjectPurchaseAPI.md#purchasesyncdocumenttypechecklistv1) | **POST** /1/object/purchase/{pkiPurchaseID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **purchaseBatchDownloadV1**
@@ -282,50 +280,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **purchaseGetDocumenttypechecklistV1**
-```swift
-    open class func purchaseGetDocumenttypechecklistV1(pkiPurchaseID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PurchaseGetDocumenttypechecklistV1Response
-```
-
-Retrieve Document type checklist
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import EzmaxApi
-
-let pkiPurchaseID = 987 // Int | 
-
-// Retrieve Document type checklist
-do {
-    let response = try await ObjectPurchaseAPI.purchaseGetDocumenttypechecklistV1(pkiPurchaseID: pkiPurchaseID)
-    dump(response)
-} catch {
-    print(error)
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiPurchaseID** | **Int** |  | 
-
-### Return type
-
-[**PurchaseGetDocumenttypechecklistV1Response**](PurchaseGetDocumenttypechecklistV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **purchaseGetListV1**
 ```swift
     open class func purchaseGetListV1(eOrderBy: EOrderBy_purchaseGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PurchaseGetListV1Response
@@ -414,52 +368,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PurchaseImportIntoEDMV1Response**](PurchaseImportIntoEDMV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **purchaseSyncDocumenttypechecklistV1**
-```swift
-    open class func purchaseSyncDocumenttypechecklistV1(pkiPurchaseID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PurchaseSyncDocumenttypechecklistV1Response
-```
-
-Synchronize Document type checklist
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import EzmaxApi
-
-let pkiPurchaseID = 987 // Int | 
-let body = "TODO" // JSONValue |  (optional)
-
-// Synchronize Document type checklist
-do {
-    let response = try await ObjectPurchaseAPI.purchaseSyncDocumenttypechecklistV1(pkiPurchaseID: pkiPurchaseID, body: body)
-    dump(response)
-} catch {
-    print(error)
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiPurchaseID** | **Int** |  | 
- **body** | **JSONValue** |  | [optional] 
-
-### Return type
-
-[**PurchaseSyncDocumenttypechecklistV1Response**](PurchaseSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

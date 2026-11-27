@@ -334,48 +334,6 @@ open class ObjectBankaccountAPI {
     }
 
     /**
-     Retrieve Document type checklist
-     
-     - parameter pkiBankaccountID: (path)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: BankaccountGetDocumenttypechecklistV1Response
-     */
-    open class func bankaccountGetDocumenttypechecklistV1(pkiBankaccountID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BankaccountGetDocumenttypechecklistV1Response {
-        return try await bankaccountGetDocumenttypechecklistV1WithRequestBuilder(pkiBankaccountID: pkiBankaccountID, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Retrieve Document type checklist
-     - GET /1/object/bankaccount/{pkiBankaccountID}/getDocumenttypechecklist
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiBankaccountID: (path)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<BankaccountGetDocumenttypechecklistV1Response> 
-     */
-    open class func bankaccountGetDocumenttypechecklistV1WithRequestBuilder(pkiBankaccountID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<BankaccountGetDocumenttypechecklistV1Response> {
-        var localVariablePath = "/1/object/bankaccount/{pkiBankaccountID}/getDocumenttypechecklist"
-        let pkiBankaccountIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiBankaccountID))"
-        let pkiBankaccountIDPostEscape = pkiBankaccountIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiBankaccountID}", with: pkiBankaccountIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters: [String: any Sendable]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<BankaccountGetDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
      * enum for parameter eOrderBy
      */
     public enum EOrderBy_bankaccountGetListV1: String, Sendable, CaseIterable {
@@ -498,50 +456,6 @@ open class ObjectBankaccountAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<BankaccountImportIntoEDMV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-     Synchronize Document type checklist
-     
-     - parameter pkiBankaccountID: (path)  
-     - parameter body: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: BankaccountSyncDocumenttypechecklistV1Response
-     */
-    open class func bankaccountSyncDocumenttypechecklistV1(pkiBankaccountID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BankaccountSyncDocumenttypechecklistV1Response {
-        return try await bankaccountSyncDocumenttypechecklistV1WithRequestBuilder(pkiBankaccountID: pkiBankaccountID, body: body, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Synchronize Document type checklist
-     - POST /1/object/bankaccount/{pkiBankaccountID}/syncDocumenttypechecklist
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiBankaccountID: (path)  
-     - parameter body: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<BankaccountSyncDocumenttypechecklistV1Response> 
-     */
-    open class func bankaccountSyncDocumenttypechecklistV1WithRequestBuilder(pkiBankaccountID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<BankaccountSyncDocumenttypechecklistV1Response> {
-        var localVariablePath = "/1/object/bankaccount/{pkiBankaccountID}/syncDocumenttypechecklist"
-        let pkiBankaccountIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiBankaccountID))"
-        let pkiBankaccountIDPostEscape = pkiBankaccountIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiBankaccountID}", with: pkiBankaccountIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<BankaccountSyncDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

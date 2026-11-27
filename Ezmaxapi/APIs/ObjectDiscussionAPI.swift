@@ -176,46 +176,6 @@ open class ObjectDiscussionAPI {
     }
 
     /**
-     Improve a message using the AI
-     
-     - parameter discussionImproveMessageV1Request: (body)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: DiscussionImproveMessageV1Response
-     */
-    open class func discussionImproveMessageV1(discussionImproveMessageV1Request: DiscussionImproveMessageV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DiscussionImproveMessageV1Response {
-        return try await discussionImproveMessageV1WithRequestBuilder(discussionImproveMessageV1Request: discussionImproveMessageV1Request, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Improve a message using the AI
-     - POST /1/object/discussion/improveMessage
-     - The endpoint allows to improve a discussion message using the AI.
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter discussionImproveMessageV1Request: (body)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<DiscussionImproveMessageV1Response> 
-     */
-    open class func discussionImproveMessageV1WithRequestBuilder(discussionImproveMessageV1Request: DiscussionImproveMessageV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<DiscussionImproveMessageV1Response> {
-        let localVariablePath = "/1/object/discussion/improveMessage"
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: discussionImproveMessageV1Request, codableHelper: apiConfiguration.codableHelper)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<DiscussionImproveMessageV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
      Patch an existing Discussion
      
      - parameter pkiDiscussionID: (path) The unique ID of the Discussion 

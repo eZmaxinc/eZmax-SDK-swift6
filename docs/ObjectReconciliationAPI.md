@@ -10,9 +10,7 @@ Method | HTTP request | Description
 [**reconciliationGetCommunicationListV1**](ObjectReconciliationAPI.md#reconciliationgetcommunicationlistv1) | **GET** /1/object/reconciliation/{pkiReconciliationID}/getCommunicationList | Retrieve Communication list
 [**reconciliationGetCommunicationrecipientsV1**](ObjectReconciliationAPI.md#reconciliationgetcommunicationrecipientsv1) | **GET** /1/object/reconciliation/{pkiReconciliationID}/getCommunicationrecipients | Retrieve Communication recipients
 [**reconciliationGetCommunicationsendersV1**](ObjectReconciliationAPI.md#reconciliationgetcommunicationsendersv1) | **GET** /1/object/reconciliation/{pkiReconciliationID}/getCommunicationsenders | Retrieve Communication senders
-[**reconciliationGetDocumenttypechecklistV1**](ObjectReconciliationAPI.md#reconciliationgetdocumenttypechecklistv1) | **GET** /1/object/reconciliation/{pkiReconciliationID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**reconciliationImportIntoEDMV1**](ObjectReconciliationAPI.md#reconciliationimportintoedmv1) | **POST** /1/object/reconciliation/{pkiReconciliationID}/importIntoEDM | Import attachments into the Reconciliation
-[**reconciliationSyncDocumenttypechecklistV1**](ObjectReconciliationAPI.md#reconciliationsyncdocumenttypechecklistv1) | **POST** /1/object/reconciliation/{pkiReconciliationID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **reconciliationBatchDownloadV1**
@@ -281,50 +279,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **reconciliationGetDocumenttypechecklistV1**
-```swift
-    open class func reconciliationGetDocumenttypechecklistV1(pkiReconciliationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ReconciliationGetDocumenttypechecklistV1Response
-```
-
-Retrieve Document type checklist
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import EzmaxApi
-
-let pkiReconciliationID = 987 // Int | 
-
-// Retrieve Document type checklist
-do {
-    let response = try await ObjectReconciliationAPI.reconciliationGetDocumenttypechecklistV1(pkiReconciliationID: pkiReconciliationID)
-    dump(response)
-} catch {
-    print(error)
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiReconciliationID** | **Int** |  | 
-
-### Return type
-
-[**ReconciliationGetDocumenttypechecklistV1Response**](ReconciliationGetDocumenttypechecklistV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **reconciliationImportIntoEDMV1**
 ```swift
     open class func reconciliationImportIntoEDMV1(pkiReconciliationID: Int, reconciliationImportIntoEDMV1Request: ReconciliationImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ReconciliationImportIntoEDMV1Response
@@ -359,52 +313,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ReconciliationImportIntoEDMV1Response**](ReconciliationImportIntoEDMV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **reconciliationSyncDocumenttypechecklistV1**
-```swift
-    open class func reconciliationSyncDocumenttypechecklistV1(pkiReconciliationID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ReconciliationSyncDocumenttypechecklistV1Response
-```
-
-Synchronize Document type checklist
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import EzmaxApi
-
-let pkiReconciliationID = 987 // Int | 
-let body = "TODO" // JSONValue |  (optional)
-
-// Synchronize Document type checklist
-do {
-    let response = try await ObjectReconciliationAPI.reconciliationSyncDocumenttypechecklistV1(pkiReconciliationID: pkiReconciliationID, body: body)
-    dump(response)
-} catch {
-    print(error)
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiReconciliationID** | **Int** |  | 
- **body** | **JSONValue** |  | [optional] 
-
-### Return type
-
-[**ReconciliationSyncDocumenttypechecklistV1Response**](ReconciliationSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

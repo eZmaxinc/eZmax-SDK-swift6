@@ -264,48 +264,6 @@ open class ObjectNotaryAPI {
     }
 
     /**
-     Retrieve Document type checklist
-     
-     - parameter pkiNotaryID: (path)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: NotaryGetDocumenttypechecklistV1Response
-     */
-    open class func notaryGetDocumenttypechecklistV1(pkiNotaryID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> NotaryGetDocumenttypechecklistV1Response {
-        return try await notaryGetDocumenttypechecklistV1WithRequestBuilder(pkiNotaryID: pkiNotaryID, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Retrieve Document type checklist
-     - GET /1/object/notary/{pkiNotaryID}/getDocumenttypechecklist
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiNotaryID: (path)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<NotaryGetDocumenttypechecklistV1Response> 
-     */
-    open class func notaryGetDocumenttypechecklistV1WithRequestBuilder(pkiNotaryID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<NotaryGetDocumenttypechecklistV1Response> {
-        var localVariablePath = "/1/object/notary/{pkiNotaryID}/getDocumenttypechecklist"
-        let pkiNotaryIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiNotaryID))"
-        let pkiNotaryIDPostEscape = pkiNotaryIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiNotaryID}", with: pkiNotaryIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters: [String: any Sendable]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<NotaryGetDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
      * enum for parameter eOrderBy
      */
     public enum EOrderBy_notaryGetListV1: String, Sendable, CaseIterable {
@@ -436,50 +394,6 @@ open class ObjectNotaryAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<NotaryImportIntoEDMV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-     Synchronize Document type checklist
-     
-     - parameter pkiNotaryID: (path)  
-     - parameter body: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: NotarySyncDocumenttypechecklistV1Response
-     */
-    open class func notarySyncDocumenttypechecklistV1(pkiNotaryID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> NotarySyncDocumenttypechecklistV1Response {
-        return try await notarySyncDocumenttypechecklistV1WithRequestBuilder(pkiNotaryID: pkiNotaryID, body: body, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Synchronize Document type checklist
-     - POST /1/object/notary/{pkiNotaryID}/syncDocumenttypechecklist
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiNotaryID: (path)  
-     - parameter body: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<NotarySyncDocumenttypechecklistV1Response> 
-     */
-    open class func notarySyncDocumenttypechecklistV1WithRequestBuilder(pkiNotaryID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<NotarySyncDocumenttypechecklistV1Response> {
-        var localVariablePath = "/1/object/notary/{pkiNotaryID}/syncDocumenttypechecklist"
-        let pkiNotaryIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiNotaryID))"
-        let pkiNotaryIDPostEscape = pkiNotaryIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiNotaryID}", with: pkiNotaryIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<NotarySyncDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

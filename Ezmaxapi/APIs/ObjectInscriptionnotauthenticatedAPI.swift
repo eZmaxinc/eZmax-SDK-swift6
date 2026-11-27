@@ -313,48 +313,6 @@ open class ObjectInscriptionnotauthenticatedAPI {
     }
 
     /**
-     Retrieve Document type checklist
-     
-     - parameter pkiInscriptionnotauthenticatedID: (path)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: InscriptionnotauthenticatedGetDocumenttypechecklistV1Response
-     */
-    open class func inscriptionnotauthenticatedGetDocumenttypechecklistV1(pkiInscriptionnotauthenticatedID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptionnotauthenticatedGetDocumenttypechecklistV1Response {
-        return try await inscriptionnotauthenticatedGetDocumenttypechecklistV1WithRequestBuilder(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Retrieve Document type checklist
-     - GET /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getDocumenttypechecklist
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiInscriptionnotauthenticatedID: (path)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<InscriptionnotauthenticatedGetDocumenttypechecklistV1Response> 
-     */
-    open class func inscriptionnotauthenticatedGetDocumenttypechecklistV1WithRequestBuilder(pkiInscriptionnotauthenticatedID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<InscriptionnotauthenticatedGetDocumenttypechecklistV1Response> {
-        var localVariablePath = "/1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getDocumenttypechecklist"
-        let pkiInscriptionnotauthenticatedIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInscriptionnotauthenticatedID))"
-        let pkiInscriptionnotauthenticatedIDPostEscape = pkiInscriptionnotauthenticatedIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInscriptionnotauthenticatedID}", with: pkiInscriptionnotauthenticatedIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters: [String: any Sendable]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<InscriptionnotauthenticatedGetDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
      Retrieve Inscriptionnotauthenticated conditions
      
      - parameter pkiInscriptionnotauthenticatedID: (path)  
@@ -598,50 +556,6 @@ open class ObjectInscriptionnotauthenticatedAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<InscriptionnotauthenticatedImportIntoEDMV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-     Synchronize Document type checklist
-     
-     - parameter pkiInscriptionnotauthenticatedID: (path)  
-     - parameter body: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: InscriptionnotauthenticatedSyncDocumenttypechecklistV1Response
-     */
-    open class func inscriptionnotauthenticatedSyncDocumenttypechecklistV1(pkiInscriptionnotauthenticatedID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptionnotauthenticatedSyncDocumenttypechecklistV1Response {
-        return try await inscriptionnotauthenticatedSyncDocumenttypechecklistV1WithRequestBuilder(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID, body: body, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Synchronize Document type checklist
-     - POST /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/syncDocumenttypechecklist
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiInscriptionnotauthenticatedID: (path)  
-     - parameter body: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<InscriptionnotauthenticatedSyncDocumenttypechecklistV1Response> 
-     */
-    open class func inscriptionnotauthenticatedSyncDocumenttypechecklistV1WithRequestBuilder(pkiInscriptionnotauthenticatedID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<InscriptionnotauthenticatedSyncDocumenttypechecklistV1Response> {
-        var localVariablePath = "/1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/syncDocumenttypechecklist"
-        let pkiInscriptionnotauthenticatedIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInscriptionnotauthenticatedID))"
-        let pkiInscriptionnotauthenticatedIDPostEscape = pkiInscriptionnotauthenticatedIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInscriptionnotauthenticatedID}", with: pkiInscriptionnotauthenticatedIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<InscriptionnotauthenticatedSyncDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

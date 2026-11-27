@@ -269,48 +269,6 @@ open class ObjectInvoiceAPI {
     }
 
     /**
-     Retrieve Document type checklist
-     
-     - parameter pkiInvoiceID: (path)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: InvoiceGetDocumenttypechecklistV1Response
-     */
-    open class func invoiceGetDocumenttypechecklistV1(pkiInvoiceID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InvoiceGetDocumenttypechecklistV1Response {
-        return try await invoiceGetDocumenttypechecklistV1WithRequestBuilder(pkiInvoiceID: pkiInvoiceID, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Retrieve Document type checklist
-     - GET /1/object/invoice/{pkiInvoiceID}/getDocumenttypechecklist
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiInvoiceID: (path)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<InvoiceGetDocumenttypechecklistV1Response> 
-     */
-    open class func invoiceGetDocumenttypechecklistV1WithRequestBuilder(pkiInvoiceID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<InvoiceGetDocumenttypechecklistV1Response> {
-        var localVariablePath = "/1/object/invoice/{pkiInvoiceID}/getDocumenttypechecklist"
-        let pkiInvoiceIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInvoiceID))"
-        let pkiInvoiceIDPostEscape = pkiInvoiceIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInvoiceID}", with: pkiInvoiceIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters: [String: any Sendable]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<InvoiceGetDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
      * enum for parameter eOrderBy
      */
     public enum EOrderBy_invoiceGetListV1: String, Sendable, CaseIterable {
@@ -440,50 +398,6 @@ open class ObjectInvoiceAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<InvoiceImportIntoEDMV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-     Synchronize Document type checklist
-     
-     - parameter pkiInvoiceID: (path)  
-     - parameter body: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: InvoiceSyncDocumenttypechecklistV1Response
-     */
-    open class func invoiceSyncDocumenttypechecklistV1(pkiInvoiceID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InvoiceSyncDocumenttypechecklistV1Response {
-        return try await invoiceSyncDocumenttypechecklistV1WithRequestBuilder(pkiInvoiceID: pkiInvoiceID, body: body, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Synchronize Document type checklist
-     - POST /1/object/invoice/{pkiInvoiceID}/syncDocumenttypechecklist
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiInvoiceID: (path)  
-     - parameter body: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<InvoiceSyncDocumenttypechecklistV1Response> 
-     */
-    open class func invoiceSyncDocumenttypechecklistV1WithRequestBuilder(pkiInvoiceID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<InvoiceSyncDocumenttypechecklistV1Response> {
-        var localVariablePath = "/1/object/invoice/{pkiInvoiceID}/syncDocumenttypechecklist"
-        let pkiInvoiceIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInvoiceID))"
-        let pkiInvoiceIDPostEscape = pkiInvoiceIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInvoiceID}", with: pkiInvoiceIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<InvoiceSyncDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

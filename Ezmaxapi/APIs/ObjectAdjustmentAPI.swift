@@ -264,48 +264,6 @@ open class ObjectAdjustmentAPI {
     }
 
     /**
-     Retrieve Document type checklist
-     
-     - parameter pkiAdjustmentID: (path)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: AdjustmentGetDocumenttypechecklistV1Response
-     */
-    open class func adjustmentGetDocumenttypechecklistV1(pkiAdjustmentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AdjustmentGetDocumenttypechecklistV1Response {
-        return try await adjustmentGetDocumenttypechecklistV1WithRequestBuilder(pkiAdjustmentID: pkiAdjustmentID, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Retrieve Document type checklist
-     - GET /1/object/adjustment/{pkiAdjustmentID}/getDocumenttypechecklist
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiAdjustmentID: (path)  
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<AdjustmentGetDocumenttypechecklistV1Response> 
-     */
-    open class func adjustmentGetDocumenttypechecklistV1WithRequestBuilder(pkiAdjustmentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<AdjustmentGetDocumenttypechecklistV1Response> {
-        var localVariablePath = "/1/object/adjustment/{pkiAdjustmentID}/getDocumenttypechecklist"
-        let pkiAdjustmentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiAdjustmentID))"
-        let pkiAdjustmentIDPostEscape = pkiAdjustmentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiAdjustmentID}", with: pkiAdjustmentIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters: [String: any Sendable]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<AdjustmentGetDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
      * enum for parameter eOrderBy
      */
     public enum EOrderBy_adjustmentGetListV1: String, Sendable, CaseIterable {
@@ -426,50 +384,6 @@ open class ObjectAdjustmentAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<AdjustmentImportIntoEDMV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
-    }
-
-    /**
-     Synchronize Document type checklist
-     
-     - parameter pkiAdjustmentID: (path)  
-     - parameter body: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: AdjustmentSyncDocumenttypechecklistV1Response
-     */
-    open class func adjustmentSyncDocumenttypechecklistV1(pkiAdjustmentID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AdjustmentSyncDocumenttypechecklistV1Response {
-        return try await adjustmentSyncDocumenttypechecklistV1WithRequestBuilder(pkiAdjustmentID: pkiAdjustmentID, body: body, apiConfiguration: apiConfiguration).execute().body
-    }
-
-    /**
-     Synchronize Document type checklist
-     - POST /1/object/adjustment/{pkiAdjustmentID}/syncDocumenttypechecklist
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiAdjustmentID: (path)  
-     - parameter body: (body)  (optional)
-     - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<AdjustmentSyncDocumenttypechecklistV1Response> 
-     */
-    open class func adjustmentSyncDocumenttypechecklistV1WithRequestBuilder(pkiAdjustmentID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<AdjustmentSyncDocumenttypechecklistV1Response> {
-        var localVariablePath = "/1/object/adjustment/{pkiAdjustmentID}/syncDocumenttypechecklist"
-        let pkiAdjustmentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiAdjustmentID))"
-        let pkiAdjustmentIDPostEscape = pkiAdjustmentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiAdjustmentID}", with: pkiAdjustmentIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = apiConfiguration.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: (any Sendable)?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<AdjustmentSyncDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
