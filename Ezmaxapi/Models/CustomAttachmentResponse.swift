@@ -149,7 +149,7 @@ public struct CustomAttachmentResponse: Sendable, Codable, Hashable {
     public var fkiTemplateID: Int?
     /** The unique ID of the Documenttypechecklist */
     public var fkiDocumenttypechecklistID: Int?
-    /** The name of the Documenttype in the language of the requester */
+    /** The name of the document type in the requester's language */
     public var sDocumenttypeNameX: String?
     /** The unique ID of the Folder */
     public var fkiFolderID: Int?
@@ -177,9 +177,9 @@ public struct CustomAttachmentResponse: Sendable, Codable, Hashable {
     public var iAttachmentEDMmoduleflag: Int?
     /** The MD5 of the Attachment */
     public var sAttachmentMD5: String
-    /** Whether if it's deleted */
+    /** Whether the Attachment is deleted or not */
     public var bAttachmentDeleted: Bool
-    /** Whether if it's valid */
+    /** Whether the Attachment is valid or not */
     public var bAttachmentValid: Bool
     public var eAttachmentVerified: FieldEAttachmentVerified
     /** The rejectioncomment of the Attachment */

@@ -7,7 +7,7 @@
 
 import Foundation
 
-/** The repossession of the Documenttype */
+/** Whether the document type applies to repossession transactions */
 public enum FieldEDocumenttypeRepossession: String, Sendable, Codable, CaseIterable {
     case all = "All"
     case no = "No"

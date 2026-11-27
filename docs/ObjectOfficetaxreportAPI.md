@@ -10,8 +10,10 @@ Method | HTTP request | Description
 [**officetaxreportGetCommunicationListV1**](ObjectOfficetaxreportAPI.md#officetaxreportgetcommunicationlistv1) | **GET** /1/object/officetaxreport/{pkiOfficetaxreportID}/getCommunicationList | Retrieve Communication list
 [**officetaxreportGetCommunicationrecipientsV1**](ObjectOfficetaxreportAPI.md#officetaxreportgetcommunicationrecipientsv1) | **GET** /1/object/officetaxreport/{pkiOfficetaxreportID}/getCommunicationrecipients | Retrieve Communication recipients
 [**officetaxreportGetCommunicationsendersV1**](ObjectOfficetaxreportAPI.md#officetaxreportgetcommunicationsendersv1) | **GET** /1/object/officetaxreport/{pkiOfficetaxreportID}/getCommunicationsenders | Retrieve Communication senders
+[**officetaxreportGetDocumenttypechecklistV1**](ObjectOfficetaxreportAPI.md#officetaxreportgetdocumenttypechecklistv1) | **GET** /1/object/officetaxreport/{pkiOfficetaxreportID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**officetaxreportGetListV1**](ObjectOfficetaxreportAPI.md#officetaxreportgetlistv1) | **GET** /1/object/officetaxreport/getList | Retrieve Officetaxreport list
 [**officetaxreportImportIntoEDMV1**](ObjectOfficetaxreportAPI.md#officetaxreportimportintoedmv1) | **POST** /1/object/officetaxreport/{pkiOfficetaxreportID}/importIntoEDM | Import attachments into the Officetaxreport
+[**officetaxreportSyncDocumenttypechecklistV1**](ObjectOfficetaxreportAPI.md#officetaxreportsyncdocumenttypechecklistv1) | **POST** /1/object/officetaxreport/{pkiOfficetaxreportID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **officetaxreportBatchDownloadV1**
@@ -280,6 +282,50 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **officetaxreportGetDocumenttypechecklistV1**
+```swift
+    open class func officetaxreportGetDocumenttypechecklistV1(pkiOfficetaxreportID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> OfficetaxreportGetDocumenttypechecklistV1Response
+```
+
+Retrieve Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiOfficetaxreportID = 987 // Int | 
+
+// Retrieve Document type checklist
+do {
+    let response = try await ObjectOfficetaxreportAPI.officetaxreportGetDocumenttypechecklistV1(pkiOfficetaxreportID: pkiOfficetaxreportID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiOfficetaxreportID** | **Int** |  | 
+
+### Return type
+
+[**OfficetaxreportGetDocumenttypechecklistV1Response**](OfficetaxreportGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **officetaxreportGetListV1**
 ```swift
     open class func officetaxreportGetListV1(eOrderBy: EOrderBy_officetaxreportGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> OfficetaxreportGetListV1Response
@@ -368,6 +414,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**OfficetaxreportImportIntoEDMV1Response**](OfficetaxreportImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **officetaxreportSyncDocumenttypechecklistV1**
+```swift
+    open class func officetaxreportSyncDocumenttypechecklistV1(pkiOfficetaxreportID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> OfficetaxreportSyncDocumenttypechecklistV1Response
+```
+
+Synchronize Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiOfficetaxreportID = 987 // Int | 
+let body = "TODO" // JSONValue |  (optional)
+
+// Synchronize Document type checklist
+do {
+    let response = try await ObjectOfficetaxreportAPI.officetaxreportSyncDocumenttypechecklistV1(pkiOfficetaxreportID: pkiOfficetaxreportID, body: body)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiOfficetaxreportID** | **Int** |  | 
+ **body** | **JSONValue** |  | [optional] 
+
+### Return type
+
+[**OfficetaxreportSyncDocumenttypechecklistV1Response**](OfficetaxreportSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

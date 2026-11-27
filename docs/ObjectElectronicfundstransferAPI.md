@@ -10,8 +10,10 @@ Method | HTTP request | Description
 [**electronicfundstransferGetCommunicationListV1**](ObjectElectronicfundstransferAPI.md#electronicfundstransfergetcommunicationlistv1) | **GET** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationList | Retrieve Communication list
 [**electronicfundstransferGetCommunicationrecipientsV1**](ObjectElectronicfundstransferAPI.md#electronicfundstransfergetcommunicationrecipientsv1) | **GET** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationrecipients | Retrieve Electronicfundstransfer&#39;s Communicationrecipient
 [**electronicfundstransferGetCommunicationsendersV1**](ObjectElectronicfundstransferAPI.md#electronicfundstransfergetcommunicationsendersv1) | **GET** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationsenders | Retrieve Electronicfundstransfer&#39;s Communicationsender
+[**electronicfundstransferGetDocumenttypechecklistV1**](ObjectElectronicfundstransferAPI.md#electronicfundstransfergetdocumenttypechecklistv1) | **GET** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**electronicfundstransferGetListV1**](ObjectElectronicfundstransferAPI.md#electronicfundstransfergetlistv1) | **GET** /1/object/electronicfundstransfer/getList | Retrieve Electronicfundstransfer list
 [**electronicfundstransferImportIntoEDMV1**](ObjectElectronicfundstransferAPI.md#electronicfundstransferimportintoedmv1) | **POST** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/importIntoEDM | Import attachments into the Electronicfundstransfer
+[**electronicfundstransferSyncDocumenttypechecklistV1**](ObjectElectronicfundstransferAPI.md#electronicfundstransfersyncdocumenttypechecklistv1) | **POST** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **electronicfundstransferBatchDownloadV1**
@@ -288,6 +290,50 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **electronicfundstransferGetDocumenttypechecklistV1**
+```swift
+    open class func electronicfundstransferGetDocumenttypechecklistV1(pkiElectronicfundstransferID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ElectronicfundstransferGetDocumenttypechecklistV1Response
+```
+
+Retrieve Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiElectronicfundstransferID = 987 // Int | 
+
+// Retrieve Document type checklist
+do {
+    let response = try await ObjectElectronicfundstransferAPI.electronicfundstransferGetDocumenttypechecklistV1(pkiElectronicfundstransferID: pkiElectronicfundstransferID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiElectronicfundstransferID** | **Int** |  | 
+
+### Return type
+
+[**ElectronicfundstransferGetDocumenttypechecklistV1Response**](ElectronicfundstransferGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **electronicfundstransferGetListV1**
 ```swift
     open class func electronicfundstransferGetListV1(eOrderBy: EOrderBy_electronicfundstransferGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ElectronicfundstransferGetListV1Response
@@ -378,6 +424,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ElectronicfundstransferImportIntoEDMV1Response**](ElectronicfundstransferImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **electronicfundstransferSyncDocumenttypechecklistV1**
+```swift
+    open class func electronicfundstransferSyncDocumenttypechecklistV1(pkiElectronicfundstransferID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ElectronicfundstransferSyncDocumenttypechecklistV1Response
+```
+
+Synchronize Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiElectronicfundstransferID = 987 // Int | 
+let body = "TODO" // JSONValue |  (optional)
+
+// Synchronize Document type checklist
+do {
+    let response = try await ObjectElectronicfundstransferAPI.electronicfundstransferSyncDocumenttypechecklistV1(pkiElectronicfundstransferID: pkiElectronicfundstransferID, body: body)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiElectronicfundstransferID** | **Int** |  | 
+ **body** | **JSONValue** |  | [optional] 
+
+### Return type
+
+[**ElectronicfundstransferSyncDocumenttypechecklistV1Response**](ElectronicfundstransferSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

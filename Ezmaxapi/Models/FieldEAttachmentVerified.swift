@@ -7,7 +7,7 @@
 
 import Foundation
 
-/** The verified of the Attachment */
+/** The verification status of the Attachment */
 public enum FieldEAttachmentVerified: String, Sendable, Codable, CaseIterable {
     case no = "No"
     case yes = "Yes"

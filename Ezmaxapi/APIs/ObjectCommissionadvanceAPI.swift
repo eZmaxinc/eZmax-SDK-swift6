@@ -264,6 +264,48 @@ open class ObjectCommissionadvanceAPI {
     }
 
     /**
+     Retrieve Document type checklist
+     
+     - parameter pkiCommissionadvanceID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: CommissionadvanceGetDocumenttypechecklistV1Response
+     */
+    open class func commissionadvanceGetDocumenttypechecklistV1(pkiCommissionadvanceID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CommissionadvanceGetDocumenttypechecklistV1Response {
+        return try await commissionadvanceGetDocumenttypechecklistV1WithRequestBuilder(pkiCommissionadvanceID: pkiCommissionadvanceID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Document type checklist
+     - GET /1/object/commissionadvance/{pkiCommissionadvanceID}/getDocumenttypechecklist
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiCommissionadvanceID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<CommissionadvanceGetDocumenttypechecklistV1Response> 
+     */
+    open class func commissionadvanceGetDocumenttypechecklistV1WithRequestBuilder(pkiCommissionadvanceID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<CommissionadvanceGetDocumenttypechecklistV1Response> {
+        var localVariablePath = "/1/object/commissionadvance/{pkiCommissionadvanceID}/getDocumenttypechecklist"
+        let pkiCommissionadvanceIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiCommissionadvanceID))"
+        let pkiCommissionadvanceIDPostEscape = pkiCommissionadvanceIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiCommissionadvanceID}", with: pkiCommissionadvanceIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<CommissionadvanceGetDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
      Import attachments into the Commissionadvance
      
      - parameter pkiCommissionadvanceID: (path)  
@@ -303,6 +345,50 @@ open class ObjectCommissionadvanceAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<CommissionadvanceImportIntoEDMV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Synchronize Document type checklist
+     
+     - parameter pkiCommissionadvanceID: (path)  
+     - parameter body: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: CommissionadvanceSyncDocumenttypechecklistV1Response
+     */
+    open class func commissionadvanceSyncDocumenttypechecklistV1(pkiCommissionadvanceID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CommissionadvanceSyncDocumenttypechecklistV1Response {
+        return try await commissionadvanceSyncDocumenttypechecklistV1WithRequestBuilder(pkiCommissionadvanceID: pkiCommissionadvanceID, body: body, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Synchronize Document type checklist
+     - POST /1/object/commissionadvance/{pkiCommissionadvanceID}/syncDocumenttypechecklist
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiCommissionadvanceID: (path)  
+     - parameter body: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<CommissionadvanceSyncDocumenttypechecklistV1Response> 
+     */
+    open class func commissionadvanceSyncDocumenttypechecklistV1WithRequestBuilder(pkiCommissionadvanceID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<CommissionadvanceSyncDocumenttypechecklistV1Response> {
+        var localVariablePath = "/1/object/commissionadvance/{pkiCommissionadvanceID}/syncDocumenttypechecklist"
+        let pkiCommissionadvanceIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiCommissionadvanceID))"
+        let pkiCommissionadvanceIDPostEscape = pkiCommissionadvanceIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiCommissionadvanceID}", with: pkiCommissionadvanceIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<CommissionadvanceSyncDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

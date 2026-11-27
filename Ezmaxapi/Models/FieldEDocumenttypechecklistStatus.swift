@@ -13,4 +13,5 @@ public enum FieldEDocumenttypechecklistStatus: String, Sendable, Codable, CaseIt
     case _required = "Required"
     case filed = "Filed"
     case justified = "Justified"
+    case mandatory = "Mandatory"
 }

@@ -16,33 +16,31 @@ public struct DocumenttypeResponse: Sendable, Codable, Hashable {
     public var pkiDocumenttypeID: Int
     public var objDocumenttypeName: MultilingualDocumenttypeName
     public var eDocumenttypeStep: ComputedEDocumenttypeStep
-    /** The defaultfilename of the Documenttype */
+    /** The default filename for the document type */
     public var sDocumenttypeDefaultfilename: String
-    /** Whether if it's an showagent */
+    /** Whether the document type should be shown to the agent */
     public var bDocumenttypeShowagent: Bool
     /** Whether the documenttype is active or not */
     public var bDocumenttypeIsactive: Bool
-    /** Whether if it's an isrequired */
-    public var bDocumenttypeIsrequired: Bool
-    /** Whether if it's an sale */
+    /** Whether the document type applies to sale transactions */
     public var bDocumenttypeSale: Bool?
-    /** Whether if it's an rental */
+    /** Whether the document type applies to rental transactions */
     public var bDocumenttypeRental: Bool?
-    /** Whether if it's an reference */
+    /** Whether the document type is a reference document */
     public var bDocumenttypeReference: Bool?
-    /** Whether if it's an mortgagereference */
+    /** Whether the document type is a mortgage reference */
     public var bDocumenttypeMortgagereference: Bool?
-    /** Whether if it's an evaluation */
+    /** Whether the document type applies to evaluation transactions */
     public var bDocumenttypeEvaluation: Bool?
-    /** Whether if it's an consultation */
+    /** Whether the document type applies to consultation transactions */
     public var bDocumenttypeConsultation: Bool?
-    /** Whether if it's an otherservices */
+    /** Whether the document type applies to other services */
     public var bDocumenttypeOtherservices: Bool?
-    /** Whether if it's an foreclosedsale */
+    /** Whether the document type applies to foreclosed sale transactions */
     public var bDocumenttypeForeclosedsale: Bool?
-    /** Whether if it's an commercialfunding */
+    /** Whether the document type applies to commercial funding transactions */
     public var bDocumenttypeCommercialfunding: Bool?
-    /** Whether if it's an canafe */
+    /** Whether the document type applies to Canafe transactions */
     public var bDocumenttypeCanafe: Bool?
     public var eDocumenttypeEzcom: FieldEDocumenttypeEzcom?
     public var eDocumenttypePrivacydefault: FieldEDocumenttypePrivacydefault?
@@ -53,14 +51,13 @@ public struct DocumenttypeResponse: Sendable, Codable, Hashable {
     public var eDocumenttypeRepossession: FieldEDocumenttypeRepossession?
     public var aFkiInscriptiontypeID: [Int]
 
-    public init(pkiDocumenttypeID: Int, objDocumenttypeName: MultilingualDocumenttypeName, eDocumenttypeStep: ComputedEDocumenttypeStep, sDocumenttypeDefaultfilename: String, bDocumenttypeShowagent: Bool, bDocumenttypeIsactive: Bool, bDocumenttypeIsrequired: Bool, bDocumenttypeSale: Bool? = nil, bDocumenttypeRental: Bool? = nil, bDocumenttypeReference: Bool? = nil, bDocumenttypeMortgagereference: Bool? = nil, bDocumenttypeEvaluation: Bool? = nil, bDocumenttypeConsultation: Bool? = nil, bDocumenttypeOtherservices: Bool? = nil, bDocumenttypeForeclosedsale: Bool? = nil, bDocumenttypeCommercialfunding: Bool? = nil, bDocumenttypeCanafe: Bool? = nil, eDocumenttypeEzcom: FieldEDocumenttypeEzcom? = nil, eDocumenttypePrivacydefault: FieldEDocumenttypePrivacydefault? = nil, eDocumenttypeStatusdefault: FieldEDocumenttypeStatusdefault? = nil, eDocumenttypeSalebyowner: FieldEDocumenttypeSalebyowner? = nil, eDocumenttypeSaledisplaybyrole: FieldEDocumenttypeSaledisplaybyrole? = nil, eDocumenttypeTransactiontype: FieldEDocumenttypeTransactiontype? = nil, eDocumenttypeRepossession: FieldEDocumenttypeRepossession? = nil, aFkiInscriptiontypeID: [Int]) {
+    public init(pkiDocumenttypeID: Int, objDocumenttypeName: MultilingualDocumenttypeName, eDocumenttypeStep: ComputedEDocumenttypeStep, sDocumenttypeDefaultfilename: String, bDocumenttypeShowagent: Bool, bDocumenttypeIsactive: Bool, bDocumenttypeSale: Bool? = nil, bDocumenttypeRental: Bool? = nil, bDocumenttypeReference: Bool? = nil, bDocumenttypeMortgagereference: Bool? = nil, bDocumenttypeEvaluation: Bool? = nil, bDocumenttypeConsultation: Bool? = nil, bDocumenttypeOtherservices: Bool? = nil, bDocumenttypeForeclosedsale: Bool? = nil, bDocumenttypeCommercialfunding: Bool? = nil, bDocumenttypeCanafe: Bool? = nil, eDocumenttypeEzcom: FieldEDocumenttypeEzcom? = nil, eDocumenttypePrivacydefault: FieldEDocumenttypePrivacydefault? = nil, eDocumenttypeStatusdefault: FieldEDocumenttypeStatusdefault? = nil, eDocumenttypeSalebyowner: FieldEDocumenttypeSalebyowner? = nil, eDocumenttypeSaledisplaybyrole: FieldEDocumenttypeSaledisplaybyrole? = nil, eDocumenttypeTransactiontype: FieldEDocumenttypeTransactiontype? = nil, eDocumenttypeRepossession: FieldEDocumenttypeRepossession? = nil, aFkiInscriptiontypeID: [Int]) {
         self.pkiDocumenttypeID = pkiDocumenttypeID
         self.objDocumenttypeName = objDocumenttypeName
         self.eDocumenttypeStep = eDocumenttypeStep
         self.sDocumenttypeDefaultfilename = sDocumenttypeDefaultfilename
         self.bDocumenttypeShowagent = bDocumenttypeShowagent
         self.bDocumenttypeIsactive = bDocumenttypeIsactive
-        self.bDocumenttypeIsrequired = bDocumenttypeIsrequired
         self.bDocumenttypeSale = bDocumenttypeSale
         self.bDocumenttypeRental = bDocumenttypeRental
         self.bDocumenttypeReference = bDocumenttypeReference
@@ -88,7 +85,6 @@ public struct DocumenttypeResponse: Sendable, Codable, Hashable {
         case sDocumenttypeDefaultfilename
         case bDocumenttypeShowagent
         case bDocumenttypeIsactive
-        case bDocumenttypeIsrequired
         case bDocumenttypeSale
         case bDocumenttypeRental
         case bDocumenttypeReference
@@ -119,7 +115,6 @@ public struct DocumenttypeResponse: Sendable, Codable, Hashable {
         try container.encode(sDocumenttypeDefaultfilename, forKey: .sDocumenttypeDefaultfilename)
         try container.encode(bDocumenttypeShowagent, forKey: .bDocumenttypeShowagent)
         try container.encode(bDocumenttypeIsactive, forKey: .bDocumenttypeIsactive)
-        try container.encode(bDocumenttypeIsrequired, forKey: .bDocumenttypeIsrequired)
         try container.encodeIfPresent(bDocumenttypeSale, forKey: .bDocumenttypeSale)
         try container.encodeIfPresent(bDocumenttypeRental, forKey: .bDocumenttypeRental)
         try container.encodeIfPresent(bDocumenttypeReference, forKey: .bDocumenttypeReference)

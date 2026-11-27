@@ -178,8 +178,6 @@ open class ObjectDocumenttypeAPI {
         case bdocumenttypeshowagentDesc = "bDocumenttypeShowagent_DESC"
         case bdocumenttypeisactiveAsc = "bDocumenttypeIsactive_ASC"
         case bdocumenttypeisactiveDesc = "bDocumenttypeIsactive_DESC"
-        case bdocumenttypeisrequiredAsc = "bDocumenttypeIsrequired_ASC"
-        case bdocumenttypeisrequiredDesc = "bDocumenttypeIsrequired_DESC"
         case bdocumenttypesaleAsc = "bDocumenttypeSale_ASC"
         case bdocumenttypesaleDesc = "bDocumenttypeSale_DESC"
         case bdocumenttyperentalAsc = "bDocumenttypeRental_ASC"
@@ -234,7 +232,7 @@ open class ObjectDocumenttypeAPI {
     /**
      Retrieve Documenttype list
      - GET /1/object/documenttype/getList
-     - Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---|  | Agentbroker<br>Buyercontract<br>Inscription<br>NotAuthenticated<br>Otherincome<br>RejectedOfferToPurchase | | eDocumenttypeEzcom | PromiseToPurchase<br>Annex<br>Modification<br>CounterOffer<br>Conditions<br>BankApproval<br>Other | | eDocumenttypePrivacydefault | Administration<br>Administrator<br>All<br>Creator<br>Inscriptor<br>Myself<br>Seller | | eDocumenttypeStatusdefault | Not required<br>Required | | eDocumenttypeSalebyowner | All<br>Yes<br>No | | eDocumenttypeSaledisplaybyrole | InscriptorSeller<br>Inscriptor<br>Seller | | eDocumenttypeTransactiontype | All<br>Inscriptor<br>InscriptorOnly<br>Seller<br>SellerOnly<br>InscriptorSeller | | eDocumenttypeRepossession | All<br>No<br>Yes |
+     - Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eDocumenttypeEzcom | PromiseToPurchase<br>Annex<br>Modification<br>CounterOffer<br>Conditions<br>BankApproval<br>Other | | eDocumenttypePrivacydefault | Administration<br>Administrator<br>All<br>Creator<br>Inscriptor<br>Myself<br>Seller | | eDocumenttypeStatusdefault | Not required<br>Required | | eDocumenttypeSalebyowner | All<br>Yes<br>No | | eDocumenttypeSaledisplaybyrole | InscriptorSeller<br>Inscriptor<br>Seller | | eDocumenttypeTransactiontype | All<br>Inscriptor<br>InscriptorOnly<br>Seller<br>SellerOnly<br>InscriptorSeller | | eDocumenttypeRepossession | All<br>No<br>Yes |
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization

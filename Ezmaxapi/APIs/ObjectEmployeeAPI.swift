@@ -264,6 +264,48 @@ open class ObjectEmployeeAPI {
     }
 
     /**
+     Retrieve Document type checklist
+     
+     - parameter pkiEmployeeID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: EmployeeGetDocumenttypechecklistV1Response
+     */
+    open class func employeeGetDocumenttypechecklistV1(pkiEmployeeID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EmployeeGetDocumenttypechecklistV1Response {
+        return try await employeeGetDocumenttypechecklistV1WithRequestBuilder(pkiEmployeeID: pkiEmployeeID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Document type checklist
+     - GET /1/object/employee/{pkiEmployeeID}/getDocumenttypechecklist
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEmployeeID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<EmployeeGetDocumenttypechecklistV1Response> 
+     */
+    open class func employeeGetDocumenttypechecklistV1WithRequestBuilder(pkiEmployeeID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<EmployeeGetDocumenttypechecklistV1Response> {
+        var localVariablePath = "/1/object/employee/{pkiEmployeeID}/getDocumenttypechecklist"
+        let pkiEmployeeIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEmployeeID))"
+        let pkiEmployeeIDPostEscape = pkiEmployeeIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEmployeeID}", with: pkiEmployeeIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EmployeeGetDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
      * enum for parameter eOrderBy
      */
     public enum EOrderBy_employeeGetListV1: String, Sendable, CaseIterable {
@@ -403,6 +445,50 @@ open class ObjectEmployeeAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<EmployeeImportIntoEDMV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Synchronize Document type checklist
+     
+     - parameter pkiEmployeeID: (path)  
+     - parameter body: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: EmployeeSyncDocumenttypechecklistV1Response
+     */
+    open class func employeeSyncDocumenttypechecklistV1(pkiEmployeeID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EmployeeSyncDocumenttypechecklistV1Response {
+        return try await employeeSyncDocumenttypechecklistV1WithRequestBuilder(pkiEmployeeID: pkiEmployeeID, body: body, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Synchronize Document type checklist
+     - POST /1/object/employee/{pkiEmployeeID}/syncDocumenttypechecklist
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEmployeeID: (path)  
+     - parameter body: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<EmployeeSyncDocumenttypechecklistV1Response> 
+     */
+    open class func employeeSyncDocumenttypechecklistV1WithRequestBuilder(pkiEmployeeID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<EmployeeSyncDocumenttypechecklistV1Response> {
+        var localVariablePath = "/1/object/employee/{pkiEmployeeID}/syncDocumenttypechecklist"
+        let pkiEmployeeIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEmployeeID))"
+        let pkiEmployeeIDPostEscape = pkiEmployeeIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEmployeeID}", with: pkiEmployeeIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EmployeeSyncDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

@@ -264,6 +264,48 @@ open class ObjectSalaryAPI {
     }
 
     /**
+     Retrieve Document type checklist
+     
+     - parameter pkiSalaryID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: SalaryGetDocumenttypechecklistV1Response
+     */
+    open class func salaryGetDocumenttypechecklistV1(pkiSalaryID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SalaryGetDocumenttypechecklistV1Response {
+        return try await salaryGetDocumenttypechecklistV1WithRequestBuilder(pkiSalaryID: pkiSalaryID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Document type checklist
+     - GET /1/object/salary/{pkiSalaryID}/getDocumenttypechecklist
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiSalaryID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<SalaryGetDocumenttypechecklistV1Response> 
+     */
+    open class func salaryGetDocumenttypechecklistV1WithRequestBuilder(pkiSalaryID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<SalaryGetDocumenttypechecklistV1Response> {
+        var localVariablePath = "/1/object/salary/{pkiSalaryID}/getDocumenttypechecklist"
+        let pkiSalaryIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiSalaryID))"
+        let pkiSalaryIDPostEscape = pkiSalaryIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiSalaryID}", with: pkiSalaryIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<SalaryGetDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
      * enum for parameter eOrderBy
      */
     public enum EOrderBy_salaryGetListV1: String, Sendable, CaseIterable {
@@ -394,6 +436,50 @@ open class ObjectSalaryAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<SalaryImportIntoEDMV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Synchronize Document type checklist
+     
+     - parameter pkiSalaryID: (path)  
+     - parameter body: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: SalarySyncDocumenttypechecklistV1Response
+     */
+    open class func salarySyncDocumenttypechecklistV1(pkiSalaryID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SalarySyncDocumenttypechecklistV1Response {
+        return try await salarySyncDocumenttypechecklistV1WithRequestBuilder(pkiSalaryID: pkiSalaryID, body: body, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Synchronize Document type checklist
+     - POST /1/object/salary/{pkiSalaryID}/syncDocumenttypechecklist
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiSalaryID: (path)  
+     - parameter body: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<SalarySyncDocumenttypechecklistV1Response> 
+     */
+    open class func salarySyncDocumenttypechecklistV1WithRequestBuilder(pkiSalaryID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<SalarySyncDocumenttypechecklistV1Response> {
+        var localVariablePath = "/1/object/salary/{pkiSalaryID}/syncDocumenttypechecklist"
+        let pkiSalaryIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiSalaryID))"
+        let pkiSalaryIDPostEscape = pkiSalaryIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiSalaryID}", with: pkiSalaryIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<SalarySyncDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

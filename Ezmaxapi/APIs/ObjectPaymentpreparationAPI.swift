@@ -264,6 +264,48 @@ open class ObjectPaymentpreparationAPI {
     }
 
     /**
+     Retrieve Document type checklist
+     
+     - parameter pkiPaymentpreparationID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: PaymentpreparationGetDocumenttypechecklistV1Response
+     */
+    open class func paymentpreparationGetDocumenttypechecklistV1(pkiPaymentpreparationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentpreparationGetDocumenttypechecklistV1Response {
+        return try await paymentpreparationGetDocumenttypechecklistV1WithRequestBuilder(pkiPaymentpreparationID: pkiPaymentpreparationID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Document type checklist
+     - GET /1/object/paymentpreparation/{pkiPaymentpreparationID}/getDocumenttypechecklist
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiPaymentpreparationID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<PaymentpreparationGetDocumenttypechecklistV1Response> 
+     */
+    open class func paymentpreparationGetDocumenttypechecklistV1WithRequestBuilder(pkiPaymentpreparationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<PaymentpreparationGetDocumenttypechecklistV1Response> {
+        var localVariablePath = "/1/object/paymentpreparation/{pkiPaymentpreparationID}/getDocumenttypechecklist"
+        let pkiPaymentpreparationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiPaymentpreparationID))"
+        let pkiPaymentpreparationIDPostEscape = pkiPaymentpreparationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiPaymentpreparationID}", with: pkiPaymentpreparationIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaymentpreparationGetDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
      Import attachments into the Paymentpreparation
      
      - parameter pkiPaymentpreparationID: (path)  
@@ -303,6 +345,50 @@ open class ObjectPaymentpreparationAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<PaymentpreparationImportIntoEDMV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Synchronize Document type checklist
+     
+     - parameter pkiPaymentpreparationID: (path)  
+     - parameter body: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: PaymentpreparationSyncDocumenttypechecklistV1Response
+     */
+    open class func paymentpreparationSyncDocumenttypechecklistV1(pkiPaymentpreparationID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentpreparationSyncDocumenttypechecklistV1Response {
+        return try await paymentpreparationSyncDocumenttypechecklistV1WithRequestBuilder(pkiPaymentpreparationID: pkiPaymentpreparationID, body: body, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Synchronize Document type checklist
+     - POST /1/object/paymentpreparation/{pkiPaymentpreparationID}/syncDocumenttypechecklist
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiPaymentpreparationID: (path)  
+     - parameter body: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<PaymentpreparationSyncDocumenttypechecklistV1Response> 
+     */
+    open class func paymentpreparationSyncDocumenttypechecklistV1WithRequestBuilder(pkiPaymentpreparationID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<PaymentpreparationSyncDocumenttypechecklistV1Response> {
+        var localVariablePath = "/1/object/paymentpreparation/{pkiPaymentpreparationID}/syncDocumenttypechecklist"
+        let pkiPaymentpreparationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiPaymentpreparationID))"
+        let pkiPaymentpreparationIDPostEscape = pkiPaymentpreparationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiPaymentpreparationID}", with: pkiPaymentpreparationIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaymentpreparationSyncDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

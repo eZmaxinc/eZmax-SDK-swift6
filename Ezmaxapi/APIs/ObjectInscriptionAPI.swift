@@ -269,6 +269,48 @@ open class ObjectInscriptionAPI {
     }
 
     /**
+     Retrieve Document type checklist
+     
+     - parameter pkiInscriptionID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: InscriptionGetDocumenttypechecklistV1Response
+     */
+    open class func inscriptionGetDocumenttypechecklistV1(pkiInscriptionID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptionGetDocumenttypechecklistV1Response {
+        return try await inscriptionGetDocumenttypechecklistV1WithRequestBuilder(pkiInscriptionID: pkiInscriptionID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Document type checklist
+     - GET /1/object/inscription/{pkiInscriptionID}/getDocumenttypechecklist
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiInscriptionID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<InscriptionGetDocumenttypechecklistV1Response> 
+     */
+    open class func inscriptionGetDocumenttypechecklistV1WithRequestBuilder(pkiInscriptionID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<InscriptionGetDocumenttypechecklistV1Response> {
+        var localVariablePath = "/1/object/inscription/{pkiInscriptionID}/getDocumenttypechecklist"
+        let pkiInscriptionIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInscriptionID))"
+        let pkiInscriptionIDPostEscape = pkiInscriptionIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInscriptionID}", with: pkiInscriptionIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<InscriptionGetDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
      Retrieve Inscription's Inscriptionnotauthenticated
      
      - parameter pkiInscriptionID: (path)  
@@ -556,6 +598,50 @@ open class ObjectInscriptionAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<InscriptionPrepareFilesTransferV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Synchronize Document type checklist
+     
+     - parameter pkiInscriptionID: (path)  
+     - parameter body: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: InscriptionSyncDocumenttypechecklistV1Response
+     */
+    open class func inscriptionSyncDocumenttypechecklistV1(pkiInscriptionID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptionSyncDocumenttypechecklistV1Response {
+        return try await inscriptionSyncDocumenttypechecklistV1WithRequestBuilder(pkiInscriptionID: pkiInscriptionID, body: body, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Synchronize Document type checklist
+     - POST /1/object/inscription/{pkiInscriptionID}/syncDocumenttypechecklist
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiInscriptionID: (path)  
+     - parameter body: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<InscriptionSyncDocumenttypechecklistV1Response> 
+     */
+    open class func inscriptionSyncDocumenttypechecklistV1WithRequestBuilder(pkiInscriptionID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<InscriptionSyncDocumenttypechecklistV1Response> {
+        var localVariablePath = "/1/object/inscription/{pkiInscriptionID}/syncDocumenttypechecklist"
+        let pkiInscriptionIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInscriptionID))"
+        let pkiInscriptionIDPostEscape = pkiInscriptionIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInscriptionID}", with: pkiInscriptionIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<InscriptionSyncDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

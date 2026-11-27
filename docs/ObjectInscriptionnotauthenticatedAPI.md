@@ -11,10 +11,12 @@ Method | HTTP request | Description
 [**inscriptionnotauthenticatedGetCommunicationListV1**](ObjectInscriptionnotauthenticatedAPI.md#inscriptionnotauthenticatedgetcommunicationlistv1) | **GET** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getCommunicationList | Retrieve Communication list
 [**inscriptionnotauthenticatedGetCommunicationrecipientsV1**](ObjectInscriptionnotauthenticatedAPI.md#inscriptionnotauthenticatedgetcommunicationrecipientsv1) | **GET** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getCommunicationrecipients | Retrieve Inscriptionnotauthenticated&#39;s Communicationrecipient
 [**inscriptionnotauthenticatedGetCommunicationsendersV1**](ObjectInscriptionnotauthenticatedAPI.md#inscriptionnotauthenticatedgetcommunicationsendersv1) | **GET** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getCommunicationsenders | Retrieve Inscriptionnotauthenticated&#39;s Communicationsender
+[**inscriptionnotauthenticatedGetDocumenttypechecklistV1**](ObjectInscriptionnotauthenticatedAPI.md#inscriptionnotauthenticatedgetdocumenttypechecklistv1) | **GET** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**inscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1**](ObjectInscriptionnotauthenticatedAPI.md#inscriptionnotauthenticatedgetinscriptionnotauthenticatedconditionsv1) | **GET** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getInscriptionnotauthenticatedconditions | Retrieve Inscriptionnotauthenticated conditions
 [**inscriptionnotauthenticatedGetListV1**](ObjectInscriptionnotauthenticatedAPI.md#inscriptionnotauthenticatedgetlistv1) | **GET** /1/object/inscriptionnotauthenticated/getList | Retrieve Inscriptionnotauthenticated list
 [**inscriptionnotauthenticatedGetObjectV2**](ObjectInscriptionnotauthenticatedAPI.md#inscriptionnotauthenticatedgetobjectv2) | **GET** /2/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID} | Retrieve an existing Inscriptionnotauthenticated
 [**inscriptionnotauthenticatedImportIntoEDMV1**](ObjectInscriptionnotauthenticatedAPI.md#inscriptionnotauthenticatedimportintoedmv1) | **POST** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/importIntoEDM | Import attachments into the Inscriptionnotauthenticated
+[**inscriptionnotauthenticatedSyncDocumenttypechecklistV1**](ObjectInscriptionnotauthenticatedAPI.md#inscriptionnotauthenticatedsyncdocumenttypechecklistv1) | **POST** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **inscriptionnotauthenticatedBatchDownloadV1**
@@ -339,6 +341,50 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **inscriptionnotauthenticatedGetDocumenttypechecklistV1**
+```swift
+    open class func inscriptionnotauthenticatedGetDocumenttypechecklistV1(pkiInscriptionnotauthenticatedID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptionnotauthenticatedGetDocumenttypechecklistV1Response
+```
+
+Retrieve Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiInscriptionnotauthenticatedID = 987 // Int | 
+
+// Retrieve Document type checklist
+do {
+    let response = try await ObjectInscriptionnotauthenticatedAPI.inscriptionnotauthenticatedGetDocumenttypechecklistV1(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiInscriptionnotauthenticatedID** | **Int** |  | 
+
+### Return type
+
+[**InscriptionnotauthenticatedGetDocumenttypechecklistV1Response**](InscriptionnotauthenticatedGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **inscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1**
 ```swift
     open class func inscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1(pkiInscriptionnotauthenticatedID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1Response
@@ -521,6 +567,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InscriptionnotauthenticatedImportIntoEDMV1Response**](InscriptionnotauthenticatedImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **inscriptionnotauthenticatedSyncDocumenttypechecklistV1**
+```swift
+    open class func inscriptionnotauthenticatedSyncDocumenttypechecklistV1(pkiInscriptionnotauthenticatedID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InscriptionnotauthenticatedSyncDocumenttypechecklistV1Response
+```
+
+Synchronize Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiInscriptionnotauthenticatedID = 987 // Int | 
+let body = "TODO" // JSONValue |  (optional)
+
+// Synchronize Document type checklist
+do {
+    let response = try await ObjectInscriptionnotauthenticatedAPI.inscriptionnotauthenticatedSyncDocumenttypechecklistV1(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID, body: body)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiInscriptionnotauthenticatedID** | **Int** |  | 
+ **body** | **JSONValue** |  | [optional] 
+
+### Return type
+
+[**InscriptionnotauthenticatedSyncDocumenttypechecklistV1Response**](InscriptionnotauthenticatedSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

@@ -10,7 +10,9 @@ Method | HTTP request | Description
 [**externalbrokerGetCommunicationListV1**](ObjectExternalbrokerAPI.md#externalbrokergetcommunicationlistv1) | **GET** /1/object/externalbroker/{pkiExternalbrokerID}/getCommunicationList | Retrieve Communication list
 [**externalbrokerGetCommunicationrecipientsV1**](ObjectExternalbrokerAPI.md#externalbrokergetcommunicationrecipientsv1) | **GET** /1/object/externalbroker/{pkiExternalbrokerID}/getCommunicationrecipients | Retrieve Communication recipients
 [**externalbrokerGetCommunicationsendersV1**](ObjectExternalbrokerAPI.md#externalbrokergetcommunicationsendersv1) | **GET** /1/object/externalbroker/{pkiExternalbrokerID}/getCommunicationsenders | Retrieve Communication senders
+[**externalbrokerGetDocumenttypechecklistV1**](ObjectExternalbrokerAPI.md#externalbrokergetdocumenttypechecklistv1) | **GET** /1/object/externalbroker/{pkiExternalbrokerID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**externalbrokerImportIntoEDMV1**](ObjectExternalbrokerAPI.md#externalbrokerimportintoedmv1) | **POST** /1/object/externalbroker/{pkiExternalbrokerID}/importIntoEDM | Import attachments into the Externalbroker
+[**externalbrokerSyncDocumenttypechecklistV1**](ObjectExternalbrokerAPI.md#externalbrokersyncdocumenttypechecklistv1) | **POST** /1/object/externalbroker/{pkiExternalbrokerID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **externalbrokerBatchDownloadV1**
@@ -279,6 +281,50 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **externalbrokerGetDocumenttypechecklistV1**
+```swift
+    open class func externalbrokerGetDocumenttypechecklistV1(pkiExternalbrokerID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ExternalbrokerGetDocumenttypechecklistV1Response
+```
+
+Retrieve Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiExternalbrokerID = 987 // Int | 
+
+// Retrieve Document type checklist
+do {
+    let response = try await ObjectExternalbrokerAPI.externalbrokerGetDocumenttypechecklistV1(pkiExternalbrokerID: pkiExternalbrokerID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiExternalbrokerID** | **Int** |  | 
+
+### Return type
+
+[**ExternalbrokerGetDocumenttypechecklistV1Response**](ExternalbrokerGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **externalbrokerImportIntoEDMV1**
 ```swift
     open class func externalbrokerImportIntoEDMV1(pkiExternalbrokerID: Int, externalbrokerImportIntoEDMV1Request: ExternalbrokerImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ExternalbrokerImportIntoEDMV1Response
@@ -315,6 +361,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ExternalbrokerImportIntoEDMV1Response**](ExternalbrokerImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **externalbrokerSyncDocumenttypechecklistV1**
+```swift
+    open class func externalbrokerSyncDocumenttypechecklistV1(pkiExternalbrokerID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ExternalbrokerSyncDocumenttypechecklistV1Response
+```
+
+Synchronize Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiExternalbrokerID = 987 // Int | 
+let body = "TODO" // JSONValue |  (optional)
+
+// Synchronize Document type checklist
+do {
+    let response = try await ObjectExternalbrokerAPI.externalbrokerSyncDocumenttypechecklistV1(pkiExternalbrokerID: pkiExternalbrokerID, body: body)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiExternalbrokerID** | **Int** |  | 
+ **body** | **JSONValue** |  | [optional] 
+
+### Return type
+
+[**ExternalbrokerSyncDocumenttypechecklistV1Response**](ExternalbrokerSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

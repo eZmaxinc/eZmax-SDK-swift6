@@ -7,7 +7,7 @@
 
 import Foundation
 
-/** Response for POST /1/object/discussion */
+/** Response for POST /1/object/discussion/improveMessage */
 public struct DiscussionImproveMessageV1Response: Sendable, Codable, Hashable {
 
     public var objDebugPayload: CommonResponseObjDebugPayload

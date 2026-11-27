@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **sDepartmentNameX** | **String** | The Name of the Department in the language of the requester | 
 **bActivesessionDebug** | **Bool** | Whether the active session is in debug or not | 
 **bActivesessionIssuperadmin** | **Bool** | Whether the active session is superadmin or not | 
-**bActivesessionAttachment** | **Bool** | Can access attachment when we clone a user | [optional] 
+**bActivesessionAttachment** | **Bool** | Whether the user can access attachments when their session is cloned | [optional] 
 **bActivesessionCanafe** | **Bool** | Can access canafe when we clone a user | [optional] 
 **bActivesessionFinancial** | **Bool** | Can access financial element when we clone a user | [optional] 
 **bActivesessionRealestatecompleted** | **Bool** | Can access closed realestate folders when we clone a user | [optional] 

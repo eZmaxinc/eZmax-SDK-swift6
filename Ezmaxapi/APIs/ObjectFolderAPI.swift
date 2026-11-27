@@ -264,6 +264,48 @@ open class ObjectFolderAPI {
     }
 
     /**
+     Retrieve Document type checklist
+     
+     - parameter pkiFolderID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: FolderGetDocumenttypechecklistV1Response
+     */
+    open class func folderGetDocumenttypechecklistV1(pkiFolderID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> FolderGetDocumenttypechecklistV1Response {
+        return try await folderGetDocumenttypechecklistV1WithRequestBuilder(pkiFolderID: pkiFolderID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Document type checklist
+     - GET /1/object/folder/{pkiFolderID}/getDocumenttypechecklist
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiFolderID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<FolderGetDocumenttypechecklistV1Response> 
+     */
+    open class func folderGetDocumenttypechecklistV1WithRequestBuilder(pkiFolderID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<FolderGetDocumenttypechecklistV1Response> {
+        var localVariablePath = "/1/object/folder/{pkiFolderID}/getDocumenttypechecklist"
+        let pkiFolderIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiFolderID))"
+        let pkiFolderIDPostEscape = pkiFolderIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiFolderID}", with: pkiFolderIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<FolderGetDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
      Import attachments into the Folder
      
      - parameter pkiFolderID: (path)  
@@ -303,6 +345,50 @@ open class ObjectFolderAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<FolderImportIntoEDMV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Synchronize Document type checklist
+     
+     - parameter pkiFolderID: (path)  
+     - parameter body: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: FolderSyncDocumenttypechecklistV1Response
+     */
+    open class func folderSyncDocumenttypechecklistV1(pkiFolderID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> FolderSyncDocumenttypechecklistV1Response {
+        return try await folderSyncDocumenttypechecklistV1WithRequestBuilder(pkiFolderID: pkiFolderID, body: body, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Synchronize Document type checklist
+     - POST /1/object/folder/{pkiFolderID}/syncDocumenttypechecklist
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiFolderID: (path)  
+     - parameter body: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<FolderSyncDocumenttypechecklistV1Response> 
+     */
+    open class func folderSyncDocumenttypechecklistV1WithRequestBuilder(pkiFolderID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<FolderSyncDocumenttypechecklistV1Response> {
+        var localVariablePath = "/1/object/folder/{pkiFolderID}/syncDocumenttypechecklist"
+        let pkiFolderIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiFolderID))"
+        let pkiFolderIDPostEscape = pkiFolderIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiFolderID}", with: pkiFolderIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<FolderSyncDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

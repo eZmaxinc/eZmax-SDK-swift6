@@ -7,7 +7,7 @@
 
 import Foundation
 
-/** The privacydefault of the Documenttype */
+/** The default privacy setting for the document type */
 public enum FieldEDocumenttypePrivacydefault: String, Sendable, Codable, CaseIterable {
     case administration = "Administration"
     case administrator = "Administrator"

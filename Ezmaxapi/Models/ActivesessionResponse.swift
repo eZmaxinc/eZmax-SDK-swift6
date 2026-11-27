@@ -33,7 +33,7 @@ public struct ActivesessionResponse: Sendable, Codable, Hashable {
     public var bActivesessionDebug: Bool
     /** Whether the active session is superadmin or not */
     public var bActivesessionIssuperadmin: Bool
-    /** Can access attachment when we clone a user */
+    /** Whether the user can access attachments when their session is cloned */
     public var bActivesessionAttachment: Bool?
     /** Can access canafe when we clone a user */
     public var bActivesessionCanafe: Bool?

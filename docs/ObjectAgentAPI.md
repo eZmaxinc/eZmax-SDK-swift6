@@ -11,8 +11,10 @@ Method | HTTP request | Description
 [**agentGetCommunicationListV1**](ObjectAgentAPI.md#agentgetcommunicationlistv1) | **GET** /1/object/agent/{pkiAgentID}/getCommunicationList | Retrieve Communication list
 [**agentGetCommunicationrecipientsV1**](ObjectAgentAPI.md#agentgetcommunicationrecipientsv1) | **GET** /1/object/agent/{pkiAgentID}/getCommunicationrecipients | Retrieve Communication recipients
 [**agentGetCommunicationsendersV1**](ObjectAgentAPI.md#agentgetcommunicationsendersv1) | **GET** /1/object/agent/{pkiAgentID}/getCommunicationsenders | Retrieve Communication senders
+[**agentGetDocumenttypechecklistV1**](ObjectAgentAPI.md#agentgetdocumenttypechecklistv1) | **GET** /1/object/agent/{pkiAgentID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**agentGetListV1**](ObjectAgentAPI.md#agentgetlistv1) | **GET** /1/object/agent/getList | Retrieve Agent list
 [**agentImportIntoEDMV1**](ObjectAgentAPI.md#agentimportintoedmv1) | **POST** /1/object/agent/{pkiAgentID}/importIntoEDM | Import attachments into the Agent
+[**agentSyncDocumenttypechecklistV1**](ObjectAgentAPI.md#agentsyncdocumenttypechecklistv1) | **POST** /1/object/agent/{pkiAgentID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **agentBatchDownloadV1**
@@ -333,6 +335,50 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **agentGetDocumenttypechecklistV1**
+```swift
+    open class func agentGetDocumenttypechecklistV1(pkiAgentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AgentGetDocumenttypechecklistV1Response
+```
+
+Retrieve Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiAgentID = 987 // Int | 
+
+// Retrieve Document type checklist
+do {
+    let response = try await ObjectAgentAPI.agentGetDocumenttypechecklistV1(pkiAgentID: pkiAgentID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiAgentID** | **Int** |  | 
+
+### Return type
+
+[**AgentGetDocumenttypechecklistV1Response**](AgentGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **agentGetListV1**
 ```swift
     open class func agentGetListV1(eOrderBy: EOrderBy_agentGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AgentGetListV1Response
@@ -423,6 +469,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AgentImportIntoEDMV1Response**](AgentImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **agentSyncDocumenttypechecklistV1**
+```swift
+    open class func agentSyncDocumenttypechecklistV1(pkiAgentID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AgentSyncDocumenttypechecklistV1Response
+```
+
+Synchronize Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiAgentID = 987 // Int | 
+let body = "TODO" // JSONValue |  (optional)
+
+// Synchronize Document type checklist
+do {
+    let response = try await ObjectAgentAPI.agentSyncDocumenttypechecklistV1(pkiAgentID: pkiAgentID, body: body)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiAgentID** | **Int** |  | 
+ **body** | **JSONValue** |  | [optional] 
+
+### Return type
+
+[**AgentSyncDocumenttypechecklistV1Response**](AgentSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

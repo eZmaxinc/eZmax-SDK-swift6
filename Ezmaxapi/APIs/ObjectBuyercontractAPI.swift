@@ -268,6 +268,48 @@ open class ObjectBuyercontractAPI {
     }
 
     /**
+     Retrieve Document type checklist
+     
+     - parameter pkiBuyercontractID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: BuyercontractGetDocumenttypechecklistV1Response
+     */
+    open class func buyercontractGetDocumenttypechecklistV1(pkiBuyercontractID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BuyercontractGetDocumenttypechecklistV1Response {
+        return try await buyercontractGetDocumenttypechecklistV1WithRequestBuilder(pkiBuyercontractID: pkiBuyercontractID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Document type checklist
+     - GET /1/object/buyercontract/{pkiBuyercontractID}/getDocumenttypechecklist
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiBuyercontractID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<BuyercontractGetDocumenttypechecklistV1Response> 
+     */
+    open class func buyercontractGetDocumenttypechecklistV1WithRequestBuilder(pkiBuyercontractID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<BuyercontractGetDocumenttypechecklistV1Response> {
+        var localVariablePath = "/1/object/buyercontract/{pkiBuyercontractID}/getDocumenttypechecklist"
+        let pkiBuyercontractIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiBuyercontractID))"
+        let pkiBuyercontractIDPostEscape = pkiBuyercontractIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiBuyercontractID}", with: pkiBuyercontractIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<BuyercontractGetDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
      * enum for parameter eOrderBy
      */
     public enum EOrderBy_buyercontractGetListV1: String, Sendable, CaseIterable {
@@ -389,6 +431,50 @@ open class ObjectBuyercontractAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<BuyercontractImportIntoEDMV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Synchronize Document type checklist
+     
+     - parameter pkiBuyercontractID: (path)  
+     - parameter body: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: BuyercontractSyncDocumenttypechecklistV1Response
+     */
+    open class func buyercontractSyncDocumenttypechecklistV1(pkiBuyercontractID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BuyercontractSyncDocumenttypechecklistV1Response {
+        return try await buyercontractSyncDocumenttypechecklistV1WithRequestBuilder(pkiBuyercontractID: pkiBuyercontractID, body: body, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Synchronize Document type checklist
+     - POST /1/object/buyercontract/{pkiBuyercontractID}/syncDocumenttypechecklist
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiBuyercontractID: (path)  
+     - parameter body: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<BuyercontractSyncDocumenttypechecklistV1Response> 
+     */
+    open class func buyercontractSyncDocumenttypechecklistV1WithRequestBuilder(pkiBuyercontractID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<BuyercontractSyncDocumenttypechecklistV1Response> {
+        var localVariablePath = "/1/object/buyercontract/{pkiBuyercontractID}/syncDocumenttypechecklist"
+        let pkiBuyercontractIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiBuyercontractID))"
+        let pkiBuyercontractIDPostEscape = pkiBuyercontractIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiBuyercontractID}", with: pkiBuyercontractIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<BuyercontractSyncDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

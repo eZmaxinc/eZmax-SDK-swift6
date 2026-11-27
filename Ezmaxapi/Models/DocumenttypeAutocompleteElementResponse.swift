@@ -14,7 +14,7 @@ public struct DocumenttypeAutocompleteElementResponse: Sendable, Codable, Hashab
     public static let sDocumenttypeNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,55}$")
     /** The unique ID of the Documenttype */
     public var pkiDocumenttypeID: Int
-    /** The name of the Documenttype in the language of the requester */
+    /** The name of the document type in the requester's language */
     public var sDocumenttypeNameX: String
     /** Whether the documenttype is active or not */
     public var bDocumenttypeIsactive: Bool

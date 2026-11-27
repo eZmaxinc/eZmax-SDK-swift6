@@ -23,7 +23,7 @@ public struct InscriptionnotauthenticatedconditionResponse: Sendable, Codable, H
     public var sInscriptionnotauthenticatedconditiontypeNameX: String
     /** The unique ID of the Inscriptionnotauthenticated. */
     public var fkiInscriptionnotauthenticatedID: Int
-    /** Can access attachment when we clone a user */
+    /** Whether the user can access attachments when their session is cloned */
     public var bInscriptionnotauthenticatedconditionFilled: Bool
     /** The date the Inscriptionnotauthenticatedcondition was completed */
     public var dtInscriptionnotauthenticatedconditionCompleted: String?

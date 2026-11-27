@@ -182,6 +182,48 @@ open class ObjectTranqcontractAPI {
     }
 
     /**
+     Retrieve Document type checklist
+     
+     - parameter pkiTranqcontractID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: TranqcontractGetDocumenttypechecklistV1Response
+     */
+    open class func tranqcontractGetDocumenttypechecklistV1(pkiTranqcontractID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> TranqcontractGetDocumenttypechecklistV1Response {
+        return try await tranqcontractGetDocumenttypechecklistV1WithRequestBuilder(pkiTranqcontractID: pkiTranqcontractID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Document type checklist
+     - GET /1/object/tranqcontract/{pkiTranqcontractID}/getDocumenttypechecklist
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiTranqcontractID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<TranqcontractGetDocumenttypechecklistV1Response> 
+     */
+    open class func tranqcontractGetDocumenttypechecklistV1WithRequestBuilder(pkiTranqcontractID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<TranqcontractGetDocumenttypechecklistV1Response> {
+        var localVariablePath = "/1/object/tranqcontract/{pkiTranqcontractID}/getDocumenttypechecklist"
+        let pkiTranqcontractIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiTranqcontractID))"
+        let pkiTranqcontractIDPostEscape = pkiTranqcontractIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiTranqcontractID}", with: pkiTranqcontractIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<TranqcontractGetDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
      Import attachments into the Tranqcontract
      
      - parameter pkiTranqcontractID: (path)  
@@ -222,6 +264,50 @@ open class ObjectTranqcontractAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<TranqcontractImportIntoEDMV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Synchronize Document type checklist
+     
+     - parameter pkiTranqcontractID: (path)  
+     - parameter body: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: TranqcontractSyncDocumenttypechecklistV1Response
+     */
+    open class func tranqcontractSyncDocumenttypechecklistV1(pkiTranqcontractID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> TranqcontractSyncDocumenttypechecklistV1Response {
+        return try await tranqcontractSyncDocumenttypechecklistV1WithRequestBuilder(pkiTranqcontractID: pkiTranqcontractID, body: body, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Synchronize Document type checklist
+     - POST /1/object/tranqcontract/{pkiTranqcontractID}/syncDocumenttypechecklist
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiTranqcontractID: (path)  
+     - parameter body: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<TranqcontractSyncDocumenttypechecklistV1Response> 
+     */
+    open class func tranqcontractSyncDocumenttypechecklistV1WithRequestBuilder(pkiTranqcontractID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<TranqcontractSyncDocumenttypechecklistV1Response> {
+        var localVariablePath = "/1/object/tranqcontract/{pkiTranqcontractID}/syncDocumenttypechecklist"
+        let pkiTranqcontractIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiTranqcontractID))"
+        let pkiTranqcontractIDPostEscape = pkiTranqcontractIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiTranqcontractID}", with: pkiTranqcontractIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<TranqcontractSyncDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

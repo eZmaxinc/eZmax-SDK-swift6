@@ -264,6 +264,48 @@ open class ObjectExternalbrokerAPI {
     }
 
     /**
+     Retrieve Document type checklist
+     
+     - parameter pkiExternalbrokerID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: ExternalbrokerGetDocumenttypechecklistV1Response
+     */
+    open class func externalbrokerGetDocumenttypechecklistV1(pkiExternalbrokerID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ExternalbrokerGetDocumenttypechecklistV1Response {
+        return try await externalbrokerGetDocumenttypechecklistV1WithRequestBuilder(pkiExternalbrokerID: pkiExternalbrokerID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Document type checklist
+     - GET /1/object/externalbroker/{pkiExternalbrokerID}/getDocumenttypechecklist
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiExternalbrokerID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<ExternalbrokerGetDocumenttypechecklistV1Response> 
+     */
+    open class func externalbrokerGetDocumenttypechecklistV1WithRequestBuilder(pkiExternalbrokerID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<ExternalbrokerGetDocumenttypechecklistV1Response> {
+        var localVariablePath = "/1/object/externalbroker/{pkiExternalbrokerID}/getDocumenttypechecklist"
+        let pkiExternalbrokerIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiExternalbrokerID))"
+        let pkiExternalbrokerIDPostEscape = pkiExternalbrokerIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiExternalbrokerID}", with: pkiExternalbrokerIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<ExternalbrokerGetDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
      Import attachments into the Externalbroker
      
      - parameter pkiExternalbrokerID: (path)  
@@ -304,6 +346,50 @@ open class ObjectExternalbrokerAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<ExternalbrokerImportIntoEDMV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Synchronize Document type checklist
+     
+     - parameter pkiExternalbrokerID: (path)  
+     - parameter body: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: ExternalbrokerSyncDocumenttypechecklistV1Response
+     */
+    open class func externalbrokerSyncDocumenttypechecklistV1(pkiExternalbrokerID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> ExternalbrokerSyncDocumenttypechecklistV1Response {
+        return try await externalbrokerSyncDocumenttypechecklistV1WithRequestBuilder(pkiExternalbrokerID: pkiExternalbrokerID, body: body, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Synchronize Document type checklist
+     - POST /1/object/externalbroker/{pkiExternalbrokerID}/syncDocumenttypechecklist
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiExternalbrokerID: (path)  
+     - parameter body: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<ExternalbrokerSyncDocumenttypechecklistV1Response> 
+     */
+    open class func externalbrokerSyncDocumenttypechecklistV1WithRequestBuilder(pkiExternalbrokerID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<ExternalbrokerSyncDocumenttypechecklistV1Response> {
+        var localVariablePath = "/1/object/externalbroker/{pkiExternalbrokerID}/syncDocumenttypechecklist"
+        let pkiExternalbrokerIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiExternalbrokerID))"
+        let pkiExternalbrokerIDPostEscape = pkiExternalbrokerIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiExternalbrokerID}", with: pkiExternalbrokerIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<ExternalbrokerSyncDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

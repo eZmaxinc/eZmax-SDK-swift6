@@ -10,23 +10,15 @@ import Foundation
 /** Request for POST /1/object/discussion/improveMessage */
 public struct DiscussionImproveMessageV1Request: Sendable, Codable, Hashable {
 
-    public static let fkiDiscussionIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     public static let tDiscussionMessageRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[\\s\\S]{0,65535}$")
-    /** The unique ID of the Discussion */
-    public var fkiDiscussionID: Int?
-    public var eDiscussionRobot: FieldEDiscussionRobot
     /** The Message of the Discussion */
     public var tDiscussionMessage: String
 
-    public init(fkiDiscussionID: Int? = nil, eDiscussionRobot: FieldEDiscussionRobot, tDiscussionMessage: String) {
-        self.fkiDiscussionID = fkiDiscussionID
-        self.eDiscussionRobot = eDiscussionRobot
+    public init(tDiscussionMessage: String) {
         self.tDiscussionMessage = tDiscussionMessage
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case fkiDiscussionID
-        case eDiscussionRobot
         case tDiscussionMessage
     }
 
@@ -34,8 +26,6 @@ public struct DiscussionImproveMessageV1Request: Sendable, Codable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(fkiDiscussionID, forKey: .fkiDiscussionID)
-        try container.encode(eDiscussionRobot, forKey: .eDiscussionRobot)
         try container.encode(tDiscussionMessage, forKey: .tDiscussionMessage)
     }
 }

@@ -10,8 +10,10 @@ Method | HTTP request | Description
 [**invoiceGetCommunicationListV1**](ObjectInvoiceAPI.md#invoicegetcommunicationlistv1) | **GET** /1/object/invoice/{pkiInvoiceID}/getCommunicationList | Retrieve Communication list
 [**invoiceGetCommunicationrecipientsV1**](ObjectInvoiceAPI.md#invoicegetcommunicationrecipientsv1) | **GET** /1/object/invoice/{pkiInvoiceID}/getCommunicationrecipients | Retrieve Invoice&#39;s Communicationrecipient
 [**invoiceGetCommunicationsendersV1**](ObjectInvoiceAPI.md#invoicegetcommunicationsendersv1) | **GET** /1/object/invoice/{pkiInvoiceID}/getCommunicationsenders | Retrieve Invoice&#39;s Communicationsender
+[**invoiceGetDocumenttypechecklistV1**](ObjectInvoiceAPI.md#invoicegetdocumenttypechecklistv1) | **GET** /1/object/invoice/{pkiInvoiceID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**invoiceGetListV1**](ObjectInvoiceAPI.md#invoicegetlistv1) | **GET** /1/object/invoice/getList | Retrieve Invoice list
 [**invoiceImportIntoEDMV1**](ObjectInvoiceAPI.md#invoiceimportintoedmv1) | **POST** /1/object/invoice/{pkiInvoiceID}/importIntoEDM | Import attachments into the Invoice
+[**invoiceSyncDocumenttypechecklistV1**](ObjectInvoiceAPI.md#invoicesyncdocumenttypechecklistv1) | **POST** /1/object/invoice/{pkiInvoiceID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **invoiceBatchDownloadV1**
@@ -290,6 +292,50 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **invoiceGetDocumenttypechecklistV1**
+```swift
+    open class func invoiceGetDocumenttypechecklistV1(pkiInvoiceID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InvoiceGetDocumenttypechecklistV1Response
+```
+
+Retrieve Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiInvoiceID = 987 // Int | 
+
+// Retrieve Document type checklist
+do {
+    let response = try await ObjectInvoiceAPI.invoiceGetDocumenttypechecklistV1(pkiInvoiceID: pkiInvoiceID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiInvoiceID** | **Int** |  | 
+
+### Return type
+
+[**InvoiceGetDocumenttypechecklistV1Response**](InvoiceGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **invoiceGetListV1**
 ```swift
     open class func invoiceGetListV1(eOrderBy: EOrderBy_invoiceGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InvoiceGetListV1Response
@@ -380,6 +426,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InvoiceImportIntoEDMV1Response**](InvoiceImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **invoiceSyncDocumenttypechecklistV1**
+```swift
+    open class func invoiceSyncDocumenttypechecklistV1(pkiInvoiceID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> InvoiceSyncDocumenttypechecklistV1Response
+```
+
+Synchronize Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiInvoiceID = 987 // Int | 
+let body = "TODO" // JSONValue |  (optional)
+
+// Synchronize Document type checklist
+do {
+    let response = try await ObjectInvoiceAPI.invoiceSyncDocumenttypechecklistV1(pkiInvoiceID: pkiInvoiceID, body: body)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiInvoiceID** | **Int** |  | 
+ **body** | **JSONValue** |  | [optional] 
+
+### Return type
+
+[**InvoiceSyncDocumenttypechecklistV1Response**](InvoiceSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

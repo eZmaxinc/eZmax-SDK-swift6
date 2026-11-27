@@ -10,8 +10,10 @@ Method | HTTP request | Description
 [**notaryGetCommunicationListV1**](ObjectNotaryAPI.md#notarygetcommunicationlistv1) | **GET** /1/object/notary/{pkiNotaryID}/getCommunicationList | Retrieve Communication list
 [**notaryGetCommunicationrecipientsV1**](ObjectNotaryAPI.md#notarygetcommunicationrecipientsv1) | **GET** /1/object/notary/{pkiNotaryID}/getCommunicationrecipients | Retrieve Communication recipients
 [**notaryGetCommunicationsendersV1**](ObjectNotaryAPI.md#notarygetcommunicationsendersv1) | **GET** /1/object/notary/{pkiNotaryID}/getCommunicationsenders | Retrieve Communication senders
+[**notaryGetDocumenttypechecklistV1**](ObjectNotaryAPI.md#notarygetdocumenttypechecklistv1) | **GET** /1/object/notary/{pkiNotaryID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**notaryGetListV1**](ObjectNotaryAPI.md#notarygetlistv1) | **GET** /1/object/notary/getList | Retrieve Notary list
 [**notaryImportIntoEDMV1**](ObjectNotaryAPI.md#notaryimportintoedmv1) | **POST** /1/object/notary/{pkiNotaryID}/importIntoEDM | Import attachments into the Notary
+[**notarySyncDocumenttypechecklistV1**](ObjectNotaryAPI.md#notarysyncdocumenttypechecklistv1) | **POST** /1/object/notary/{pkiNotaryID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **notaryBatchDownloadV1**
@@ -280,6 +282,50 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **notaryGetDocumenttypechecklistV1**
+```swift
+    open class func notaryGetDocumenttypechecklistV1(pkiNotaryID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> NotaryGetDocumenttypechecklistV1Response
+```
+
+Retrieve Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiNotaryID = 987 // Int | 
+
+// Retrieve Document type checklist
+do {
+    let response = try await ObjectNotaryAPI.notaryGetDocumenttypechecklistV1(pkiNotaryID: pkiNotaryID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiNotaryID** | **Int** |  | 
+
+### Return type
+
+[**NotaryGetDocumenttypechecklistV1Response**](NotaryGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **notaryGetListV1**
 ```swift
     open class func notaryGetListV1(eOrderBy: EOrderBy_notaryGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> NotaryGetListV1Response
@@ -368,6 +414,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**NotaryImportIntoEDMV1Response**](NotaryImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **notarySyncDocumenttypechecklistV1**
+```swift
+    open class func notarySyncDocumenttypechecklistV1(pkiNotaryID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> NotarySyncDocumenttypechecklistV1Response
+```
+
+Synchronize Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiNotaryID = 987 // Int | 
+let body = "TODO" // JSONValue |  (optional)
+
+// Synchronize Document type checklist
+do {
+    let response = try await ObjectNotaryAPI.notarySyncDocumenttypechecklistV1(pkiNotaryID: pkiNotaryID, body: body)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiNotaryID** | **Int** |  | 
+ **body** | **JSONValue** |  | [optional] 
+
+### Return type
+
+[**NotarySyncDocumenttypechecklistV1Response**](NotarySyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

@@ -11,8 +11,10 @@ Method | HTTP request | Description
 [**bankaccountGetCommunicationListV1**](ObjectBankaccountAPI.md#bankaccountgetcommunicationlistv1) | **GET** /1/object/bankaccount/{pkiBankaccountID}/getCommunicationList | Retrieve Communication list
 [**bankaccountGetCommunicationrecipientsV1**](ObjectBankaccountAPI.md#bankaccountgetcommunicationrecipientsv1) | **GET** /1/object/bankaccount/{pkiBankaccountID}/getCommunicationrecipients | Retrieve Communication recipients
 [**bankaccountGetCommunicationsendersV1**](ObjectBankaccountAPI.md#bankaccountgetcommunicationsendersv1) | **GET** /1/object/bankaccount/{pkiBankaccountID}/getCommunicationsenders | Retrieve Communication senders
+[**bankaccountGetDocumenttypechecklistV1**](ObjectBankaccountAPI.md#bankaccountgetdocumenttypechecklistv1) | **GET** /1/object/bankaccount/{pkiBankaccountID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**bankaccountGetListV1**](ObjectBankaccountAPI.md#bankaccountgetlistv1) | **GET** /1/object/bankaccount/getList | Retrieve Bankaccount list
 [**bankaccountImportIntoEDMV1**](ObjectBankaccountAPI.md#bankaccountimportintoedmv1) | **POST** /1/object/bankaccount/{pkiBankaccountID}/importIntoEDM | Import attachments into the Bankaccount
+[**bankaccountSyncDocumenttypechecklistV1**](ObjectBankaccountAPI.md#bankaccountsyncdocumenttypechecklistv1) | **POST** /1/object/bankaccount/{pkiBankaccountID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **bankaccountBatchDownloadV1**
@@ -333,6 +335,50 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **bankaccountGetDocumenttypechecklistV1**
+```swift
+    open class func bankaccountGetDocumenttypechecklistV1(pkiBankaccountID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BankaccountGetDocumenttypechecklistV1Response
+```
+
+Retrieve Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiBankaccountID = 987 // Int | 
+
+// Retrieve Document type checklist
+do {
+    let response = try await ObjectBankaccountAPI.bankaccountGetDocumenttypechecklistV1(pkiBankaccountID: pkiBankaccountID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiBankaccountID** | **Int** |  | 
+
+### Return type
+
+[**BankaccountGetDocumenttypechecklistV1Response**](BankaccountGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **bankaccountGetListV1**
 ```swift
     open class func bankaccountGetListV1(eOrderBy: EOrderBy_bankaccountGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BankaccountGetListV1Response
@@ -421,6 +467,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**BankaccountImportIntoEDMV1Response**](BankaccountImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **bankaccountSyncDocumenttypechecklistV1**
+```swift
+    open class func bankaccountSyncDocumenttypechecklistV1(pkiBankaccountID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> BankaccountSyncDocumenttypechecklistV1Response
+```
+
+Synchronize Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiBankaccountID = 987 // Int | 
+let body = "TODO" // JSONValue |  (optional)
+
+// Synchronize Document type checklist
+do {
+    let response = try await ObjectBankaccountAPI.bankaccountSyncDocumenttypechecklistV1(pkiBankaccountID: pkiBankaccountID, body: body)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiBankaccountID** | **Int** |  | 
+ **body** | **JSONValue** |  | [optional] 
+
+### Return type
+
+[**BankaccountSyncDocumenttypechecklistV1Response**](BankaccountSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

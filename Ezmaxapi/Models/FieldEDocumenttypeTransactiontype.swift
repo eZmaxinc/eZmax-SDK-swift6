@@ -7,7 +7,7 @@
 
 import Foundation
 
-/** The transactiontype of the Documenttype */
+/** The transaction type for which the document is applicable */
 public enum FieldEDocumenttypeTransactiontype: String, Sendable, Codable, CaseIterable {
     case all = "All"
     case inscriptor = "Inscriptor"

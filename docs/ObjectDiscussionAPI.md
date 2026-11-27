@@ -204,14 +204,14 @@ Name | Type | Description  | Notes
 
 Improve a message using the AI
 
-Improve a message using the AI.
+The endpoint allows to improve a discussion message using the AI.
 
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import EzmaxApi
 
-let discussionImproveMessageV1Request = discussion-improveMessage-v1-Request(fkiDiscussionID: 123, eDiscussionRobot: Field-eDiscussionRobot(), tDiscussionMessage: "tDiscussionMessage_example") // DiscussionImproveMessageV1Request | 
+let discussionImproveMessageV1Request = discussion-improveMessage-v1-Request(tDiscussionMessage: "tDiscussionMessage_example") // DiscussionImproveMessageV1Request | 
 
 // Improve a message using the AI
 do {

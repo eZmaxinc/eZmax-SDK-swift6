@@ -10,8 +10,10 @@ Method | HTTP request | Description
 [**rejectedoffertopurchaseGetCommunicationListV1**](ObjectRejectedoffertopurchaseAPI.md#rejectedoffertopurchasegetcommunicationlistv1) | **GET** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getCommunicationList | Retrieve Communication list
 [**rejectedoffertopurchaseGetCommunicationrecipientsV1**](ObjectRejectedoffertopurchaseAPI.md#rejectedoffertopurchasegetcommunicationrecipientsv1) | **GET** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getCommunicationrecipients | Retrieve Rejectedoffertopurchase&#39;s Communicationrecipient
 [**rejectedoffertopurchaseGetCommunicationsendersV1**](ObjectRejectedoffertopurchaseAPI.md#rejectedoffertopurchasegetcommunicationsendersv1) | **GET** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getCommunicationsenders | Retrieve Rejectedoffertopurchase&#39;s Communicationsender
+[**rejectedoffertopurchaseGetDocumenttypechecklistV1**](ObjectRejectedoffertopurchaseAPI.md#rejectedoffertopurchasegetdocumenttypechecklistv1) | **GET** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**rejectedoffertopurchaseGetListV1**](ObjectRejectedoffertopurchaseAPI.md#rejectedoffertopurchasegetlistv1) | **GET** /1/object/rejectedoffertopurchase/getList | Retrieve Rejectedoffertopurchase list
 [**rejectedoffertopurchaseImportIntoEDMV1**](ObjectRejectedoffertopurchaseAPI.md#rejectedoffertopurchaseimportintoedmv1) | **POST** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/importIntoEDM | Import attachments into the Rejectedoffertopurchase
+[**rejectedoffertopurchaseSyncDocumenttypechecklistV1**](ObjectRejectedoffertopurchaseAPI.md#rejectedoffertopurchasesyncdocumenttypechecklistv1) | **POST** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **rejectedoffertopurchaseBatchDownloadV1**
@@ -288,6 +290,50 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **rejectedoffertopurchaseGetDocumenttypechecklistV1**
+```swift
+    open class func rejectedoffertopurchaseGetDocumenttypechecklistV1(pkiRejectedoffertopurchaseID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> RejectedoffertopurchaseGetDocumenttypechecklistV1Response
+```
+
+Retrieve Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiRejectedoffertopurchaseID = 987 // Int | 
+
+// Retrieve Document type checklist
+do {
+    let response = try await ObjectRejectedoffertopurchaseAPI.rejectedoffertopurchaseGetDocumenttypechecklistV1(pkiRejectedoffertopurchaseID: pkiRejectedoffertopurchaseID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiRejectedoffertopurchaseID** | **Int** |  | 
+
+### Return type
+
+[**RejectedoffertopurchaseGetDocumenttypechecklistV1Response**](RejectedoffertopurchaseGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **rejectedoffertopurchaseGetListV1**
 ```swift
     open class func rejectedoffertopurchaseGetListV1(eOrderBy: EOrderBy_rejectedoffertopurchaseGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> RejectedoffertopurchaseGetListV1Response
@@ -378,6 +424,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**RejectedoffertopurchaseImportIntoEDMV1Response**](RejectedoffertopurchaseImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rejectedoffertopurchaseSyncDocumenttypechecklistV1**
+```swift
+    open class func rejectedoffertopurchaseSyncDocumenttypechecklistV1(pkiRejectedoffertopurchaseID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> RejectedoffertopurchaseSyncDocumenttypechecklistV1Response
+```
+
+Synchronize Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiRejectedoffertopurchaseID = 987 // Int | 
+let body = "TODO" // JSONValue |  (optional)
+
+// Synchronize Document type checklist
+do {
+    let response = try await ObjectRejectedoffertopurchaseAPI.rejectedoffertopurchaseSyncDocumenttypechecklistV1(pkiRejectedoffertopurchaseID: pkiRejectedoffertopurchaseID, body: body)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiRejectedoffertopurchaseID** | **Int** |  | 
+ **body** | **JSONValue** |  | [optional] 
+
+### Return type
+
+[**RejectedoffertopurchaseSyncDocumenttypechecklistV1Response**](RejectedoffertopurchaseSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

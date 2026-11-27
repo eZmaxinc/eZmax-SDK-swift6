@@ -4,7 +4,7 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ezmaxpartnerSubscribeV1**](ExternalEzmaxpartnerAPI.md#ezmaxpartnersubscribev1) | **POST** /1/external/ezmaxpartner/subscribe | Subscribe to an Ezmaxparnerproductstage
+[**ezmaxpartnerSubscribeV1**](ExternalEzmaxpartnerAPI.md#ezmaxpartnersubscribev1) | **POST** /1/external/ezmaxpartner/subscribe | Subscribe to an Ezmaxpartnerproductstage
 
 
 # **ezmaxpartnerSubscribeV1**
@@ -12,9 +12,9 @@ Method | HTTP request | Description
     open class func ezmaxpartnerSubscribeV1(ezmaxpartnerSubscribeV1Request: EzmaxpartnerSubscribeV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> EzmaxpartnerSubscribeV1Response
 ```
 
-Subscribe to an Ezmaxparnerproductstage
+Subscribe to an Ezmaxpartnerproductstage
 
-Subscribe to an Ezmaxparnerproductstage
+Subscribe to an Ezmaxpartnerproductstage
 
 ### Example
 ```swift
@@ -23,7 +23,7 @@ import EzmaxApi
 
 let ezmaxpartnerSubscribeV1Request = ezmaxpartner-subscribe-v1-Request(pksEzmaxcustomerCode: "pksEzmaxcustomerCode_example", sInfrastructureenvironmenttypeDescription: "sInfrastructureenvironmenttypeDescription_example", sCompanyName1: "sCompanyName1_example", sCompanyName2: "sCompanyName2_example", fkiSystemconfigurationtypeID: 123, sSystemconfigurationtypeDescription1: "sSystemconfigurationtypeDescription1_example", sSystemconfigurationtypeDescription2: "sSystemconfigurationtypeDescription2_example", fkiEzmaxpartnerID: 123, sEzmaxpartnerName1: "sEzmaxpartnerName1_example", sEzmaxpartnerName2: "sEzmaxpartnerName2_example", fkiEzmaxpartnerproductID: 123, sEzmaxpartnerproductName1: "sEzmaxpartnerproductName1_example", sEzmaxpartnerproductName2: "sEzmaxpartnerproductName2_example", fkiEzmaxpartnerproductstageID: 123, sEzmaxpartnerproductstageCode: "sEzmaxpartnerproductstageCode_example", sUserLoginName: "sUserLoginName_example", sUserFirstName: "sUserFirstName_example", sUserLastName: "sUserLastName_example", fkiUserID: 123, fkiLanguageID: 123, objAddress: address-RequestCompound(pkiAddressID: 123, fkiAddresstypeID: 123, sAddressCivic: "sAddressCivic_example", sAddressStreet: "sAddressStreet_example", sAddressSuite: "sAddressSuite_example", sAddressCity: "sAddressCity_example", fkiProvinceID: 123, fkiCountryID: 123, sAddressZip: "sAddressZip_example", fAddressLongitude: "fAddressLongitude_example", fAddressLatitude: "fAddressLatitude_example"), objphone: phone-RequestCompoundV2(pkiPhoneID: 123, fkiPhonetypeID: 123, sPhoneExtension: "sPhoneExtension_example", sPhoneE164: "sPhoneE164_example"), objEmail: email-RequestCompound(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example")) // EzmaxpartnerSubscribeV1Request | 
 
-// Subscribe to an Ezmaxparnerproductstage
+// Subscribe to an Ezmaxpartnerproductstage
 do {
     let response = try await ExternalEzmaxpartnerAPI.ezmaxpartnerSubscribeV1(ezmaxpartnerSubscribeV1Request: ezmaxpartnerSubscribeV1Request)
     dump(response)

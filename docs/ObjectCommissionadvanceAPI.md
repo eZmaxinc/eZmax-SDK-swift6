@@ -10,7 +10,9 @@ Method | HTTP request | Description
 [**commissionadvanceGetCommunicationListV1**](ObjectCommissionadvanceAPI.md#commissionadvancegetcommunicationlistv1) | **GET** /1/object/commissionadvance/{pkiCommissionadvanceID}/getCommunicationList | Retrieve Communication list
 [**commissionadvanceGetCommunicationrecipientsV1**](ObjectCommissionadvanceAPI.md#commissionadvancegetcommunicationrecipientsv1) | **GET** /1/object/commissionadvance/{pkiCommissionadvanceID}/getCommunicationrecipients | Retrieve Communication recipients
 [**commissionadvanceGetCommunicationsendersV1**](ObjectCommissionadvanceAPI.md#commissionadvancegetcommunicationsendersv1) | **GET** /1/object/commissionadvance/{pkiCommissionadvanceID}/getCommunicationsenders | Retrieve Communication senders
+[**commissionadvanceGetDocumenttypechecklistV1**](ObjectCommissionadvanceAPI.md#commissionadvancegetdocumenttypechecklistv1) | **GET** /1/object/commissionadvance/{pkiCommissionadvanceID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**commissionadvanceImportIntoEDMV1**](ObjectCommissionadvanceAPI.md#commissionadvanceimportintoedmv1) | **POST** /1/object/commissionadvance/{pkiCommissionadvanceID}/importIntoEDM | Import attachments into the Commissionadvance
+[**commissionadvanceSyncDocumenttypechecklistV1**](ObjectCommissionadvanceAPI.md#commissionadvancesyncdocumenttypechecklistv1) | **POST** /1/object/commissionadvance/{pkiCommissionadvanceID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **commissionadvanceBatchDownloadV1**
@@ -279,6 +281,50 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **commissionadvanceGetDocumenttypechecklistV1**
+```swift
+    open class func commissionadvanceGetDocumenttypechecklistV1(pkiCommissionadvanceID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CommissionadvanceGetDocumenttypechecklistV1Response
+```
+
+Retrieve Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiCommissionadvanceID = 987 // Int | 
+
+// Retrieve Document type checklist
+do {
+    let response = try await ObjectCommissionadvanceAPI.commissionadvanceGetDocumenttypechecklistV1(pkiCommissionadvanceID: pkiCommissionadvanceID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiCommissionadvanceID** | **Int** |  | 
+
+### Return type
+
+[**CommissionadvanceGetDocumenttypechecklistV1Response**](CommissionadvanceGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **commissionadvanceImportIntoEDMV1**
 ```swift
     open class func commissionadvanceImportIntoEDMV1(pkiCommissionadvanceID: Int, commissionadvanceImportIntoEDMV1Request: CommissionadvanceImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CommissionadvanceImportIntoEDMV1Response
@@ -313,6 +359,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CommissionadvanceImportIntoEDMV1Response**](CommissionadvanceImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **commissionadvanceSyncDocumenttypechecklistV1**
+```swift
+    open class func commissionadvanceSyncDocumenttypechecklistV1(pkiCommissionadvanceID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> CommissionadvanceSyncDocumenttypechecklistV1Response
+```
+
+Synchronize Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiCommissionadvanceID = 987 // Int | 
+let body = "TODO" // JSONValue |  (optional)
+
+// Synchronize Document type checklist
+do {
+    let response = try await ObjectCommissionadvanceAPI.commissionadvanceSyncDocumenttypechecklistV1(pkiCommissionadvanceID: pkiCommissionadvanceID, body: body)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiCommissionadvanceID** | **Int** |  | 
+ **body** | **JSONValue** |  | [optional] 
+
+### Return type
+
+[**CommissionadvanceSyncDocumenttypechecklistV1Response**](CommissionadvanceSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

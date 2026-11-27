@@ -22,7 +22,7 @@ public struct AttachmentlogResponse: Sendable, Codable, Hashable {
     /** The created date */
     public var dtAttachmentlogDatetime: String
     public var eAttachmentlogType: FieldEAttachmentlogType
-    /** The additionnal detail */
+    /** The additional detail for the Attachmentlog */
     public var sAttachmentlogDetail: String?
 
     public init(fkiAttachmentID: Int, fkiUserID: Int, objUser: CustomUserNameResponse, dtAttachmentlogDatetime: String, eAttachmentlogType: FieldEAttachmentlogType, sAttachmentlogDetail: String? = nil) {

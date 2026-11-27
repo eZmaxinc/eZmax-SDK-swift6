@@ -7,7 +7,7 @@
 
 import Foundation
 
-/** The saledisplaybyrole of the Documenttype */
+/** The role that determines document display in sale transactions */
 public enum FieldEDocumenttypeSaledisplaybyrole: String, Sendable, Codable, CaseIterable {
     case inscriptorSeller = "InscriptorSeller"
     case inscriptor = "Inscriptor"

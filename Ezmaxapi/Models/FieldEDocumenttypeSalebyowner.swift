@@ -7,7 +7,7 @@
 
 import Foundation
 
-/** The salebyowner of the Documenttype */
+/** Whether the document type applies to sale by owner transactions */
 public enum FieldEDocumenttypeSalebyowner: String, Sendable, Codable, CaseIterable {
     case all = "All"
     case yes = "Yes"

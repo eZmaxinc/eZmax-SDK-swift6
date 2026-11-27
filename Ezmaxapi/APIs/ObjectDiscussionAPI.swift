@@ -189,7 +189,7 @@ open class ObjectDiscussionAPI {
     /**
      Improve a message using the AI
      - POST /1/object/discussion/improveMessage
-     - Improve a message using the AI.
+     - The endpoint allows to improve a discussion message using the AI.
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization

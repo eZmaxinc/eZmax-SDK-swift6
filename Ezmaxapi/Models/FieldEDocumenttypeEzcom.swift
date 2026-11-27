@@ -7,7 +7,7 @@
 
 import Foundation
 
-/** The ezcom of the Documenttype */
+/** The ezcom document type category */
 public enum FieldEDocumenttypeEzcom: String, Sendable, Codable, CaseIterable {
     case promiseToPurchase = "PromiseToPurchase"
     case annex = "Annex"

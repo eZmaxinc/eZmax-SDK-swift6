@@ -10,8 +10,10 @@ Method | HTTP request | Description
 [**depositGetCommunicationListV1**](ObjectDepositAPI.md#depositgetcommunicationlistv1) | **GET** /1/object/deposit/{pkiDepositID}/getCommunicationList | Retrieve Communication list
 [**depositGetCommunicationrecipientsV1**](ObjectDepositAPI.md#depositgetcommunicationrecipientsv1) | **GET** /1/object/deposit/{pkiDepositID}/getCommunicationrecipients | Retrieve Communication recipients
 [**depositGetCommunicationsendersV1**](ObjectDepositAPI.md#depositgetcommunicationsendersv1) | **GET** /1/object/deposit/{pkiDepositID}/getCommunicationsenders | Retrieve Communication senders
+[**depositGetDocumenttypechecklistV1**](ObjectDepositAPI.md#depositgetdocumenttypechecklistv1) | **GET** /1/object/deposit/{pkiDepositID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**depositGetListV1**](ObjectDepositAPI.md#depositgetlistv1) | **GET** /1/object/deposit/getList | Retrieve Deposit list
 [**depositImportIntoEDMV1**](ObjectDepositAPI.md#depositimportintoedmv1) | **POST** /1/object/deposit/{pkiDepositID}/importIntoEDM | Import attachments into the Deposit
+[**depositSyncDocumenttypechecklistV1**](ObjectDepositAPI.md#depositsyncdocumenttypechecklistv1) | **POST** /1/object/deposit/{pkiDepositID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **depositBatchDownloadV1**
@@ -280,6 +282,50 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **depositGetDocumenttypechecklistV1**
+```swift
+    open class func depositGetDocumenttypechecklistV1(pkiDepositID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DepositGetDocumenttypechecklistV1Response
+```
+
+Retrieve Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiDepositID = 987 // Int | 
+
+// Retrieve Document type checklist
+do {
+    let response = try await ObjectDepositAPI.depositGetDocumenttypechecklistV1(pkiDepositID: pkiDepositID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiDepositID** | **Int** |  | 
+
+### Return type
+
+[**DepositGetDocumenttypechecklistV1Response**](DepositGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **depositGetListV1**
 ```swift
     open class func depositGetListV1(eOrderBy: EOrderBy_depositGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DepositGetListV1Response
@@ -368,6 +414,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DepositImportIntoEDMV1Response**](DepositImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **depositSyncDocumenttypechecklistV1**
+```swift
+    open class func depositSyncDocumenttypechecklistV1(pkiDepositID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DepositSyncDocumenttypechecklistV1Response
+```
+
+Synchronize Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiDepositID = 987 // Int | 
+let body = "TODO" // JSONValue |  (optional)
+
+// Synchronize Document type checklist
+do {
+    let response = try await ObjectDepositAPI.depositSyncDocumenttypechecklistV1(pkiDepositID: pkiDepositID, body: body)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiDepositID** | **Int** |  | 
+ **body** | **JSONValue** |  | [optional] 
+
+### Return type
+
+[**DepositSyncDocumenttypechecklistV1Response**](DepositSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

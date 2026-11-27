@@ -10,8 +10,10 @@ Method | HTTP request | Description
 [**otherincomeGetCommunicationListV1**](ObjectOtherincomeAPI.md#otherincomegetcommunicationlistv1) | **GET** /1/object/otherincome/{pkiOtherincomeID}/getCommunicationList | Retrieve Communication list
 [**otherincomeGetCommunicationrecipientsV1**](ObjectOtherincomeAPI.md#otherincomegetcommunicationrecipientsv1) | **GET** /1/object/otherincome/{pkiOtherincomeID}/getCommunicationrecipients | Retrieve Otherincome&#39;s Communicationrecipient
 [**otherincomeGetCommunicationsendersV1**](ObjectOtherincomeAPI.md#otherincomegetcommunicationsendersv1) | **GET** /1/object/otherincome/{pkiOtherincomeID}/getCommunicationsenders | Retrieve Otherincome&#39;s Communicationsender
+[**otherincomeGetDocumenttypechecklistV1**](ObjectOtherincomeAPI.md#otherincomegetdocumenttypechecklistv1) | **GET** /1/object/otherincome/{pkiOtherincomeID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**otherincomeGetListV1**](ObjectOtherincomeAPI.md#otherincomegetlistv1) | **GET** /1/object/otherincome/getList | Retrieve Otherincome list
 [**otherincomeImportIntoEDMV1**](ObjectOtherincomeAPI.md#otherincomeimportintoedmv1) | **POST** /1/object/otherincome/{pkiOtherincomeID}/importIntoEDM | Import attachments into the Otherincome
+[**otherincomeSyncDocumenttypechecklistV1**](ObjectOtherincomeAPI.md#otherincomesyncdocumenttypechecklistv1) | **POST** /1/object/otherincome/{pkiOtherincomeID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **otherincomeBatchDownloadV1**
@@ -288,6 +290,50 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **otherincomeGetDocumenttypechecklistV1**
+```swift
+    open class func otherincomeGetDocumenttypechecklistV1(pkiOtherincomeID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> OtherincomeGetDocumenttypechecklistV1Response
+```
+
+Retrieve Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiOtherincomeID = 987 // Int | 
+
+// Retrieve Document type checklist
+do {
+    let response = try await ObjectOtherincomeAPI.otherincomeGetDocumenttypechecklistV1(pkiOtherincomeID: pkiOtherincomeID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiOtherincomeID** | **Int** |  | 
+
+### Return type
+
+[**OtherincomeGetDocumenttypechecklistV1Response**](OtherincomeGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **otherincomeGetListV1**
 ```swift
     open class func otherincomeGetListV1(eOrderBy: EOrderBy_otherincomeGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> OtherincomeGetListV1Response
@@ -378,6 +424,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**OtherincomeImportIntoEDMV1Response**](OtherincomeImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otherincomeSyncDocumenttypechecklistV1**
+```swift
+    open class func otherincomeSyncDocumenttypechecklistV1(pkiOtherincomeID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> OtherincomeSyncDocumenttypechecklistV1Response
+```
+
+Synchronize Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiOtherincomeID = 987 // Int | 
+let body = "TODO" // JSONValue |  (optional)
+
+// Synchronize Document type checklist
+do {
+    let response = try await ObjectOtherincomeAPI.otherincomeSyncDocumenttypechecklistV1(pkiOtherincomeID: pkiOtherincomeID, body: body)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiOtherincomeID** | **Int** |  | 
+ **body** | **JSONValue** |  | [optional] 
+
+### Return type
+
+[**OtherincomeSyncDocumenttypechecklistV1Response**](OtherincomeSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

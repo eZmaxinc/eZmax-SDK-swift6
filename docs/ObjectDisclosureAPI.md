@@ -10,8 +10,10 @@ Method | HTTP request | Description
 [**disclosureGetCommunicationListV1**](ObjectDisclosureAPI.md#disclosuregetcommunicationlistv1) | **GET** /1/object/disclosure/{pkiDisclosureID}/getCommunicationList | Retrieve Communication list
 [**disclosureGetCommunicationrecipientsV1**](ObjectDisclosureAPI.md#disclosuregetcommunicationrecipientsv1) | **GET** /1/object/disclosure/{pkiDisclosureID}/getCommunicationrecipients | Retrieve Communication recipients
 [**disclosureGetCommunicationsendersV1**](ObjectDisclosureAPI.md#disclosuregetcommunicationsendersv1) | **GET** /1/object/disclosure/{pkiDisclosureID}/getCommunicationsenders | Retrieve Communication senders
+[**disclosureGetDocumenttypechecklistV1**](ObjectDisclosureAPI.md#disclosuregetdocumenttypechecklistv1) | **GET** /1/object/disclosure/{pkiDisclosureID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**disclosureGetListV1**](ObjectDisclosureAPI.md#disclosuregetlistv1) | **GET** /1/object/disclosure/getList | Retrieve Disclosure list
 [**disclosureImportIntoEDMV1**](ObjectDisclosureAPI.md#disclosureimportintoedmv1) | **POST** /1/object/disclosure/{pkiDisclosureID}/importIntoEDM | Import attachments into the Disclosure
+[**disclosureSyncDocumenttypechecklistV1**](ObjectDisclosureAPI.md#disclosuresyncdocumenttypechecklistv1) | **POST** /1/object/disclosure/{pkiDisclosureID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **disclosureBatchDownloadV1**
@@ -280,6 +282,50 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **disclosureGetDocumenttypechecklistV1**
+```swift
+    open class func disclosureGetDocumenttypechecklistV1(pkiDisclosureID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DisclosureGetDocumenttypechecklistV1Response
+```
+
+Retrieve Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiDisclosureID = 987 // Int | 
+
+// Retrieve Document type checklist
+do {
+    let response = try await ObjectDisclosureAPI.disclosureGetDocumenttypechecklistV1(pkiDisclosureID: pkiDisclosureID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiDisclosureID** | **Int** |  | 
+
+### Return type
+
+[**DisclosureGetDocumenttypechecklistV1Response**](DisclosureGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **disclosureGetListV1**
 ```swift
     open class func disclosureGetListV1(eOrderBy: EOrderBy_disclosureGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DisclosureGetListV1Response
@@ -368,6 +414,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DisclosureImportIntoEDMV1Response**](DisclosureImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **disclosureSyncDocumenttypechecklistV1**
+```swift
+    open class func disclosureSyncDocumenttypechecklistV1(pkiDisclosureID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> DisclosureSyncDocumenttypechecklistV1Response
+```
+
+Synchronize Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiDisclosureID = 987 // Int | 
+let body = "TODO" // JSONValue |  (optional)
+
+// Synchronize Document type checklist
+do {
+    let response = try await ObjectDisclosureAPI.disclosureSyncDocumenttypechecklistV1(pkiDisclosureID: pkiDisclosureID, body: body)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiDisclosureID** | **Int** |  | 
+ **body** | **JSONValue** |  | [optional] 
+
+### Return type
+
+[**DisclosureSyncDocumenttypechecklistV1Response**](DisclosureSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

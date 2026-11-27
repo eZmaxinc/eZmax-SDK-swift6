@@ -7,25 +7,26 @@
 
 import Foundation
 
-/** Payload for POST /1/object/discussion */
+/** Payload for POST /1/object/discussion/improveMessage */
 public struct DiscussionImproveMessageV1ResponseMPayload: Sendable, Codable, Hashable {
 
-    /** An array of unique IDs representing the object that were requested to be created.  They are returned in the same order as the array containing the objects to be created that was sent in the request. */
-    public var aPkiDiscussionID: [Int]
+    public static let tDiscussionMessageRule = StringRule(minLength: nil, maxLength: nil, pattern: "^[\\s\\S]{0,65535}$")
+    /** The Message of the Discussion */
+    public var tDiscussionMessage: String
 
-    public init(aPkiDiscussionID: [Int]) {
-        self.aPkiDiscussionID = aPkiDiscussionID
+    public init(tDiscussionMessage: String) {
+        self.tDiscussionMessage = tDiscussionMessage
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case aPkiDiscussionID = "a_pkiDiscussionID"
+        case tDiscussionMessage
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(aPkiDiscussionID, forKey: .aPkiDiscussionID)
+        try container.encode(tDiscussionMessage, forKey: .tDiscussionMessage)
     }
 }
 

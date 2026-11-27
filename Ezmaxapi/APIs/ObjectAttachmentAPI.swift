@@ -24,7 +24,7 @@ open class ObjectAttachmentAPI {
     /**
      Delete an existing attachment
      - POST /1/object/attachment/{pkiAttachmentID}/delete
-     - Te endpoint allows to delete an attachment.
+     - The endpoint allows to delete an attachment.
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
@@ -203,7 +203,7 @@ open class ObjectAttachmentAPI {
     /**
      Restore a deleted attachment
      - POST /1/object/attachment/{pkiAttachmentID}/restore
-     - The endpoints allows to restore a previously deleted attachment.
+     - The endpoint allows to restore a previously deleted attachment.
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
@@ -248,7 +248,7 @@ open class ObjectAttachmentAPI {
     /**
      Change attachment document type
      - POST /1/object/attachment/{pkiAttachmentID}/setDocumentType
-     - The endpoint allows to change the checklist document type for an attachment.
+     - The endpoint allows to change the document type for an attachment.
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization

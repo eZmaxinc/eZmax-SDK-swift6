@@ -10,8 +10,10 @@ Method | HTTP request | Description
 [**adjustmentGetCommunicationListV1**](ObjectAdjustmentAPI.md#adjustmentgetcommunicationlistv1) | **GET** /1/object/adjustment/{pkiAdjustmentID}/getCommunicationList | Retrieve Communication list
 [**adjustmentGetCommunicationrecipientsV1**](ObjectAdjustmentAPI.md#adjustmentgetcommunicationrecipientsv1) | **GET** /1/object/adjustment/{pkiAdjustmentID}/getCommunicationrecipients | Retrieve Communication recipients
 [**adjustmentGetCommunicationsendersV1**](ObjectAdjustmentAPI.md#adjustmentgetcommunicationsendersv1) | **GET** /1/object/adjustment/{pkiAdjustmentID}/getCommunicationsenders | Retrieve Communication senders
+[**adjustmentGetDocumenttypechecklistV1**](ObjectAdjustmentAPI.md#adjustmentgetdocumenttypechecklistv1) | **GET** /1/object/adjustment/{pkiAdjustmentID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**adjustmentGetListV1**](ObjectAdjustmentAPI.md#adjustmentgetlistv1) | **GET** /1/object/adjustment/getList | Retrieve Adjustment list
 [**adjustmentImportIntoEDMV1**](ObjectAdjustmentAPI.md#adjustmentimportintoedmv1) | **POST** /1/object/adjustment/{pkiAdjustmentID}/importIntoEDM | Import attachments into the Adjustment
+[**adjustmentSyncDocumenttypechecklistV1**](ObjectAdjustmentAPI.md#adjustmentsyncdocumenttypechecklistv1) | **POST** /1/object/adjustment/{pkiAdjustmentID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **adjustmentBatchDownloadV1**
@@ -280,6 +282,50 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **adjustmentGetDocumenttypechecklistV1**
+```swift
+    open class func adjustmentGetDocumenttypechecklistV1(pkiAdjustmentID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AdjustmentGetDocumenttypechecklistV1Response
+```
+
+Retrieve Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiAdjustmentID = 987 // Int | 
+
+// Retrieve Document type checklist
+do {
+    let response = try await ObjectAdjustmentAPI.adjustmentGetDocumenttypechecklistV1(pkiAdjustmentID: pkiAdjustmentID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiAdjustmentID** | **Int** |  | 
+
+### Return type
+
+[**AdjustmentGetDocumenttypechecklistV1Response**](AdjustmentGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **adjustmentGetListV1**
 ```swift
     open class func adjustmentGetListV1(eOrderBy: EOrderBy_adjustmentGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AdjustmentGetListV1Response
@@ -368,6 +414,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AdjustmentImportIntoEDMV1Response**](AdjustmentImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **adjustmentSyncDocumenttypechecklistV1**
+```swift
+    open class func adjustmentSyncDocumenttypechecklistV1(pkiAdjustmentID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> AdjustmentSyncDocumenttypechecklistV1Response
+```
+
+Synchronize Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiAdjustmentID = 987 // Int | 
+let body = "TODO" // JSONValue |  (optional)
+
+// Synchronize Document type checklist
+do {
+    let response = try await ObjectAdjustmentAPI.adjustmentSyncDocumenttypechecklistV1(pkiAdjustmentID: pkiAdjustmentID, body: body)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiAdjustmentID** | **Int** |  | 
+ **body** | **JSONValue** |  | [optional] 
+
+### Return type
+
+[**AdjustmentSyncDocumenttypechecklistV1Response**](AdjustmentSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

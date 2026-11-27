@@ -10,7 +10,7 @@ import Foundation
 open class ExternalEzmaxpartnerAPI {
 
     /**
-     Subscribe to an Ezmaxparnerproductstage
+     Subscribe to an Ezmaxpartnerproductstage
      
      - parameter ezmaxpartnerSubscribeV1Request: (body)  
      - parameter apiConfiguration: The configuration for the http request.
@@ -21,9 +21,9 @@ open class ExternalEzmaxpartnerAPI {
     }
 
     /**
-     Subscribe to an Ezmaxparnerproductstage
+     Subscribe to an Ezmaxpartnerproductstage
      - POST /1/external/ezmaxpartner/subscribe
-     - Subscribe to an Ezmaxparnerproductstage
+     - Subscribe to an Ezmaxpartnerproductstage
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization

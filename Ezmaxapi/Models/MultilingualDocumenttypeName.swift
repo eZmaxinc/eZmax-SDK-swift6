@@ -12,9 +12,9 @@ public struct MultilingualDocumenttypeName: Sendable, Codable, Hashable {
 
     public static let sDocumenttypeName1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
     public static let sDocumenttypeName2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "^.{0,50}$")
-    /** The name1 of the Documenttype */
+    /** The name of the document type in French */
     public var sDocumenttypeName1: String?
-    /** The name2 of the Documenttype */
+    /** The name of the document type in English */
     public var sDocumenttypeName2: String?
 
     public init(sDocumenttypeName1: String? = nil, sDocumenttypeName2: String? = nil) {

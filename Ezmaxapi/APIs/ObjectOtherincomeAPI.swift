@@ -268,6 +268,48 @@ open class ObjectOtherincomeAPI {
     }
 
     /**
+     Retrieve Document type checklist
+     
+     - parameter pkiOtherincomeID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: OtherincomeGetDocumenttypechecklistV1Response
+     */
+    open class func otherincomeGetDocumenttypechecklistV1(pkiOtherincomeID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> OtherincomeGetDocumenttypechecklistV1Response {
+        return try await otherincomeGetDocumenttypechecklistV1WithRequestBuilder(pkiOtherincomeID: pkiOtherincomeID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Document type checklist
+     - GET /1/object/otherincome/{pkiOtherincomeID}/getDocumenttypechecklist
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiOtherincomeID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<OtherincomeGetDocumenttypechecklistV1Response> 
+     */
+    open class func otherincomeGetDocumenttypechecklistV1WithRequestBuilder(pkiOtherincomeID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<OtherincomeGetDocumenttypechecklistV1Response> {
+        var localVariablePath = "/1/object/otherincome/{pkiOtherincomeID}/getDocumenttypechecklist"
+        let pkiOtherincomeIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiOtherincomeID))"
+        let pkiOtherincomeIDPostEscape = pkiOtherincomeIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiOtherincomeID}", with: pkiOtherincomeIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<OtherincomeGetDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
      * enum for parameter eOrderBy
      */
     public enum EOrderBy_otherincomeGetListV1: String, Sendable, CaseIterable {
@@ -389,6 +431,50 @@ open class ObjectOtherincomeAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<OtherincomeImportIntoEDMV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Synchronize Document type checklist
+     
+     - parameter pkiOtherincomeID: (path)  
+     - parameter body: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: OtherincomeSyncDocumenttypechecklistV1Response
+     */
+    open class func otherincomeSyncDocumenttypechecklistV1(pkiOtherincomeID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> OtherincomeSyncDocumenttypechecklistV1Response {
+        return try await otherincomeSyncDocumenttypechecklistV1WithRequestBuilder(pkiOtherincomeID: pkiOtherincomeID, body: body, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Synchronize Document type checklist
+     - POST /1/object/otherincome/{pkiOtherincomeID}/syncDocumenttypechecklist
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiOtherincomeID: (path)  
+     - parameter body: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<OtherincomeSyncDocumenttypechecklistV1Response> 
+     */
+    open class func otherincomeSyncDocumenttypechecklistV1WithRequestBuilder(pkiOtherincomeID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<OtherincomeSyncDocumenttypechecklistV1Response> {
+        var localVariablePath = "/1/object/otherincome/{pkiOtherincomeID}/syncDocumenttypechecklist"
+        let pkiOtherincomeIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiOtherincomeID))"
+        let pkiOtherincomeIDPostEscape = pkiOtherincomeIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiOtherincomeID}", with: pkiOtherincomeIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<OtherincomeSyncDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

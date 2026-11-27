@@ -264,6 +264,48 @@ open class ObjectOfficetaxreportAPI {
     }
 
     /**
+     Retrieve Document type checklist
+     
+     - parameter pkiOfficetaxreportID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: OfficetaxreportGetDocumenttypechecklistV1Response
+     */
+    open class func officetaxreportGetDocumenttypechecklistV1(pkiOfficetaxreportID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> OfficetaxreportGetDocumenttypechecklistV1Response {
+        return try await officetaxreportGetDocumenttypechecklistV1WithRequestBuilder(pkiOfficetaxreportID: pkiOfficetaxreportID, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Retrieve Document type checklist
+     - GET /1/object/officetaxreport/{pkiOfficetaxreportID}/getDocumenttypechecklist
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiOfficetaxreportID: (path)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<OfficetaxreportGetDocumenttypechecklistV1Response> 
+     */
+    open class func officetaxreportGetDocumenttypechecklistV1WithRequestBuilder(pkiOfficetaxreportID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<OfficetaxreportGetDocumenttypechecklistV1Response> {
+        var localVariablePath = "/1/object/officetaxreport/{pkiOfficetaxreportID}/getDocumenttypechecklist"
+        let pkiOfficetaxreportIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiOfficetaxreportID))"
+        let pkiOfficetaxreportIDPostEscape = pkiOfficetaxreportIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiOfficetaxreportID}", with: pkiOfficetaxreportIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<OfficetaxreportGetDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
      * enum for parameter eOrderBy
      */
     public enum EOrderBy_officetaxreportGetListV1: String, Sendable, CaseIterable {
@@ -374,6 +416,50 @@ open class ObjectOfficetaxreportAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<OfficetaxreportImportIntoEDMV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Synchronize Document type checklist
+     
+     - parameter pkiOfficetaxreportID: (path)  
+     - parameter body: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: OfficetaxreportSyncDocumenttypechecklistV1Response
+     */
+    open class func officetaxreportSyncDocumenttypechecklistV1(pkiOfficetaxreportID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> OfficetaxreportSyncDocumenttypechecklistV1Response {
+        return try await officetaxreportSyncDocumenttypechecklistV1WithRequestBuilder(pkiOfficetaxreportID: pkiOfficetaxreportID, body: body, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Synchronize Document type checklist
+     - POST /1/object/officetaxreport/{pkiOfficetaxreportID}/syncDocumenttypechecklist
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiOfficetaxreportID: (path)  
+     - parameter body: (body)  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<OfficetaxreportSyncDocumenttypechecklistV1Response> 
+     */
+    open class func officetaxreportSyncDocumenttypechecklistV1WithRequestBuilder(pkiOfficetaxreportID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) -> RequestBuilder<OfficetaxreportSyncDocumenttypechecklistV1Response> {
+        var localVariablePath = "/1/object/officetaxreport/{pkiOfficetaxreportID}/syncDocumenttypechecklist"
+        let pkiOfficetaxreportIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiOfficetaxreportID))"
+        let pkiOfficetaxreportIDPostEscape = pkiOfficetaxreportIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiOfficetaxreportID}", with: pkiOfficetaxreportIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<OfficetaxreportSyncDocumenttypechecklistV1Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

@@ -10,7 +10,9 @@ Method | HTTP request | Description
 [**folderGetCommunicationListV1**](ObjectFolderAPI.md#foldergetcommunicationlistv1) | **GET** /1/object/folder/{pkiFolderID}/getCommunicationList | Retrieve Communication list
 [**folderGetCommunicationrecipientsV1**](ObjectFolderAPI.md#foldergetcommunicationrecipientsv1) | **GET** /1/object/folder/{pkiFolderID}/getCommunicationrecipients | Retrieve Communication recipients
 [**folderGetCommunicationsendersV1**](ObjectFolderAPI.md#foldergetcommunicationsendersv1) | **GET** /1/object/folder/{pkiFolderID}/getCommunicationsenders | Retrieve Communication senders
+[**folderGetDocumenttypechecklistV1**](ObjectFolderAPI.md#foldergetdocumenttypechecklistv1) | **GET** /1/object/folder/{pkiFolderID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**folderImportIntoEDMV1**](ObjectFolderAPI.md#folderimportintoedmv1) | **POST** /1/object/folder/{pkiFolderID}/importIntoEDM | Import attachments into the Folder
+[**folderSyncDocumenttypechecklistV1**](ObjectFolderAPI.md#foldersyncdocumenttypechecklistv1) | **POST** /1/object/folder/{pkiFolderID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **folderBatchDownloadV1**
@@ -279,6 +281,50 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **folderGetDocumenttypechecklistV1**
+```swift
+    open class func folderGetDocumenttypechecklistV1(pkiFolderID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> FolderGetDocumenttypechecklistV1Response
+```
+
+Retrieve Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiFolderID = 987 // Int | 
+
+// Retrieve Document type checklist
+do {
+    let response = try await ObjectFolderAPI.folderGetDocumenttypechecklistV1(pkiFolderID: pkiFolderID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiFolderID** | **Int** |  | 
+
+### Return type
+
+[**FolderGetDocumenttypechecklistV1Response**](FolderGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **folderImportIntoEDMV1**
 ```swift
     open class func folderImportIntoEDMV1(pkiFolderID: Int, folderImportIntoEDMV1Request: FolderImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> FolderImportIntoEDMV1Response
@@ -313,6 +359,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**FolderImportIntoEDMV1Response**](FolderImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **folderSyncDocumenttypechecklistV1**
+```swift
+    open class func folderSyncDocumenttypechecklistV1(pkiFolderID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> FolderSyncDocumenttypechecklistV1Response
+```
+
+Synchronize Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiFolderID = 987 // Int | 
+let body = "TODO" // JSONValue |  (optional)
+
+// Synchronize Document type checklist
+do {
+    let response = try await ObjectFolderAPI.folderSyncDocumenttypechecklistV1(pkiFolderID: pkiFolderID, body: body)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiFolderID** | **Int** |  | 
+ **body** | **JSONValue** |  | [optional] 
+
+### Return type
+
+[**FolderSyncDocumenttypechecklistV1Response**](FolderSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

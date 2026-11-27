@@ -10,8 +10,10 @@ Method | HTTP request | Description
 [**supplierGetCommunicationListV1**](ObjectSupplierAPI.md#suppliergetcommunicationlistv1) | **GET** /1/object/supplier/{pkiSupplierID}/getCommunicationList | Retrieve Communication list
 [**supplierGetCommunicationrecipientsV1**](ObjectSupplierAPI.md#suppliergetcommunicationrecipientsv1) | **GET** /1/object/supplier/{pkiSupplierID}/getCommunicationrecipients | Retrieve Communication recipients
 [**supplierGetCommunicationsendersV1**](ObjectSupplierAPI.md#suppliergetcommunicationsendersv1) | **GET** /1/object/supplier/{pkiSupplierID}/getCommunicationsenders | Retrieve Communication senders
+[**supplierGetDocumenttypechecklistV1**](ObjectSupplierAPI.md#suppliergetdocumenttypechecklistv1) | **GET** /1/object/supplier/{pkiSupplierID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**supplierGetListV1**](ObjectSupplierAPI.md#suppliergetlistv1) | **GET** /1/object/supplier/getList | Retrieve Supplier list
 [**supplierImportIntoEDMV1**](ObjectSupplierAPI.md#supplierimportintoedmv1) | **POST** /1/object/supplier/{pkiSupplierID}/importIntoEDM | Import attachments into the Supplier
+[**supplierSyncDocumenttypechecklistV1**](ObjectSupplierAPI.md#suppliersyncdocumenttypechecklistv1) | **POST** /1/object/supplier/{pkiSupplierID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **supplierBatchDownloadV1**
@@ -280,6 +282,50 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **supplierGetDocumenttypechecklistV1**
+```swift
+    open class func supplierGetDocumenttypechecklistV1(pkiSupplierID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SupplierGetDocumenttypechecklistV1Response
+```
+
+Retrieve Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiSupplierID = 987 // Int | 
+
+// Retrieve Document type checklist
+do {
+    let response = try await ObjectSupplierAPI.supplierGetDocumenttypechecklistV1(pkiSupplierID: pkiSupplierID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiSupplierID** | **Int** |  | 
+
+### Return type
+
+[**SupplierGetDocumenttypechecklistV1Response**](SupplierGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **supplierGetListV1**
 ```swift
     open class func supplierGetListV1(eOrderBy: EOrderBy_supplierGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SupplierGetListV1Response
@@ -370,6 +416,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SupplierImportIntoEDMV1Response**](SupplierImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **supplierSyncDocumenttypechecklistV1**
+```swift
+    open class func supplierSyncDocumenttypechecklistV1(pkiSupplierID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> SupplierSyncDocumenttypechecklistV1Response
+```
+
+Synchronize Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiSupplierID = 987 // Int | 
+let body = "TODO" // JSONValue |  (optional)
+
+// Synchronize Document type checklist
+do {
+    let response = try await ObjectSupplierAPI.supplierSyncDocumenttypechecklistV1(pkiSupplierID: pkiSupplierID, body: body)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiSupplierID** | **Int** |  | 
+ **body** | **JSONValue** |  | [optional] 
+
+### Return type
+
+[**SupplierSyncDocumenttypechecklistV1Response**](SupplierSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

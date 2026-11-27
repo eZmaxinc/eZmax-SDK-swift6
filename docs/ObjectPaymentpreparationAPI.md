@@ -10,7 +10,9 @@ Method | HTTP request | Description
 [**paymentpreparationGetCommunicationListV1**](ObjectPaymentpreparationAPI.md#paymentpreparationgetcommunicationlistv1) | **GET** /1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationList | Retrieve Communication list
 [**paymentpreparationGetCommunicationrecipientsV1**](ObjectPaymentpreparationAPI.md#paymentpreparationgetcommunicationrecipientsv1) | **GET** /1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationrecipients | Retrieve Communication recipients
 [**paymentpreparationGetCommunicationsendersV1**](ObjectPaymentpreparationAPI.md#paymentpreparationgetcommunicationsendersv1) | **GET** /1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationsenders | Retrieve Communication senders
+[**paymentpreparationGetDocumenttypechecklistV1**](ObjectPaymentpreparationAPI.md#paymentpreparationgetdocumenttypechecklistv1) | **GET** /1/object/paymentpreparation/{pkiPaymentpreparationID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**paymentpreparationImportIntoEDMV1**](ObjectPaymentpreparationAPI.md#paymentpreparationimportintoedmv1) | **POST** /1/object/paymentpreparation/{pkiPaymentpreparationID}/importIntoEDM | Import attachments into the Paymentpreparation
+[**paymentpreparationSyncDocumenttypechecklistV1**](ObjectPaymentpreparationAPI.md#paymentpreparationsyncdocumenttypechecklistv1) | **POST** /1/object/paymentpreparation/{pkiPaymentpreparationID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **paymentpreparationBatchDownloadV1**
@@ -279,6 +281,50 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **paymentpreparationGetDocumenttypechecklistV1**
+```swift
+    open class func paymentpreparationGetDocumenttypechecklistV1(pkiPaymentpreparationID: Int, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentpreparationGetDocumenttypechecklistV1Response
+```
+
+Retrieve Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiPaymentpreparationID = 987 // Int | 
+
+// Retrieve Document type checklist
+do {
+    let response = try await ObjectPaymentpreparationAPI.paymentpreparationGetDocumenttypechecklistV1(pkiPaymentpreparationID: pkiPaymentpreparationID)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiPaymentpreparationID** | **Int** |  | 
+
+### Return type
+
+[**PaymentpreparationGetDocumenttypechecklistV1Response**](PaymentpreparationGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **paymentpreparationImportIntoEDMV1**
 ```swift
     open class func paymentpreparationImportIntoEDMV1(pkiPaymentpreparationID: Int, paymentpreparationImportIntoEDMV1Request: PaymentpreparationImportIntoEDMV1Request, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentpreparationImportIntoEDMV1Response
@@ -313,6 +359,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PaymentpreparationImportIntoEDMV1Response**](PaymentpreparationImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **paymentpreparationSyncDocumenttypechecklistV1**
+```swift
+    open class func paymentpreparationSyncDocumenttypechecklistV1(pkiPaymentpreparationID: Int, body: JSONValue? = nil, apiConfiguration: EzmaxApiAPIConfiguration = EzmaxApiAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentpreparationSyncDocumenttypechecklistV1Response
+```
+
+Synchronize Document type checklist
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import EzmaxApi
+
+let pkiPaymentpreparationID = 987 // Int | 
+let body = "TODO" // JSONValue |  (optional)
+
+// Synchronize Document type checklist
+do {
+    let response = try await ObjectPaymentpreparationAPI.paymentpreparationSyncDocumenttypechecklistV1(pkiPaymentpreparationID: pkiPaymentpreparationID, body: body)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiPaymentpreparationID** | **Int** |  | 
+ **body** | **JSONValue** |  | [optional] 
+
+### Return type
+
+[**PaymentpreparationSyncDocumenttypechecklistV1Response**](PaymentpreparationSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

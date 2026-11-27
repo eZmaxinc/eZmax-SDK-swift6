@@ -7,8 +7,9 @@
 
 import Foundation
 
-/** The statusdefault of the Documenttype */
+/** The default status requirement for the document type */
 public enum FieldEDocumenttypeStatusdefault: String, Sendable, Codable, CaseIterable {
     case notRequired = "Not required"
     case _required = "Required"
+    case mandatory = "Mandatory"
 }
