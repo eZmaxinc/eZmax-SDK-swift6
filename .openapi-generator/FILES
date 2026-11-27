@@ -45,7 +45,6 @@ Ezmaxapi/APIs/ObjectDisclosureAPI.swift
 Ezmaxapi/APIs/ObjectDiscussionAPI.swift
 Ezmaxapi/APIs/ObjectDiscussionmembershipAPI.swift
 Ezmaxapi/APIs/ObjectDiscussionmessageAPI.swift
-Ezmaxapi/APIs/ObjectDocumenttypechecklistAPI.swift
 Ezmaxapi/APIs/ObjectDomainAPI.swift
 Ezmaxapi/APIs/ObjectElectronicfundstransferAPI.swift
 Ezmaxapi/APIs/ObjectElectronicfundstransfertransactionAPI.swift
@@ -751,9 +750,6 @@ Ezmaxapi/Models/DiscussionmessageRequestCompound.swift
 Ezmaxapi/Models/DiscussionmessageRequestPatch.swift
 Ezmaxapi/Models/DiscussionmessageResponse.swift
 Ezmaxapi/Models/DiscussionmessageResponseCompound.swift
-Ezmaxapi/Models/DocumenttypechecklistPatchObjectV1Request.swift
-Ezmaxapi/Models/DocumenttypechecklistPatchObjectV1Response.swift
-Ezmaxapi/Models/DocumenttypechecklistRequestPatch.swift
 Ezmaxapi/Models/DomainAutocompleteElementResponse.swift
 Ezmaxapi/Models/DomainCreateObjectV1Request.swift
 Ezmaxapi/Models/DomainCreateObjectV1Response.swift
@@ -1772,7 +1768,6 @@ Ezmaxapi/Models/FieldECustomerType.swift
 Ezmaxapi/Models/FieldEDisclosureInteresttype.swift
 Ezmaxapi/Models/FieldEDiscussionRobot.swift
 Ezmaxapi/Models/FieldEDiscussionmessageStatus.swift
-Ezmaxapi/Models/FieldEDocumenttypechecklistStatus.swift
 Ezmaxapi/Models/FieldEErrorCode.swift
 Ezmaxapi/Models/FieldEEzdoctemplatedocumentPrivacylevel.swift
 Ezmaxapi/Models/FieldEEzmaxinvoicingPaymenttype.swift
@@ -3230,9 +3225,6 @@ docs/DiscussionmessageRequestCompound.md
 docs/DiscussionmessageRequestPatch.md
 docs/DiscussionmessageResponse.md
 docs/DiscussionmessageResponseCompound.md
-docs/DocumenttypechecklistPatchObjectV1Request.md
-docs/DocumenttypechecklistPatchObjectV1Response.md
-docs/DocumenttypechecklistRequestPatch.md
 docs/DomainAutocompleteElementResponse.md
 docs/DomainCreateObjectV1Request.md
 docs/DomainCreateObjectV1Response.md
@@ -4252,7 +4244,6 @@ docs/FieldECustomerType.md
 docs/FieldEDisclosureInteresttype.md
 docs/FieldEDiscussionRobot.md
 docs/FieldEDiscussionmessageStatus.md
-docs/FieldEDocumenttypechecklistStatus.md
 docs/FieldEErrorCode.md
 docs/FieldEEzdoctemplatedocumentPrivacylevel.md
 docs/FieldEEzmaxinvoicingPaymenttype.md
@@ -4644,7 +4635,6 @@ docs/ObjectDisclosureAPI.md
 docs/ObjectDiscussionAPI.md
 docs/ObjectDiscussionmembershipAPI.md
 docs/ObjectDiscussionmessageAPI.md
-docs/ObjectDocumenttypechecklistAPI.md
 docs/ObjectDomainAPI.md
 docs/ObjectElectronicfundstransferAPI.md
 docs/ObjectElectronicfundstransfertransactionAPI.md
